@@ -7,11 +7,20 @@
   <body>
 	<h1>Welcome!</h1>
 	<p>This is a test website for Luck of the Draw round 2.</p>
+	<p>Enter your Discord ID below to get your tank!.</p>
+	<input type="text" id="test-input"/>
+	<button id="submit-button" type="submit" pys-onClick="my_function">OK</button>
+	<div id="test-output"></div>
 	<py-config>
 		packages = ["matplotlib", "pandas"]
     </py-config>
     <py-script>
-        print('Among Us')
+    def my_function(*args, **kwargs):
+    text = Element('test-input').element.value
+    if text == "69":
+		Element('test-output').element.innerText = "This is the number 69."
+    else:
+		Element('test-output').element.innerText = text
     </py-script>
   </body>
 </html>
