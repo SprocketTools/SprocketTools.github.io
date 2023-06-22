@@ -14,3 +14,33 @@ img {
   margin-right: auto;
   width: 50%;
 }
+button.enter {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: black;
+  outline-width: 2px;
+  color: #fff;
+  background-color: #3e8e41;
+  border-style:none;
+  border: none;
+  border-radius: 25px 20px;
+  box-shadow: 0 9px #999;
+}
+
+button.enter:hover {background-color: green}
+button:focus {
+  outline: none;
+ 
+}
+button.enter:active {
+  background-color: green;
+  box-shadow: 0 0px #666;
+  transform: translateY(4px);
+  outline: black;
+  outline-width: 2px;
+
+}
