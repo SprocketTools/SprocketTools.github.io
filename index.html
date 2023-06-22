@@ -1,26 +1,70 @@
 <html>
   <head>
-	<link rel="stylesheet" href="styles_main.css">
-    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+		<title>Sprocket Tools V0</title>
+		
+		    <!-- Pyscript -->
+		<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+		<!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />-->
+		<link rel="stylesheet" href="styles_main.css">
+		<!-- bootstrap for styling , Pyscript can also be used for styling instead of bootstrap -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+		
+		<style>
+		body {
+        background-color: dimgray;
+        padding-top: 80px;
+        min-height: 150px;
+        margin:0;
+        display:flex;
+        flex-direction:column;
+      }
+    </style> 
   </head>
   <body>
-	<h1>Welcome!</h1>
-	<p>This is a test website for Luck of the Draw round 2.</p>
-	<p>Enter your Discord ID below to get your tank!.</p>
-	<input type="text" id="test-input"/>
-	<button id="submit-button" type="submit" pys-onClick="my_function">OK</button>
-	<div id="test-output"></div>
-	<py-config>
-		packages = ["matplotlib", "pandas"]
-    </py-config>
-    <py-script>
-    def my_function(*args, **kwargs):
-    text = Element('test-input').element.value
-    if text == "69":
-		Element('test-output').element.innerText = "This is the number 69."
-    else:
-		Element('test-output').element.innerText = text
-    </py-script>
+	<py-script>	
+	from js import document,alert
+
+	def farh(cel):
+		return (float(cel) *(9/5)) + 32
+        
+    
+	def update(*ags, **kws):
+    
+		inputval = document.getElementById('inputbox').value;
+		result= farh(inputval)
+		pyscript.write("resultbox","Sadly I do not output anything useful yet.  Try using the Discord command instead.")    
+	</py-script>    
+
+    <div class="container">
+        
+		<picture>
+			<source media="(min-width:800px)" srcset="TONKtransparentV2.png">
+			<source media="(min-width:600px)" srcset="Covenanter.gif">
+			<img src="amongustrollemoji.png" alt="Amongus">
+		</picture>
+		
+        <h1 class="text-center">
+            Luck of the Draw Tank Picker
+        </h1>
+		<br />
+		<h4 class="text-center">
+            Use this to obtain your vehicle's prompt for the ongoing Luck of the Draw contest.
+        </h4>
+        <br />
+        <p><h3>Paste your Discord ID here:</h3>
+        <input id="inputbox" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Enter ID here" /></p>
+        <center>
+            <button id="convert" type="submit" color="green" class="btn btn-info" pys-onClick="update">Get my Tank!</button>
+
+        </center>
+        
+        <p>
+        <h4>Result:</h4>
+        <textarea id="resultbox" class="form-control" rows="2" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Result"></textarea></p>
+    
+        
+    </div>
   </body>
 </html>

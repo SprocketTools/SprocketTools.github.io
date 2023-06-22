@@ -8,3 +8,9 @@ h1 {
 p {
     color: Khaki;
 }
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
