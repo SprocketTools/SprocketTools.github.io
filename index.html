@@ -1,0 +1,26 @@
+                <script defer="" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.js"></script>
+                <script defer="" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.3.min.js"></script>
+                <script defer="" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.3.min.js"></script>
+                <script defer="" src="https://cdn.jsdelivr.net/npm/@holoviz/panel@0.14.1/dist/panel.min.js"></script>
+                <script defer="" src="https://pyscript.net/latest/pyscript.js"></script>
+                <py-config>
+                    packages = [
+                      "https://cdn.holoviz.org/panel/0.14.3/dist/wheels/bokeh-2.4.3-py3-none-any.whl",
+                      "numpy",
+                      "panel==0.14.1"
+                    ]
+                    plugins = [
+                      "https://pyscript.net/latest/plugins/python/py_tutor.py"
+                    ]
+                </py-config>
+
+                <py-script>
+                    import panel as pn
+
+                    slider = pn.widgets.FloatSlider(start=0, end=10, name='Amplitude')
+
+                    def callback(new):
+                        return f'Amplitude is: {new}'
+
+                    pn.Row(slider, pn.bind(callback, slider)).servable(target='simple_app');
+                </py-script>
