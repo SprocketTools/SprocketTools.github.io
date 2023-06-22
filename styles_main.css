@@ -1,7 +1,10 @@
 body {
-    background: darkgrey;
+    background: dimgray;
     font: 18px Arial, sans-serif;
 }
 h1 {
-    color: orange;
+    color: white;
+}
+p {
+    color: Khaki;
 }
