@@ -1,2 +1,2 @@
 # SprocketTools.github.io
-Tool for randomly picking a tank
+This is going to become a tool for randomly picking a tank.  We'll see if it goes anywhere...
