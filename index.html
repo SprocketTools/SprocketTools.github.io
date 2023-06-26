@@ -30,18 +30,166 @@
 	from js import document,alert
 	import random
 	guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
-	def farh(cel):
-		random.seed(cel)
-		gun = round((random.random()*30), 0)
-		return (guncals[int(gun)])
-        
-    
 	def update(*ags, **kws):
-    
-		inputval = document.getElementById('inputbox').value;
-		result= farh(inputval)
-		outputtext = "Build a tank with a {}mm gun!".format(result)
-		pyscript.write("resultbox",outputtext)    
+		# initial declaration
+		IsHeavy = 0
+
+		import random
+		ID = document.getElementById('inputbox').value
+		random.seed(ID)
+		print("You entered a Discord ID of: " + ID)
+		guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
+		VehicleName = "error"
+		CannonSuffix = ""
+		VehGroup = round(100*random.random())
+		if VehGroup < 25:
+			VehicleName = "Semi-Turreted Tank Destroyer"
+			MinWeight = 7
+			MaxWeight = 50
+			WeightTol = 1
+			HeavyWeightAdj = 30
+			HeavyChance = 40
+			GunCals = [57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130]
+			HowitzerCals = [105, 155, 183, 240]
+			HowitzerChance = 25
+			MaxGuns = 2
+			MultiGunChance = 25
+			MinCylCount = 6
+			MaxCylCount = 13
+
+		elif VehGroup < 50:
+			VehicleName = "Light Tank"
+			MinWeight = 10
+			MaxWeight = 25
+			WeightTol = 1
+			HeavyWeightAdj = 0
+			HeavyChance = 0
+			GunCals = [37, 40, 45, 47, 50, 57, 65, 73, 75, 76, 80, 85, 88, 90]
+			HowitzerCals = [105, 155, 183, 240]
+			HowitzerChance = 0
+			MaxGuns = 2
+			MultiGunChance = 12
+			MinCylCount = 6
+			MaxCylCount = 8
+			
+		elif VehGroup < 75:
+			VehicleName = "Heavy Tank"
+			MinWeight = 38
+			MaxWeight = 52
+			WeightTol = 1
+			HeavyWeightAdj = 0
+			HeavyChance = 0
+			GunCals = [75, 76, 80, 85, 88, 90, 94, 105]
+			HowitzerCals = [105, 155, 183, 240]
+			HowitzerChance = 38
+			MaxGuns = 2
+			MultiGunChance = 35
+			MinCylCount = 8
+			MaxCylCount = 12
+			
+		elif VehGroup < 95:
+			VehicleName = "Medium Tank"
+			MinWeight = 12
+			MaxWeight = 40
+			WeightTol = 1
+			HeavyWeightAdj = 0
+			HeavyChance = 0
+			GunCals = [57, 65, 73, 75, 76, 80, 85, 88, 90]
+			HowitzerCals = [105, 152]
+			HowitzerChance = 25
+			MaxGuns = 2
+			MultiGunChance = 25
+			MinCylCount = 6
+			MaxCylCount = 12
+			
+		elif VehGroup < 100:
+			VehicleName = "Amogus-Piloted Tank"
+			MinWeight = 20
+			MaxWeight = 40
+			WeightTol = 1
+			HeavyWeightAdj = 0
+			HeavyChance = 0
+			GunCals = [37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90]
+			HowitzerCals = [105]
+			HowitzerChance = 15
+			MaxGuns = 2
+			MultiGunChance = 25
+			MinCylCount = 8
+			MaxCylCount = 12
+
+		#establishing new variables
+		Gun = 57
+		GunListSize = len(GunCals)
+		HowitzerListSize = len(HowitzerCals)
+		RNG = random.random()
+
+		#determine if it is a "heavy" variant or not
+		if (random.random() < HeavyChance/100.0):
+			IsHeavy = 1
+			VehicleName = "heavy " + VehicleName
+			print("Build a heavy " + VehicleName + "!")
+		else:
+			print("Build a " + VehicleName + "!")
+
+
+		ActWeight = MinWeight + round(random.random()*(MaxWeight -MinWeight)) + HeavyWeightAdj*IsHeavy
+		MinWeightVar = ActWeight - WeightTol
+		MaxWeightVar = ActWeight + WeightTol
+		print("Minimum vehicle weight: " + str(MinWeightVar) + ".0T")
+		print("Maximum vehicle weight: " + str(MaxWeightVar) + ".0T")
+		rerollRNG()
+		if (random.random() < HowitzerChance/100.0):
+			Gun = HowitzerCals[round(RNG*HowitzerListSize)-1]
+			print("Weapon: " + str(Gun) + "mm howitzer")
+			WeaponType = "howitzer"
+		else:
+			Gun = GunCals[round(RNG*GunListSize)-1]
+			print("Weapon: " + str(Gun) + "mm cannon")
+			WeaponType = "cannon"
+
+		#next we pick the amount of guns in the vehicle
+		rerollRNG()
+		GunCount = 1
+		i = 2
+		while i < 20 and i <= MaxGuns:
+			if RNG < (MultiGunChance/((i-1)*100)):
+				GunCount = i
+			i += 1
+			if GunCount > 1:
+				CannonSuffix = "s"
+		print("Gun count: " + str(GunCount))
+
+		#next we set the engine requirements
+		rerollRNG()
+		CylCount = MinCylCount + round(RNG*(MaxCylCount - MinCylCount))
+		rerollRNG()
+		if RNG < 0.5:
+    		CylCount = round(CylCount/2)*2
+		print("Engine: " + str(CylCount) + " cylinders")
+
+		#now we set the ammo count requirement, based on gun caliber and count
+		AmmoMin = round(1500/(Gun+20))
+		print("Minimum ammo: " + str(AmmoMin) + " shells")
+
+		#weight adjustment for gun calibers (currently only does one-half of the correct adjustment)
+		ActWeight = ActWeight + round(((Gun*0.0115)**3)*GunCount/2)
+		ActWeight = ActWeight + round(((CylCount*0.2)**3)/2)
+		print(ActWeight)
+		
+		promptname = "Build a " + VehicleName + "!"
+		weight_text = "Your vehicle needs to weigh between " + str(ActWeight - WeightTol) + " and " +  str(ActWeight + WeightTol) + " tons."
+		cannon_text = "For weaponry, use " + str(GunCount) + "x " + str(Gun) + "mm " + WeaponType + CannonSuffix + "!"
+		engine_text = "Power your vehicle using a " + str(CylCount) + "-cylinder engine!"
+		ammo_text = "Lastly, don't forget to have at least " + str(AmmoMin) + " rounds of ammo!"
+		
+		pyscript.write("promptname", promptname)
+		pyscript.write("weight", weight_text)
+		pyscript.write("cannon", cannon_text)
+		pyscript.write("engine", engine_text)
+		pyscript.write("minimum_ammo", ammo_text)	
+	def rerollRNG():
+    	RNG = random.random()
+		   
 	</py-script>    
     <div class="container">
         
@@ -65,8 +213,13 @@
         </center>
         
         <p>
-        <h4>Your Prompt:</h4>
-        <textarea id="resultbox" class="form-control" rows="2" aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="result"></textarea></p>
+		<h4 id="promptname"> </h4>
+		<h4 id="weight"> </h4>
+		<h4 id="cannon"> </h4>
+		<h4 id="engine"> </h4>
+		<h4 id="minimum_ammo"> </h4>
+		<h4 id="extra1"> </h4>
+		<h4 id="extra2"> </h4>
     
         
     </div>
