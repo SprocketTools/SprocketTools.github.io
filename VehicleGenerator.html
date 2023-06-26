@@ -30,6 +30,8 @@
 	from js import document,alert
 	import random
 	guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
+	pyscript.write("loadtext", "Click the button to get your prompt, then build it!")
+	pyscript.write("description", "Once you're done, ping Colson  っ(◔◡◔っ) and explain how it went.")
 	def update(*ags, **kws):
 		# initial declaration
 		IsHeavy = 0
@@ -205,9 +207,9 @@
         <br />
         <p>
         <center>
-			<h4>This is an ongoing test to see how well the RNG is designed.</h3>
-			<h4>Click the button to get your prompt, then build it!</h4>
-			<h4>Once you're done, ping Colson  っ(◔◡◔っ) and explain how easy it was to do.</h4>
+			<h4>This is an ongoing test to see how well the RNG is working.</h3>
+			<h4 id="loadtext">Loading...</h4>
+			<h4 id="description"> </h4>
 			<br />
 			<div class="button">
             <button id="convert" type="submit" class="enter" pys-onClick="update">Get my Tank!</button>
@@ -215,7 +217,7 @@
         </center>
         
         <p>
-		<h4 id="promptname"> </h4>
+		<h3 id="promptname"> </h3>
 		<h4 id="weight"> </h4>
 		<h4 id="cannon"> </h4>
 		<h4 id="engine"> </h4>
