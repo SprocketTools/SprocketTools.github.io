@@ -457,16 +457,7 @@
 		MaxWeightVar = ActWeight + WeightTol
 		print("Minimum vehicle weight: " + str(MinWeightVar) + ".0T")
 		print("Maximum vehicle weight: " + str(MaxWeightVar) + ".0T")
-		rerollRNG()
-		if (random.random() < HowitzerChance/100.0):
-			Gun = HowitzerCals[round(RNG*HowitzerListSize)-1]
-			print("Weapon: " + str(Gun) + "mm howitzer")
-			WeaponType = "howitzer"
-		else:
-			Gun = GunCals[round(RNG*GunListSize)-1]
-			print("Weapon: " + str(Gun) + "mm cannon")
-			WeaponType = "cannon"
-
+		
 		#next we pick the amount of guns in the vehicle
 		rerollRNG()
 		GunCount = 1
@@ -478,6 +469,45 @@
 			if GunCount > 1:
 				CannonSuffix = "s"
 		print("Gun count: " + str(GunCount))
+		
+		# here we pick the caliber of the main gun
+		Gun = 0
+		GunSec = 0
+		
+		rerollRNG()
+		if (random.random() < HowitzerChance/100.0):
+			Gun = HowitzerCals[round(RNG*HowitzerListSize)-1]
+			WeaponType = "howitzer"
+		else:
+			Gun = GunCals[round(RNG*GunListSize)-1]
+			WeaponType = "cannon"
+		SecondaryGunCount = round(GunCount/2)
+		PrimaryGunCount = GunCount - SecondaryGunCount		
+		ActWeight = ActWeight + (round(((Gun*0.0115)**3)*PrimaryGunCount/2))
+		AmmoMin = round(1000/(Gun))
+
+		
+		# here we pick the caliber of the secondary gun
+		rerollRNG()
+		i = 0
+		if GunCount > 1:
+			GunSec = GunCals[0]
+			WeaponTypeSec = "cannon"
+			if Gun == GunCals[0]:
+				Gun = GunCals[2]
+			if VehicleName == "SPAA" or VehicleName == "Heavy SPAA":
+				ActWeight = ActWeight + (round(((Gun*0.0115)**3)*SecondaryGunCount/2))
+			if VehicleName != "SPAA" and VehicleName != "Heavy SPAA":
+				ActWeight = ActWeight + (round(((GunSec*0.0115)**3)*SecondaryGunCount/2))
+			
+		else:
+			PrimaryGunCount = GunCount
+			SecondaryGunCount = 0
+			GunSec = 0
+		if VehicleName == "SPAA" or VehicleName == "Heavy SPAA":
+			PrimaryGunCount = GunCount
+			SecondaryGunCount = 0
+			GunSec = 0
 
 		#next we set the engine requirements
 		rerollRNG()
@@ -487,12 +517,8 @@
     		CylCount = round(CylCount/2)*2
 		print("Engine: " + str(CylCount) + " cylinders")
 
-		#now we set the ammo count requirement, based on gun caliber and count
-		AmmoMin = round(2000/(Gun+20))
-		print("Minimum ammo: " + str(AmmoMin) + " shells")
 
 		#weight adjustment for gun calibers (currently only does one-half of the correct adjustment)
-		ActWeight = ActWeight + round(((Gun*0.0115)**3)*GunCount/2)
 		ActWeight = ActWeight + round(((CylCount*0.2)**3)/2)
 		print(ActWeight)
 		
@@ -501,12 +527,18 @@
 		else:
 			promptname = "Build a " + VehicleName + "!"
 		
+		if SecondaryGunCount == 0:
+			cannon_text = " and a " + str(Gun) + "mm " + WeaponType + CannonSuffix
+		if SecondaryGunCount > 0:
+			cannon_text = ", " + str(PrimaryGunCount) + "x " + str(Gun) + "mm " + WeaponType + ", and " + str(SecondaryGunCount) + "x " + str(GunSec) + "mm " + WeaponTypeSec
+		if VehicleName == "SPAA" or VehicleName == "Heavy SPAA":
+			cannon_text = " and " + str(GunCount) + "x " + str(Gun) + "mm cannon" + CannonSuffix
+		
 		weight_text = "Your vehicle needs to weigh between " + str(ActWeight - WeightTol) + " and " +  str(ActWeight + WeightTol) + " tons."
-		cannon_text = "For weaponry, use " + str(GunCount) + "x " + str(Gun) + "mm " + WeaponType + CannonSuffix + "!"
 		engine_text = "Power your vehicle using a " + str(CylCount) + "-cylinder engine!"
 		ammo_text = "Lastly, don't forget to have at least " + str(AmmoMin) + " rounds of ammo!"
 		inspiration_text = "Need Inspiration?  " + Inspiration
-		combined_text = "Equip a " + str(CylCount) + "-cylinder engine and " + str(GunCount) + "x " + str(Gun) + "mm " + WeaponType + CannonSuffix + "!"
+		combined_text = "Equip a " + str(CylCount)  + "-cylinder engine" + cannon_text + "!"
 		
 		pyscript.write("promptname", promptname)
 		pyscript.write("weight", weight_text)
@@ -525,8 +557,8 @@
     <div class="container">
         
 		<picture>
-			<source media="(min-width:1600px)" srcset="YCCP7.png">
-			<source media="(min-width:980px)" srcset="YCCP7.png">
+			<source media="(min-width:1600px)" srcset="YCCP7.png" alt="Logo made by retr0_spektro1d in the ICo community!">
+			<source media="(min-width:980px)" srcset="YCCP7.png" alt="Logo made by retr0_spektro1d in the ICo community!">
 			<img src="amongustrollemoji.png" alt="Logo made by retr0_spektro1d in the ICo community!">
 		</picture>
 		
@@ -537,9 +569,9 @@
         <br />
         <p>
         <center>
-			<h4>This is an ongoing test to see how well the RNG is working.</h3>
-			<h4 id="loadtext">Loading...</h4>
-			<h4 id="description"> </h4>
+			<h5>This is an ongoing test to see how well the RNG is working.</h5>
+			<h5 id="loadtext">Loading...</h5>
+			<h5 id="description"> </h5>
 			<br />
 			<div class="button">
             <button id="convert" type="submit" class="enter" pys-onClick="update">Get my Tank!</button>
