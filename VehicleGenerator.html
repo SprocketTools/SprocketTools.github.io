@@ -13,8 +13,8 @@
 		
 		<style>
 		body {
-        background-color: dimgray;
-        padding-top: 80px;
+        background-color: 00010;
+        padding-top: 20px;
         min-height: 150px;
         margin:0;
         display:flex;
@@ -27,8 +27,8 @@
   </head>
   <body>
 	<py-script>	
-	from js import document,alert
-	import random
+	from js import document
+	import random, time
 	guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
 	pyscript.write("loadtext", "Click the button to get your prompt, then try to build it!")
 	pyscript.write("description", "Once you're done, ping Colson  っ(◔◡◔っ) and explain how it went.")
@@ -36,14 +36,12 @@
 		# initial declaration
 		IsHeavy = 0
 
-		import random
-		import time
 		random.seed(time.time())
 		guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
 		VehicleName = "error"
 		CannonSuffix = ""
-		VehGroup = round(100*random.random())
-		if VehGroup < 25:
+		VehGroup = round(1000*random.random())/10
+		if VehGroup < 10:
 			VehicleName = "Semi-Turreted Tank Destroyer"
 			MinWeight = 7
 			MaxWeight = 50
@@ -57,8 +55,11 @@
 			MultiGunChance = 25
 			MinCylCount = 6
 			MaxCylCount = 13
+			AdditionalNote = "Cannons need to be restricted to 60 degrees of horizontal traverse in either direction."
+			Inspiration = "Check out the T28 Concept!"
+			NeedsPlural = 0
 
-		elif VehGroup < 50:
+		elif VehGroup < 19:
 			VehicleName = "Light Tank"
 			MinWeight = 10
 			MaxWeight = 25
@@ -72,8 +73,11 @@
 			MultiGunChance = 12
 			MinCylCount = 6
 			MaxCylCount = 8
+			AdditionalNote = ""
+			Inspiration = ""
+			NeedsPlural = 0
 			
-		elif VehGroup < 75:
+		elif VehGroup < 28:
 			VehicleName = "Heavy Tank"
 			MinWeight = 38
 			MaxWeight = 52
@@ -87,8 +91,11 @@
 			MultiGunChance = 35
 			MinCylCount = 8
 			MaxCylCount = 12
+			AdditionalNote = ""
+			Inspiration = ""
+			NeedsPlural = 0
 			
-		elif VehGroup < 95:
+		elif VehGroup < 37:
 			VehicleName = "Medium Tank"
 			MinWeight = 12
 			MaxWeight = 40
@@ -102,7 +109,316 @@
 			MultiGunChance = 25
 			MinCylCount = 6
 			MaxCylCount = 12
+			AdditionalNote = ""
+			Inspiration = ""
+			NeedsPlural = 0
 			
+		elif VehGroup < 45:
+			VehicleName = "Armored car"
+			MinWeight = 12
+			MaxWeight = 26
+			WeightTol = 1
+			HeavyWeightAdj = 10
+			HeavyChance = 30
+			GunCals = [20, 30, 37, 40, 45, 47, 50, 55, 57]
+			HowitzerCals = [105]
+			HowitzerChance = 17
+			MaxGuns = 2
+			MultiGunChance = 20
+			MinCylCount = 6
+			MaxCylCount = 8
+			AdditionalNote = "File editing track size is permitted."
+			Inspiration = "Just think back to your worst enemy when playing WOT or WT, and make it even worse to fight against!"
+			NeedsPlural = 1
+
+		elif VehGroup < 52.5:
+			VehicleName = "MBT"
+			MinWeight = 35
+			MaxWeight = 75
+			WeightTol = 1
+			HeavyWeightAdj = 0
+			HeavyChance = 0
+			GunCals = [100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155]
+			HowitzerCals = [105]
+			HowitzerChance = 0
+			MaxGuns = 1
+			MultiGunChance = 0
+			MinCylCount = 12
+			MaxCylCount = 16
+			AdditionalNote = ""
+			Inspiration = "Leopard 2 is a good place to start."
+			NeedsPlural = 0
+			
+		elif VehGroup < 59.5:
+			VehicleName = "Superheavy"
+			MinWeight = 70
+			MaxWeight = 90
+			WeightTol = 1
+			HeavyWeightAdj = 0
+			HeavyChance = 0
+			GunCals = [105, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
+			HowitzerCals = [105]
+			HowitzerChance = 0
+			MaxGuns = 2
+			MultiGunChance = 0
+			MinCylCount = 10
+			MaxCylCount = 15
+			AdditionalNote = ""
+			Inspiration = "Just downsize the Maus a bit!  Surely nothing will go wrong..."
+			NeedsPlural = 0
+			
+		elif VehGroup < 65.5:
+			VehicleName = "Artillery"
+			MinWeight = 14
+			MaxWeight = 20
+			WeightTol = 2
+			HeavyWeightAdj = 20
+			HeavyChance = 40
+			GunCals = [57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
+			HowitzerCals = [105]
+			HowitzerChance = 0
+			MaxGuns = 2
+			MultiGunChance = 12
+			MinCylCount = 8
+			MaxCylCount = 10
+			AdditionalNote = "Open-top turrets are permitted.  If using an open-top, the turret space of firing compartments can be ignored."
+			Inspiration = "Try building a knockoff M41 tank."
+			NeedsPlural = 1
+
+		elif VehGroup < 70.5:
+			VehicleName = "Turreted tankette"
+			MinWeight = 7
+			MaxWeight = 10
+			WeightTol = 1
+			HeavyWeightAdj = 0
+			HeavyChance = 0
+			GunCals = [20, 30, 37, 40, 45, 47, 50, 55, 57]
+			HowitzerCals = [105]
+			HowitzerChance = 15
+			MaxGuns = 1
+			MultiGunChance = 0
+			MinCylCount = 6
+			MaxCylCount = 8
+			AdditionalNote = "Open-top turrets are permitted.  If using an open-top, the turret space of firing compartments can be ignored."
+			Inspiration = "The T-26 is a good example tank."
+			NeedsPlural = 0
+
+		elif VehGroup < 74.5:
+			VehicleName = "Landship"
+			MinWeight = 20
+			MaxWeight = 40
+			WeightTol = 1
+			HeavyWeightAdj = 0
+			HeavyChance = 0
+			GunCals = [57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120]
+			HowitzerCals = [105, 155, 183, 200]
+			HowitzerChance = 28
+			MaxGuns = 3
+			MultiGunChance = 30
+			MinCylCount = 6
+			MaxCylCount = 8
+			AdditionalNote = ""
+			Inspiration = "The T-35 is a good example.  Just not with that many turrets..."
+			NeedsPlural = 0
+
+		elif VehGroup < 78.5:
+			VehicleName = "Toyota Hilux SPG"
+			MinWeight = 12
+			MaxWeight = 22
+			WeightTol = 2
+			HeavyWeightAdj = 12
+			HeavyChance = 24
+			GunCals = [37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90]
+			HowitzerCals = [105, 155, 183, 200]
+			HowitzerChance = 0
+			MaxGuns = 1
+			MultiGunChance = 0
+			MinCylCount = 6
+			MaxCylCount = 6
+			AdditionalNote = "File editing tracks is allowed."
+			NeedsPlural = 0
+			Inspiration = ""
+
+		elif VehGroup < 81.5:
+			VehicleName = "Armored Recovery Vehicle"
+			MinWeight = 25
+			MaxWeight = 40
+			WeightTol = 1
+			HeavyWeightAdj = 0
+			HeavyChance = 0
+			GunCals = [37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88]
+			HowitzerCals = [105, 155, 183, 200]
+			HowitzerChance = 0
+			MaxGuns = 1
+			MultiGunChance = 0
+			MinCylCount = 6
+			MaxCylCount = 12
+			AdditionalNote = ""
+			Inspiration = "Using a common tank chassis, such as the Sherman chassis, is a good start."
+			NeedsPlural = 1
+
+		elif VehGroup < 84.5:
+			VehicleName = "Modernized WWI Tank"
+			MinWeight = 10
+			MaxWeight = 24
+			WeightTol = 1
+			HeavyWeightAdj = 20
+			HeavyChance = 30
+			GunCals = [30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90]
+			HowitzerCals = [105, 152]
+			HowitzerChance = 15
+			MaxGuns = 2
+			MultiGunChance = 30
+			MinCylCount = 6
+			MaxCylCount = 12
+			AdditionalNote = ""
+			Inspiration = "ARL 44 is a fairly good example tank."
+			NeedsPlural = 0
+
+		elif VehGroup < 87:
+			VehicleName = "Canal Defence Light"
+			MinWeight = 15
+			MaxWeight = 30
+			WeightTol = 1
+			HeavyWeightAdj = 8
+			HeavyChance = 18
+			GunCals = [37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76]
+			HowitzerCals = [105, 152]
+			HowitzerChance = 0
+			MaxGuns = 1
+			MultiGunChance = 0
+			MinCylCount = 6
+			MaxCylCount = 12
+			AdditionalNote = "Putting 100 lights into the turret is fine, just mention it in your submission."
+			Inspiration = ""
+			NeedsPlural = 0
+			
+		elif VehGroup < 89.5:
+			VehicleName = "Siege Tank"
+			MinWeight = 30
+			MaxWeight = 50
+			WeightTol = 2
+			HeavyWeightAdj = 0
+			HeavyChance = 0
+			GunCals = [57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105]
+			HowitzerCals = [152, 155, 183, 250]
+			HowitzerChance = 35
+			MaxGuns = 4
+			MultiGunChance = 30
+			MinCylCount = 6
+			MaxCylCount = 12
+			AdditionalNote = ""
+			Inspiration = "The T28 is a good example of a siege tank."
+			NeedsPlural = 0
+
+		elif VehGroup < 92:
+			VehicleName = "Infantry Fighting Vehicle"
+			MinWeight = 12
+			MaxWeight = 30
+			WeightTol = 1
+			HeavyWeightAdj = 10
+			HeavyChance = 20
+			GunCals = [57, 65, 73, 75, 76, 80, 85, 88]
+			HowitzerCals = [152, 155, 183, 250]
+			HowitzerChance = 0
+			MaxGuns = 1
+			MultiGunChance = 0
+			MinCylCount = 8
+			MaxCylCount = 10
+			AdditionalNote = ""
+			Inspiration = "Check out PatchBits' IFV from our previous contest: https://www.youtube.com/watch?v=z1ohzRBdhq4"
+			NeedsPlural = 0
+
+		elif VehGroup < 94:
+			VehicleName = "Amphibious Tank"
+			MinWeight = 16
+			MaxWeight = 28
+			WeightTol = 1
+			HeavyWeightAdj = 10
+			HeavyChance = 20
+			GunCals = [37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76]
+			HowitzerCals = [152, 155, 183, 250]
+			HowitzerChance = 0
+			MaxGuns = 1
+			MultiGunChance = 0
+			MinCylCount = 6
+			MaxCylCount = 12
+			AdditionalNote = ""
+			Inspiration = "Try using the BMP-2 as a reference!  Just don't go looking in Russia for a real one..."
+			NeedsPlural = 1
+			
+		elif VehGroup < 96:
+			VehicleName = "SPAA"
+			MinWeight = 13
+			MaxWeight = 26
+			WeightTol = 1
+			HeavyWeightAdj = 20
+			HeavyChance = 20
+			GunCals = [20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90]
+			HowitzerCals = [152, 155, 183, 250]
+			HowitzerChance = 0
+			MaxGuns = 4
+			MultiGunChance = 100
+			MinCylCount = 6
+			MaxCylCount = 12
+			AdditionalNote = ""
+			Inspiration = "The Flakpanzer Gepard is a good example of a SPAA."
+			NeedsPlural = 0
+			
+		elif VehGroup < 97.5:
+			VehicleName = "Medieval Siege Tower"
+			MinWeight = 40
+			MaxWeight = 50
+			WeightTol = 5
+			HeavyWeightAdj = 0
+			HeavyChance = 0
+			GunCals = [57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155]
+			HowitzerCals = [152, 155, 183, 250]
+			HowitzerChance = 50
+			MaxGuns = 3
+			MultiGunChance = 100
+			MinCylCount = 12
+			MaxCylCount = 16
+			AdditionalNote = ""
+			Inspiration = "Try putting your guns on the bottom, and use wood plankings to build the rest!"
+			NeedsPlural = 0
+
+		elif VehGroup < 99:
+			VehicleName = "Armored Train"
+			MinWeight = 30
+			MaxWeight = 40
+			WeightTol = 2
+			HeavyWeightAdj = 10
+			HeavyChance = 50
+			GunCals = [57, 65, 73, 75, 76, 80, 85, 88, 90]
+			HowitzerCals = [152, 155, 183, 240]
+			HowitzerChance = 35
+			MaxGuns = 2
+			MultiGunChance = 50
+			MinCylCount = 10
+			MaxCylCount = 14
+			AdditionalNote = "You get bonus points for armoring up a train from the Island of Sodor"
+			Inspiration = "Check out Nirrti's armored train: https://streamable.com/rxqncl"
+			NeedsPlural = 1
+
+		elif VehGroup < 99.5:
+			VehicleName = "Walking Mech"
+			MinWeight = 16
+			MaxWeight = 33
+			WeightTol = 1
+			HeavyWeightAdj = 16
+			HeavyChance = 32
+			GunCals = [37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120]
+			HowitzerCals = [152, 155, 183, 200]
+			HowitzerChance = 35
+			MaxGuns = 4
+			MultiGunChance = 50
+			MinCylCount = 6
+			MaxCylCount = 12
+			AdditionalNote = "File editing the tracks is permitted.  All compartments (except the main turret) can be overfilled without restriction.  File editing turret traverse limits is permitted."
+			Inspiration = ""
+			NeedsPlural = 0
+
 		elif VehGroup < 100:
 			VehicleName = "Amogus-Piloted Tank"
 			MinWeight = 20
@@ -117,6 +433,9 @@
 			MultiGunChance = 25
 			MinCylCount = 8
 			MaxCylCount = 12
+			AdditionalNote = "Your vehicle must appear to have an Among Us crewmate as the driver or commander.  Otherwise, any vehicle type is permitted.  Congrats on getting a wild card!"
+			Inspiration = ""
+			NeedsPlural = 1
 
 		#establishing new variables
 		Gun = 57
@@ -177,17 +496,28 @@
 		ActWeight = ActWeight + round(((CylCount*0.2)**3)/2)
 		print(ActWeight)
 		
-		promptname = "Build a " + VehicleName + "!"
+		if NeedsPlural == 1 and IsHeavy == 0:
+			promptname = "Build an " + VehicleName + "!"
+		else:
+			promptname = "Build a " + VehicleName + "!"
+		
 		weight_text = "Your vehicle needs to weigh between " + str(ActWeight - WeightTol) + " and " +  str(ActWeight + WeightTol) + " tons."
 		cannon_text = "For weaponry, use " + str(GunCount) + "x " + str(Gun) + "mm " + WeaponType + CannonSuffix + "!"
 		engine_text = "Power your vehicle using a " + str(CylCount) + "-cylinder engine!"
 		ammo_text = "Lastly, don't forget to have at least " + str(AmmoMin) + " rounds of ammo!"
+		inspiration_text = "Need Inspiration?  " + Inspiration
+		combined_text = "Equip a " + str(CylCount) + "-cylinder engine and " + str(GunCount) + "x " + str(Gun) + "mm " + WeaponType + CannonSuffix + "!"
 		
 		pyscript.write("promptname", promptname)
 		pyscript.write("weight", weight_text)
-		pyscript.write("cannon", cannon_text)
-		pyscript.write("engine", engine_text)
-		pyscript.write("minimum_ammo", ammo_text)	
+		pyscript.write("cannon", combined_text)
+		#pyscript.write("engine", engine_text)
+		pyscript.write("minimum_ammo", ammo_text)
+		pyscript.write("additional_note", AdditionalNote)
+		if Inspiration:
+			pyscript.write("inspiration", inspiration_text)
+		else:
+			pyscript.write("inspiration", "")
 	def rerollRNG():
     	RNG = random.random()
 		   
@@ -217,12 +547,15 @@
         </center>
         
         <p>
-		<h3 id="promptname"> </h3>
+		<br />
+		<h1 id="promptname"> </h1>
 		<h4 id="weight"> </h4>
 		<h4 id="cannon"> </h4>
 		<h4 id="engine"> </h4>
 		<h4 id="minimum_ammo"> </h4>
-		<h4 id="extra1"> </h4>
+		<br />
+		<h5 id="additional_note"> </h5>
+		<h5 id="inspiration"> </h5>
 		<h4 id="extra2"> </h4>
     
         

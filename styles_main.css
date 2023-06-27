@@ -1,8 +1,11 @@
 body {
-    background: dimgray;
+    background: #060611;
     font: 18px Arial, sans-serif;
 }
 h1 {
+    color: red;
+}
+h2 {
     color: white;
 }
 p {
@@ -12,7 +15,7 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 57%;
+  width: 55%;
 }
 button.enter {
   display: inline-block;
@@ -29,6 +32,18 @@ button.enter {
   border: none;
   border-radius: 25px 20px;
   box-shadow: 0 9px #999;
+}
+
+h4 {
+	color: white;
+}
+
+h5 {
+	color: gray;
+}
+
+h3 {
+	color: red;
 }
 
 button.enter:hover {background-color: red}
