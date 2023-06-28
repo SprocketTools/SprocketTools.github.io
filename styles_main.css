@@ -1,7 +1,6 @@
 body {
-    background: #060611;
     font: 18px Noto Sans, sans-serif;
-	background-image: url('ohmygoditsfullofstars2.png');
+	background-color: black !important;
 	padding-top: 0px;
 	min-height: 150px;
 	margin:0;
