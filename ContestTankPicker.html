@@ -1,6 +1,6 @@
 <html>
   <head>
-		<title>RNG Test</title>
+		<title>YCC Tank Picker</title>
 		<link rel="icon" type="image/x-icon" href="trollsus64.png">
 		    <!-- Pyscript -->
 		<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
@@ -19,8 +19,8 @@
 	<ul>
 		<div class="topnav">
 			<li><a href="index.html">Home</a></li>
-			<li><a href="ContestTankPicker.html">YCC Tank Picker</a></li>
-			<li><a class="active" href="VehicleGenerator.html">RNG Tester</a></li>
+			<li><a class="active" href="ContestTankPicker.html">YCC Tank Picker</a></li>
+			<li><a href="VehicleGenerator.html">RNG Tester</a></li>
 			<li><a href="changelog.html">Changelog</a></li>
 			<li><a href="resources.html">Guides</a></li>
 			<li><a href="credits.html">Credits</a></li>
@@ -29,17 +29,16 @@
 	
 	
 	<py-script>	
-	from js import document
+	from js import document, alert
 	import random, time
 	guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
-	pyscript.write("loadtext", "Click the button to get your prompt, then try to build it!")
-	pyscript.write("description", "If you had trouble, contact Colson and explain how it went.")
-	# pyscript.write("disclaimer_text", "Note that the button takes about 10 seconds to work after loading.")
+
 	def update(*ags, **kws):
 		# initial declaration
 		IsHeavy = 0
 
-		random.seed(time.time())
+		ID = document.getElementById('inputbox').value
+		random.seed(ID)
 		guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
 		VehicleName = "error"
 		CannonSuffix = ""
@@ -506,22 +505,19 @@
     <div class="container">
         
 		<picture>
-			<source media="(min-width:1600px)" srcset="YCCP7.png" alt="Logo made by retr0_spektro1d in the ICo community!">
-			<source media="(min-width:980px)" srcset="YCCP7.png" alt="Logo made by retr0_spektro1d in the ICo community!">
+			<source media="(min-width:1600px)" srcset="YCCP7.png">
+			<source media="(min-width:980px)" srcset="YCCP7.png">
 			<img src="amongustrollemoji.png" alt="Logo made by retr0_spektro1d in the ICo community!">
 		</picture>
 		
 		<br />
 		<h1 class="text-center">
-            RNG Testing Utility
+            Vehicle Selector
         </h1>
-        <p>
+        <br />
+        <p><h3>Paste your Discord ID here:</h3>
+        <input id="inputbox" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Enter ID here" /></p>
         <center>
-			<h5 color="white">This is an ongoing test to see how well the RNG is working.</h5>
-			<h5 id="loadtext" color="white">Loading...</h5>
-			<h5 id="description" color="white"> </h5>
-			<h6 id="disclaimer_text" color="white"> </h6>
-			<br />
 			<div class="button">
             <button id="convert" type="submit" class="enter" pys-onClick="update">Get my Tank!</button>
 			</div>

@@ -1,22 +1,85 @@
 body {
     background: #060611;
-    font: 18px Arial, sans-serif;
+    font: 18px Noto Sans, sans-serif;
+	background-image: url('ohmygoditsfullofstars2.png');
+	padding-top: 0px;
+	min-height: 150px;
+	margin:0;
+	display:flex;
+	flex-direction:column;
 }
+
+a {
+	font: 18px Noto Sans, sans-serif;
+}
+
 h1 {
     color: red;
 }
 h2 {
     color: white;
 }
+
+h3 {
+	color: red;
+}
+
+h4 {
+	color: white;
+}
+
+h5 {
+	color: white;
+}
+
 p {
     color: Khaki;
 }
+
+padlist {
+
+	padding-right: 25%;
+
+	padding-left: 25%;
+}
+
 img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 55%;
+  width: 50%;
 }
+
+ul {
+  background-color: #383838;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.button.enter:focus {
+	outline: none;
+}
+
+.topnav a {
+	float: left;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+.topnav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+.topnav a.active {
+	background-color: #04AA6D;
+	color: white;
+}
+
 button.enter {
   display: inline-block;
   padding: 15px 25px;
@@ -32,18 +95,6 @@ button.enter {
   border: none;
   border-radius: 25px 20px;
   box-shadow: 0 9px #999;
-}
-
-h4 {
-	color: white;
-}
-
-h5 {
-	color: gray;
-}
-
-h3 {
-	color: red;
 }
 
 button.enter:hover {background-color: red}
