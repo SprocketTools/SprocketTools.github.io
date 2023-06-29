@@ -539,7 +539,7 @@
         <input id="inputbox" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Enter ID here" /></p>
         <center>
 			<div class="button">
-            <button id="convert" type="submit" class="enter" pys-onClick="update">Get my Tank!</button>
+            <button id="convert" type="submit" class="enter" pys-onClick="update" onclick="Rickroll()">Get my Tank!</button>
 			</div>
         </center>
         
@@ -558,4 +558,16 @@
         
     </div>
   </body>
+  <script>
+	function Rickroll() {
+		let input = document.getElementById('inputbox').value;
+		let result = input.toLowerCase();
+		if (result == "colson"){
+			window.open("https://www.youtube.com/watch?v=p7YXXieghto");
+		}
+		if (result == "substep"){
+			window.open("./error.html");
+		}
+	}
+	</script>
 </html>
