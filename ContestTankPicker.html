@@ -538,7 +538,8 @@
 		<br />
 		<h1 class="text-center">
             Vehicle Selector
-        </h1>
+        </h1 class="text-center"> 
+		<h5 class="text-center" id="loadtext"> Loading modules... </h5>  
         <br />
         <p><h3>Paste your Discord ID here:</h3>
         <input id="inputbox" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Enter ID here" /></p>
@@ -548,6 +549,13 @@
 			</div>
         </center>
         
+		<script>
+			function UpdateBanner() {
+				document.getElementById("loadtext").innerHTML = "Ready!";
+			}
+			setTimeout(UpdateBanner,6000);
+		</script>
+		
         <p>
 		<br />
 		<h1 id="promptname"> </h1>
