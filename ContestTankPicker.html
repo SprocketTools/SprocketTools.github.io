@@ -499,7 +499,7 @@
 		else:
 			pyscript.write("inspiration", "")
 		ID = ID.lower()
-		if ID == "sus" or ID == "among us" or ID == "amogus" or ID == "gentlebeing"  or ID == "hamish dunn":
+		if ID == "sus" or ID == "among us" or ID == "amogus"  or ID == "hamish dunn":
 			pyscript.write("promptname", "Yo what is up you guys right now we’re at mcdonalds, and it is currently 3 in the morning and we just found out when you come to mcdonalds at 3 in the morning, you can order the among us happy meal you guys, that’s right, you heard, me, the among us happy meal, and there’s a toy inside of among us- you can either be a crewmate, or it can be an impostor and if you guys do not know what among us is, you must be living under a rock you guys, this game is insane, ok? so you can play with a bunch of friends ok? like 8, i- i- i think it’s up to 10 people you can play with, and there’s impostors, and there’s crewmates, and pretty much the impostor is trying to sabotage the whole game and trying to win. it’s insane you guys, once again, this- this video is not sponsored at all, but this game is insane. so we got so excited guys we love the game and we found that the mcdonalds is offering an among us happy meal, AND there’s a toy inside, but supposedly, when you get this happy meal you guys, something scary and weird with the impostor. now i don’t really believe it, but these videos i’ve been seeing on youtube have been insane, so that’s why we’re here right now, we’re gonna go through the drive through, and we’re gonna order the among us happy meal. But i need EVERYONE to like this video if you’re excited, ok? like this video with your knuckles right now, just smash, hit the like button, SUPER HARD you guys, on the count of 3 seconds i wanna see what you guys can do cuz i can’t do it, and if cole can’t do it, no one could like this video with their knuckles so let’s see if you guys can do it in 3 seconds. 3, 2, 1. OH HO!")
 			pyscript.write("weight", " ")
 			pyscript.write("cannon", " ")
@@ -518,9 +518,10 @@
 			pyscript.write("inspiration", "Correct, I am the developer of this website!")
 		if ID == "258242333693181952":
 			pyscript.write("inspiration", "Your determination to build contest tanks, despite the endless crashes you're dealing with, is honorable.  We can't wait to see your entry to the contest!")
-		if ID == "258242333693181952":
+		if ID == "863131206798934067":
 			pyscript.write("inspiration", "Amogus.")
-			
+		if ID == "hamish dunn":
+			pyscript.write("inspiration", "Fun fact: Sprocket Ship Design was filmed in a modified Sandbox map!")	
 			
 	def rerollRNG():
     	RNG = random.random()
@@ -543,7 +544,7 @@
         <input id="inputbox" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Enter ID here" /></p>
         <center>
 			<div class="button">
-            <button id="convert" type="submit" class="enter" pys-onClick="update" onclick="Rickroll()">Get my Tank!</button>
+            <button id="convert" type="submit" class="enter" pys-onClick="update" onclick="PopupBox()">Get my Tank!</button>
 			</div>
         </center>
         
@@ -563,7 +564,7 @@
     </div>
   </body>
   <script>
-	function Rickroll() {
+	function PopupBox() {
 		let input = document.getElementById('inputbox').value;
 		let result = input.toLowerCase();
 		if (result == "colson"){
@@ -575,8 +576,14 @@
 		if (result == "gentlebeing"){
 			window.open("https://www.youtube.com/watch?v=NViC6r3W06A");
 		}
-				if (result == "overlord"){
+		if (result == "overlord"){
 			window.open("https://www.youtube.com/watch?v=fNhLBGNIi1o");
+		}
+		if (result == "hamish dunn"){
+			window.open("https://youtu.be/k1rlThKe1qo?t=9");
+		}
+				if (result == ""){
+			window.open("https://youtu.be/XmSzryV7114?t=43");
 		}
 	}
 	</script>
