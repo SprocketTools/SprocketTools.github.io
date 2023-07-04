@@ -442,7 +442,7 @@
 			WeaponTypeSec = "cannon"
 			
 			if Gun < GunCals[2] and WeaponType == "cannon":
-				Gun = GunCals[round((RNG - 3)*GunListSize) + 2]
+				Gun = GunCals[round((RNG)*(GunListSize-3)) + 2]
 			
 			if VehicleName == "SPAA" or VehicleName == "Heavy SPAA":
 				ActWeight = ActWeight + (round(((Gun*0.0115)**3)*SecondaryGunCount/2))
