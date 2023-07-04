@@ -65,7 +65,7 @@
 		elif VehGroup < 19:
 			VehicleName = "Light Tank"
 			MinWeight = 10
-			MaxWeight = 25
+			MaxWeight = 22
 			WeightTol = 1
 			HeavyWeightAdj = 0
 			HeavyChance = 0
@@ -83,7 +83,7 @@
 		elif VehGroup < 28:
 			VehicleName = "Heavy Tank"
 			MinWeight = 38
-			MaxWeight = 52
+			MaxWeight = 47
 			WeightTol = 1
 			HeavyWeightAdj = 0
 			HeavyChance = 0
@@ -101,7 +101,7 @@
 		elif VehGroup < 37:
 			VehicleName = "Medium Tank"
 			MinWeight = 12
-			MaxWeight = 40
+			MaxWeight = 30
 			WeightTol = 1
 			HeavyWeightAdj = 0
 			HeavyChance = 0
@@ -146,7 +146,7 @@
 			HowitzerChance = 0
 			MaxGuns = 1
 			MultiGunChance = 0
-			MinCylCount = 12
+			MinCylCount = 10
 			MaxCylCount = 16
 			AdditionalNote = ""
 			Inspiration = "Leopard 2 is a good place to start."
@@ -164,7 +164,7 @@
 			HowitzerChance = 0
 			MaxGuns = 2
 			MultiGunChance = 0
-			MinCylCount = 10
+			MinCylCount = 8
 			MaxCylCount = 15
 			AdditionalNote = ""
 			Inspiration = "Just downsize the Maus a bit!  Surely nothing will go wrong..."
@@ -182,7 +182,7 @@
 			HowitzerChance = 0
 			MaxGuns = 2
 			MultiGunChance = 12
-			MinCylCount = 8
+			MinCylCount = 6
 			MaxCylCount = 10
 			AdditionalNote = "Open-top turrets are permitted.  If using an open-top, the turret space of firing compartments can be ignored."
 			Inspiration = "Try building a knockoff M41 tank."
@@ -200,7 +200,7 @@
 			HowitzerChance = 15
 			MaxGuns = 1
 			MultiGunChance = 0
-			MinCylCount = 6
+			MinCylCount = 4
 			MaxCylCount = 8
 			AdditionalNote = "Open-top turrets are permitted.  If using an open-top, the turret space of firing compartments can be ignored."
 			Inspiration = "The T-26 is a good example tank."
@@ -285,10 +285,10 @@
 			WeightTol = 2
 			HeavyWeightAdj = 0
 			HeavyChance = 0
-			GunCals = [130, 155, 183, 240]
-			HowitzerCals = [152, 183, 250, 280, 300, 320, 380]
+			GunCals = [88, 90, 100, 105, 107, 110, 115, 120, 130]
+			HowitzerCals = [183, 250, 280, 300, 320, 380]
 			HowitzerChance = 35
-			MaxGuns = 4
+			MaxGuns = 1
 			MultiGunChance = 30
 			MinCylCount = 6
 			MaxCylCount = 12
@@ -375,8 +375,8 @@
 			WeightTol = 1
 			HeavyWeightAdj = 0
 			HeavyChance = 0
-			GunCals = [37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90]
-			HowitzerCals = [105]
+			GunCals = [37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 94, 100, 105]
+			HowitzerCals = [105, 152]
 			HowitzerChance = 15
 			MaxGuns = 2
 			MultiGunChance = 25
@@ -432,7 +432,6 @@
 			WeaponType = "cannon"
 		SecondaryGunCount = round(GunCount/2)
 		PrimaryGunCount = GunCount - SecondaryGunCount		
-		ActWeight = ActWeight + (round(((Gun*0.0115)**3)*PrimaryGunCount/2))
 		AmmoMin = round(1000/(Gun))
 
 		
@@ -442,8 +441,10 @@
 		if GunCount > 1:
 			GunSec = GunCals[0]
 			WeaponTypeSec = "cannon"
-			if Gun == GunCals[0]:
-				Gun = GunCals[2]
+			
+			if Gun < GunCals[2] and WeaponType == "cannon":
+				Gun = GunCals[round((RNG)*(GunListSize-3)) + 2]
+			
 			if VehicleName == "SPAA" or VehicleName == "Heavy SPAA":
 				ActWeight = ActWeight + (round(((Gun*0.0115)**3)*SecondaryGunCount/2))
 			if VehicleName != "SPAA" and VehicleName != "Heavy SPAA":
@@ -457,6 +458,8 @@
 			PrimaryGunCount = GunCount
 			SecondaryGunCount = 0
 			GunSec = 0
+		
+		ActWeight = ActWeight + (round(((Gun*0.0115)**3)*PrimaryGunCount/2))
 
 		#next we set the engine requirements
 		rerollRNG()
