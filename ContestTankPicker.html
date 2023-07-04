@@ -64,7 +64,7 @@
 		elif VehGroup < 19:
 			VehicleName = "Light Tank"
 			MinWeight = 10
-			MaxWeight = 25
+			MaxWeight = 22
 			WeightTol = 1
 			HeavyWeightAdj = 0
 			HeavyChance = 0
@@ -82,7 +82,7 @@
 		elif VehGroup < 28:
 			VehicleName = "Heavy Tank"
 			MinWeight = 38
-			MaxWeight = 52
+			MaxWeight = 47
 			WeightTol = 1
 			HeavyWeightAdj = 0
 			HeavyChance = 0
@@ -100,7 +100,7 @@
 		elif VehGroup < 37:
 			VehicleName = "Medium Tank"
 			MinWeight = 12
-			MaxWeight = 40
+			MaxWeight = 30
 			WeightTol = 1
 			HeavyWeightAdj = 0
 			HeavyChance = 0
@@ -431,7 +431,6 @@
 			WeaponType = "cannon"
 		SecondaryGunCount = round(GunCount/2)
 		PrimaryGunCount = GunCount - SecondaryGunCount		
-		ActWeight = ActWeight + (round(((Gun*0.0115)**3)*PrimaryGunCount/2))
 		AmmoMin = round(1000/(Gun))
 
 		
@@ -441,8 +440,10 @@
 		if GunCount > 1:
 			GunSec = GunCals[0]
 			WeaponTypeSec = "cannon"
-			if Gun == GunCals[0]:
-				Gun = GunCals[2]
+			
+			if Gun < GunCals[2] and WeaponType == "cannon":
+				Gun = GunCals[round((RNG - 3)*GunListSize) + 2]
+			
 			if VehicleName == "SPAA" or VehicleName == "Heavy SPAA":
 				ActWeight = ActWeight + (round(((Gun*0.0115)**3)*SecondaryGunCount/2))
 			if VehicleName != "SPAA" and VehicleName != "Heavy SPAA":
@@ -456,6 +457,8 @@
 			PrimaryGunCount = GunCount
 			SecondaryGunCount = 0
 			GunSec = 0
+		
+		ActWeight = ActWeight + (round(((Gun*0.0115)**3)*PrimaryGunCount/2))
 
 		#next we set the engine requirements
 		rerollRNG()
@@ -508,7 +511,7 @@
 			pyscript.write("additional_note", " ")
 			pyscript.write("inspiration", "When the impostor is sus!")
 
-		if ID == "colson":
+		elif ID == "colson":
 			pyscript.write("promptname", "Yo what is up you guys right now we’re at mcdonalds, and it is currently 3 in the morning and we just found out when you come to mcdonalds at 3 in the morning, you can order the among us happy meal you guys, that’s right, you heard, me, the among us happy meal, and there’s a toy inside of among us- you can either be a crewmate, or it can be an impostor and if you guys do not know what among us is, you must be living under a rock you guys, this game is insane, ok? so you can play with a bunch of friends ok? like 8, i- i- i think it’s up to 10 people you can play with, and there’s impostors, and there’s crewmates, and pretty much the impostor is trying to sabotage the whole game and trying to win. it’s insane you guys, once again, this- this video is not sponsored at all, but this game is insane. so we got so excited guys we love the game and we found that the mcdonalds is offering an among us happy meal, AND there’s a toy inside, but supposedly, when you get this happy meal you guys, something scary and weird with the impostor. now i don’t really believe it, but these videos i’ve been seeing on youtube have been insane, so that’s why we’re here right now, we’re gonna go through the drive through, and we’re gonna order the among us happy meal. But i need EVERYONE to like this video if you’re excited, ok? like this video with your knuckles right now, just smash, hit the like button, SUPER HARD you guys, on the count of 3 seconds i wanna see what you guys can do cuz i can’t do it, and if cole can’t do it, no one could like this video with their knuckles so let’s see if you guys can do it in 3 seconds. 3, 2, 1. OH HO!")
 			pyscript.write("weight", " ")
 			pyscript.write("cannon", " ")
@@ -516,13 +519,23 @@
 			pyscript.write("minimum_ammo", " ")
 			pyscript.write("additional_note", " ")
 			pyscript.write("inspiration", "Correct, I am the developer of this website!")
-		if ID == "258242333693181952":
+		elif ID == "258242333693181952":
 			pyscript.write("inspiration", "Your determination to build contest tanks, despite the endless crashes you're dealing with, is honorable.  We can't wait to see your entry to the contest!")
-		if ID == "863131206798934067":
+		elif ID == "863131206798934067":
 			pyscript.write("inspiration", "Amogus.")
-		if ID == "hamish dunn":
+		elif ID == "hamish dunn":
 			pyscript.write("inspiration", "Fun fact: Sprocket Ship Design was filmed in a modified Sandbox map!")	
-			
+		else:
+			if ID.isdigit():
+				ID = ID
+			else:
+				pyscript.write("promptname", "Invalid entry.  Use your Discord ID - the instructions to find it are located here:")
+				pyscript.write("weight", " ")
+				pyscript.write("cannon", " ")
+				#pyscript.write("engine", " ")
+				pyscript.write("minimum_ammo", " ")
+				pyscript.write("additional_note", "https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID- ")
+		
 	def rerollRNG():
     	RNG = random.random()
 		   
