@@ -38,7 +38,7 @@
 		IsHeavy = 0
 
 		ID = document.getElementById('inputbox').value
-		random.seed(ID)
+		random.seed(int(ID) + 69)
 		guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
 		VehicleName = "error"
 		CannonSuffix = ""
@@ -99,8 +99,8 @@
 			
 		elif VehGroup < 37:
 			VehicleName = "Medium Tank"
-			MinWeight = 12
-			MaxWeight = 30
+			MinWeight = 14
+			MaxWeight = 31
 			WeightTol = 1
 			HeavyWeightAdj = 0
 			HeavyChance = 0
@@ -524,7 +524,15 @@
 		elif ID == "863131206798934067":
 			pyscript.write("inspiration", "Amogus.")
 		elif ID == "hamish dunn":
-			pyscript.write("inspiration", "Fun fact: Sprocket Ship Design was filmed in a modified Sandbox map!")	
+			pyscript.write("inspiration", "Fun fact: Sprocket Ship Design was filmed in a modified Sandbox map!")
+		elif ID == "243299062164619265" or ID == "1032502622965469194" or ID == "1126112072099450922" or ID == "1102877006586200124" or ID == "963833157566734346" or ID == "433617207734304778" or ID == "1062212240830369903" or ID == "651228440422252555" or ID == "1102879910768418876" or ID == "1110660875632787537" or ID == "1114307088403922974" or ID == "1106699028982398997" or ID == "1120759016302313493" or ID == "" or ID == "1120759016302313493" or ID == "1097905019069677568" or ID == "606700678966018058" or ID == "606700678966018058" or ID == "604417737258827797" or ID == "842052491700731934":
+			pyscript.write("promptname", "This user ID is not eligible to participate in the Youtube Community Clash")
+			pyscript.write("weight", " ")
+			pyscript.write("cannon", " ")
+			#pyscript.write("engine", " ")
+			pyscript.write("minimum_ammo", " ")
+			pyscript.write("additional_note", " ")
+			pyscript.write("inspiration", " ")
 		else:
 			if ID.isdigit():
 				ID = ID
@@ -535,6 +543,7 @@
 				#pyscript.write("engine", " ")
 				pyscript.write("minimum_ammo", " ")
 				pyscript.write("additional_note", "https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID- ")
+				pyscript.write("inspiration", " ")
 		
 	def rerollRNG():
     	RNG = random.random()
@@ -570,8 +579,12 @@
 			function PopupBox() {
 				let input = document.getElementById('inputbox').value;
 				let result = input.toLowerCase();
+				let ID = input.toLowerCase();
 				if (result == "colson"){
 					window.open("https://www.youtube.com/watch?v=p7YXXieghto");
+				}
+				if (result == "substep"){
+					window.open("./error.html");
 				}
 				if (result == "substep"){
 					window.open("./error.html");
@@ -579,8 +592,9 @@
 				if (result == "gentlebeing"){
 					window.open("https://www.youtube.com/watch?v=NViC6r3W06A");
 				}
-				if (result == "overlord"){
-					window.open("https://www.youtube.com/watch?v=fNhLBGNIi1o");
+				if (ID == "243299062164619265" || ID == "1032502622965469194" || ID == "1126112072099450922" || ID == "1102877006586200124" || ID == "963833157566734346" || ID == "433617207734304778" || ID == "1062212240830369903" || ID == "651228440422252555" || ID == "1102879910768418876" || ID == "1110660875632787537" || ID == "1114307088403922974" || ID == "1106699028982398997" || ID == "1120759016302313493" || ID == "" || ID == "1120759016302313493" || ID == "1097905019069677568" || ID == "606700678966018058" || ID == "606700678966018058" || ID == "604417737258827797" || ID == "842052491700731934"){
+					window.open("./error.html");
+					ShowTroll()
 				}
 				if (result == "hamish dunn"){
 					window.open("https://youtu.be/k1rlThKe1qo?t=9");
@@ -601,6 +615,9 @@
 					window.open("https://youtu.be/XmSzryV7114?t=43");
 				}
 			}
+			function ShowTroll(){
+				document.getElementById('bangus').style.display = "block";
+			}
 		</script>
 		
         <p>
@@ -614,7 +631,9 @@
 		<h5 id="additional_note"> </h5>
 		<h5 id="inspiration"> </h5>
 		<h4 id="extra2"> </h4>
-    
+		<picture>
+			<img src="amongustrollemoji.png" id="bangus" style="display:none; width:40%;" alt="An amogus with a trollface.">
+		</picture>
         
     </div>
   </body>
