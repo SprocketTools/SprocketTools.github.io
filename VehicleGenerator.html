@@ -32,9 +32,6 @@
 	from js import document
 	import random, time
 	guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
-	pyscript.write("loadtext", "Click the button to get your prompt, then try to build it!")
-	pyscript.write("description", "If you had trouble, contact Colson and explain how it went.")
-	# pyscript.write("disclaimer_text", "Note that the button takes about 10 seconds to work after loading.")
 	def update(*ags, **kws):
 		# initial declaration
 		IsHeavy = 0
@@ -509,18 +506,16 @@
     <div class="container">
         
 		<picture>
-			<source media="(min-width:1600px)" srcset="YCCP7.png" alt="Logo made by retr0_spektro1d in the ICo community!">
-			<source media="(min-width:980px)" srcset="YCCP7.png" alt="Logo made by retr0_spektro1d in the ICo community!">
-			<img src="amongustrollemoji.png" alt="Logo made by retr0_spektro1d in the ICo community!">
+			<img src="TONK.png" alt="TONK on tracks!">
 		</picture>
 		
 		<br />
 		<h1 class="text-center">
-            RNG Testing Utility
+            Tank Idea Generaator
         </h1>
         <p>
         <center>
-			<h5 color="white">This is an ongoing test to see how well the RNG is working.</h5>
+			<h5 color="white">Click the button to get a random tank idea!</h5>
 			<h5 id="loadtext" color="white">Loading...</h5>
 			<h5 id="description" color="white"> </h5>
 			<h6 id="disclaimer_text" color="white"> </h6>
@@ -529,7 +524,12 @@
             <button id="convert" type="submit" class="enter" pys-onClick="update">Get my Tank!</button>
 			</div>
         </center>
-        
+        <script>
+			function UpdateBanner() {
+				document.getElementById("loadtext").innerHTML = "Ready!";
+			}
+			setTimeout(UpdateBanner,6000);
+		</script>
         <p>
 		<br />
 		<h1 id="promptname"> </h1>
