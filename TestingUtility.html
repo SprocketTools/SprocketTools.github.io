@@ -1,0 +1,76 @@
+<html>
+  <head>
+		<title>RNG Test</title>
+		<link rel="icon" type="image/x-icon" href="trollsus64.png">
+		    <!-- Pyscript -->
+		<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+		<!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />-->
+		<link rel="stylesheet" href="styles_main.css">
+		<!-- bootstrap for styling , Pyscript can also be used for styling instead of bootstrap -->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+		
+		<style>
+
+    </style> 
+  </head>
+  <body>
+	<ul>
+		<div class="topnav">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="ContestTankPicker.html">YCC Tank Picker</a></li>
+			<li><a href="VehicleGenerator.html">RNG Tester</a></li>
+			<li><a href="changelog.html">Changelog</a></li>
+			<li><a href="resources.html">Guides</a></li>
+			<li><a href="credits.html">Credits</a></li>
+			<li><a class="active" href="TestingUtility.html">Beta RNG V2</a></li>
+		</div>
+	</ul>
+	
+    <div class="container">
+        
+		<picture>
+			<img src="TONK.png" alt="TONK on tracks!">
+		</picture>
+		
+		<br />
+		<h1 class="text-center">
+            Tank Idea Generaator
+        </h1>
+        <p>
+        <center>
+			<h5 color="white">Click the button to get a random tank idea!</h5>
+			<h5 id="loadtext" color="white">Loading...</h5>
+			<h5 id="description" color="white"> </h5>
+			<h6 id="disclaimer_text" color="white"> </h6>
+			<br />
+			<div class="button">
+            <button id="convert" type="submit" class="enter" onClick="Troll()">Get my Tank!</button>
+			</div>
+        </center>
+        <script>
+			function UpdateBanner() {
+				document.getElementById("loadtext").innerHTML = "Ready!";
+			}
+			setTimeout(UpdateBanner,3500);
+			function Troll(){
+					window.open("https://www.youtube.com/watch?v=p7YXXieghto");
+			}
+		</script>
+        <p>
+		<br />
+		<h1 id="promptname"> </h1>
+		<h4 id="weight"> </h4>
+		<h4 id="cannon"> </h4>
+		<h4 id="engine"> </h4>
+		<h4 id="minimum_ammo"> </h4>
+		<br />
+		<h5 id="additional_note"> </h5>
+		<h5 id="inspiration"> </h5>
+		<h4 id="extra2"> </h4>
+    
+        
+    </div>
+  </body>
+</html>
