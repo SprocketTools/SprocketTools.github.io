@@ -37,8 +37,32 @@ h6 {
 	color: white;
 }
 
+.decals h6 {
+	color: cadetblue;
+}
+
 p {
     color: Khaki;
+}
+
+/* unvisited link */
+a:link {
+  color: DodgerBlue;
+}
+
+/* visited link */
+a:visited {
+  color: DodgerBlue;
+}
+
+/* mouse over link */
+a:hover {
+  color: grey;
+}
+
+/* selected link */
+a:active {
+  color: red;
 }
 
 padlist {
@@ -167,6 +191,7 @@ img {
 
 
 ul.decals li {
+	word-wrap: break-word;
     width: 400px; /* adjust the size of the catalog block */
     display: inline-block; /* this creates the catalog effect */
     text-align: center; /* align the image to center */
