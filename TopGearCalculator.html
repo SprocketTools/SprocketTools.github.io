@@ -1,0 +1,90 @@
+<html>
+  <head>
+		<title>Top Gear Calculator</title>
+		<link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+		<link rel="icon" type="image/x-icon" href="trollsus64.png">
+		<link rel="stylesheet" href="styles_testing.css">
+		<style>
+		</style> 
+  </head>
+  <body>
+	<div class="navbar">
+		<a href="index.html">Home</a>
+		<a class="active" href="TopGearCalculator.html">Top Gear Calculator</a>
+		<a href="ContestTankPicker.html">YCC Tank Picker</a>
+		<a href="YCCrules.html">YCC Info</a>
+		<a href="VehicleGenerator.html">Random Tank Picker</a>
+		<a href="resources.html">Guides</a>
+		<a href="credits.html">Credits</a>
+		<a href="https://www.youtube.com/watch?v=p7YXXieghto">Get Trolled</a>
+		<div class="dropdown">
+			<button href="DecalsFeatured.html" class="dropbtn active">Decal Catalog
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="DecalsFeatured.html">Featured</a>
+				<a href="DecalsChalkText.html">Chalk Writing</a>
+				<a href="DecalsLabels.html">Labels</a>
+				<a href="DecalsMemes.html">Memes</a>
+				<a href="DecalsMisc.html">Miscellaneous</a>
+				<a href="DecalsNumbers.html">Numbers</a>
+				<a href="DecalsTextures.html">Textures</a>
+				<a href="DecalsContribute.html">Contribute your own!</a>
+			</div>
+		</div>
+	</div>
+	
+    <div class="widecontainer">
+	
+		<h1 class="text-center">Gear Calculator</h1>
+        <center>
+			<h4>Enter the following information about your tank and click <i>Submit</i></h4>
+			<h5>The calculator will show you what your tank's top speed is, and the final transmission gear needed to reach that speed!</h5> 
+			
+			<ul class="gearcalc">
+
+				<li><img src="GearCalcPics/VehicleEra.png" />
+				<h4>Vehicle Era</h4>
+					<input list="browsers" type="text" name="browser" id="browser">
+					<datalist id="browsers">
+						<option value="WWI">
+						<option value="Interwar">
+						<option value="Earlywar">
+						<option value="Midwar">
+						<option value="Latewar">
+					</datalist>
+				</li>
+
+				<li><img src="GearCalcPics/VehicleWeight.png" />
+				<h4>Vehicle Weight</h4>
+				<input type="number" min="1" step="0.01" value="25">
+				</li>
+
+
+				<li><img src="GearCalcPics/SprocketDiameter.png" />
+				<h4>Sprocket Diameter</h4>
+				<input type="number" min="0.01" step="0.01" value="0.6">
+				</li>
+				
+				<li><img src="GearCalcPics/RPMLimit.png" />
+				<h4>RPM limit</h4>
+				<input type="number" min="1" step="1" value="2800">
+				</li>
+				
+				<li><img src="GearCalcPics/UpshiftHP.png" />
+				<h4>HP at Upshift RPM</h4>
+				<input type="number" min="1" step="1" value="560">
+				</li>
+
+
+
+
+
+
+		 	<!-- add more list items -->
+	</ul>
+	<input type="submit">		
+    </div>
+	</center> 
+  </body>
+</html>
