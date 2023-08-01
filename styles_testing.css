@@ -6,7 +6,7 @@ body {
 	background-color: black !important;
 	padding-top: 0px;
 	min-height: 150px;
-	margin:0;
+	margin: 0;
 	display:flex;
 	flex-direction:column;
 }
@@ -14,8 +14,12 @@ body {
 a {
 }
 
+p {
+	margin:2px;
+}
 h1 {
     color: red;
+	margin: 14px;
 }
 h2 {
     color: white;
@@ -27,10 +31,12 @@ h3 {
 
 h4 {
 	color: white;
+	margin: 15px;
 }
 
 h5 {
 	color: white;
+	margin: 20px;
 }
 
 h6 {

@@ -57,23 +57,23 @@
 
 				<li><img src="GearCalcPics/VehicleWeight.png" />
 				<h4>Vehicle Weight</h4>
-				<input type="number" min="1" step="0.01" value="25">
+				<input type="number" min="1" step="0.01" value="25" id="Weight">
 				</li>
 
 
 				<li><img src="GearCalcPics/SprocketDiameter.png" />
 				<h4>Sprocket Diameter</h4>
-				<input type="number" min="0.01" step="0.01" value="0.6">
+				<input type="number" min="0.01" step="0.01" value="0.6" id="Diameter">
 				</li>
 				
 				<li><img src="GearCalcPics/RPMLimit.png" />
 				<h4>RPM limit</h4>
-				<input type="number" min="1" step="1" value="2800">
+				<input type="number" min="1" step="1" value="2800" id="RPM">
 				</li>
 				
 				<li><img src="GearCalcPics/UpshiftHP.png" />
 				<h4>HP at Upshift RPM</h4>
-				<input type="number" min="1" step="1" value="560">
+				<input type="number" min="1" step="1" value="560" id="HP">
 				</li>
 
 
@@ -83,8 +83,44 @@
 
 		 	<!-- add more list items -->
 	</ul>
-	<input type="submit">		
+	<input onclick="Calculate()" type="submit">	
+	<h4 id="topspeed"></h4>
+	<h4 id="finalgear"></h4>	
     </div>
 	</center> 
+			<script>
+			function Calculate() {
+				let era = document.getElementById('browser').value;
+				let R = 5;
+				if(era == 'WWI'){
+					R = 4;
+				}
+				if(era == 'Interwar'){
+					R = 3;
+				}
+				if(era == 'Earlywar'){
+					R = 1.5;
+				}
+				if(era == 'Midwar'){
+					R = 1.25;
+				}
+				if(era == 'Latewar'){
+					R = 1;
+				}
+				
+				let H = document.getElementById('HP').value;
+				let W = document.getElementById('Weight').value;
+				let L = document.getElementById('RPM').value;
+				let S = document.getElementById('Diameter').value;
+				let TopSpeed = (13 * (H ** 0.5) ) / ( (R ** 0.8) * (W ** 0.5) );
+				TopSpeed = 0.1*Math.round(10*TopSpeed)
+				document.getElementById("topspeed").innerHTML = "Your top speed is " + TopSpeed + " km/h";
+				
+				let FinalGear = (60*3.14159*L*S) / (10000*TopSpeed)
+				FinalGear = Math.round(1000*FinalGear)/1000
+				document.getElementById("finalgear").innerHTML = "Use a final transmission gear ratio of " + FinalGear + " to reach this speed!";
+			}
+		</script>
+	
   </body>
 </html>
