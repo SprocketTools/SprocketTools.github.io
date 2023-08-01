@@ -109,14 +109,15 @@
 				}
 				
 				let H = document.getElementById('HP').value;
+				H = 100*H/101;
 				let W = document.getElementById('Weight').value;
 				let L = document.getElementById('RPM').value;
 				let S = document.getElementById('Diameter').value;
 				let TopSpeed = (13 * (H ** 0.5) ) / ( (R ** 0.8) * (W ** 0.5) );
-				TopSpeed = 0.1*Math.round(10*TopSpeed)
+				TopSpeed = Math.round(10*TopSpeed)/10
 				document.getElementById("topspeed").innerHTML = "Your top speed is " + TopSpeed + " km/h";
 				
-				let FinalGear = (60*3.14159*L*S) / (10000*TopSpeed)
+				let FinalGear = (60*3.14159*L*S*10) / (11*10000*TopSpeed)
 				FinalGear = Math.round(1000*FinalGear)/1000
 				document.getElementById("finalgear").innerHTML = "Use a final transmission gear ratio of " + FinalGear + " to reach this speed!";
 			}
