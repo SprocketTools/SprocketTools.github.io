@@ -52,7 +52,8 @@ label {
 }
 
 .gearcalc h6 {
-	color: cadetblue;
+	color: red;
+	margin: 22px;
 }
 
 p {
@@ -216,6 +217,11 @@ img {
   display: block;
 }
 
+ul {
+	width: 95%;
+    margin: 0 auto;
+	transform: translate(45);
+}
 
 ul.decals li {
 	word-wrap: break-word;
@@ -237,10 +243,23 @@ ul.gearcalc li {
     background-color:#282828 ; /* background color of each */
     font-family: 'Noto Sans';
     border-radius: 10px; /* rounded borders effect */
-    border: 2px solid black; /* border and color */
+    border: 0px solid black; /* border and color */
 	padding: 12px 0px;
-	margin: 2px 0px;
+	margin: 0px 0px;
+	transform: translate(-25% 5%);
 }
+
+ul.printlist li {
+    width: 10%; /* adjust the size of the catalog block */
+    text-align: left; /* align the image to center */
+    background-color:#282828 ; /* background color of each */
+    font-family: 'Noto Sans';
+    border-radius: 4px; /* rounded borders effect */
+    border: 0px solid black; /* border and color */
+	padding: 1px 1px;
+	margin: 2px 2px;
+}
+
 
 input.gearcalc {
 color: green;
@@ -287,6 +306,7 @@ input[type=number]:focus {
 }
 
 input[type=button], input[type=submit], input[type=reset] {
+	width: 12%;
 	font-size: 100%;
   background-color: red;
   border: none;
@@ -294,6 +314,9 @@ input[type=button], input[type=submit], input[type=reset] {
   padding: 16px 32px;
   text-decoration: none;
   border-radius: 10px 14px;
-  margin: 4px 2px;
+  position: center;
+  margin: 2px;
+  left: 50%;
+
   cursor: pointer;
 }
