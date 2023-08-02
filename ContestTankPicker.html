@@ -1,7 +1,7 @@
 <html>
   <head>
 		<title>YCC Tank Picker</title>
-		<link rel="icon" type="image/x-icon" href="trollsus64.png">
+		<link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
 		    <!-- Pyscript -->
 		<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
 		<!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />-->
@@ -19,8 +19,8 @@
 		<div class="topnav">
 			<li><a href="index.html">Home</a></li>
 			<a href="TopGearCalculator.html">Gear Calculator</a>
-			<li><a class="active" href="ContestTankPicker.html">YCC Tank Picker</a></li>
-			<li><a href="YCCrules.html">YCC Info and Rules</a></li>
+			<li><a class="active" href="ContestTankPicker.html">Contest Tank Picker</a></li>
+			<li></li>
 			<li><a href="VehicleGenerator.html">Random Tank Picker</a></li>
 			<li><a href="resources.html">Guides</a></li>
 			<li><a href="credits.html">Credits</a></li>
@@ -39,8 +39,9 @@
 		IsHeavy = 0
 
 		ID = document.getElementById('inputbox').value
+		offsetRNG = document.getElementById('offsetRNG').value
 		try:
-			random.seed(int(ID) + 69)
+			random.seed(int(ID + offsetRNG) + 69)
 		except ValueError:
 			ID = ID
 		guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
@@ -557,9 +558,9 @@
     <div class="container">
         
 		<picture>
-			<source media="(min-width:1600px)" srcset="YCCP7.png">
-			<source media="(min-width:580px)" srcset="YCCP7.png">
-			<img src="amongustrollemoji.png" alt="Logo made by retr0_spektro1d in the ICo community!">
+			<source media="(min-width:1600px)" style="width: 35%;" srcset="SprocketToolsLogo.png">
+			<source media="(min-width:580px)" style="width: 35%;" srcset="SprocketToolsLogo.png">
+			<img src="amongustrollemoji.png" style="width: 35%;" alt="Logo made by retr0_spektro1d in the ICo community!">
 		</picture>
 		
 		<br />
@@ -568,8 +569,9 @@
         </h1 class="text-center"> 
 		<h5 class="text-center" id="loadtext"> Loading modules... </h5>  
         <br />
-        <p><h3>Paste your Discord ID here:</h3>
+        <p><h3>Paste your Discord ID and contest code here!</h3>
         <input id="inputbox" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Enter ID here" /></p>
+		<input id="offsetRNG" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Enter contest code here." /></p>
         <center>
 			<div class="button">
             <button id="convert" type="submit" class="enter" pys-onClick="update" onclick="PopupBox()">Get my Tank!</button>
