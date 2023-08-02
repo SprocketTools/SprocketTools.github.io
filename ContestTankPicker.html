@@ -529,6 +529,13 @@
 			pyscript.write("inspiration", "Your determination to build contest tanks, despite the endless crashes you're dealing with, is honorable.  We can't wait to see your entry to the contest!")
 		elif ID == "863131206798934067":
 			pyscript.write("inspiration", "Amogus.")
+		elif "u/" in ID:
+			pyscript.write("promptname", "Invalid ID.  Remove the u/ from your ID, then try again.")
+			pyscript.write("weight", " ")
+			pyscript.write("cannon", " ")
+			#pyscript.write("engine", " ")
+			pyscript.write("minimum_ammo", " ")
+			pyscript.write("additional_note", " ")
 		elif ID == "hamish dunn":
 			pyscript.write("inspiration", "Fun fact: Sprocket Ship Design was filmed in a modified Sandbox map!")
 		elif ID == "243299062164619265" or ID == "1032502622965469194" or ID == "1126112072099450922" or ID == "1102877006586200124" or ID == "963833157566734346" or ID == "433617207734304778" or ID == "1062212240830369903" or ID == "651228440422252555" or ID == "1102879910768418876" or ID == "1110660875632787537" or ID == "1114307088403922974" or ID == "1106699028982398997" or ID == "1120759016302313493" or ID == "" or ID == "1120759016302313493" or ID == "1097905019069677568" or ID == "606700678966018058" or ID == "606700678966018058" or ID == "604417737258827797" or ID == "842052491700731934":
@@ -542,14 +549,6 @@
 		else:
 			if ID.isdigit():
 				ID = ID
-			else:
-				pyscript.write("promptname", "Invalid entry.  Use your Discord ID - the instructions to find it are located here:")
-				pyscript.write("weight", " ")
-				pyscript.write("cannon", " ")
-				#pyscript.write("engine", " ")
-				pyscript.write("minimum_ammo", " ")
-				pyscript.write("additional_note", "https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID- ")
-				pyscript.write("inspiration", " ")
 		
 	def rerollRNG():
     	RNG = random.random()
@@ -569,7 +568,7 @@
         </h1 class="text-center"> 
 		<h5 class="text-center" id="loadtext"> Loading modules... </h5>  
         <br />
-        <p><h3>Paste your Discord ID and contest code here!</h3>
+        <p><h3>Paste your user ID and contest code here!</h3>
         <input id="inputbox" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Enter ID here" /></p>
 		<input id="offsetRNG" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Enter contest code here." /></p>
         <center>
