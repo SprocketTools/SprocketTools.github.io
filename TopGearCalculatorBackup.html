@@ -137,27 +137,36 @@
 				let Torque = (9.5492/L)*746*H;
 				let Gear1 = Math.round(11*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100;
 				let GearCount = document.getElementById('GearCount').value;
-				if(GearCount > 1600){
-					window.open("https://www.youtube.com/watch?v=dCO89JvatxQ");
-				}
+				
 				const gear1printout = document.createElement("h4");
 				const gear1node = document.createTextNode("Gear 1 is " + Gear1);
 				gear1printout.appendChild(gear1node);
 				document.getElementById("printlist2").appendChild(gear1printout);
+				let testCount = 0;
 				let R2 = 2.0;
-				G2 = Gear1/R2;
-				let RN = ((FinalGear/G2) ** (1/(GearCount - 2)));
-				let gear_print = 0;
+				let G2 = Gear1/R2;
+				let var_a = G2/FinalGear;
+				let var_b = GearCount - 2.0;
+				let GC = G2;
+				let GL = G2;
+				let n = 1.4;
+				let count_in_loop = GearCount - 1;
+				let gear_print = 4;
+				let gear2printout = document.createElement("h4");
+				let gear2node = document.createTextNode("Gear 2 is " + G2);
+				gear2printout.appendChild(gear2node);
+				document.getElementById("printlist2").appendChild(gear2printout);
 				
-				for (let i = 2; i < GearCount; i++) {
-					gear_print = G2*((FinalGear/G2)**((i-2)/(GearCount-2)));
-					
+				for (let i = 3; i < GearCount; i++) {
+					n = n - (((n ** var_b) - var_a) / (var_b * (n ** (var_b - 1))));
+					GC = GL/n;
 					para = document.createElement("h4");
-					gear_print = Math.round(1000*gear_print)/1000;
+					gear_print = Math.round(1000*GC)/1000;
 					node = document.createTextNode("Gear " + i + " is " + gear_print);
 					para.appendChild(node);
 					document.getElementById("printlist2").appendChild(para);
-
+					GL = GC;
+					testCount = testCount + 1;
 					
 				}
 					para = document.createElement("h4");
