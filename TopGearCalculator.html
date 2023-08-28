@@ -73,7 +73,7 @@
 				<li>
 				<h4>Vehicle Weight</h4>
 				<input type="number" min="1" step="1" value="28" id="Weight">
-				<h4>Climbing Angle (degrees)</h4>
+				<h4>Desired Climbing Angle (degrees)</h4>
 				<input type="number" min="10" max="90" step="1" value="35" id="Angle">
 				<h4>Total Gear Count</h4>
 				<input type="number" min="1" max="11" step="1" value="8" id="GearCount">
@@ -117,9 +117,7 @@
 				let H = document.getElementById('HP').value;
 				H = 100*H/101;
 				var checkBox = document.getElementById("acceleration");
-				if(checkBox.checked == true){
-					H = 90*H/100;
-				}
+
 				
 				let W = document.getElementById('Weight').value;
 				let L = document.getElementById('RPM').value;
@@ -136,6 +134,9 @@
 				FinalGear = Math.round(1000*FinalGear)/1000
 				let Torque = (9.5492/L)*746*H;
 				let Gear1 = Math.round(11*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100;
+				if(checkBox.checked == true){
+					Gear1 = Math.round(Gear1*112)/100;
+				}
 				let GearCount = document.getElementById('GearCount').value;
 				if(GearCount > 1600){
 					window.open("https://www.youtube.com/watch?v=dCO89JvatxQ");
