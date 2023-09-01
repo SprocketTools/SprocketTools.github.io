@@ -421,9 +421,9 @@
 		GunSec = 0
 		
 		rerollRNG()
-		if random.random() < HowitzerChance / 100.0:
-   			Gun = HowitzerCals[round(RNG * HowitzerListSize) - 1]
- 			WeaponType = "howitzer"
+		if (random.random() < HowitzerChance/100.0):
+			Gun = HowitzerCals[round(RNG*HowitzerListSize)-1]
+			WeaponType = "howitzer"
 		else:
  			Gun = GunCals[round(RNG * GunListSize) - 1]
     			WeaponType = "cannon"
