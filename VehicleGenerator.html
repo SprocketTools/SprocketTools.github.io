@@ -425,11 +425,11 @@
 			Gun = HowitzerCals[round(RNG*HowitzerListSize)-1]
 			WeaponType = "howitzer"
 		else:
- 			Gun = GunCals[round(RNG * GunListSize) - 1]
-    			WeaponType = "cannon"
+			Gun = GunCals[round(RNG * GunListSize) - 1]
+			WeaponType = "cannon"
 		SecondaryGunCount = round(GunCount / 2)
 		PrimaryGunCount = GunCount - SecondaryGunCount
-		AmmoMin = round(4 * (1000 / Gun))
+		AmmoMin = round(3 * (1000 / Gun))
 		
 		# here we pick the caliber of the secondary gun
 		rerollRNG()
