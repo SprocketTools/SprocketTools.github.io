@@ -307,7 +307,7 @@
 			MultiGunChance = 0
 			MinCylCount = 8
 			MaxCylCount = 10
-			AdditionalNote = ""
+			AdditionalNote = "Editing load speed is allowed for autocannons."
 			Inspiration = "Check out PatchBits' IFV from our previous contest: https://www.youtube.com/watch?v=z1ohzRBdhq4"
 			NeedsPlural = 0
 
@@ -326,7 +326,7 @@
 			MinCylCount = 6
 			MaxCylCount = 12
 			AdditionalNote = ""
-			Inspiration = "Try using the BMP-2 as a reference!  Just don't go looking in Russia for a real one..."
+			Inspiration = "Try using the BMP-2 or T-40 as a reference!  Just don't go looking in Russia for a real one..."
 			NeedsPlural = 1
 			
 		elif VehGroup < 97:
@@ -425,12 +425,11 @@
 			Gun = HowitzerCals[round(RNG*HowitzerListSize)-1]
 			WeaponType = "howitzer"
 		else:
-			Gun = GunCals[round(RNG*GunListSize)-1]
+			Gun = GunCals[round(RNG * GunListSize) - 1]
 			WeaponType = "cannon"
-		SecondaryGunCount = round(GunCount/2)
-		PrimaryGunCount = GunCount - SecondaryGunCount		
-		AmmoMin = round(4*(1000/(Gun))
-
+		SecondaryGunCount = round(GunCount / 2)
+		PrimaryGunCount = GunCount - SecondaryGunCount
+		AmmoMin = round(3 * (1000 / Gun))
 		
 		# here we pick the caliber of the secondary gun
 		rerollRNG()
@@ -511,7 +510,7 @@
 		
 		<br />
 		<h1 class="text-center">
-            Tank Idea Generaator
+            Tank Idea Generator
         </h1>
         <p>
         <center>
