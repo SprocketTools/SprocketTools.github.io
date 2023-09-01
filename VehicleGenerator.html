@@ -421,15 +421,17 @@
 		GunSec = 0
 		
 		rerollRNG()
-		if (random.random() < HowitzerChance/100.0):
-			Gun = HowitzerCals[round(RNG*HowitzerListSize)-1]
-			WeaponType = "howitzer"
+		if random.random() < HowitzerChance / 100.0:
+   			Gun = HowitzerCals[round(RNG * HowitzerListSize) - 1]
+ 			WeaponType = "howitzer"
 		else:
-			Gun = GunCals[round(RNG*GunListSize)-1]
-			WeaponType = "cannon"
-		SecondaryGunCount = round(GunCount/2)
-		PrimaryGunCount = GunCount - SecondaryGunCount		
-		AmmoMin = round(4*(1000/(Gun))
+ 			   Gun = GunCals[round(RNG * GunListSize) - 1]
+    			WeaponType = "cannon"
+
+		SecondaryGunCount = round(GunCount / 2)
+		PrimaryGunCount = GunCount - SecondaryGunCount
+		AmmoMin = round(4 * (1000 / Gun))
+
 
 		
 		# here we pick the caliber of the secondary gun
