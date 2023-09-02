@@ -30,24 +30,18 @@
 	
 	
 	<py-script>	
-	from js import document, alert
+	from js import document
 	import random, time
-	guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
-
+	guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 95, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240, 380]
 	def update(*ags, **kws):
 		# initial declaration
 		IsHeavy = 0
 
-		ID = document.getElementById('inputbox').value
-		offsetRNG = document.getElementById('offsetRNG').value
-		try:
-			random.seed(int(ID + offsetRNG) + 69)
-		except ValueError:
-			ID = ID
-		guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
+		random.seed(time.time())
+		guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 95, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240, 380]
 		VehicleName = "error"
 		CannonSuffix = ""
-		VehGroup = round(1000*random.random())/10
+		VehGroup = round(1 + (109 * random.random()), 1)
 		if VehGroup < 10:
 			VehicleName = "Semi-Turreted Tank Destroyer"
 			MinWeight = 7
@@ -104,8 +98,8 @@
 			
 		elif VehGroup < 37:
 			VehicleName = "Medium Tank"
-			MinWeight = 14
-			MaxWeight = 31
+			MinWeight = 12
+			MaxWeight = 30
 			WeightTol = 1
 			HeavyWeightAdj = 0
 			HeavyChance = 0
@@ -134,7 +128,7 @@
 			MultiGunChance = 20
 			MinCylCount = 6
 			MaxCylCount = 8
-			AdditionalNote = "File editing track size is permitted, should you wish to use wheels."
+			AdditionalNote = "File editing track size is permitted."
 			Inspiration = "Just think back to your worst enemy when playing WOT or WT, and make it even worse to fight against!"
 			NeedsPlural = 1
 
@@ -206,7 +200,7 @@
 			MultiGunChance = 0
 			MinCylCount = 4
 			MaxCylCount = 8
-			AdditionalNote = "Open-top turrets are permitted.  If using an open-top, the internal space of the rotating turret and the gun mantlet can be ignored."
+			AdditionalNote = "Open-top turrets are permitted.  If using an open-top, the turret space of firing compartments can be ignored."
 			Inspiration = "The T-26 is a good example tank."
 			NeedsPlural = 0
 
@@ -242,7 +236,7 @@
 			MultiGunChance = 0
 			MinCylCount = 6
 			MaxCylCount = 6
-			AdditionalNote = "File editing tracks and building the vehicle as an open-top is permitted.  Additionally, if using an open-top, the internal space of the gun compartment and its horizontal swivel can be ignored."
+			AdditionalNote = "File editing tracks is allowed."
 			NeedsPlural = 0
 			Inspiration = ""
 
@@ -314,7 +308,7 @@
 			MultiGunChance = 0
 			MinCylCount = 8
 			MaxCylCount = 10
-			AdditionalNote = "File editing track size is allowed, should you wish to use wheels."
+			AdditionalNote = "Editing load speed is allowed for autocannons."
 			Inspiration = "Check out PatchBits' IFV from our previous contest: https://www.youtube.com/watch?v=z1ohzRBdhq4"
 			NeedsPlural = 0
 
@@ -333,7 +327,7 @@
 			MinCylCount = 6
 			MaxCylCount = 12
 			AdditionalNote = ""
-			Inspiration = "Try using the BMP-2 as a reference!  Just don't go looking in Russia for a real one..."
+			Inspiration = "Try using the PT-76 or T-40 as a reference!  Just don't go looking in Russia for a real one..."
 			NeedsPlural = 1
 			
 		elif VehGroup < 97:
@@ -368,7 +362,7 @@
 			MultiGunChance = 50
 			MinCylCount = 10
 			MaxCylCount = 14
-			AdditionalNote = "File editing tracks to be invisible is permitted.  Note that you get bonus points for armoring up a train from the Island of Sodor."
+			AdditionalNote = "You get bonus points for armoring up a train from the Island of Sodor"
 			Inspiration = "Check out Nirrti's armored train: https://streamable.com/rxqncl"
 			NeedsPlural = 1
 
@@ -387,8 +381,26 @@
 			MinCylCount = 8
 			MaxCylCount = 12
 			AdditionalNote = "Your vehicle must appear to have an Among Us crewmate as the driver or commander.  Otherwise, any vehicle type is permitted.  Congrats on getting a wild card!"
-			Inspiration = ""
+			Inspiration = "Sussy baka"
 			NeedsPlural = 1
+
+		elif VehGroup < 110:
+			VehicleName = "Assault Gun"
+			MinWeight = 10
+			MaxWeight = 40
+			WeightTol = 2
+			HeavyWeightAdj = 10
+			HeavyChance = 20
+			GunCals = [57, 75, 75, 76, 85, 90, 380]
+			HowitzerCals = [75, 76, 95, 105, 122, 150, 152, 155, 230]
+			HowitzerChance = 50
+			MaxGuns = 1
+			MultiGunChance = 0
+			MinCylCount = 6
+			MaxCylCount = 12
+			AdditionalNote = "Open-top turrets are permitted.  If using an open-top, the turret space of firing compartments can be ignored."
+			Inspiration = "Try building a Stug III or M8 Scott."
+			NeedsPlural = 0
 
 		#establishing new variables
 		Gun = 57
