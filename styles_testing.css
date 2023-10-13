@@ -47,8 +47,13 @@ label {
 	color: white;
 }
 
+.decals h4 {
+	color: White;
+}
+
 .decals h6 {
-	color: cadetblue;
+	color: DodgerBlue;
+	margin: 8px;
 }
 
 .gearcalc h6 {
@@ -259,7 +264,8 @@ ul.decals li {
     width: 23%; /* adjust the size of the catalog block */
     display: inline-block; /* this creates the catalog effect */
     text-align: center; /* align the image to center */
-    background-color:#282828 ; /* background color of each */
+    background-color: red; /* For browsers that do not support gradients */
+	background-image: linear-gradient(to bottom, rgb(80, 80, 78), rgb(40, 40, 42));
     font-family: 'Noto Sans';
     border-radius: 10px; /* rounded borders effect */
     border: 2px solid black; /* border and color */
