@@ -256,7 +256,8 @@ ul {
 
 ul.decals li {
 	word-wrap: break-word;
-    width: 400px; /* adjust the size of the catalog block */
+    width: 23%; /* adjust the size of the catalog block */
+	height: 400px;
     display: inline-block; /* this creates the catalog effect */
     text-align: center; /* align the image to center */
     background-color:#282828 ; /* background color of each */
