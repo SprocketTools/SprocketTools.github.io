@@ -1,32 +1,41 @@
 <html>
   <head>
-		<title>Vehicle Generator</title>
-		<link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
-		    <!-- Pyscript -->
-		<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
-		<!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />-->
-		<link rel="stylesheet" href="styles_main.css">
-		<!-- bootstrap for styling , Pyscript can also be used for styling instead of bootstrap -->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-		
-		<style>
+	<title>Contest Tank Picker</title>
+	<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+	<link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
+	<link rel="stylesheet" href="styles_testing.css">
+	<style>
+	</style> 
+</head>
 
-    </style> 
-  </head>
   <body>
-	<ul>
-		<div class="topnav">
-			<li><a href="index.html">Home</a></li>
-			<a href="TopGearCalculator.html">Gear Calculator</a>
-			<li><a href="ContestTankPicker.html">Contest Tank Picker</a></li>
-			<li><a class="active" href="VehicleGenerator.html">Random Tank Picker</a></li>
-			<li><a href="resources.html">Guides</a></li>
-			<li><a href="credits.html">Credits</a></li>
+	<div class="navbar">
+		<a href="index.html">Home</a>
+		<a href="TopGearCalculator.html">Gear Calculator</a>
+		<a href="ContestTankPicker.html">Contest Tank Picker</a>
+		<a class="active" href="VehicleGenerator.html">Random Tank Picker</a>
+		<a href="resources.html">Guides</a>
+		<a href="credits.html">Credits</a>
+		<a href="https://www.youtube.com/watch?v=p7YXXieghto">Get Trolled</a>
+		<div class="dropdown">
+			<button class="dropbtn active">Decal Catalog
+				<i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="DecalsFeatured.html">Featured</a>
+				<a href="DecalsRGBmaker.html">RGB Decal Maker</a>
+				<a href="DecalsChalkText.html">Chalk Writing</a>
+				<a href="DecalsLabels.html">Labels</a>
+				<a href="DecalsMemes.html">Memes</a>
+				<a href="DecalsMisc.html">Miscellaneous</a>
+				<a href="DecalsNumbers.html">Numbers</a>
+				<a href="DecalsSymbols.html">Symbols</a>
+				<a href="DecalsTextures.html">Textures</a>
+				<a href="DecalsContribute.html">Contribute your own!</a>
+			</div>
 		</div>
-	</ul>
-	
+	</div>
 	
 	<py-script>	
 	from js import document

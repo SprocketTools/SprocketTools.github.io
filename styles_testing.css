@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 body {
-	font-family: 'Noto Sans';
+	font-family: 'Century Gothic';
 	background-color: rgb(10,10,10) !important;
 	padding-top: 0px;
 	min-height: 150px;
@@ -49,11 +49,13 @@ label {
 
 .decals h4 {
 	color: White;
+  vertical-align: bottom;
 }
 
 .decals h6 {
 	color: DodgerBlue;
 	margin: 8px;
+  vertical-align: bottom;
 }
 
 .gearcalc h6 {
@@ -134,7 +136,10 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 65%;
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+
 }
 
 .gearcalc img {
@@ -161,15 +166,16 @@ img {
 }
 
 .navbar {
-  font-family: 'Arial';
+  font-family: 'Century Gothic';
   margin: 0;
+  font-weight: bold;
   overflow: hidden;
   background-color: #333;
 }
 
 /* Links inside the navbar */
 .navbar a {
-  font-family: 'Arial';
+  font-family: 'Century Gothic';
   float: left;
   font-size: 16px;
   color: white;
@@ -182,14 +188,16 @@ img {
 
 /* The dropdown container */
 .dropdown {
-  font-family: 'Arial';
+  font-family: 'Century Gothic';
+  font-weight: bold;
   float: left;
   overflow: hidden;
 }
 
 /* Dropdown button */
 .dropdown .dropbtn {
-  font-family: 'Arial';
+  font-family: 'Century Gothic';
+  font-weight: bold;
   font-size: 16px;
   border: none;
   outline: none;
@@ -222,7 +230,7 @@ img {
 
 /* Dropdown content (hidden by default) */
 .dropdown-content {
-  font-family: 'Arial';
+  font-family: 'Century Gothic';
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -233,7 +241,7 @@ img {
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  font-family: 'Arial';
+  font-family: 'Century Gothic';
   float: none;
   color: black;
   padding: 14px 16px;
@@ -261,6 +269,8 @@ ul {
 
 ul.decals li {
 	word-wrap: break-word;
+  vertical-align: top;
+  height: 350px;
     width: 23%; /* adjust the size of the catalog block */
     display: inline-block; /* this creates the catalog effect */
     text-align: center; /* align the image to center */
@@ -273,37 +283,90 @@ ul.decals li {
 	margin: 2px 0px;
 }
 
+.in-out-wrapper {
+  border: 0px solid #282828;
+  overflow: hidden;
+}
+.in-wrapper {
+  display: inline-block;
+  width:72%;
+  min-width: 900px;
+  float: left;
+}
+.out-wrapper {
+  display: inline-block;
+  width:28%;
+  min-width: 300px;
+  float: center;
+}
+
+.bordered-div{
+  border: 6px solid #282828;
+  border-radius: 6px;
+}
+
+#printlist2 {
+  padding-top: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+ul.gearcalc {
+  width: 98%;
+}
+
 ul.gearcalc li {
-    width: 18%; /* adjust the size of the catalog block */
+    width: 23%; /* adjust the size of the catalog block */
+    height: 190px;
+    vertical-align: top;
     display: inline-block; /* this creates the catalog effect */
     text-align: center; /* align the image to center */
     background-color:#282828 ; /* background color of each */
-    font-family: 'Noto Sans';
+    font-family: 'Century Gothic';
     border-radius: 10px; /* rounded borders effect */
-    border: 0px solid black; /* border and color */
-	padding: 12px 0px;
+    border: 4px solid black; /* border and color */
+	padding: 8px 0px;
 	margin: 0px 0px;
-	transform: translate(-25% 5%);
+}
+
+.gearcalc-printout {
+  vertical-align: top;
+
+  text-align: center; /* align the image to center */
+  background-color:#282828 ; /* background color of each */
+  font-family: 'Century Gothic';
+  border-radius: 10px; /* rounded borders effect */
+  border: 3px solid black; /* border and color */
+  padding: 8px 18px;
+  margin: 1px 25px;
 }
 
 ul.printlist li {
     width: 10%; /* adjust the size of the catalog block */
     text-align: left; /* align the image to center */
     background-color:#282828 ; /* background color of each */
-    font-family: 'Noto Sans';
+    font-family: 'Century Gothic';
     border-radius: 4px; /* rounded borders effect */
     border: 0px solid black; /* border and color */
 	padding: 1px 1px;
 	margin: 2px 2px;
 }
 
-
 input.gearcalc {
 color: green;
 }
 
+.gearcalc-top {
+  vertical-align: top;
+  height: 70px;
+  }
+  
+  .gearcalc-bottom {
+    vertical-align: bottom;
+  }
+
 input[type=submit]:hover {
-  background-color: #darkred;
+  background-color: darkred;
 }
 
 input[type=number], select {
@@ -354,6 +417,8 @@ input[type=button], input[type=submit], input[type=reset] {
   position: center;
   margin: 8px;
   left: 50%;
+  font-family: 'Century Gothic';
+  font-weight: bold;
 
   cursor: pointer;
 }
@@ -465,4 +530,46 @@ input[type=button], input[type=submit], input[type=reset] {
   border-radius: 50%;
   background: white;
   cursor: pointer;
+}
+
+.decal-catalog h4 {
+	color: White;
+}
+
+.decal-catalog h6 {
+	color: DodgerBlue;
+	margin: 8px;
+}
+
+ ul.decal-catalog li {
+	word-wrap: break-word;
+  vertical-align: top;
+  height: 350px;
+    width: 23%; 
+    display: inline-block; 
+    text-align: center;
+    background-color: red; 
+	background-image: linear-gradient(to bottom, rgb(80, 80, 78), rgb(40, 40, 42));
+    font-family: 'Noto Sans';
+    border-radius: 10px; 
+    border: 2px solid black; 
+	padding: 5px;
+	margin: 2px 0px;
+} 
+
+.decal-catalog img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 250px;
+  object-fit: contain;
+}
+
+.decal-catalog-top {
+vertical-align: top;
+}
+
+.decal-catalog-bottom {
+  vertical-align: bottom;
 }
