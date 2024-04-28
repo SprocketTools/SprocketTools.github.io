@@ -340,6 +340,35 @@ ul.gearcalc li:hover {
   transition: height 0.25s ease-in, border 0.25s ease-in;
 }
 
+ul.decal-menu {
+  width: 60%;
+}
+
+ul.decal-menu li {
+    width: 200px; /* adjust the size of the catalog block */
+    height: 80px;
+    vertical-align: top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 1000px 1000px;
+    display: inline-block; /* this creates the catalog effect */
+    text-align: center; /* align the image to center */
+    background-color:#cccccc ; /* background color of each */
+    font-family: century-gothic;
+    border-radius: 10px; /* rounded borders effect */
+    border: 4px solid rgb(0, 0, 0); /* border and color */
+    transition: height 0.25s ease-in, border 0.25s ease-in;
+	padding: 8px 0px;
+	margin: 0px 0px;
+}
+
+ul.decal-menu li:hover {
+  background-position: center bottom;
+  height: 80px;
+  border: 4px solid red;
+  transition: height 0.25s ease-in, border 0.25s ease-in;
+}
+
 .gearcalc-printout {
   vertical-align: top;
 
