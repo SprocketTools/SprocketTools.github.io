@@ -63,17 +63,17 @@
 						</div>	
 						</li>
 						
-						<li>
+						<li style="background-image: url('GearCalcPics/limit-rpm.png');">
 						<h4 class="gearcalc-top">RPM limit</h4>
 						<input type="number" min="1" step="1" value="2800" id="RPM">
 						</li>
 						
-						<li>
+						<li style="background-image: url('GearCalcPics/horsepower.png');">
 						<h4 class="gearcalc-top">Horsepower Output</h4>
 						<input type="number" min="1" step="1" value="560" id="HP">
 						</li>
 
-						<li>
+						<li style="background-image: url('GearCalcPics/vehicle-weight.png');">
 						<h4 class="gearcalc-top">Vehicle Weight</h4>
 						<input type="number" min="1" step="1" value="28" id="Weight">
 						</li>
@@ -81,7 +81,7 @@
 						<h4 class="gearcalc-top">Climbing Angle (degrees)</h4>
 						<input type="number" min="10" max="90" step="1" value="35" id="Angle">
 						</li>
-						<li>
+						<li style="background-image: url('GearCalcPics/drive-gears.png');">
 						<h4 class="gearcalc-top">Total Gear Count</h4>
 						<input type="number" min="1" max="11" step="1" value="8" id="GearCount">
 						</li>
@@ -90,8 +90,8 @@
 			</div>	
 
 			<center>
-			<h4>Prioritize acceleration <input type="checkbox" id="acceleration" name="vehicle1"></h4>
-			<h4>Use legacy formula <input type="checkbox" id="legacyformula" name="vehicle2"></h4>
+			<h4>Prioritize acceleration <nl/>(bigger starting gears)<input type="checkbox" id="acceleration" name="vehicle1"></h4>
+			<h4>Use legacy formula <nl/>(less optimized curve)<input type="checkbox" id="legacyformula" name="vehicle2"></h4>
 			<input onclick="Calculate()" type="submit">
 			</center>
 		</div>

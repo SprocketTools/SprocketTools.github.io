@@ -319,14 +319,25 @@ ul.gearcalc li {
     width: 23%; /* adjust the size of the catalog block */
     height: 190px;
     vertical-align: top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 1000px 1000px;
     display: inline-block; /* this creates the catalog effect */
     text-align: center; /* align the image to center */
     background-color:#282828 ; /* background color of each */
     font-family: century-gothic;
     border-radius: 10px; /* rounded borders effect */
     border: 4px solid black; /* border and color */
+    transition: height 0.25s ease-in, border 0.25s ease-in;
 	padding: 8px 0px;
 	margin: 0px 0px;
+}
+
+ul.gearcalc li:hover {
+  background-position: center bottom;
+  height: 250px;
+  border: 4px solid red;
+  transition: height 0.25s ease-in, border 0.25s ease-in;
 }
 
 .gearcalc-printout {
@@ -358,7 +369,7 @@ color: green;
 
 .gearcalc-top {
   vertical-align: top;
-  height: 70px;
+  height: 60px;
   }
   
   .gearcalc-bottom {
