@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 body {
-	font-family: 'Century Gothic';
+	font-family: century-gothic, sans-serif;
 	background-color: rgb(10,10,10) !important;
 	padding-top: 0px;
 	min-height: 150px;
