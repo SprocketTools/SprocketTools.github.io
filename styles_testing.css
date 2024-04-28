@@ -166,7 +166,7 @@ img {
 }
 
 .navbar {
-  font-family: 'Century Gothic';
+  font-family: century-gothic;
   margin: 0;
   font-weight: bold;
   overflow: hidden;
@@ -175,7 +175,7 @@ img {
 
 /* Links inside the navbar */
 .navbar a {
-  font-family: 'Century Gothic';
+  font-family: century-gothic;
   float: left;
   font-size: 16px;
   color: white;
@@ -188,7 +188,7 @@ img {
 
 /* The dropdown container */
 .dropdown {
-  font-family: 'Century Gothic';
+  font-family: century-gothic;
   font-weight: bold;
   float: left;
   overflow: hidden;
@@ -196,7 +196,7 @@ img {
 
 /* Dropdown button */
 .dropdown .dropbtn {
-  font-family: 'Century Gothic';
+  font-family: century-gothic;
   font-weight: bold;
   font-size: 16px;
   border: none;
@@ -230,7 +230,7 @@ img {
 
 /* Dropdown content (hidden by default) */
 .dropdown-content {
-  font-family: 'Century Gothic';
+  font-family: century-gothic;
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -241,7 +241,7 @@ img {
 
 /* Links inside the dropdown */
 .dropdown-content a {
-  font-family: 'Century Gothic';
+  font-family: century-gothic;
   float: none;
   color: black;
   padding: 14px 16px;
@@ -322,7 +322,7 @@ ul.gearcalc li {
     display: inline-block; /* this creates the catalog effect */
     text-align: center; /* align the image to center */
     background-color:#282828 ; /* background color of each */
-    font-family: 'Century Gothic';
+    font-family: century-gothic;
     border-radius: 10px; /* rounded borders effect */
     border: 4px solid black; /* border and color */
 	padding: 8px 0px;
@@ -334,7 +334,7 @@ ul.gearcalc li {
 
   text-align: center; /* align the image to center */
   background-color:#282828 ; /* background color of each */
-  font-family: 'Century Gothic';
+  font-family: century-gothic;
   border-radius: 10px; /* rounded borders effect */
   border: 3px solid black; /* border and color */
   padding: 8px 18px;
@@ -345,7 +345,7 @@ ul.printlist li {
     width: 10%; /* adjust the size of the catalog block */
     text-align: left; /* align the image to center */
     background-color:#282828 ; /* background color of each */
-    font-family: 'Century Gothic';
+    font-family: century-gothic;
     border-radius: 4px; /* rounded borders effect */
     border: 0px solid black; /* border and color */
 	padding: 1px 1px;
@@ -417,7 +417,7 @@ input[type=button], input[type=submit], input[type=reset] {
   position: center;
   margin: 8px;
   left: 50%;
-  font-family: 'Century Gothic';
+  font-family: century-gothic;
   font-weight: bold;
 
   cursor: pointer;
