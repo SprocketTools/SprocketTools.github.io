@@ -245,6 +245,51 @@ img {
   z-index: 1;
 }
 
+.contest-list h2 {
+	color: White;
+  margin: 16px;
+  vertical-align: bottom;
+}
+
+.contest-list h3 {
+	color: rgb(255, 0, 0);
+  size: 12px;
+  margin: 16px;
+  vertical-align: bottom;
+}
+
+.contest-list h4 {
+	color: White;
+  margin: 16px;
+  vertical-align: bottom;
+}
+
+.contest-list h5 {
+	color: DodgerBlue;
+	margin: 16px;
+  vertical-align: bottom;
+}
+
+.contest-list h6 {
+	color: #282828;
+	margin: 12px;
+  vertical-align: bottom;
+}
+
+ul.contest-list li {
+	word-wrap: break-word;
+  vertical-align: top;
+    display: inline-block; /* this creates the catalog effect */
+    text-align: left; /* align the image to center */
+    background-color: red; /* For browsers that do not support gradients */
+	  background-image: linear-gradient(to top, rgb(40, 40, 38), rgb(30, 30, 32));
+    font-family: century-gothic;
+    border-radius: 10px; /* rounded borders effect */
+    border: 2px solid black; /* border and color */
+	padding: 8px;
+	margin: 2px 0px;
+}
+
 /* Links inside the dropdown */
 .dropdown-content a {
   font-family: century-gothic;
