@@ -52,8 +52,14 @@ label {
   vertical-align: bottom;
 }
 
-.decals h6 {
+.decals h5 {
 	color: DodgerBlue;
+	margin: 10px;
+  vertical-align: bottom;
+}
+
+.decals h6 {
+	color: #282828;
 	margin: 8px;
   vertical-align: bottom;
 }
@@ -271,7 +277,7 @@ ul.decals li {
 	word-wrap: break-word;
   vertical-align: top;
   height: 350px;
-    width: 23%; /* adjust the size of the catalog block */
+    width: 400px; /* adjust the size of the catalog block */
     display: inline-block; /* this creates the catalog effect */
     text-align: center; /* align the image to center */
     background-color: red; /* For browsers that do not support gradients */
