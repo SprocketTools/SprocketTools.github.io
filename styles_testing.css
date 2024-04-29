@@ -371,7 +371,8 @@ ul.decal-menu li:hover {
 }
 
 ul.decal-menu .active {
-  background-color: rgb(150, 0, 0);
+  background-color: rgb(240, 50, 0);
+  padding: 10px 14px;
 }
 
 .gearcalc-printout {
