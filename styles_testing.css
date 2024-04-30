@@ -54,7 +54,7 @@ label {
 
 .decals h5 {
 	color: DodgerBlue;
-	margin: 10px;
+	margin: 6px;
   vertical-align: bottom;
 }
 
@@ -321,7 +321,7 @@ ul {
 ul.decals li {
 	word-wrap: break-word;
   vertical-align: top;
-  height: 360px;
+  height: 369px;
     width: 400px; /* adjust the size of the catalog block */
     display: inline-block; /* this creates the catalog effect */
     text-align: center; /* align the image to center */
