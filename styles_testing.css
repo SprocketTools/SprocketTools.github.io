@@ -55,7 +55,8 @@ label {
 
 .decals h5 {
 	color: DodgerBlue;
-	margin: 12px;
+	margin: 12px 2px;
+  font-size: 12.5px;
   vertical-align: center;
   -webkit-animation: colorchange 4s infinite alternate;
 }
