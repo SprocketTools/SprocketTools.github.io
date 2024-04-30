@@ -50,16 +50,19 @@ label {
 .decals h4 {
 	color: White;
   vertical-align: bottom;
+  margin: 14px;
 }
 
 .decals h5 {
 	color: DodgerBlue;
-	margin: 6px;
-  vertical-align: bottom;
+	margin: 12px;
+  vertical-align: center;
+  -webkit-animation: colorchange 4s infinite alternate;
 }
 
 .decals h6 {
 	color: #8f8f8f;
+  font-size: 12px;
 	margin: 8px;
   vertical-align: bottom;
 }
@@ -669,4 +672,16 @@ vertical-align: top;
 
 .decal-catalog-bottom {
   vertical-align: bottom;
+}
+
+@-webkit-keyframes colorchange {
+  0% {
+    color: rgb(30, 173, 255);
+  }
+  50% {
+    color: rgb(102, 196, 233);
+  }
+  100% {
+    color: cyan;
+  }
 }
