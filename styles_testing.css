@@ -3,7 +3,7 @@
 
 body {
 	font-family: Arial;
-  background: radial-gradient(#121212, #080808);
+  background: linear-gradient(to left, #090909, #111111, #090909);
   background-repeat: no-repeat
   padding-top: 0px;
 	min-height: 150px;
@@ -19,7 +19,7 @@ p {
 	margin:2px;
 }
 h1 {
-    color: red;
+    color: rgb(240, 20, 20);
 	margin: 14px;
 }
 
@@ -28,7 +28,7 @@ h2 {
 }
 
 h3 {
-	color: red;
+	color: rgb(240, 20, 20);
 }
 
 h4 {
@@ -71,7 +71,7 @@ label {
 }
 
 .gearcalc h6 {
-	color: red;
+	color: rgb(240, 20, 20);
 	margin: 22px;
 }
 
@@ -89,21 +89,21 @@ button.enter {
   outline: black;
   outline-width: 2px;
   color: #fff;
-  background-color: red;
+  background-color: FireBrick;
   border-style:none;
   border: none;
   border-radius: 25px 20px;
   box-shadow: 0 9px #999;
 }
 
-button.enter:hover {background-color: red}
+button.enter:hover {background-color: firebrick}
 button:focus {
   outline: none;
  
 }
 
 button.enter:active {
-  background-color: #ca0000;
+  background-color: firebrick;
   box-shadow: 0 0px #666;
   transform: translateY(4px);
   outline: black;
@@ -127,7 +127,7 @@ a:hover {
 
 /* selected link */
 a:active {
-  color: red;
+  color: FireBrick;
 }
 
 padlist {
@@ -190,7 +190,7 @@ img {
   overflow: hidden;
   margin-bottom: 20px;
 
-  background-color: #282828;
+  background-color: #333;
 }
 
 /* Links inside the navbar */
@@ -206,7 +206,7 @@ img {
   
   margin: 6px;
   text-decoration: none;
-  background-color: #555;
+  background-color: #666;
   border-radius: 6px;
 }
 
@@ -247,9 +247,9 @@ img {
 	color: white;
 }
 
-/* Add a red background color to navbar links on hover */
+/* Add a FireBrick background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: FireBrick;
   border-radius: 4px;
 }
 
@@ -299,7 +299,7 @@ ul.contest-list li {
   vertical-align: top;
     display: inline-block; /* this creates the catalog effect */
     text-align: left; /* align the image to center */
-    background-color: red; /* For browsers that do not support gradients */
+    background-color: FireBrick; /* For browsers that do not support gradients */
 	  background-image: linear-gradient(to top, rgb(40, 40, 38), rgb(30, 30, 32));
     font-family: century-gothic;
     border-radius: 10px; /* rounded borders effect */
@@ -342,7 +342,7 @@ ul.decals li {
     width: 400px; /* adjust the size of the catalog block */
     display: inline-block; /* this creates the catalog effect */
     text-align: center; /* align the image to center */
-    background-color: red; /* For browsers that do not support gradients */
+    background-color: FireBrick; /* For browsers that do not support gradients */
 	background-image: linear-gradient(to bottom, rgb(80, 80, 78), rgb(40, 40, 42));
     border-radius: 10px; /* rounded borders effect */
     border: 2px solid black; /* border and color */
@@ -367,7 +367,7 @@ ul.decals li {
   float: center;
 }
 
-.bordered-div{
+.bordeFireBrick-div{
   border: 6px solid #282828;
   border-radius: 6px;
 }
@@ -402,7 +402,7 @@ ul.gearcalc li {
 ul.gearcalc li:hover {
   background-position: center bottom;
   height: 250px;
-  border: 4px solid red;
+  border: 4px solid FireBrick;
   transition: height 0.25s ease-in, border 0.25s ease-in;
 }
 
@@ -421,7 +421,7 @@ ul.decal-menu li {
     font-size: 120%;
     display: inline-block; /* this creates the catalog effect */
     text-align: center; /* align the image to center */
-    background-color: rgb(80, 30, 30); /* background color of each */
+    background-color: rgb(80, 50, 50); /* background color of each */
     color: #f9f9f9;
     border-radius: 8px; /* rounded borders effect */
     border: 2px solid rgb(0, 0, 0); /* border and color */
@@ -432,7 +432,7 @@ ul.decal-menu li {
 
 ul.decal-menu li:hover {
   background-position: center bottom;
-  background-color: red;
+  background-color: FireBrick;
   transition: height 0.1s ease-in, background-color 0.25s ease-in;
 }
 
@@ -476,7 +476,7 @@ color: green;
   }
 
 input[type=submit]:hover {
-  background-color: darkred;
+  background-color: darkFireBrick;
 }
 
 input[type=number], select {
@@ -503,22 +503,22 @@ input[type=text], select {
 
 input[type=number] {
   border: none;
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid FireBrick;
 }
 
 input[type=text] {
   border: none;
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid FireBrick;
 }
 
 input[type=number]:focus {
-  background-color: lightred;
+  background-color: lightFireBrick;
 }
 
 input[type=button], input[type=submit], input[type=reset] {
 	width: 12%;
 	font-size: 100%;
-  background-color: red;
+  background-color: FireBrick;
   border: 2px solid black;
   color: white;
   padding: 16px 32px;
@@ -574,13 +574,13 @@ input[type=button], input[type=submit], input[type=reset] {
   transition: opacity .2s;
 }
 
-.red_slider {
+.FireBrick_slider {
   -webkit-appearance: none;
-  color: red;
+  color: FireBrick;
   width: 80%;
   height: 15px;
   border-radius: 5px;  
-  background: red;
+  background: FireBrick;
   outline: none;
   opacity: 0.7;
   -webkit-transition: .2s;
@@ -607,7 +607,7 @@ input[type=button], input[type=submit], input[type=reset] {
   cursor: pointer;
 }
 
-.red_slider::-webkit-slider-thumb {
+.FireBrick_slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 25px;
@@ -617,7 +617,7 @@ input[type=button], input[type=submit], input[type=reset] {
   cursor: pointer;
 }
 
-.red_slider::-moz-range-thumb {
+.FireBrick_slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -657,7 +657,7 @@ input[type=button], input[type=submit], input[type=reset] {
     width: 23%; 
     display: inline-block; 
     text-align: center;
-    background-color: red; 
+    background-color: FireBrick; 
 	background-image: linear-gradient(to bottom, rgb(80, 80, 78), rgb(40, 40, 42));
     border-radius: 10px; 
     border: 2px solid black; 
