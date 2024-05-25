@@ -22,6 +22,10 @@ h1 {
 	margin: 14px;
 }
 
+.red {
+  color: rgb(250, 30, 30);
+}
+
 h2 {
     color: white;
 }

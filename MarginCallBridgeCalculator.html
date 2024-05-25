@@ -1,0 +1,255 @@
+<html>
+  <head>
+		<title>Margin Call Bridge Calculator</title>
+		
+		<link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
+		<link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
+		<link rel="stylesheet" href="styles_testing.css">
+		<style>
+		</style> 
+  </head>
+  
+  <body style="background: linear-gradient(to left, #151515, #181818, #151515);">
+	<div class="navbar">
+		<img src="SprocketToolsLogo.png"/>
+		<a href="index.html">Home</a>
+		<a href="TopGearCalculator.html">Gear Calculator</a>
+		<a href="ContestsList.html">Contests</a>
+		
+		<a href="VehicleGenerator.html">Random Tank Picker</a>
+		<a href="resources.html">Guides</a>
+		<a href="credits.html">Credits</a>
+		<a href="https://www.youtube.com/watch?v=p7YXXieghto">Get Trolled</a>
+		<a href="DecalsFeatured.html">Decal Catalog</a>
+        <a href="DecalsRGBmaker.html">RGB Decal Maker</a>
+		<a class="active" href="TopGearCalculator.html">Margin Call Bridge Calculator</a>
+	</div>
+	<h6 style="font-size: 0px;">Why are you reading this.  You should not be reading this.</h6>
+	<div style="padding-left: 15%; padding-right: 15%;">
+		<h1 class="text-center">The "Margin Call" bridge scene</h1>
+		<h2>In this scene, we can see a rather complex list of unit conversions being made.  Using only four pieces of data, Eric Dale is able to calculate how many total miles of driving are done on the bridge over a given timespan.  This in turn is used to calculate how many hours of time are saved due to the bridge.</h2>
+		<h2>To replicate these calculations ourselves, let's first break down the math used:</h2>
+		<h2 class="red">Variable 1: number daily bridge users (12,100)</h2>
+		<h2 class="red">Variable 2: length of the original route from before the bridge was built (35 miles)</h2>
+		<h2 class="red">Variable 3: average speed of that original route (50 miles per hour)</h2>
+		<h2 class="red">Variable 4: Age of the bridge in years</h2>
+		<h2>To get the number of times the bridge is crossed per day, we multiply the number of daily bridge users by two:</h2>
+		<h2 class="red">12,100 x 2 = 24,200 bridge crossings per day</h2>
+		<h2>To get the total distance saved per day, multiply this number by the length of the saved path:</h2>
+		<h2 class="red">24,200 x 35 = 847,000 miles saved per day</h2>
+		<h2>To get the average total distance saved per month, we will need to calculate the average number of days in a month.  This requires the average amount of days in a year (365.25), and the amount of months in a year (12).</h2>
+		<h2 class="red">365.25 / 12 = 30.4375 days in a month</h2>
+		<h2 class="red">30.4375 x 847,000 = 25,780,562.5 miles saved per month (on average)</h2>
+		<h2>To get the average total distance saved per year, this number should be multiplied by 12:</h2>
+		<h2 class="red">25,780,562.5 x 12 = 309,366,750 miles saved per year (on average)</h2>
+		<h2>To get the total travel distance saved over the bridge's lifespan, this number should be multiplied by the bridge's age (22 years)</h2>
+		<h2 class="red">309,366,750 x 22 = 6,806,068,500 miles saved</h2>
+		<h2>In the movie, Eric calculated that his bridge had saved drivers <a class="red">6,708,240,000</a> miles of driving between both cities.  His number was surprisingly close to the calculated average number, but it was not exact.</h2>
+		<h2></h2>
+		<h2>Afterwards, Eric began calculating how much time the bridge had saved the community.  Using an estimated speed, he divided the total miles saved by the average speed of a car on that route:</h2>
+		<h2 class="red">6,806,068,500 / 50 = 136,121,370 hours of time saved</h2>
+		<h2>To convert this number to days, he divided it by 24:</h2>
+		<h2 class="red">136,121,370 / 24 = 5,671,723.75</h2>
+		<h2>To convert this number to years, he divided again by the amount of days in a year:</h2>
+		<h2 class="red">5,671,723.75 / 365.25 = 15,528.33 years of time saved</h2>
+		<h2>In the movie, Eric calculated a number of <a class="red">1,531</a> years.  This number is incorrect by a factor of 10, meaning that it is likely he messed up the final calculation by shifting the decimal place.</h2>
+		<h2>Eric believes that using data and performing unit conversions to more useful information can help to summarize the impact or scale of things in an efficient manner.  Examples of applying this can include calculating how many people would be serviced by constructing a power plant, by using the average power consumption of nearby homes to see how many homes will be serviced.  Another example would be determining the increase in a company's revenue from adding another production line to a factory, which can be found using its expected outcut rate and the average profit per item sold.</h2>
+			
+	</div>
+
+
+			<div class="widecontainer">
+			<center>
+				<h1 class="text-center">Margin Call Bridge Calculator</h1>
+					
+					<h4>Enter your stats and click <i>Submit</i></h4>
+					<ul class="gearcalc">
+						<li>
+						<h4 class="gearcalc-top">Age of bridge (years)</h4>
+						<div style="position: relative;"><input type="number" min="0" step="1" value="22" id="Bage">
+						</div>	
+						</li>
+
+						<li>
+						<h4 class="gearcalc-top">Bridge users per day</h4>
+						<div style="position: relative;"><input type="number" min="0" step="1" value="12100" id="carsPday">
+						</div>	
+						</li>
+
+						<li>
+						<h4 class="gearcalc-top">Distance of old route (miles)</h4>
+						<div style="position: relative;"><input type="number" min="0" step="1" value="35" id="Dcut">
+						</div>	
+						</li>
+						
+						<li>
+							<h4 class="gearcalc-top">Average speed of old route</h4>
+							<div style="position: relative;"><input type="number" min="0" step="1" value="50" id="Dspeed">
+							</div>	
+							</li>
+					</ul>
+				</center>
+			</div>	
+
+			<center>
+			<h4>Enable bridge radio station<input type="checkbox" onclick="music()" id="roller"></h4>
+			<h4 hidden>Enable bridge radio station <input type="checkbox" id="fake"></h4>
+			<h4 style="font-size: 0px;" id="player">hi</h4>
+			<input onclick="Calculate()" type="submit">
+			</center>
+
+			<center>
+			<div id="printlist2" class="widecontainer">
+				<h5>Your results will appear here.</h5>
+				<h4 id="topspeed"></h4>
+				</div>
+					<script>
+					function music() {
+						const audio = new Audio('radio.wav');
+						audio.play();
+						var roller = document.getElementById("roller")
+						var fake = document.getElementById("fake")
+						roller.style.visibility = "hidden";
+						fake.style.visibility = "visible";
+
+					}
+					function Calculate() {
+						var foo = document.getElementById('printlist2');
+						while (foo.firstChild) foo.removeChild(foo.firstChild);
+					
+						let age = document.getElementById('Bage').value;
+						let users = document.getElementById('carsPday').value;
+						let oldDistance = document.getElementById('Dcut').value;
+						let oldSpeed = document.getElementById('Dspeed').value;
+						
+						let crossDay = users*2;
+						let milesDay = crossDay*oldDistance;
+						let milesMonth = milesDay*30.4375;
+						let milesYear = milesMonth*12;
+						let milesLife = milesYear*age;
+						let savedHours = milesLife/oldSpeed;
+						let savedDays = savedHours/24;
+						let savedYears = savedDays/365.25;
+						let savedWorkers = savedYears/15;
+
+						para = document.createElement("h4");
+						node = document.createTextNode("Over the bridge's lifetime:");
+						para.appendChild(node);
+						document.getElementById("printlist2").appendChild(para);
+
+						para = document.createElement("h4");
+						node = document.createTextNode(milesLife.toLocaleString() + " miles of travelling were saved by the bridge.");
+						para.appendChild(node);
+						document.getElementById("printlist2").appendChild(para);
+
+						para = document.createElement("h4");
+						node = document.createTextNode(savedYears.toLocaleString() + " years of travelling were saved by the bridge.");
+						para.appendChild(node);
+						document.getElementById("printlist2").appendChild(para);
+
+						para = document.createElement("h4");
+						node = document.createTextNode("This is equivalent to the working hours of " + Math.round(savedWorkers).toLocaleString() + " people!");
+						para.appendChild(node);
+						document.getElementById("printlist2").appendChild(para);
+					}
+					function CalculateOld() {
+						let H = document.getElementById('HP').value;
+						H = 100*H/101;
+						var checkBox = document.getElementById("acceleration");
+						var legacyFormula = document.getElementById("legacyformula");
+						
+						let W = document.getElementById('Weight').value;
+						let L = document.getElementById('RPM').value;
+						let S = document.getElementById('Diameter').value;
+						let Angle = document.getElementById('Angle').value;
+						let perCylDisp = document.getElementById('perCylDisp').value;
+						let TopSpeed = (13 * (H ** 0.5) ) / ( (R ** 0.8) * (W ** 0.5) );
+						TopSpeed = Math.round(10*TopSpeed)/10
+						const topspeedprintout = document.createElement("h4");
+						
+						const topspeednode = document.createTextNode("Your top speed is " + TopSpeed + " km/h");
+						topspeedprintout.className = "gearcalc-printout"
+						topspeedprintout.appendChild(topspeednode);
+						document.getElementById("printlist2").appendChild(topspeedprintout);
+						
+						let FinalGear = (60*3.14159*L*S*10) / (11*10000*TopSpeed)
+						FinalGear = Math.round(100*FinalGear)/100
+						let Torque = (9.5492/L)*746*H;
+						let Gear1 = Math.round(11*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100;
+						if(checkBox.checked == true){
+							Gear1 = Math.round(Gear1*112)/100;
+						}
+						let GearCount = document.getElementById('GearCount').value;
+						if(GearCount > 1600){
+							window.open("https://www.youtube.com/watch?v=dCO89JvatxQ");
+						}
+						const gear1printout = document.createElement("h4");
+						
+						const gear1node = document.createTextNode("Gear 1 is " + Gear1);
+						gear1printout.appendChild(gear1node);
+						document.getElementById("printlist2").appendChild(gear1printout);
+						let R2 = 2.0;
+						G2 = Gear1/R2;
+						let RN = ((FinalGear/G2) ** (1/(GearCount - 2)));
+						let gear_print = 0;
+						if (legacyFormula.checked == true){
+							for (let i = 2; i < GearCount; i++) {
+								gear_print = G2*((FinalGear/G2)**((i-2)/(GearCount-2)));
+								
+								para = document.createElement("h4");
+								gear_print = Math.round(100*gear_print)/100;
+								node = document.createTextNode("Gear " + i + " is " + gear_print);
+
+								para.appendChild(node);
+								document.getElementById("printlist2").appendChild(para);
+
+							}
+								para = document.createElement("h4");
+								node = document.createTextNode("Gear " + GearCount + " is " + FinalGear);
+								para.appendChild(node);
+
+								document.getElementById("printlist2").appendChild(para);
+								
+						}
+						else{	
+							let kvalue = Math.log(Gear1/FinalGear/2)/Math.log(GearCount/2);
+							for (let i = 2; i < GearCount; i++) {
+								gear_print = Gear1/((Math.pow(2, (1-kvalue)))*Math.pow(i, kvalue));
+								
+								para = document.createElement("h4");
+								gear_print = Math.round(100*gear_print)/100;
+								node = document.createTextNode("Gear " + i + " is " + gear_print);
+
+								para.appendChild(node);
+								document.getElementById("printlist2").appendChild(para);
+
+								
+							}
+								para = document.createElement("h4");
+								node = document.createTextNode("Gear " + GearCount + " is " + FinalGear);
+
+								para.appendChild(node);
+								document.getElementById("printlist2").appendChild(para);
+						}
+
+						let idealRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) / 1.01)
+						let downRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) / 1.9)
+
+						para = document.createElement("h5");
+						node = document.createTextNode("Set your upshift slider to " + idealRPM + " RPM");
+
+						para.appendChild(node);
+						document.getElementById("printlist2").appendChild(para);
+
+						para = document.createElement("h5");
+						node = document.createTextNode("Set your downshift to " + downRPM + " RPM");
+
+						para.appendChild(node);
+						document.getElementById("printlist2").appendChild(para);
+
+					}
+				</script>
+			</center>
+
+  </body>
+</html>
