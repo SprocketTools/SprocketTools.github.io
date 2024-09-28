@@ -4,7 +4,7 @@
 		
 		<link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
 		<link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
-		<link rel="stylesheet" href="styles_testing.css">
+		<link rel="stylesheet" href="styles_V3.css">
 		<style>
 		</style> 
   </head>
@@ -24,207 +24,199 @@
         <a href="DecalsRGBmaker.html">RGB Decal Maker</a>
 	</div>
 	<h6 style="font-size: 0px;">The best Sprocket Tank Design powertrain calculator!  Removes all the guesswork from calculating your transmission and engine setups.</h6>
-	<div class="in-out-wrapper">
-		<div class="in-wrapper">
-			<div class="widecontainer">
-			<center>
-				<h1 class="text-center">Gear Calculator</h1>
-					
-					<h4>Enter your tank's stats and click <i>Submit</i></h4>
-					<ul class="gearcalc">
-						<li>
-						<h4 class="gearcalc-top">Vehicle Era</h4>
-							<input list="browsers" type="text" name="browser" id="browser">
-							<datalist id="browsers">
-								<option value="WWI">
-								<option value="Interwar">
-								<option value="Earlywar">
-								<option value="Midwar">
-								<option value="Latewar">
-								<option value="Late WWII (0.2 alpha)">
-							</datalist>
-						</li>
-
-						<li>
-						<h4 class="gearcalc-top">Sprocket Diameter</h4>
-						<div style="position: relative;">
-							<input type="number" min="0.01" step="0.01" value="0.6" id="Diameter">
-						</div>	
-						</li>
-						
-						<li style="background-image: url('GearCalcPics/limit-rpm.png');">
-						<h4 class="gearcalc-top">RPM limit</h4>
-						<input type="number" min="1" step="1" value="2800" id="RPM">
-						</li>
-						
-						<li style="background-image: url('GearCalcPics/horsepower.png');">
-						<h4 class="gearcalc-top">Horsepower Output</h4>
-						<input type="number" min="1" step="1" value="560" id="HP">
-						</li>
-
-						<li style="background-image: url('GearCalcPics/vehicle-weight.png');">
-						<h4 class="gearcalc-top">Vehicle Weight</h4>
-						<input type="number" min="1" step="1" value="28" id="Weight">
-						</li>
-						<li>
-						<h4 class="gearcalc-top">Climbing Angle (degrees)</h4>
-						<input type="number" min="10" max="90" step="1" value="35" id="Angle">
-						</li>
-						<li style="background-image: url('GearCalcPics/drive-gears.png');">
-						<h4 class="gearcalc-top">Total Gear Count</h4>
-						<input type="number" min="1" max="11" step="1" value="8" id="GearCount">
-						</li>
-						<li>
-							<h4 class="gearcalc-top">Per-cylinder Displacement</h4>
-							<input type="number" min="0.01" step="0.01" value="2.4" id="perCylDisp">
-							</li>
-					</ul>
-				</center>
-			</div>	
-
-			<center>
-			<h4>Prioritize acceleration <nl/>(bigger starting gears)<input type="checkbox" id="acceleration" name="vehicle1"></h4>
-			<h4>Use legacy formula <nl/>(less optimized curve)<input type="checkbox" id="legacyformula" name="vehicle2"></h4>
-			<input onclick="Calculate()" type="submit">
-			</center>
-		</div>
-		<div class="out-wrapper">
-			<center>
-			<div id="printlist2" class="widecontainer">
-				<h5 class="gearcalc-printout">Your results will appear here.</h5>
-				<h4 id="topspeed"></h4>
-				</div>
-					<script>
-					function Calculate() {
-						var foo = document.getElementById('printlist2');
-						while (foo.firstChild) foo.removeChild(foo.firstChild);
-					
-						let era = document.getElementById('browser').value;
-						let R = 2;
-						let eraBaseRPM = 3000;
-						if(era == 'WWI'){
-							R = 4;
-							eraBaseRPM = 1500;
-						}
-						if(era == 'Interwar'){
-							R = 3;
-							eraBaseRPM = 2700;
-						}
-						if(era == 'Earlywar'){
-							R = 1.5;
-							eraBaseRPM = 3100;
-						}
-						if(era == 'Midwar'){
-							R = 1.25;
-							eraBaseRPM = 3800;
-						}
-						if(era == 'Latewar'){
-							R = 1;
-							eraBaseRPM = 4000;
-						}
-						if(era == 'Late WWII (0.2 alpha)'){
-							R = 1;
-							eraBaseRPM = 4000;
-						}
-						
-						let H = document.getElementById('HP').value;
-						H = 100*H/101;
-						var checkBox = document.getElementById("acceleration");
-						var legacyFormula = document.getElementById("legacyformula");
-						
-						let W = document.getElementById('Weight').value;
-						let L = document.getElementById('RPM').value;
-						let S = document.getElementById('Diameter').value;
-						let Angle = document.getElementById('Angle').value;
-						let perCylDisp = document.getElementById('perCylDisp').value;
-						let TopSpeed = (13 * (H ** 0.5) ) / ( (R ** 0.8) * (W ** 0.5) );
-						TopSpeed = Math.round(10*TopSpeed)/10
-						const topspeedprintout = document.createElement("h4");
-						
-						const topspeednode = document.createTextNode("Your top speed is " + TopSpeed + " km/h");
-						topspeedprintout.className = "gearcalc-printout"
-						topspeedprintout.appendChild(topspeednode);
-						document.getElementById("printlist2").appendChild(topspeedprintout);
-						
-						let FinalGear = (60*3.14159*L*S*10) / (11*10000*TopSpeed)
-						FinalGear = Math.round(100*FinalGear)/100
-						let Torque = (9.5492/L)*746*H;
-						let Gear1 = Math.round(11*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100;
-						if(checkBox.checked == true){
-							Gear1 = Math.round(Gear1*112)/100;
-						}
-						let GearCount = document.getElementById('GearCount').value;
-						if(GearCount > 1600){
-							window.open("https://www.youtube.com/watch?v=dCO89JvatxQ");
-						}
-						const gear1printout = document.createElement("h4");
-						
-						const gear1node = document.createTextNode("Gear 1 is " + Gear1);
-						gear1printout.appendChild(gear1node);
-						document.getElementById("printlist2").appendChild(gear1printout);
-						let R2 = 2.0;
-						G2 = Gear1/R2;
-						let RN = ((FinalGear/G2) ** (1/(GearCount - 2)));
-						let gear_print = 0;
-						if (legacyFormula.checked == true){
-							for (let i = 2; i < GearCount; i++) {
-								gear_print = G2*((FinalGear/G2)**((i-2)/(GearCount-2)));
-								
-								para = document.createElement("h4");
-								gear_print = Math.round(100*gear_print)/100;
-								node = document.createTextNode("Gear " + i + " is " + gear_print);
-
-								para.appendChild(node);
-								document.getElementById("printlist2").appendChild(para);
-
-							}
-								para = document.createElement("h4");
-								node = document.createTextNode("Gear " + GearCount + " is " + FinalGear);
-								para.appendChild(node);
-
-								document.getElementById("printlist2").appendChild(para);
-								
-						}
-						else{	
-							let kvalue = Math.log(Gear1/FinalGear/2)/Math.log(GearCount/2);
-							for (let i = 2; i < GearCount; i++) {
-								gear_print = Gear1/((Math.pow(2, (1-kvalue)))*Math.pow(i, kvalue));
-								
-								para = document.createElement("h4");
-								gear_print = Math.round(100*gear_print)/100;
-								node = document.createTextNode("Gear " + i + " is " + gear_print);
-
-								para.appendChild(node);
-								document.getElementById("printlist2").appendChild(para);
-
-								
-							}
-								para = document.createElement("h4");
-								node = document.createTextNode("Gear " + GearCount + " is " + FinalGear);
-
-								para.appendChild(node);
-								document.getElementById("printlist2").appendChild(para);
-						}
-
-						let idealRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) / 1.01)
-						let downRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) / 1.9)
-
-						para = document.createElement("h5");
-						node = document.createTextNode("Set your upshift slider to " + idealRPM + " RPM");
-
-						para.appendChild(node);
-						document.getElementById("printlist2").appendChild(para);
-
-						para = document.createElement("h5");
-						node = document.createTextNode("Set your downshift to " + downRPM + " RPM");
-
-						para.appendChild(node);
-						document.getElementById("printlist2").appendChild(para);
-
-					}
-				</script>
-			</center>
-		</div>
+	<div>
+		<center>
+			<h1>SprocketTools Gear Calculator</h1>	
+			<h3>Enter your tank's stats and click <i>Submit</i></h3>
+		</center>
 	</div>
+	<div class="wrap">
+		<div class="radio">
+			<h4>Vehicle Era</h4>
+			<input type="radio" id="WWI" name="era" value="WWI" />
+			<label for="WWI">WWI</label>
+		</div>
+		<div class="radio">
+			<input type="radio" id="Interwar" name="era" value="Interwar" />
+			<label for="Interwar">Interwar</label>
+		</div>
+		<div class="radio">
+			<input type="radio" id="Earlywar" name="era" value="Earlywar" />
+			<label for="Earlywar">Earlywar</label>
+		</div>
+		<div class="radio">
+			<input type="radio" id="Midwar" name="era" value="Midwar" />
+			<label for="Midwar">Midwar</label>
+		</div>
+		<div class="radio">
+			<input type="radio" id="Latewar" name="era" value="Latewar" />
+			<label for="Latewar">Latewar</label>
+		</div>
+
+		<h4 >Sprocket Diameter</h4>
+		<input class="numberIn" type="number" min="0.01" step="0.01" value="0.6" id="Diameter">
+
+		<h4 >Vehicle Weight</h4>
+		<input class="numberIn" type="number" min="1" step="1" value="28" id="Weight">
+
+		<h4 >Total Gear Count</h4>
+		<input class="numberIn" type="number" min="1" max="11" step="1" value="8" id="GearCount">
+
+		<h4>Cylinder Displacement</h4>
+		<input class="numberIn" type="number" min="0.01" step="0.01" value="2.4" id="perCylDisp">
+
+		<h4>Cylinder Count</h4>
+		<input class="numberIn" type="number" min="2" step="2" value="6" id="Cylind">
+	</div>
+	<div>
+		<center>
+		<input onclick="Calculate()" type="submit" class="button">
+		</center>
+	</div>
+	<div>
+		<center>
+			<h5 class="gearcalc-printout">Your results will appear here.</h5>
+			<h4 id="printlist2"></h4>
+			<h4 id="topspeed"></h4>	
+		</center>
+	</div>
+	<script>
+		function Calculate() {
+			var foo = document.getElementById('printlist2');
+			while (foo.firstChild) foo.removeChild(foo.firstChild);
+			let cylinderCount = document.getElementById('Cylind').value;
+			var eras = document.getElementsByName('era');
+			var era = 'WWI';
+			for(var i = 0; i < eras.length; i++){
+				if(eras[i].checked){
+					era = eras[i].value;
+				}
+			}
+			let R = 2;
+			let eraBaseRPM = 3000;
+			eraPowerMod = 1;
+			if(era == 'WWI'){
+				R = 4;
+				eraBaseRPM = 1500;
+				eraPowerMod = 0.2333;
+			}
+			if(era == 'Interwar'){
+				R = 3;
+				eraBaseRPM = 2700;
+				eraPowerMod = 0.586;
+			}
+			if(era == 'Earlywar'){
+				R = 1.5;
+				eraBaseRPM = 3100;
+				eraPowerMod = 0.72;
+			}
+			if(era == 'Midwar'){
+				R = 1.25;
+				eraBaseRPM = 3800;
+				eraPowerMod = 0.92;
+			}
+			if(era == 'Latewar'){
+				R = 1;
+				eraBaseRPM = 4000;
+			}
+			if(era == 'Late WWII (0.2 alpha)'){
+				R = 1;
+				eraBaseRPM = 4000;
+			}
+			
+			let H = 40*eraPowerMod*(Math.pow(cylinderCount, 0.7));
+			var checkBox = false;
+			var legacyFormula = false;
+			let W = document.getElementById('Weight').value;
+			let S = document.getElementById('Diameter').value;
+			let Angle = 60;
+			let perCylDisp = document.getElementById('perCylDisp').value;
+			let TopSpeed = (13 * (H ** 0.5) ) / ( (R ** 0.8) * (W ** 0.5) );
+			TopSpeed = Math.round(10*TopSpeed)/10
+			const topspeedprintout = document.createElement("h4");
+			let L = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.1);
+
+			const topspeednode = document.createTextNode("Your top speed is " + TopSpeed + " km/h");
+			topspeedprintout.className = "gearcalc-printout";
+			topspeedprintout.appendChild(topspeednode);
+			document.getElementById("printlist2").appendChild(topspeedprintout);
+			
+			let FinalGear = (60*3.14159*L*S*10) / (11*10000*TopSpeed);
+			FinalGear = Math.round(100*FinalGear)/100;
+			let Torque = (9.5492/L)*746*H;
+			let Gear1 = Math.round(11*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100;
+			if(checkBox.checked == true){
+				Gear1 = Math.round(Gear1*112)/100;
+			}
+			let GearCount = document.getElementById('GearCount').value;
+			if(GearCount > 1600){
+				window.open("https://www.youtube.com/watch?v=dCO89JvatxQ");
+			}
+			const gear1printout = document.createElement("h4");
+			
+			const gear1node = document.createTextNode("Gear 1 is " + Gear1);
+			gear1printout.appendChild(gear1node);
+			document.getElementById("printlist2").appendChild(gear1printout);
+			let R2 = 2.0;
+			G2 = Gear1/R2;
+			let RN = ((FinalGear/G2) ** (1/(GearCount - 2)));
+			let gear_print = 0;
+			if (legacyFormula.checked == true){
+				for (let i = 2; i < GearCount; i++) {
+					gear_print = G2*((FinalGear/G2)**((i-2)/(GearCount-2)));
+					
+					para = document.createElement("h4");
+					gear_print = Math.round(100*gear_print)/100;
+					node = document.createTextNode("Gear " + i + " is " + gear_print);
+
+					para.appendChild(node);
+					document.getElementById("printlist2").appendChild(para);
+
+				}
+					para = document.createElement("h4");
+					node = document.createTextNode("Gear " + GearCount + " is " + FinalGear);
+					para.appendChild(node);
+
+					document.getElementById("printlist2").appendChild(para);
+					
+			}
+			else{	
+				let kvalue = Math.log(Gear1/FinalGear/2)/Math.log(GearCount/2);
+				for (let i = 2; i < GearCount; i++) {
+					gear_print = Gear1/((Math.pow(2, (1-kvalue)))*Math.pow(i, kvalue));
+					
+					para = document.createElement("h4");
+					gear_print = Math.round(100*gear_print)/100;
+					node = document.createTextNode("Gear " + i + " is " + gear_print);
+
+					para.appendChild(node);
+					document.getElementById("printlist2").appendChild(para);
+
+					
+				}
+					para = document.createElement("h4");
+					node = document.createTextNode("Gear " + GearCount + " is " + FinalGear);
+
+					para.appendChild(node);
+					document.getElementById("printlist2").appendChild(para);
+			}
+
+			let idealRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.01)
+			let downRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) / 1.9)
+
+			para = document.createElement("h5");
+			node = document.createTextNode("Set your upshift slider to " + idealRPM + " RPM");
+
+			para.appendChild(node);
+			document.getElementById("printlist2").appendChild(para);
+
+			para = document.createElement("h5");
+			node = document.createTextNode("Set your downshift to " + downRPM + " RPM");
+
+			para.appendChild(node);
+			document.getElementById("printlist2").appendChild(para);
+
+		}
+	</script>
   </body>
 </html>
