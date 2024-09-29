@@ -10,6 +10,7 @@
   </head>
   
   <body>
+	<h6 style="font-size: 0px;">The best Sprocket Tank Design powertrain calculator!  Removes all the guesswork from calculating your transmission and engine setups.</h6>
 	<div class="navbar">
 		<img src="SprocketToolsLogo.png"/>
 		<a href="index.html">Home</a>
@@ -23,62 +24,74 @@
 		<a href="DecalsFeatured.html">Decal Catalog</a>
         <a href="DecalsRGBmaker.html">RGB Decal Maker</a>
 	</div>
-	<h6 style="font-size: 0px;">The best Sprocket Tank Design powertrain calculator!  Removes all the guesswork from calculating your transmission and engine setups.</h6>
+	
 	<div>
 		<center>
 			<h1>SprocketTools Gear Calculator</h1>	
-			<h3>Enter your tank's stats and click <i>Submit</i></h3>
+			<h2>Enter your tank's stats and click <i>Submit</i></h2>
+			<h4>Note: 0.2.18e is <a href="https://github.com/Muushy/Sprocket-Feedback/issues/634">likely bugged</a> - this calculator won't work with it for now.</h4>
 		</center>
 	</div>
 	<div class="wrap">
-		<div class="radio">
-			<h4>Vehicle Era</h4>
-			<input type="radio" id="WWI" name="era" value="WWI" />
-			<label for="WWI">WWI</label>
+		<div class="wrap">
+			<div>
+				<div class="box box200">
+					<h3>Vehicle Era</h3>
+					<div class="radio">
+						<input  type="radio" id="WWI" name="era" value="WWI" />
+						<label for="WWI">WWI</label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="Interwar" name="era" value="Interwar" />
+						<label for="Interwar">Interwar</label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="Earlywar" name="era" value="Earlywar" />
+						<label for="Earlywar">Earlywar</label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="Midwar" name="era" value="Midwar" />
+						<label for="Midwar">Midwar</label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="Latewar" name="era" value="Latewar" checked="checked"/>
+						<label for="Latewar">Latewar</label>
+					</div>
+				</div>
+				<div class="box box200">
+					<h3>Sprocket Diameter</h3>
+					<input class="numberIn" type="number" min="0.01" step="0.01" value="0.6" id="Diameter">
+				</div>
+				<div class="box box200">
+					<h3>Vehicle Weight</h3>
+					<input class="numberIn" type="number" min="1" step="1" value="28" id="Weight">
+				</div>
+			</div>
+			<div>
+				<div class="box box200">
+					<h3>Gear Count</h3>
+					<input class="numberIn" type="number" min="1" max="11" step="1" value="8" id="GearCount">
+				</div>
+				<div class="box box200">
+					<h4>Cylinder Displacement</h4>
+					<input class="numberIn" type="number" min="0.01" step="0.01" value="2.4" id="perCylDisp">
+				</div>
+				<div class="box box200">
+					<h3>Cylinder Count</h3>
+					<input class="numberIn" type="number" min="2" step="2" value="6" id="Cylind">
+				</div>
+				<div class="box box200">
+					<input onclick="Calculate()" type="submit" class="button">
+				</div>
+			</div>
 		</div>
-		<div class="radio">
-			<input type="radio" id="Interwar" name="era" value="Interwar" />
-			<label for="Interwar">Interwar</label>
+		<div class="wrap">
+			<div class="box box300">
+				<h4>Your results will appear here.</h4>
+				<h4 id="printlist2"></h4>
+				<h4 id="topspeed"></h4>	
+			</div>
 		</div>
-		<div class="radio">
-			<input type="radio" id="Earlywar" name="era" value="Earlywar" />
-			<label for="Earlywar">Earlywar</label>
-		</div>
-		<div class="radio">
-			<input type="radio" id="Midwar" name="era" value="Midwar" />
-			<label for="Midwar">Midwar</label>
-		</div>
-		<div class="radio">
-			<input type="radio" id="Latewar" name="era" value="Latewar" />
-			<label for="Latewar">Latewar</label>
-		</div>
-
-		<h4 >Sprocket Diameter</h4>
-		<input class="numberIn" type="number" min="0.01" step="0.01" value="0.6" id="Diameter">
-
-		<h4 >Vehicle Weight</h4>
-		<input class="numberIn" type="number" min="1" step="1" value="28" id="Weight">
-
-		<h4 >Total Gear Count</h4>
-		<input class="numberIn" type="number" min="1" max="11" step="1" value="8" id="GearCount">
-
-		<h4>Cylinder Displacement</h4>
-		<input class="numberIn" type="number" min="0.01" step="0.01" value="2.4" id="perCylDisp">
-
-		<h4>Cylinder Count</h4>
-		<input class="numberIn" type="number" min="2" step="2" value="6" id="Cylind">
-	</div>
-	<div>
-		<center>
-		<input onclick="Calculate()" type="submit" class="button">
-		</center>
-	</div>
-	<div>
-		<center>
-			<h5 class="gearcalc-printout">Your results will appear here.</h5>
-			<h4 id="printlist2"></h4>
-			<h4 id="topspeed"></h4>	
-		</center>
 	</div>
 	<script>
 		function Calculate() {
@@ -86,7 +99,7 @@
 			while (foo.firstChild) foo.removeChild(foo.firstChild);
 			let cylinderCount = document.getElementById('Cylind').value;
 			var eras = document.getElementsByName('era');
-			var era = 'WWI';
+			var era = 'Latewar';
 			for(var i = 0; i < eras.length; i++){
 				if(eras[i].checked){
 					era = eras[i].value;
@@ -124,17 +137,18 @@
 				eraBaseRPM = 4000;
 			}
 			
-			let H = 40*eraPowerMod*(Math.pow(cylinderCount, 0.7));
+			
 			var checkBox = false;
 			var legacyFormula = false;
 			let W = document.getElementById('Weight').value;
 			let S = document.getElementById('Diameter').value;
 			let Angle = 60;
 			let perCylDisp = document.getElementById('perCylDisp').value;
+			let H = cylinderCount*40*eraPowerMod*(Math.pow(perCylDisp, 0.7));
 			let TopSpeed = (13 * (H ** 0.5) ) / ( (R ** 0.8) * (W ** 0.5) );
 			TopSpeed = Math.round(10*TopSpeed)/10
 			const topspeedprintout = document.createElement("h4");
-			let L = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.1);
+			let L = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.112);
 
 			const topspeednode = document.createTextNode("Your top speed is " + TopSpeed + " km/h");
 			topspeedprintout.className = "gearcalc-printout";
@@ -153,10 +167,17 @@
 				window.open("https://www.youtube.com/watch?v=dCO89JvatxQ");
 			}
 			const gear1printout = document.createElement("h4");
-			
-			const gear1node = document.createTextNode("Gear 1 is " + Gear1);
+			gear1printout.setAttribute("id", "gear1");
+			const gear1node = document.createTextNode("Gear 1 is ");
 			gear1printout.appendChild(gear1node);
 			document.getElementById("printlist2").appendChild(gear1printout);
+
+			para = document.createElement("span");
+			node = document.createTextNode("" + Gear1.toFixed(2));
+			para.appendChild(node);
+			para.style.color = "red";
+			document.getElementById("gear1").appendChild(para);
+
 			let R2 = 2.0;
 			G2 = Gear1/R2;
 			let RN = ((FinalGear/G2) ** (1/(GearCount - 2)));
@@ -167,17 +188,23 @@
 					
 					para = document.createElement("h4");
 					gear_print = Math.round(100*gear_print)/100;
-					node = document.createTextNode("Gear " + i + " is " + gear_print);
-
+					node = document.createTextNode("Gear " + i + " is " + gear_print.toFixed(2));
+					para.setAttribute("id", "gear" + i);
 					para.appendChild(node);
 					document.getElementById("printlist2").appendChild(para);
 
 				}
-					para = document.createElement("h4");
-					node = document.createTextNode("Gear " + GearCount + " is " + FinalGear);
-					para.appendChild(node);
+				para = document.createElement("h4");
+				node = document.createTextNode("Gear " + GearCount + " is ");
+				para.setAttribute("id", "gear" + GearCount);
+				para.appendChild(node);
+				document.getElementById("printlist2").appendChild(para);
 
-					document.getElementById("printlist2").appendChild(para);
+				para = document.createElement("span");
+				node = document.createTextNode("" + FinalGear.toFixed(2));
+				para.appendChild(node);
+				para.style.color = "red";
+				document.getElementById("gear" + i).appendChild(para);
 					
 			}
 			else{	
@@ -186,35 +213,71 @@
 					gear_print = Gear1/((Math.pow(2, (1-kvalue)))*Math.pow(i, kvalue));
 					
 					para = document.createElement("h4");
+					para.setAttribute("id", "gear" + i);
 					gear_print = Math.round(100*gear_print)/100;
-					node = document.createTextNode("Gear " + i + " is " + gear_print);
-
+					node = document.createTextNode("Gear " + i + " is ");
 					para.appendChild(node);
 					document.getElementById("printlist2").appendChild(para);
 
-					
+					para = document.createElement("span");
+					node = document.createTextNode("" + gear_print.toFixed(2));
+					para.appendChild(node);
+					para.style.color = "red";
+					document.getElementById("gear" + i).appendChild(para);	
 				}
-					para = document.createElement("h4");
-					node = document.createTextNode("Gear " + GearCount + " is " + FinalGear);
 
-					para.appendChild(node);
-					document.getElementById("printlist2").appendChild(para);
+				para = document.createElement("h4");
+				node = document.createTextNode("Gear " + GearCount + " is ");
+				para.setAttribute("id", "gear" + GearCount);
+				para.appendChild(node);
+				document.getElementById("printlist2").appendChild(para);
+
+				para = document.createElement("span");
+				node = document.createTextNode("" + FinalGear.toFixed(2));
+				para.appendChild(node);
+				para.style.color = "red";
+				document.getElementById("gear" + GearCount).appendChild(para);
+
 			}
 
 			let idealRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.01)
 			let downRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) / 1.9)
 
 			para = document.createElement("h5");
-			node = document.createTextNode("Set your upshift slider to " + idealRPM + " RPM");
+			node = document.createTextNode("Estimated horsepower: " + Math.round(H) + "HP");
 
 			para.appendChild(node);
 			document.getElementById("printlist2").appendChild(para);
 
-			para = document.createElement("h5");
-			node = document.createTextNode("Set your downshift to " + downRPM + " RPM");
+			// para = document.createElement("h5");
+			// node = document.createTextNode("Estimated RPM limit: " + L + " RPM");
 
+			// para.appendChild(node);
+			// document.getElementById("printlist2").appendChild(para);
+
+			para = document.createElement("h4");
+			node = document.createTextNode("Set your upshift to ");
+			para.setAttribute("id", "gearUpshift");
 			para.appendChild(node);
 			document.getElementById("printlist2").appendChild(para);
+
+			para = document.createElement("span");
+			node = document.createTextNode(idealRPM + " RPM");
+			para.appendChild(node);
+			para.style.color = "red";
+			document.getElementById("gearUpshift").appendChild(para);
+
+			para = document.createElement("h4");
+			node = document.createTextNode("Set your downshift to ");
+			para.setAttribute("id", "gearDownshift");
+			para.appendChild(node);
+			document.getElementById("printlist2").appendChild(para);
+
+			para = document.createElement("span");
+			node = document.createTextNode(downRPM + " RPM");
+			para.appendChild(node);
+			para.style.color = "red";
+			document.getElementById("gearDownshift").appendChild(para);
 
 		}
 	</script>
