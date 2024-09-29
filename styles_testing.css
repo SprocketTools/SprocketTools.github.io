@@ -659,12 +659,12 @@ input[type=button], input[type=submit], input[type=reset] {
 	word-wrap: break-word;
   vertical-align: top;
   height: 350px;
-    width: 23%; 
-    display: inline-block; 
-    text-align: center;
+  width: 23%; 
+  display: inline-block; 
+  text-align: center;
 	background-image: linear-gradient(to bottom, rgb(80, 80, 78), rgb(40, 40, 42));
-    border-radius: 10px; 
-    border: 2px solid black; 
+  border-radius: 10px; 
+  border: 2px solid black; 
 	padding: 5px;
 	margin: 2px 0px;
 } 
