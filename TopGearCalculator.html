@@ -29,7 +29,6 @@
 		<center>
 			<h1>SprocketTools Gear Calculator</h1>	
 			<h2>Enter your tank's stats and click <i>Submit</i></h2>
-			<h4>Note: 0.2.18e is <a href="https://github.com/Muushy/Sprocket-Feedback/issues/634">likely bugged</a> - this calculator won't work with it for now.</h4>
 		</center>
 	</div>
 	<div class="wrap">
@@ -159,6 +158,9 @@
 			FinalGear = Math.round(100*FinalGear)/100;
 			let Torque = (9.5492/L)*746*H;
 			let Gear1 = Math.round(11*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100;
+			if (Gear1 > 20){
+				Gear1 = 20;
+			}
 			if(checkBox.checked == true){
 				Gear1 = Math.round(Gear1*112)/100;
 			}
