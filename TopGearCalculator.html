@@ -1,115 +1,111 @@
+<!DOCTYPE html>
 <html>
   <head>
-		<title>SprocketTools Gear Calculator</title>
-		
-		<link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
-		<link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
-		<link rel="stylesheet" href="stylesV3.css">
-		<style>
-		</style> 
+    <title>SprocketTools Gear Calculator</title>
+    <link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
+    <link rel="icon" type="image/x-icon" href="assets/SprocketToolsLogo.png">
+    <link rel="stylesheet" href="stylesV3.css">
+    <style>
+    </style>
   </head>
-  
   <body>
-	<h6 style="font-size: 0px;">The best Sprocket Tank Design powertrain calculator!  Removes all the guesswork from calculating your transmission and engine setups.</h6>
-	<div class="navbar">
-		<img src="SprocketToolsLogo.png"/>
-		<a href="index.html">Home</a>
-		<a class="active" href="TopGearCalculator.html">Gear Calculator</a>
-		<a href="ContestsList.html">Contests</a>
-		
-		<a href="VehicleGenerator.html">Random Tank Picker</a>
-		<a href="resources.html">Guides</a>
-		<a href="credits.html">Credits</a>
-		<a href="https://www.youtube.com/watch?v=p7YXXieghto">Get Trolled</a>
-		<a href="DecalsFeatured.html">Decal Catalog</a>
-        <a href="DecalsRGBmaker.html">RGB Decal Maker</a>
-	</div>
-	
-	<div>
-		<center>
-			<h1>SprocketTools Gear Calculator</h1>	
-			<h2>Enter your tank's stats and click <i>Submit</i></h2>
-		</center>
-	</div>
-	<div class="wrap">
-		<div class="wrap">
-			<div>
-				<div class="box box200 box180h">
-					<h3>Vehicle Era</h3>
-					<div class="radio">
-						<input  type="radio" id="WWI" name="era" value="WWI" />
-						<label for="WWI">WWI</label>
-					</div>
-					<div class="radio">
-						<input type="radio" id="Interwar" name="era" value="Interwar" />
-						<label for="Interwar">Interwar</label>
-					</div>
-					<div class="radio">
-						<input type="radio" id="Earlywar" name="era" value="Earlywar" />
-						<label for="Earlywar">Earlywar</label>
-					</div>
-					<div class="radio">
-						<input type="radio" id="Midwar" name="era" value="Midwar" />
-						<label for="Midwar">Midwar</label>
-					</div>
-					<div class="radio">
-						<input type="radio" id="Latewar" name="era" value="Latewar" checked="checked"/>
-						<label for="Latewar">Latewar</label>
-					</div>
-				</div>
-				<div class="box box200 box120h">
-					<h3>Sprocket Diameter</h3>
-					<input class="numberIn" type="number" min="0.01" step="0.01" value="0.6" id="Diameter">
-				</div>
-				<div class="box box200 box120h">
-					<h3>Vehicle Weight</h3>
-					<input class="numberIn" type="number" min="1" step="1" value="28" id="Weight">
-				</div>
-			</div>
-			<div>
-				<div class="box box200 box120h">
-					<h3>Gear Count</h3>
-					<input class="numberIn" type="number" min="1" max="11" step="1" value="6" id="GearCount">
-				</div>
-				<div class="box box200 box120h">
-					<h3>Cylinder size (L)</h3>
-					<input class="numberIn" type="number" min="0.01" step="0.01" value="2.4" id="perCylDisp">
-				</div>
-				<div class="box box200 box120h">
-					<h3>Cylinder Count</h3>
-					<input class="numberIn" type="number" min="2" step="2" value="6" id="Cylind">
-				</div>
-				<div class="box box200 box60h">
-					<h3>Advanced mode <input type="checkbox" id="show_advanced_settings"></h3>
-				</div>
-			</div>
-			<div id="advanced_settings_wrap" style="display: none;">
-				<div class="box boxcrimson box200 box120h">
-					<h3>Climb angle</h3>
-					<input class="numberIn" type="number" min="1" step="1" max="90" value="80" id="ClimbAngle">
-				</div>
-				<div class="box boxcrimson box200 box120h">
-					<h3>Upshift RPM</h3>
-					<input class="numberIn" type="number" min="1" step="1" value="2700" id="upshiftRPM">
-				</div>
-				<div class="box boxcrimson box200 box120h">
-					<h3>Max HP (not KW)</h3>
-					<input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
-				</div>
-				<div class="box box200 boxcrimson box60h">
-					<h6 style="color: var(--white1);">Warning: advanced mode is not recommended for beginners!</h6>
-				</div>
-			</div>
-			<div class="box box300">
-				<input onclick="Calculate()" type="submit" value="Calculate gear ratios" class="button">
-				<h4 id="printlist2"></h4>
-				<h4 id="topspeed"></h4>	
-			</div>
-		</div>
-		</div>
-	</div>
-	<script>
-		function Calculate() {
+    <h6 style="font-size: 0px;">The best Sprocket Tank Design powertrain calculator!  Removes all the guesswork from calculating your transmission and engine setups.</h6>
+    <div class="navbar">
+      <img src="assets/SprocketToolsLogo.png">
+      <a href="index.html">Home</a>
+      <a class="active" href="TopGearCalculator.html">Gear Calculator</a>
+      <a href="ContestsList.html">Contests</a>
+      <a href="VehicleGenerator.html">Random Tank Picker</a>
+      <a href="resources.html">Guides</a>
+      <a href="credits.html">Credits</a>
+      <a href="https://www.youtube.com/watch?v=p7YXXieghto">Get Trolled</a>
+      <a href="Decals/DecalsFeatures.html">Decal Catalog</a>
+      <a href="Decals/DecalsRGBmaker.html">RGB Decal Maker</a>
+    </div>
+    <div class="text-center">
+      <h1>SprocketTools Gear Calculator</h1>
+      <h2>Enter your tank's stats and click
+        <i>Submit</i></h2>
+    </div>
+    <div class="wrap">
+      <div class="wrap">
+        <div>
+          <div class="box box200 box180h">
+            <h3>Vehicle Era</h3>
+            <div class="radio">
+              <input type="radio" id="WWI" name="era" value="WWI">
+              <label for="WWI">WWI</label>
+            </div>
+            <div class="radio">
+              <input type="radio" id="Interwar" name="era" value="Interwar">
+              <label for="Interwar">Interwar</label>
+            </div>
+            <div class="radio">
+              <input type="radio" id="Earlywar" name="era" value="Earlywar">
+              <label for="Earlywar">Earlywar</label>
+            </div>
+            <div class="radio">
+              <input type="radio" id="Midwar" name="era" value="Midwar">
+              <label for="Midwar">Midwar</label>
+            </div>
+            <div class="radio">
+              <input type="radio" id="Latewar" name="era" value="Latewar" checked="checked">
+              <label for="Latewar">Latewar</label>
+            </div>
+          </div>
+          <div class="box box200 box120h">
+            <h3>Sprocket Diameter</h3>
+            <input class="numberIn" type="number" min="0.01" step="0.01" value="0.6" id="Diameter">
+          </div>
+          <div class="box box200 box120h">
+            <h3>Vehicle Weight</h3>
+            <input class="numberIn" type="number" min="1" step="1" value="28" id="Weight">
+          </div>
+        </div>
+        <div>
+          <div class="box box200 box120h">
+            <h3>Gear Count</h3>
+            <input class="numberIn" type="number" min="1" max="11" step="1" value="6" id="GearCount">
+          </div>
+          <div class="box box200 box120h">
+            <h3>Cylinder size (L)</h3>
+            <input class="numberIn" type="number" min="0.01" step="0.01" value="2.4" id="perCylDisp">
+          </div>
+          <div class="box box200 box120h">
+            <h3>Cylinder Count</h3>
+            <input class="numberIn" type="number" min="2" step="2" value="6" id="Cylind">
+          </div>
+          <div class="box box200 box60h">
+            <h3>Advanced mode
+              <input type="checkbox" id="show_advanced_settings"></h3>
+          </div>
+        </div>
+        <div id="advanced_settings_wrap" style="display: none;">
+          <div class="box boxcrimson box200 box120h">
+            <h3>Climb angle</h3>
+            <input class="numberIn" type="number" min="1" step="1" max="90" value="80" id="ClimbAngle">
+          </div>
+          <div class="box boxcrimson box200 box120h">
+            <h3>Upshift RPM</h3>
+            <input class="numberIn" type="number" min="1" step="1" value="2700" id="upshiftRPM">
+          </div>
+          <div class="box boxcrimson box200 box120h">
+            <h3>Max HP (not KW)</h3>
+            <input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
+          </div>
+          <div class="box box200 boxcrimson box60h">
+            <h6 style="color: var(--white1);">Warning: advanced mode is not recommended for beginners!</h6>
+          </div>
+        </div>
+        <div class="box box300">
+          <input onclick="Calculate()" type="submit" value="Calculate gear ratios" class="button">
+          <h4 id="printlist2"></h4>
+          <h4 id="topspeed"></h4>
+        </div>
+      </div>
+    </div>
+    <script>
+      function Calculate() {
 			var foo = document.getElementById('printlist2');
 			while (foo.firstChild) foo.removeChild(foo.firstChild);
 			let cylinderCount = document.getElementById('Cylind').value;
@@ -312,6 +308,6 @@
 				element.style.display = 'none';
 			}
 		});
-	</script>
+    </script>
   </body>
 </html>
