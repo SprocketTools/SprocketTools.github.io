@@ -31,16 +31,16 @@ body {
 	flex-direction:column; */
 }
 
-a {color: var(--blue2);}
-p {color: var(--white1);}
-h1 {color: var(--red5); font-size: 3em;}
-h2 {color: var(--white1);}
-h3 {color: var(--white1);}
-h4 {color: var(--white1);}
-h5 {color: var(--white1);}
-h6 {color: var(--grey1);}
-label {color: var(--white1)}
-.redtext {color: var(--red5)}
+a {color: var(--blue2); margin: 0.75em;}
+p {color: var(--white1); margin: 0.75em;}
+h1 {color: var(--red5); font-size: 3em; margin: 0.75em;}
+h2 {color: var(--white1); margin: 0.75em;}
+h3 {color: var(--white1); margin: 0.75em;}
+h4 {color: var(--white1); margin: 0.75em;}
+h5 {color: var(--white1); margin: 0.75em;}
+h6 {color: var(--grey1); margin: 0.75em;}
+label {color: var(--white1); margin: 0.75em;}
+.redtext {color: var(--red5); margin: 0.75em;}
 
 /* Formatting for the navigation bar - class "navbar" */
 
@@ -152,12 +152,18 @@ input[type=number] {
 
 .box {
 	align-items: center;
+	justify-content: center;
 	border-radius: 10px;
 	background-color: var(--shade3);
 	border: 2px solid var(--grey2);
 	vertical-align: middle;
-	padding-bottom: 1em;
-	margin: 8px;
+	padding: 0px;
+	margin: 10px 5px;
+}
+
+.boxcrimson {
+	background-color: var(--red2);
+	border: 2px solid var(--red1);
 }
 
 .box200 {
@@ -168,5 +174,20 @@ input[type=number] {
 .box300 {
 	max-width: 300px;
 	width: 300px;
+}
+
+.box60h {
+	max-height: 46px;
+	height: 46px;
+}
+
+.box120h {
+	max-height: 106px;
+	height: 106px;
+}
+
+.box180h {
+	max-height: 166px;
+	height: 166px;
 }
 
