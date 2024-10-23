@@ -1,4 +1,3 @@
-import pyscript # Literally just for shutting up the lsp warnings
 from js import document, alert
 import random, time
 guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]

@@ -1,29 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RGB Color Picker</title>
-    <link rel="stylesheet" href="../https://use.typekit.net/oov2wcw.css">
-    <link rel="icon" type="image/x-icon" href="../assets/SprocketToolsLogo.png">
-    <link rel="stylesheet" href="../stylesheet.css">
-    <style>
-      div { margin-right: auto; margin-left: auto; padding-bottom: 1em; }
-    </style>
+    <title>Decals: RGB Decal Maker</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <link rel="stylesheet" href="/stylesheet.css">
+    <!-- <script type="module" src="/navbar.js"></script> -->
   </head>
   <body>
+    <!-- Fix I guess for javascript issues-->
     <div class="navbar">
-      <img src="../assets/SprocketToolsLogo.png">
-      <a href="../index.html">Home</a>
-      <a href="../TopGearCalculator.html">Gear Calculator</a>
-      <a href="../ContestsList.html">Contests</a>
-      <a href="../VehicleGenerator.html">Random Tank Picker</a>
-      <a href="../resources.html">Guides</a>
-      <a href="../credits.html">Credits</a>
-      <a href="../https://www.youtube.com/watch?v=p7YXXieghto">Get Trolled</a>
-      <a href="../DecalsFeatured.html">Decal Catalog</a>
-      <a class="active" href="DecalsRGBmaker.html">RGB Decal Maker</a>
+      <img src="/assets/SprocketToolsLogo.png">
+      <a class="navbar button" href="/index.html">Home</a>
     </div>
-    <div class="container text-center">
-      <h1 class="text-center">Color Decal Generator</h1>
+    <div class="center container text-center">
+      <h1>Color Decal Generator</h1>
       <h5>Drag the sliders to find your color of choice, and click the box below to copy the decal's URL.
         <br>
         To use the decal, place down a decal on your tank, and paste the link into the decal's URL field in the top right of the UI.</h5>
@@ -39,18 +29,17 @@
       <div class="slidecontainer">
         <h4><input type="range" min="0" oninput="setColor()" max="17" value="10" class="blue_slider" id="blue"></h4>
       </div>
-      <div class="background_box">
+      <div class="center background_box">
         <h2>Output (click to copy the URL)</h2>
-        <div id="color_box text-center" onclick="copyText()" class="color_box"></div>
+        <div id="color_box" onclick="copyText()" class="color_box"></div>
+        <h5 id="output" style="color: skyblue;"></h5>
       </div>
-      <h5 id="output" style="color: skyblue;"></h5>
     </div>
     <script>
-      var output = document.getElementById("output");
+      const output = document.getElementById("output");
 		output.innerHTML = "Move the sliders to pick a color, and the URL to the decal will appear here.";
 
 		function setColor() {
-		
 			var redSlider = document.getElementById("red").value;
 			var greenSlider = document.getElementById("green").value;
 			var blueSlider = document.getElementById("blue").value;
@@ -69,7 +58,6 @@
 		}
 		
 		function copyText() {
-		
 			var redSlider = document.getElementById("red").value;
 			var greenSlider = document.getElementById("green").value;
 			var blueSlider = document.getElementById("blue").value;

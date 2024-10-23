@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://use.typekit.net/oov2wcw.css');
 
 body {
   font-family: Arial;
@@ -9,8 +10,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-
-a {}
 
 p {
   margin: 2px;
@@ -149,13 +148,6 @@ img {
   width: 25%;
 }
 
-.navbar img {
-  display: inline-block;
-  float: left;
-  padding-left: 6px;
-  padding-right: 16px;
-  width: 50px;
-}
 
 .decals img {
   display: block;
@@ -190,32 +182,6 @@ img {
   text-align: center;
 }
 
-.navbar {
-  font-weight: bold;
-  overflow: hidden;
-  margin: 10px 5px 20px 5px;
-  border-radius: 5px;
-  background-color: none;
-
-}
-
-/* Links inside the navbar */
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  border: none;
-  outline: none;
-  text-align: center;
-  padding: 10px 14px;
-  padding-bottom: 11px;
-
-  margin: 6px;
-  text-decoration: none;
-  background-color: #444;
-  border-radius: 6px;
-}
-
 /* The dropdown container */
 .dropdown {
   font-weight: bold;
@@ -238,18 +204,6 @@ img {
   /* Important for vertical align on mobile phones */
 }
 
-.navbar div.active {
-  background-color: rgb(230, 40, 40);
-  color: white;
-  border-radius: 6px;
-}
-
-.navbar a.active {
-  background-color: rgb(230, 40, 40);
-  color: white;
-  border-radius: 6px;
-}
-
 .dropdown a.active {
   background-color: grey;
   color: white;
@@ -260,7 +214,7 @@ img {
 .dropdown:hover .dropbtn {
   color: #dddddd;
   background-color: #303030;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   transition: height 0.1s ease-in, background-color 0.15s ease-in;
 }
 
@@ -591,6 +545,7 @@ input[type=reset] {
 
 .color_box {
   width: 210px;
+  margin: auto;
   height: 180px;
   border-radius: 15px;
   padding: 15px;
@@ -741,4 +696,54 @@ ul.decal-catalog li {
   100% {
     color: cyan;
   }
+}
+
+.navbar {
+  font-weight: bold;
+  overflow: hidden;
+  margin: 10px 5px 20px 5px;
+  border-radius: 5px;
+  background-color: none;
+}
+
+.navbar img {
+  display: block;
+  float: left;
+  padding-left: 6px;
+  padding-right: 16px;
+  width: 50px;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  border: none;
+  outline: none;
+  text-align: center;
+  padding: 10px 14px;
+  padding-bottom: 11px;
+
+  margin: 6px;
+  text-decoration: none;
+  background-color: #444;
+  border-radius: 6px;
+}
+
+.navbar a.active {
+  background-color: rgb(230, 40, 40);
+  /* border-radius: 6px; */
+  /* border-color: white; */
+}
+
+.navbar div.active {
+  background-color: rgb(230, 40, 40);
+  color: white;
+}
+
+.center {
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }

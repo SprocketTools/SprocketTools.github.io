@@ -109,8 +109,8 @@ label {
 }
 
 .navbar img {
-  display: inline-block;
-  /* float: left; */
+  /* display: inline-block; */
+  float: left;
   padding-left: 6px;
   padding-right: 16px;
   width: 50px;
