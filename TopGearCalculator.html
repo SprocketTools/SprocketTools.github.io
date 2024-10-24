@@ -177,7 +177,7 @@
 			FinalGear = Math.round(100*FinalGear)/100;
 			let Torque = (9.5492/L)*746*H;
 			let Gear1 = Math.round(11*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100;
-			if (Gear1 > 20){
+			if (Gear1 > 20 && Gear1 < 32.5){
 				Gear1 = 20;
 			}
 			if(checkBox.checked == true){
