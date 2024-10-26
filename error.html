@@ -1,38 +1,35 @@
+<!DOCTYPE html>
 <html>
-<head>
-<style>
-body {
-background: #0078d7;
-}
-button {
-background-image: url('Bsodwindows10.png');
-width: 100%;
-height: 100%;
-padding: 0px;
-border: 0px;
-margin: 0px;
-border-style: none;
-background-position: center;
-background-repeat: no-repeat;
-background-size: cover;
-}
-
-button.enter {
-
-}
-</style>
-</head>
-<body>
-
-<audio id="myAudio">
-  <source src="errorsong.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<button onclick="playAudio()" type="button"> </button> 
-
-<script>
-var x = document.getElementById("myAudio"); 
+  <head>
+    <title>Error</title>
+    <style>
+      body {
+        background: #0078d7;
+      }
+      button {
+        background-image: url('/assets/Bsodwindows10.png');
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+        border: 0px;
+        margin: 0px;
+        border-style: none;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      button.enter {}
+    </style>
+  </head>
+  <body>
+    <audio id="myAudio">
+      <source src="/assets/errorsong.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <button onclick="playAudio()" type="button">
+    </button>
+    <script>
+      var x = document.getElementById("myAudio"); 
 
 function playAudio() { 
   x.play(); 
@@ -40,8 +37,7 @@ function playAudio() {
 
 function pauseAudio() { 
   x.pause(); 
-} 
-</script>
-
-</body>
+}
+    </script>
+  </body>
 </html>

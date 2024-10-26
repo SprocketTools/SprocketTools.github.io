@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RNG V2 Tester</title>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+    <link rel="icon" type="image/x-icon" href="../assets/SprocketToolsLogo.png">
+    <link rel="stylesheet" href="../stylesheet.css">
+  </head>
+  <body>
+    <div class="navbar">
+      <img src="assets/SprocketToolsLogo.png">
+      <a href="../index.html">Home</a>
+      <a href="../TopGearCalculator.html">Gear Calculator</a>
+      <a href="../ContestTankPicker.html">Contest Tank Picker</a>
+      <a href="../VehicleGenerator.html">Random Tank Picker</a>
+      <a href="../resources.html">Guides</a>
+      <a href="../credits.html">Credits</a>
+      <a href="../https://www.youtube.com/watch?v=p7YXXieghto">Get Trolled</a>
+      <div class="dropdown active">
+        <button class="dropbtn active">Decal Catalog
+          <i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+          <a href="../Decals/DecalsFeatured.html">Featured</a>
+          <a href="../Decals/DecalsRGBmaker.html">RGB Decal Maker</a>
+          <a href="../../DecalsChalkText.html">Chalk Writing</a>
+          <a href="../../DecalsLabels.html">Labels</a>
+          <a href="../../DecalsMemes.html">Memes</a>
+          <a href="../../DecalsMisc.html">Miscellaneous</a>
+          <a href="../../DecalsNumbers.html">Numbers</a>
+          <a href="../../DecalsSymbols.html">Symbols</a>
+          <a href="../../DecalsTextures.html">Textures</a>
+          <a href="../../DecalsContribute.html">Contribute your own!</a>
+        </div>
+      </div>
+    </div>
+    <div class="container text-center">
+      <picture>
+        <img src="assets/TONK.png" alt="TONK on tracks!">
+      </picture>
+      <br>
+      <h1 class="text-center">Tank Idea Generaator</h1>
+      <p>
+        <h5 color="white">Click the button to get a random tank idea!</h5>
+        <h5 id="loadtext" color="white">Loading...</h5>
+        <h5 id="description" color="white">
+        </h5>
+        <h6 id="disclaimer_text" color="white">
+        </h6>
+        <br>
+        <div class="button">
+          <button id="convert" type="submit" class="enter" onClick="Troll()">Get my Tank!</button>
+        </div>
+      </p>
+      <script>
+        function UpdateBanner() {
+				document.getElementById("loadtext").innerHTML = "Ready!";
+			}
+			setTimeout(UpdateBanner,3500);
+			function Troll(){
+					window.open("https://www.youtube.com/watch?v=p7YXXieghto");
+			}
+      </script>
+      <p>
+        <br>
+        <h1 id="promptname">
+        </h1>
+        <h4 id="weight">
+        </h4>
+        <h4 id="cannon">
+        </h4>
+        <h4 id="engine">
+        </h4>
+        <h4 id="minimum_ammo">
+        </h4>
+        <br>
+        <h5 id="additional_note">
+        </h5>
+        <h5 id="inspiration">
+        </h5>
+        <h4 id="extra2">
+        </h4>
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+* text=auto
+
+*.html text
+*.css text
+*.py text
+
+*.png binary
+*.jpg binary
+*.gif binary
+*.mp3 binary
+*.wav binary

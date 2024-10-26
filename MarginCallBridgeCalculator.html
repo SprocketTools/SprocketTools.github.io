@@ -1,111 +1,82 @@
+<!DOCTYPE html>
 <html>
   <head>
-		<title>Margin Call Bridge Calculator</title>
-		
-		<link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
-		<link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
-		<link rel="stylesheet" href="styles_testing.css">
-		<style>
-		</style> 
+    <title>Margin Call Bridge Calculator</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <script type="module" src="/navbar.js"></script>
+    <link rel="stylesheet" href="/stylesheet.css">
   </head>
-  
-  <body style="background: linear-gradient(to left, #151515, #181818, #151515);">
-	<div class="navbar">
-		<img src="SprocketToolsLogo.png"/>
-		<a href="index.html">Home</a>
-		<a href="TopGearCalculator.html">Gear Calculator</a>
-		<a href="ContestsList.html">Contests</a>
-		
-		<a href="VehicleGenerator.html">Random Tank Picker</a>
-		<a href="resources.html">Guides</a>
-		<a href="credits.html">Credits</a>
-		<a href="https://www.youtube.com/watch?v=p7YXXieghto">Get Trolled</a>
-		<a href="DecalsFeatured.html">Decal Catalog</a>
-        <a href="DecalsRGBmaker.html">RGB Decal Maker</a>
-		<a class="active" href="TopGearCalculator.html">Margin Call Bridge Calculator</a>
-	</div>
-	<h6 style="font-size: 0px;">Why are you reading this.  You should not be reading this.</h6>
-	<div style="padding-left: 15%; padding-right: 15%;">
-		<h1 class="text-center">The "Margin Call" Bridge Scene</h1>
-		<h2>In this scene, we can see a rather complex list of unit conversions being made.  Using only four pieces of data, Eric Dale is able to calculate how many total miles of driving are done on the bridge over a given timespan.  This in turn is used to calculate how many hours of time are saved due to the bridge.</h2>
-		<h2>To replicate these calculations ourselves, let's first break down the math used:</h2>
-		<h2 class="red">Variable 1: number daily bridge users (12,100)</h2>
-		<h2 class="red">Variable 2: length of the original route from before the bridge was built (35 miles)</h2>
-		<h2 class="red">Variable 3: average speed of that original route (50 miles per hour)</h2>
-		<h2 class="red">Variable 4: Age of the bridge in years</h2>
-		<h2>To get the number of times the bridge is crossed per day, we multiply the number of daily bridge users by two:</h2>
-		<h2 class="red">12,100 x 2 = 24,200 bridge crossings per day</h2>
-		<h2>To get the total distance saved per day, multiply this number by the length of the saved path:</h2>
-		<h2 class="red">24,200 x 35 = 847,000 miles saved per day</h2>
-		<h2>To get the average total distance saved per month, we will need to calculate the average number of days in a month.  This requires the average amount of days in a year (365.25), and the amount of months in a year (12).</h2>
-		<h2 class="red">365.25 / 12 = 30.4375 days in a month</h2>
-		<h2 class="red">30.4375 x 847,000 = 25,780,562.5 miles saved per month (on average)</h2>
-		<h2>To get the average total distance saved per year, this number should be multiplied by 12:</h2>
-		<h2 class="red">25,780,562.5 x 12 = 309,366,750 miles saved per year (on average)</h2>
-		<h2>To get the total travel distance saved over the bridge's lifespan, this number should be multiplied by the bridge's age (22 years)</h2>
-		<h2 class="red">309,366,750 x 22 = 6,806,068,500 miles saved</h2>
-		<h2>In the movie, Eric calculated that his bridge had saved drivers <a class="red">6,708,240,000</a> miles of driving between both cities.  His number was surprisingly close to the calculated average number, but it was not exact.</h2>
-		<h2></h2>
-		<h2>Afterwards, Eric began calculating how much time the bridge had saved the community.  Using an estimated speed, he divided the total miles saved by the average speed of a car on that route:</h2>
-		<h2 class="red">6,806,068,500 / 50 = 136,121,370 hours of time saved</h2>
-		<h2>To convert this number to days, he divided it by 24:</h2>
-		<h2 class="red">136,121,370 / 24 = 5,671,723.75</h2>
-		<h2>To convert this number to years, he divided again by the amount of days in a year:</h2>
-		<h2 class="red">5,671,723.75 / 365.25 = 15,528.33 years of time saved</h2>
-		<h2>In the movie, Eric calculated a number of <a class="red">1,531</a> years.  This number is incorrect by a factor of 10, meaning that it is likely he messed up the final calculation by shifting the decimal place.</h2>
-		<h2>Eric believes that using data and performing unit conversions to more useful information can help to summarize the impact or scale of things in an efficient manner.  Examples of applying this can include calculating how many people would be serviced by constructing a power plant, by using the average power consumption of nearby homes to see how many homes will be serviced.  Another example would be determining the increase in a company's revenue from adding another production line to a factory, which can be found using its expected outcut rate and the average profit per item sold.</h2>
-			
-	</div>
-
-
-			<div class="widecontainer">
-			<center>
-				<h1 class="text-center">Margin Call Bridge Calculator</h1>
-					
-					<h4>Enter your stats and click <i>Submit</i></h4>
-					<ul class="gearcalc">
-						<li>
-						<h4 class="gearcalc-top">Age of bridge (years)</h4>
-						<div style="position: relative;"><input type="number" min="0" step="1" value="22" id="Bage">
-						</div>	
-						</li>
-
-						<li>
-						<h4 class="gearcalc-top">Bridge users per day</h4>
-						<div style="position: relative;"><input type="number" min="0" step="1" value="12100" id="carsPday">
-						</div>	
-						</li>
-
-						<li>
-						<h4 class="gearcalc-top">Distance of old route (miles)</h4>
-						<div style="position: relative;"><input type="number" min="0" step="1" value="35" id="Dcut">
-						</div>	
-						</li>
-						
-						<li>
-							<h4 class="gearcalc-top">Average speed of old route</h4>
-							<div style="position: relative;"><input type="number" min="0" step="1" value="50" id="Dspeed">
-							</div>	
-							</li>
-					</ul>
-				</center>
-			</div>	
-
-			<center>
-			<h4>Click the checkbox to enable bridge radio station<input type="checkbox" onclick="music()" id="roller"></h4>
-			<h4 hidden>Click the checkbox to enable bridge radio station <input type="checkbox" id="fake"></h4>
-			<h4 style="font-size: 0px;" id="player">hi</h4>
-			<input onclick="Calculate()" type="submit">
-			</center>
-
-			<center>
-			<div id="printlist2" class="widecontainer">
-				<h5>Your results will appear here.</h5>
-				<h4 id="topspeed"></h4>
-				</div>
-					<script>
-					function music() {
-						const audio = new Audio('radio.wav');
+  <body>
+    <h6 style="font-size: 0px;">Why are you reading this.  You should not be reading this.</h6>
+    <div style="padding-left: 15%; padding-right: 15%;">
+      <h1 class="text-center">The "Margin Call" Bridge Scene</h1>
+      <h2>In this scene, we can see a rather complex list of unit conversions being made.  Using only four pieces of data, Eric Dale is able to calculate how many total miles of driving are done on the bridge over a given timespan.  This in turn is used to calculate how many hours of time are saved due to the bridge.</h2>
+      <h2>To replicate these calculations ourselves, let's first break down the math used:</h2>
+      <h2 class="red">Variable 1: number daily bridge users (12,100)</h2>
+      <h2 class="red">Variable 2: length of the original route from before the bridge was built (35 miles)</h2>
+      <h2 class="red">Variable 3: average speed of that original route (50 miles per hour)</h2>
+      <h2 class="red">Variable 4: Age of the bridge in years</h2>
+      <h2>To get the number of times the bridge is crossed per day, we multiply the number of daily bridge users by two:</h2>
+      <h2 class="red">12,100 x 2 = 24,200 bridge crossings per day</h2>
+      <h2>To get the total distance saved per day, multiply this number by the length of the saved path:</h2>
+      <h2 class="red">24,200 x 35 = 847,000 miles saved per day</h2>
+      <h2>To get the average total distance saved per month, we will need to calculate the average number of days in a month.  This requires the average amount of days in a year (365.25), and the amount of months in a year (12).</h2>
+      <h2 class="red">365.25 / 12 = 30.4375 days in a month</h2>
+      <h2 class="red">30.4375 x 847,000 = 25,780,562.5 miles saved per month (on average)</h2>
+      <h2>To get the average total distance saved per year, this number should be multiplied by 12:</h2>
+      <h2 class="red">25,780,562.5 x 12 = 309,366,750 miles saved per year (on average)</h2>
+      <h2>To get the total travel distance saved over the bridge's lifespan, this number should be multiplied by the bridge's age (22 years)</h2>
+      <h2 class="red">309,366,750 x 22 = 6,806,068,500 miles saved</h2>
+      <h2>In the movie, Eric calculated that his bridge had saved drivers
+        <a class="red">6,708,240,000</a>
+        miles of driving between both cities.  His number was surprisingly close to the calculated average number, but it was not exact.</h2>
+      <h2></h2>
+      <h2>Afterwards, Eric began calculating how much time the bridge had saved the community.  Using an estimated speed, he divided the total miles saved by the average speed of a car on that route:</h2>
+      <h2 class="red">6,806,068,500 / 50 = 136,121,370 hours of time saved</h2>
+      <h2>To convert this number to days, he divided it by 24:</h2>
+      <h2 class="red">136,121,370 / 24 = 5,671,723.75</h2>
+      <h2>To convert this number to years, he divided again by the amount of days in a year:</h2>
+      <h2 class="red">5,671,723.75 / 365.25 = 15,528.33 years of time saved</h2>
+      <h2>In the movie, Eric calculated a number of
+        <a class="red">1,531</a>
+        years.  This number is incorrect by a factor of 10, meaning that it is likely he messed up the final calculation by shifting the decimal place.</h2>
+      <h2>Eric believes that using data and performing unit conversions to more useful information can help to summarize the impact or scale of things in an efficient manner.  Examples of applying this can include calculating how many people would be serviced by constructing a power plant, by using the average power consumption of nearby homes to see how many homes will be serviced.  Another example would be determining the increase in a company's revenue from adding another production line to a factory, which can be found using its expected outcut rate and the average profit per item sold.</h2>
+    </div>
+    <div class="widecontainer">
+      <h1 class="text-center">Margin Call Bridge Calculator</h1>
+      <h4 class="text-center">Enter your stats and click
+        <i>Submit</i></h4>
+      <ul class="gearcalc text-center">
+        <li>
+          <h4 class="gearcalc-top">Age of bridge (years)</h4>
+          <div style="position: relative;"><input type="number" min="0" step="1" value="22" id="Bage"></div>
+        </li>
+        <li>
+          <h4 class="gearcalc-top">Bridge users per day</h4>
+          <div style="position: relative;"><input type="number" min="0" step="1" value="12100" id="carsPday"></div>
+        </li>
+        <li>
+          <h4 class="gearcalc-top">Distance of old route (miles)</h4>
+          <div style="position: relative;"><input type="number" min="0" step="1" value="35" id="Dcut"></div>
+        </li>
+        <li>
+          <h4 class="gearcalc-top">Average speed of old route</h4>
+          <div style="position: relative;"><input type="number" min="0" step="1" value="50" id="Dspeed"></div>
+        </li>
+      </ul>
+    </div>
+    <h4>Click the checkbox to enable bridge radio station<input type="checkbox" onclick="music()" id="roller"></h4>
+    <h4 hidden>Click the checkbox to enable bridge radio station
+      <input type="checkbox" id="fake"></h4>
+    <h4 style="font-size: 0px;" id="player">hi</h4>
+    <input onclick="Calculate()" type="submit">
+    <div id="printlist2" class="widecontainer">
+      <h5>Your results will appear here.</h5>
+      <h4 id="topspeed"></h4>
+    </div>
+    <script>
+      function music() {
+						const audio = new Audio('assets/radio.wav');
 						audio.play();
 						var roller = document.getElementById("roller")
 						var fake = document.getElementById("fake")
@@ -248,8 +219,6 @@
 						document.getElementById("printlist2").appendChild(para);
 
 					}
-				</script>
-			</center>
-
+    </script>
   </body>
 </html>
