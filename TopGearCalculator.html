@@ -198,8 +198,8 @@
 			para.appendChild(node);
 			para.style.color = "red";
 			document.getElementById("gear1").appendChild(para);
-
-			let R2 = 2.0;
+			let RatIn = Math.log(GearCount);
+			let R2 = (Gear1/FinalGear)/GearCount;
 			G2 = Gear1/R2;
 			let RN = ((FinalGear/G2) ** (1/(GearCount - 2)));
 			let gear_print = 0;
@@ -229,9 +229,9 @@
 					
 			}
 			else{	
-				let kvalue = Math.log(Gear1/FinalGear/2)/Math.log(GearCount/2);
+				let kvalue = Math.log(Gear1/FinalGear/RatIn)/Math.log(GearCount/RatIn);
 				for (let i = 2; i < GearCount; i++) {
-					gear_print = Gear1/((Math.pow(2, (1-kvalue)))*Math.pow(i, kvalue));
+					gear_print = Gear1/((Math.pow(RatIn, (1-kvalue)))*Math.pow(i, kvalue));
 					
 					para = document.createElement("h4");
 					para.setAttribute("id", "gear" + i);
@@ -263,7 +263,7 @@
 
 			if (document.getElementById('show_advanced_settings').checked == false){
 				let idealRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.01)
-				let downRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) / 1.9)
+				let downRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) / R2)
 
 				para = document.createElement("h5");
 				node = document.createTextNode("Estimated horsepower: " + Math.round(H) + "HP");
