@@ -198,7 +198,7 @@
 			para.appendChild(node);
 			para.style.color = "red";
 			document.getElementById("gear1").appendChild(para);
-			let RatIn = Math.log(GearCount);
+			let RatIn = Math.pow((Gear1/FinalGear), (1/(Math.pow((GearCount), 1.25))));
 			let R2 = (Gear1/FinalGear)/GearCount;
 			G2 = Gear1/R2;
 			let RN = ((FinalGear/G2) ** (1/(GearCount - 2)));
