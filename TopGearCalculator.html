@@ -203,67 +203,68 @@
 			G2 = Gear1/R2;
 			let RN = ((FinalGear/G2) ** (1/(GearCount - 2)));
 			let gear_print = 0;
-			if (legacyFormula.checked == true){
-				for (let i = 2; i < GearCount; i++) {
-					gear_print = G2*((FinalGear/G2)**((i-2)/(GearCount-2)));
-					
-					para = document.createElement("h4");
-					gear_print = Math.round(100*gear_print)/100;
-					node = document.createTextNode("Gear " + i + " is " + gear_print.toFixed(2));
-					para.setAttribute("id", "gear" + i);
-					para.appendChild(node);
-					document.getElementById("printlist2").appendChild(para);
+			let kvalue = Math.log(Gear1/FinalGear/RatIn)/Math.log(GearCount/RatIn); // determines the value for later
 
-				}
+			// if (legacyFormula.checked == true){
+			// 	for (let i = 2; i < GearCount; i++) {
+			// 		gear_print = G2*((FinalGear/G2)**((i-2)/(GearCount-2)));
+					
+			// 		para = document.createElement("h4");
+			// 		gear_print = Math.round(100*gear_print)/100;
+			// 		node = document.createTextNode("Gear " + i + " is " + gear_print.toFixed(2));
+			// 		para.setAttribute("id", "gear" + i);
+			// 		para.appendChild(node);
+			// 		document.getElementById("printlist2").appendChild(para);
+
+			// 	}
+			// 	para = document.createElement("h4");
+			// 	node = document.createTextNode("Gear " + GearCount + " is ");
+			// 	para.setAttribute("id", "gear" + GearCount);
+			// 	para.appendChild(node);
+			// 	document.getElementById("printlist2").appendChild(para);
+
+			// 	para = document.createElement("span");
+			// 	node = document.createTextNode("" + FinalGear.toFixed(2));
+			// 	para.appendChild(node);
+			// 	para.style.color = "red";
+			// 	document.getElementById("gear" + i).appendChild(para);	
+			// }
+			//else{
+				
+			for (let i = 2; i < GearCount; i++) {
+				gear_print = Gear1/((Math.pow(RatIn, (1-kvalue)))*Math.pow(i, kvalue));
+				
 				para = document.createElement("h4");
-				node = document.createTextNode("Gear " + GearCount + " is ");
-				para.setAttribute("id", "gear" + GearCount);
+				para.setAttribute("id", "gear" + i);
+				gear_print = Math.round(100*gear_print)/100;
+				node = document.createTextNode("Gear " + i + " is ");
 				para.appendChild(node);
 				document.getElementById("printlist2").appendChild(para);
 
 				para = document.createElement("span");
-				node = document.createTextNode("" + FinalGear.toFixed(2));
+				node = document.createTextNode("" + gear_print.toFixed(2));
 				para.appendChild(node);
 				para.style.color = "red";
-				document.getElementById("gear" + i).appendChild(para);
-					
+				document.getElementById("gear" + i).appendChild(para);	
 			}
-			else{	
-				let kvalue = Math.log(Gear1/FinalGear/RatIn)/Math.log(GearCount/RatIn);
-				for (let i = 2; i < GearCount; i++) {
-					gear_print = Gear1/((Math.pow(RatIn, (1-kvalue)))*Math.pow(i, kvalue));
-					
-					para = document.createElement("h4");
-					para.setAttribute("id", "gear" + i);
-					gear_print = Math.round(100*gear_print)/100;
-					node = document.createTextNode("Gear " + i + " is ");
-					para.appendChild(node);
-					document.getElementById("printlist2").appendChild(para);
+			para = document.createElement("h4");
+			node = document.createTextNode("Gear " + GearCount + " is ");
+			para.setAttribute("id", "gear" + GearCount);
+			para.appendChild(node);
+			document.getElementById("printlist2").appendChild(para);
 
-					para = document.createElement("span");
-					node = document.createTextNode("" + gear_print.toFixed(2));
-					para.appendChild(node);
-					para.style.color = "red";
-					document.getElementById("gear" + i).appendChild(para);	
-				}
+			para = document.createElement("span");
+			node = document.createTextNode("" + FinalGear.toFixed(2));
+			para.appendChild(node);
+			para.style.color = "red";
+			document.getElementById("gear" + GearCount).appendChild(para);
 
-				para = document.createElement("h4");
-				node = document.createTextNode("Gear " + GearCount + " is ");
-				para.setAttribute("id", "gear" + GearCount);
-				para.appendChild(node);
-				document.getElementById("printlist2").appendChild(para);
-
-				para = document.createElement("span");
-				node = document.createTextNode("" + FinalGear.toFixed(2));
-				para.appendChild(node);
-				para.style.color = "red";
-				document.getElementById("gear" + GearCount).appendChild(para);
-
-			}
+			//}
 
 			if (document.getElementById('show_advanced_settings').checked == false){
 				let idealRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.01)
-				let downRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) / R2)
+				let Gear2_final = Gear1/((Math.pow(RatIn, (1-kvalue)))*Math.pow(2, kvalue))
+				let downRPM = Math.round(idealRPM / (Gear1 / (Gear2_final)))
 
 				para = document.createElement("h5");
 				node = document.createTextNode("Estimated horsepower: " + Math.round(H) + "HP");
