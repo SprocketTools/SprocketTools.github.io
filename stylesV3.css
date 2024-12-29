@@ -11,8 +11,9 @@
 	--grey2: rgb(50, 50, 55);
 	--grey3: rgb(40, 40, 45);
 	--grey4: rgb(30, 30, 35);
-	--blue1: rgb(50, 50, 180);
-	--blue2: rgb(60, 60, 210);
+	--blue1: rgb(25, 25, 100);
+	--blue2: rgb(55, 55, 145);
+	--blue3: rgb(60, 60, 210);
 	--black1: rgb(5, 5, 5);
 	--shade1: rgba(100, 100, 110, 0.15);
 	--shade2: rgba(100, 100, 110, 0.3);
@@ -40,6 +41,7 @@ h4 {color: var(--white1); margin: 0.75em;}
 h5 {color: var(--white1); margin: 0.75em;}
 h6 {color: var(--grey1); margin: 0.75em;}
 label {color: var(--white1); margin: 0.75em;}
+ul {color: var(--white1); margin: 0.75em;}
 .redtext {color: var(--red5); margin: 0.75em;}
 
 /* Formatting for the navigation bar - class "navbar" */
@@ -164,6 +166,11 @@ input[type=number] {
 .boxcrimson {
 	background-color: var(--red2);
 	border: 2px solid var(--red1);
+}
+
+.boxblue {
+	background-color: var(--blue2);
+	border: 2px solid var(--blue1);
 }
 
 .box200 {

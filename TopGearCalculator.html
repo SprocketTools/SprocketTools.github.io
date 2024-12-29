@@ -28,11 +28,12 @@
 	<div>
 		<center>
 			<h1>SprocketTools Gear Calculator</h1>	
-			<h2>Enter your tank's stats and click <i>Submit</i></h2>
+			<h2>Enter your tank's stats and click <i>Calculate Gear Ratios</i></h2>
 		</center>
 	</div>
 	<div class="wrap">
 		<div class="wrap">
+			
 			<div>
 				<div class="box box200 box180h">
 					<h3>Vehicle Era</h3>
@@ -58,29 +59,55 @@
 					</div>
 				</div>
 				<div class="box box200 box120h">
-					<h3>Sprocket Diameter</h3>
-					<input class="numberIn" type="number" min="0.01" step="0.01" value="0.6" id="Diameter">
-				</div>
-				<div class="box box200 box120h">
 					<h3>Vehicle Weight</h3>
 					<input class="numberIn" type="number" min="1" step="1" value="28" id="Weight">
 				</div>
+				<div class="box box200 box120h" id="advanced_settings_invert1">
+					<h3>Cylinder Size (L)</h3>
+					<input class="numberIn" type="number" min="0.01" step="0.01" value="2.4" id="perCylDisp">
+				</div>
+				<div class="box box200 box120h"  id="advanced_settings_invert2">
+					<h3>Cylinder Count</h3>
+					<input class="numberIn" type="number" min="2" step="2" value="6" id="Cylind">
+				</div>
 			</div>
 			<div>
+				<div class="box box200 box180h">
+					<h3>Tuning Style</h3>
+					<div class="radio">
+						<input  type="radio" id="1" name="style" value="1" />
+						<label for="1">Best <b>Acceleration</b></label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="2" name="style" value="2" />
+						<label for="2">Favor <b>Acceleration</b></label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="3" name="style" value="3" />
+						<label for="3">Balanced</label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="4" name="style" value="4" checked="checked"/>
+						<label for="4">Favor <b>Top Speed</b></label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="5" name="style" value="5" />
+						<label for="5">Best <b>Top Speed</b></label>
+					</div>
+				</div>
 				<div class="box box200 box120h">
 					<h3>Gear Count</h3>
 					<input class="numberIn" type="number" min="1" max="11" step="1" value="6" id="GearCount">
 				</div>
 				<div class="box box200 box120h">
-					<h3>Cylinder size (L)</h3>
-					<input class="numberIn" type="number" min="0.01" step="0.01" value="2.4" id="perCylDisp">
+					<h3>Sprocket Diameter</h3>
+					<input class="numberIn" type="number" min="0.01" step="0.01" value="0.6" id="Diameter">
 				</div>
-				<div class="box box200 box120h">
-					<h3>Cylinder Count</h3>
-					<input class="numberIn" type="number" min="2" step="2" value="6" id="Cylind">
+				<div class="box boxcrimson box200 box60h">
+					<h3>Advanced Mode <input type="checkbox" id="show_advanced_settings"></h3>
 				</div>
-				<div class="box box200 box60h">
-					<h3>Advanced mode <input type="checkbox" id="show_advanced_settings"></h3>
+				<div class="box boxblue  box200 box60h">
+					<h3>Help Panel <input type="checkbox" id="show_help_panel"></h3>
 				</div>
 			</div>
 			<div id="advanced_settings_wrap" style="display: none;">
@@ -90,7 +117,7 @@
 				</div>
 				<div class="box boxcrimson box200 box120h">
 					<h3>Upshift RPM</h3>
-					<input class="numberIn" type="number" min="1" step="1" value="2700" id="upshiftRPM">
+					<input class="numberIn" type="number" min="0" step="50" value="2700" id="upshiftRPM">
 				</div>
 				<div class="box boxcrimson box200 box120h">
 					<h3>Max HP (not KW)</h3>
@@ -101,9 +128,24 @@
 				</div>
 			</div>
 			<div class="box box300">
-				<input onclick="Calculate()" type="submit" value="Calculate gear ratios" class="button">
+				<input onclick="Calculate()" type="submit" value="Calculate Gear Ratios" class="button">
 				<h4 id="printlist2"></h4>
 				<h4 id="topspeed"></h4>	
+			</div>
+			<div id="help_panel_wrap" style="display: none;">
+				<div class="box boxblue box300" >
+					<h3>Welcome!</h3>
+					<p style="text-align: left;">The <b>SprocketTools Gear Calculator</b> is designed to make Sprocket engines easier than reading this text.  Simply fill out statistics about your tank and click the button to get tailored results!</p>
+					<ul style="text-align: left;">
+						<li><b>Cylinder size</b> should match the in-game slider for cylinder volume.</li>
+						<li><b>Tuning style</b> affects whether your vehicle tries to get up to speed quickly, or slowly accelerates to get as much speed as possible.</li>
+						<li><b>Climb angle</b> determines the intended maximum slope that can be climbed, in degrees.</li>
+						<li><b>Max HP</b> should be set to the highest RPM possible with your engine's upshift RPM.</li>
+						<li>If your vehicle struggles to turn, make sure that gears R1 and G1 match.  Increasing their size, and reducing your sprocket diameter, also helps with turning.</li>
+					</ul>
+					
+
+				</div>
 			</div>
 		</div>
 		</div>
@@ -144,11 +186,22 @@
 				eraPowerMod = 0.92;
 			}
 			if(era == 'Latewar'){
-				R = 1;
+				R = 1.0;
 				eraBaseRPM = 4000;
+				eraPowerMod = 1.00;
 			}
 			
-			
+			//setup for tuning style
+			var styles = document.getElementsByName('style');
+			var styleStr = '1';
+			for(var i = 0; i < styles.length; i++){
+				if(styles[i].checked){
+					styleStr = styles[i].value;
+				}
+			}
+			let styleInt = (5 - Number(styleStr))*0.08
+
+			//variables
 			var checkBox = false;
 			var legacyFormula = false;
 			let W = document.getElementById('Weight').value;
@@ -162,8 +215,9 @@
 				H = document.getElementById('horsepower').value;
 				L = document.getElementById('upshiftRPM').value;
 			}
+			H = H-(H*styleInt)
 
-			let TopSpeed = (13 * (H ** 0.5) ) / ( (R ** 0.8) * (W ** 0.5) );
+			let TopSpeed = (13.666 * (H ** 0.501) ) / ( (R ** 0.8) * (W ** 0.5) );
 			TopSpeed = Math.round(10*TopSpeed)/10
 			const topspeedprintout = document.createElement("h4");
 			
@@ -173,7 +227,7 @@
 			topspeedprintout.appendChild(topspeednode);
 			document.getElementById("printlist2").appendChild(topspeedprintout);
 			
-			let FinalGear = (60*3.14159*L*S*10) / (11*10000*TopSpeed);
+			let FinalGear = (60*3.14159*L*S*10) / (12.5*10000*TopSpeed);
 			FinalGear = Math.round(100*FinalGear)/100;
 			let Torque = (9.5492/L)*746*H;
 			let Gear1 = Math.round(11*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100;
@@ -266,11 +320,7 @@
 				let Gear2_final = Gear1/((Math.pow(RatIn, (1-kvalue)))*Math.pow(2, kvalue))
 				let downRPM = Math.round(idealRPM / (Gear1 / (Gear2_final)))
 
-				para = document.createElement("h5");
-				node = document.createTextNode("Estimated horsepower: " + Math.round(H) + "HP");
-
-				para.appendChild(node);
-				document.getElementById("printlist2").appendChild(para);
+				
 
 				// para = document.createElement("h5");
 				// node = document.createTextNode("Estimated RPM limit: " + L + " RPM");
@@ -302,15 +352,37 @@
 				para.style.color = "red";
 				document.getElementById("gearDownshift").appendChild(para);
 			}
+			else {
+				para = document.createElement("h5");
+				node = document.createTextNode("Estimated horsepower: " + Math.round(H) + "HP");
+
+				para.appendChild(node);
+				document.getElementById("printlist2").appendChild(para);
+			}
 		}
 
 		const checkbox = document.getElementById('show_advanced_settings');
 		const element = document.getElementById('advanced_settings_wrap');
+		const element2 = document.getElementById('advanced_settings_invert1');
+		const element3 = document.getElementById('advanced_settings_invert2');
 		checkbox.addEventListener('click', function() {
 			if (checkbox.checked) {
 				element.style.display = 'inline-block';
+				element2.style.display = 'none';
+				element3.style.display = 'none';
 			} else {
 				element.style.display = 'none';
+				element2.style.display = 'inherit';
+				element3.style.display = 'inherit';
+			}
+		})
+		const checkbox2 = document.getElementById('show_help_panel');
+		const element4 = document.getElementById('help_panel_wrap');
+		checkbox2.addEventListener('click', function() {
+			if (checkbox2.checked) {
+				element4.style.display = 'inline-block';
+			} else {
+				element4.style.display = 'none';
 			}
 		});
 	</script>
