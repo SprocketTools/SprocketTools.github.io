@@ -3,7 +3,7 @@
 		<title>RGB Color Picker</title>
 		<link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
 		<link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
-		<link rel="stylesheet" href="styles_testing.css">
+		<link rel="stylesheet" href="stylesV3.css">
 		<style>
 		</style> 
   </head>
@@ -12,10 +12,10 @@
 		<img src="SprocketToolsLogo.png"/>
 		<a href="index.html">Home</a>
 		<a href="TopGearCalculator.html">Gear Calculator</a>
-		<a href="ContestsList.html">Contests</a>
+		<!-- <a href="ContestsList.html">Contests</a>
 		
-		<a href="VehicleGenerator.html">Random Tank Picker</a>
-		<a href="resources.html">Guides</a>
+		<a href="VehicleGenerator.html">Random Tank Picker</a> -->
+		<a href="resources.html">Sprocket Guides</a>
 		<a href="credits.html">Credits</a>
 		<a href="https://www.youtube.com/watch?v=p7YXXieghto">Get Trolled</a>
 		<a href="DecalsFeatured.html">Decal Catalog</a>
@@ -23,11 +23,12 @@
 	</div>
 	
     <div class="container">
-	
+	<center>
 		<h1 class="text-center">Color Decal Generator</h1>
-        <center>
-			<h5>Drag the sliders to find your color of choice, and click the box below to copy the decal's URL. </br> To use the decal, place down a decal on your tank, and paste the link into the decal's URL field in the top right of the UI.</h5>   
-        <h6><h6>
+        <div class="wrap box boxauto">
+			<h3>Drag the sliders to find your color of choice, and click the box below to copy the decal's URL. </br><br> To use the decal, place down a decal on your tank, and paste the link into the decal's URL field in the top right of the UI.</h3>   
+		</div>
+		<br>
 		<h4 id="redval">Red: 120</h4>
 		<div class="slidecontainer">
 			<input type="range" min="0" max="17" oninput="setColor()" value="8" class="red_slider" id="red" >
@@ -46,14 +47,12 @@
 		<h6><h6>
 		<h6><h6>
 		<div class="background_box">
-			<h2>Output (click to copy the URL)<h2>
+			<br>
 			<div id="color_box" onclick="copyText()" class="color_box">
-				<h6><h6>
-				
+				<h3>Click here to copy the URL<h3>
 			</div>
-			
 		</div>
-		<h5 id="output" style="color: skyblue;" ></h5>
+		<h4 id="output" style="color: var(--blue4)"></h4>
 	</div>
 	
 	</center> 

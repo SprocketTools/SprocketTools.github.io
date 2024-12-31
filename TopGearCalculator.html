@@ -1,24 +1,21 @@
 <html>
   <head>
 		<title>SprocketTools Gear Calculator</title>
-		
 		<link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
 		<link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
 		<link rel="stylesheet" href="stylesV3.css">
 		<style>
 		</style> 
   </head>
-  
   <body>
 	<h6 style="font-size: 0px;">The best Sprocket Tank Design powertrain calculator!  Removes all the guesswork from calculating your transmission and engine setups.</h6>
 	<div class="navbar">
 		<img src="SprocketToolsLogo.png"/>
 		<a href="index.html">Home</a>
 		<a class="active" href="TopGearCalculator.html">Gear Calculator</a>
-		<a href="ContestsList.html">Contests</a>
-		
-		<a href="VehicleGenerator.html">Random Tank Picker</a>
-		<a href="resources.html">Guides</a>
+		<!-- <a href="ContestsList.html">Contests</a> -->
+		<!-- <a href="VehicleGenerator.html">Random Tank Picker</a> -->
+		<a href="resources.html">Sprocket Guides</a>
 		<a href="credits.html">Credits</a>
 		<a href="https://www.youtube.com/watch?v=p7YXXieghto">Get Trolled</a>
 		<a href="DecalsFeatured.html">Decal Catalog</a>
@@ -59,7 +56,7 @@
 					</div>
 				</div>
 				<div class="box box200 box120h">
-					<h3>Vehicle Weight</h3>
+					<h3>Vehicle Weight (T)</h3>
 					<input class="numberIn" type="number" min="1" step="1" value="28" id="Weight">
 				</div>
 				<div class="box box200 box120h" id="advanced_settings_invert1">
@@ -103,14 +100,18 @@
 					<h3>Sprocket Diameter</h3>
 					<input class="numberIn" type="number" min="0.01" step="0.01" value="0.6" id="Diameter">
 				</div>
-				<div class="box boxcrimson box200 box60h">
+				<!-- <div class="box boxcrimson box200 box60h">
 					<h3>Advanced Mode <input type="checkbox" id="show_advanced_settings"></h3>
-				</div>
-				<div class="box boxblue  box200 box60h">
-					<h3>Help Panel <input type="checkbox" id="show_help_panel"></h3>
+				</div> -->
+				<div class="box box200 box120h">
+					<input type="submit" value="Advanced Mode" class="button buttonsmall" id="show_advanced_settings">
+					<input type="submit" value="    Help Panel    " class="button buttonsmall buttonblue" id="show_help_panel">
 				</div>
 			</div>
 			<div id="advanced_settings_wrap" style="display: none;">
+				<div class="box box200 boxcrimson box60h">
+					<h6 style="color: var(--white1);">Warning: advanced mode is not recommended for beginners!</h6>
+				</div>
 				<div class="box boxcrimson box200 box120h">
 					<h3>Climb angle</h3>
 					<input class="numberIn" type="number" min="1" step="1" max="90" value="80" id="ClimbAngle">
@@ -123,9 +124,7 @@
 					<h3>Max HP (not KW)</h3>
 					<input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
 				</div>
-				<div class="box box200 boxcrimson box60h">
-					<h6 style="color: var(--white1);">Warning: advanced mode is not recommended for beginners!</h6>
-				</div>
+				
 			</div>
 			<div class="box box300">
 				<input onclick="Calculate()" type="submit" value="Calculate Gear Ratios" class="button">
@@ -135,13 +134,13 @@
 			<div id="help_panel_wrap" style="display: none;">
 				<div class="box boxblue box300" >
 					<h3>Welcome!</h3>
-					<p style="text-align: left;">The <b>SprocketTools Gear Calculator</b> is designed to make Sprocket engines easier than reading this text.  Simply fill out statistics about your tank and click the button to get tailored results!</p>
+					<p style="text-align: left;">The <b>SprocketTools Gear Calculator</b> is designed to make Sprocket engines easier than reading this text.  Simply fill out statistics about your tank and click the button to get tailoorange results!</p>
 					<ul style="text-align: left;">
 						<li><b>Cylinder size</b> should match the in-game slider for cylinder volume.</li>
 						<li><b>Tuning style</b> affects whether your vehicle tries to get up to speed quickly, or slowly accelerates to get as much speed as possible.</li>
 						<li><b>Climb angle</b> determines the intended maximum slope that can be climbed, in degrees.</li>
 						<li><b>Max HP</b> should be set to the highest RPM possible with your engine's upshift RPM.</li>
-						<li>If your vehicle struggles to turn, make sure that gears R1 and G1 match.  Increasing their size, and reducing your sprocket diameter, also helps with turning.</li>
+						<li>If your vehicle struggles to turn, make sure that gears R1 and G1 match.  Increasing their size, and orangeucing your sprocket diameter, also helps with turning.</li>
 					</ul>
 					
 
@@ -250,7 +249,7 @@
 			para = document.createElement("span");
 			node = document.createTextNode("" + Gear1.toFixed(2));
 			para.appendChild(node);
-			para.style.color = "red";
+			para.style.color = "var(--tan2)";
 			document.getElementById("gear1").appendChild(para);
 			let RatIn = Math.pow((Gear1/FinalGear), (1/(Math.pow((GearCount), 1.25))));
 			let R2 = (Gear1/FinalGear)/GearCount;
@@ -280,7 +279,7 @@
 			// 	para = document.createElement("span");
 			// 	node = document.createTextNode("" + FinalGear.toFixed(2));
 			// 	para.appendChild(node);
-			// 	para.style.color = "red";
+			// 	para.style.color = "orange";
 			// 	document.getElementById("gear" + i).appendChild(para);	
 			// }
 			//else{
@@ -298,7 +297,7 @@
 				para = document.createElement("span");
 				node = document.createTextNode("" + gear_print.toFixed(2));
 				para.appendChild(node);
-				para.style.color = "red";
+				para.style.color = "var(--tan2)";
 				document.getElementById("gear" + i).appendChild(para);	
 			}
 			para = document.createElement("h4");
@@ -310,7 +309,7 @@
 			para = document.createElement("span");
 			node = document.createTextNode("" + FinalGear.toFixed(2));
 			para.appendChild(node);
-			para.style.color = "red";
+			para.style.color = "var(--tan2)";
 			document.getElementById("gear" + GearCount).appendChild(para);
 
 			//}
@@ -337,7 +336,7 @@
 				para = document.createElement("span");
 				node = document.createTextNode(idealRPM + " RPM");
 				para.appendChild(node);
-				para.style.color = "red";
+				para.style.color = "orange";
 				document.getElementById("gearUpshift").appendChild(para);
 
 				para = document.createElement("h4");
@@ -349,7 +348,7 @@
 				para = document.createElement("span");
 				node = document.createTextNode(downRPM + " RPM");
 				para.appendChild(node);
-				para.style.color = "red";
+				para.style.color = "orange";
 				document.getElementById("gearDownshift").appendChild(para);
 			}
 			else {
@@ -365,8 +364,10 @@
 		const element = document.getElementById('advanced_settings_wrap');
 		const element2 = document.getElementById('advanced_settings_invert1');
 		const element3 = document.getElementById('advanced_settings_invert2');
+		var advancedMode = false;
 		checkbox.addEventListener('click', function() {
-			if (checkbox.checked) {
+			advancedMode = !advancedMode
+			if (advancedMode == true) {
 				element.style.display = 'inline-block';
 				element2.style.display = 'none';
 				element3.style.display = 'none';
@@ -378,8 +379,10 @@
 		})
 		const checkbox2 = document.getElementById('show_help_panel');
 		const element4 = document.getElementById('help_panel_wrap');
+		var helpPanel = false;
 		checkbox2.addEventListener('click', function() {
-			if (checkbox2.checked) {
+			helpPanel = !helpPanel
+			if (helpPanel == true) {
 				element4.style.display = 'inline-block';
 			} else {
 				element4.style.display = 'none';
