@@ -13,7 +13,7 @@
 	--grey3: rgb(40, 40, 38);
 	--grey4: rgb(50, 50, 50);
 	--grey5: rgb(56, 56, 56);
-	--grey6: rgb(68, 68, 68);
+	--grey6: rgb(69, 69, 69);
 	--grey7: rgb(80, 80, 80);
 	--stripe1: rgba(10, 10, 11, 0.35);
 	--blue1: rgb(35, 35, 90);
@@ -40,6 +40,7 @@ body {
 	background-repeat: no-repeat;
 	min-height: 150px;
 	margin: 0;
+	padding: 0;
 	text-align: center;
 	/* display:inline-block;
 	flex-direction:column; */
@@ -48,9 +49,16 @@ body {
 a {color: var(--blue4); margin: 0.75em;}
 p {color: var(--white1); margin: 0.75em;}
 h1 {
-	color: var(--orange2);
-	font-size: 3.5em; 
+	font-size: 4em; 
 	margin: 0.75em;
+	color: transparent;
+	background-color: var(--orange1);
+	text-shadow: 0px 1px 2px var(--orange3);
+	-webkit-background-clip: text;
+		-moz-background-clip: text;
+			background-clip: text;
+		  }
+
 }
 h2 {color: var(--tan2); margin: 0.75em;}
 h3 {color: var(--white1); margin: 0.75em;}
@@ -58,8 +66,14 @@ h4 {color: var(--white1); margin: 0.75em;}
 h5 {color: var(--white1); margin: 0.75em;}
 h6 {color: var(--grey1); margin: 0.75em;}
 label {color: var(--white1); margin: 0.75em;}
-ul {color: var(--white1); margin: 0.75em;}
+
 .orangetext {color: var(--orange3); margin: 0.75em;}
+
+ul {
+	color: var(--white1); 
+	margin: 0em;
+	padding: 10px;
+}
 
 /* Formatting for the navigation bar - class "navbar" */
 
@@ -92,6 +106,8 @@ ul {color: var(--white1); margin: 0.75em;}
 	display: inline-block;
 }
 
+
+
 .navbar li {
 	background: linear-gradient(-45deg, var(--black1) 10%, transparent 10%, transparent 50%, var(--black1) 50%, var(--black1) 60%, transparent 60%, transparent);
   	background-size: 5px 5px;
@@ -123,9 +139,9 @@ ul {color: var(--white1); margin: 0.75em;}
 
 .navbar a:hover, .dropdown:hover .dropbtn {
 	color: var(--white1);
-	background-color: var(--tan1);
+	background-color: var(--grey7);
 	border-radius: 3px;
-	border-color: var(--tan1);
+	border-color: var(--grey7);
 	transition: height 0.1s ease-in, box-shadow 0.1s linear, background-color 0.15s ease-in, border-color 0.15s ease-in;
 }
 
@@ -139,21 +155,22 @@ ul {color: var(--white1); margin: 0.75em;}
 
 .navbar a.active:hover {
 	background-color:  var(--tan2);
+	border-color: var(--tan2);
 	color: white;
   	border-radius: 3px;
 }
 
 .navbar li:hover, .dropdown:hover .dropbtn {
 	color: var(--white1);
-	background-color: var(--tan1);
+	background-color: var(--grey4);
 	border-radius: 3px;
-	border-color: var(--tan1);
-	transition: height 0.1s ease-in, box-shadow 0.1s linear, background-color 0.15s ease-in, border-color 0.15s ease-in;
+	border-color: var(--grey1);
+	transition: height 0.1s ease-in, box-shadow 0.1s linear, background-color 0.1s ease-in, border-color 0.1s ease-in;
 }
 
 .navbar li.active {
 	background-color: var(--tan1);
-	border-color: var(--tan1);
+	border-color: var(--grey2);
 	color: white;
   	border-radius: 3px;
 	box-shadow: 0 0px 0px var(--tan2);
@@ -161,6 +178,7 @@ ul {color: var(--white1); margin: 0.75em;}
 
 .navbar li.active:hover {
 	background-color:  var(--tan2);
+	border-color: var(--grey2);
 	color: white;
   	border-radius: 3px;
 }
@@ -237,7 +255,7 @@ ul {color: var(--white1); margin: 0.75em;}
 input[type=number] {
 	display: inline;
 	background: rgb(0,0,0);
-	background: linear-gradient(180deg, var(--shade3) 0%, var(--shade6) 40%, var(--shade6) 80%, var(--shade5) 100%);
+	background: linear-gradient(180deg, var(--shade3) 0%, var(--shade5) 40%, var(--shade5) 80%, var(--shade5) 100%);
 	font-size: 140%;
 	border-radius: 2px;
 	padding: 4px 9px;
@@ -411,23 +429,43 @@ input[type=number] {
 	cursor: pointer;
   }
 
+.catalog {
+	justify-content: left;
+
+	margin-right: auto;
+	margin-left: 0;
+
+}
+
 .catalog li {
 	word-wrap: break-word;
-	height: 380px;
+	display: inline-block;
+	vertical-align: bottom;
+	height: 340px;
 	width: 250px;
 	min-width: 250px;
-	display: inline-block; 
 	text-align: center;
-	background-image: linear-gradient(to bottom, var(--blue3) 0%, var(--blue1) 80%, var(--blue1) 100%);
-	border-radius: 10px; 
+	/* background: linear-gradient(180deg, var(--grey3) 0%, var(--grey4) 20%, var(--grey4) 100%); */
+	background: linear-gradient(-45deg, var(--shade3) 10%, transparent 10%, transparent 50%, var(--shade3) 50%, var(--shade3) 60%, transparent 60%, transparent); 
+  	background-size: 5px 5px;
+	background-color: var(--shade6);
+	border-color: var(--tan1);
+	box-shadow: 0 0px 0px var(--tan2);
+	border-radius: 5px; 
 	border: 2px solid black; 
 	padding: 5px;
 	margin: 2px 0px;
-
 } 
 
+.catalog li:hover {
+	background-color:  var(--tan1);
+	border-color: var(--shade4);
+	color: white;
+  	border-radius: 3px;
+}
+
 .catalog img {
-	display: block;
+	vertical-align: top;
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
