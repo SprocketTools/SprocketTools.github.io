@@ -58,8 +58,8 @@ h1 {
 		-moz-background-clip: text;
 			background-clip: text;
 		  }
-h2 {color: var(--tan2); margin: 0.75em;}
-h3 {color: var(--white1); margin: 0.75em;}
+h2 {color: var(--tan3); margin: 0.75em;}
+h3 {color: var(--tan3); margin: 0.75em;}
 h4 {color: var(--white1); margin: 0.75em;}
 h5 {color: var(--white1); margin: 0.75em;}
 h6 {color: var(--grey1); margin: 0.75em;}
@@ -278,8 +278,8 @@ input[type=number] {
 }
 
 .boxcrimson {
-	background-color: var(--orange3);
-	border: 2px solid var(--orange1);
+	background-color: var(--tan1);
+	border: 2px solid var(--tan2);
 }
 
 .boxblue {
