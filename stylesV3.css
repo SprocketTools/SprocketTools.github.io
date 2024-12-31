@@ -277,6 +277,10 @@ input[type=number] {
 	margin: 10px 5px;
 }
 
+.box ul{
+	padding-left: 30px;
+}
+
 .boxcrimson {
 	background-color: var(--tan1);
 	border: 2px solid var(--tan2);
@@ -284,7 +288,7 @@ input[type=number] {
 
 .boxblue {
 	background-color: var(--blue2);
-	border: 2px solid var(--blue1);
+	border: 2px solid var(--tan2);
 }
 
 .box200 {
