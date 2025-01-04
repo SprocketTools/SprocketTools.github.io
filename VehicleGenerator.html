@@ -26,16 +26,16 @@
 	<py-script>	
 	from js import document
 	import random, time
-	guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
+	guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 95, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240, 380]
 	def update(*ags, **kws):
 		# initial declaration
 		IsHeavy = 0
 
 		random.seed(time.time())
-		guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240]
+		guncals = [12, 20, 30, 37, 40, 45, 47, 50, 55, 57, 65, 73, 75, 76, 80, 85, 88, 90, 95, 100, 105, 107, 110, 115, 120, 122, 125, 128, 130, 150, 152, 155, 183, 200, 240, 380]
 		VehicleName = "error"
 		CannonSuffix = ""
-		VehGroup = round(1000*random.random())/10
+		VehGroup = round(1 + (109 * random.random()), 1)
 		if VehGroup < 10:
 			VehicleName = "Semi-Turreted Tank Destroyer"
 			MinWeight = 7
@@ -321,7 +321,7 @@
 			MinCylCount = 6
 			MaxCylCount = 12
 			AdditionalNote = ""
-			Inspiration = "Try using the BMP-2 or T-40 as a reference!  Just don't go looking in Russia for a real one..."
+			Inspiration = "Try using the PT-76 or T-40 as a reference!  Just don't go looking in Russia for a real one..."
 			NeedsPlural = 1
 			
 		elif VehGroup < 97:
@@ -375,8 +375,26 @@
 			MinCylCount = 8
 			MaxCylCount = 12
 			AdditionalNote = "Your vehicle must appear to have an Among Us crewmate as the driver or commander.  Otherwise, any vehicle type is permitted.  Congrats on getting a wild card!"
-			Inspiration = ""
+			Inspiration = "Sussy baka"
 			NeedsPlural = 1
+
+		elif VehGroup < 110:
+			VehicleName = "Assault Gun"
+			MinWeight = 10
+			MaxWeight = 40
+			WeightTol = 2
+			HeavyWeightAdj = 10
+			HeavyChance = 20
+			GunCals = [57, 75, 75, 76, 85, 90, 380]
+			HowitzerCals = [75, 76, 95, 105, 122, 150, 152, 155, 230]
+			HowitzerChance = 50
+			MaxGuns = 1
+			MultiGunChance = 0
+			MinCylCount = 6
+			MaxCylCount = 12
+			AdditionalNote = "Open-top turrets are permitted.  If using an open-top, the turret space of firing compartments can be ignored."
+			Inspiration = "Try building a Stug III or M8 Scott."
+			NeedsPlural = 0
 
 		#establishing new variables
 		Gun = 57
