@@ -210,7 +210,9 @@
 			let H = cylinderCount*40*eraPowerMod*(Math.pow(perCylDisp, 0.7));
 			let L = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.112);
 			
-			if (document.getElementById('show_advanced_settings').checked){
+			const advancedMode = document.getElementById('advanced_settings_wrap').checkVisibility();
+
+			if (advancedMode == true){
 				H = document.getElementById('horsepower').value;
 				L = document.getElementById('upshiftRPM').value;
 			}
