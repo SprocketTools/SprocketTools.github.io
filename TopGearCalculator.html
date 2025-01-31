@@ -140,7 +140,7 @@
 						<li><b>Tuning style</b> affects whether your vehicle tries to get up to speed quickly, or slowly accelerates to get as much speed as possible.</li>
 						<li><b>Climb angle</b> determines the intended maximum slope that can be climbed, in degrees.</li>
 						<li><b>Max HP</b> should be set to the highest RPM possible with your engine's upshift RPM.</li>
-						<li>If your vehicle struggles to turn, make sure that gears R1 and G1 match.  Increasing their size, and orangeucing your sprocket diameter, also helps with turning.</li>
+						<li>If your vehicle struggles to turn, make sure that gears R1 and G1 match.  Increasing their size, and reducing your sprocket diameter, also helps with turning.</li>
 					</ul>
 					
 
@@ -227,6 +227,12 @@
 			topspeedprintout.className = "gearcalc-printout";
 			topspeedprintout.appendChild(topspeednode);
 			document.getElementById("printlist2").appendChild(topspeedprintout);
+			
+			const topspeedprintouttwo = document.createElement("h4");
+			const topspeednodetwo = document.createTextNode("Equivalent to " + Math.round(TopSpeed*6.213712)/10 + " mph");
+			topspeedprintouttwo.className = "gearcalc-printout";
+			topspeedprintouttwo.appendChild(topspeednodetwo);
+			document.getElementById("printlist2").appendChild(topspeedprintouttwo);
 			
 			let FinalGear = (60*3.14159*L*S*10) / (12.5*10000*TopSpeed);
 			FinalGear = Math.round(100*FinalGear)/100;
