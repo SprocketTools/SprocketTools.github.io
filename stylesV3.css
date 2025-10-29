@@ -34,6 +34,10 @@ html {
 	cursor: help;
 }
 
+::-webkit-scrollbar {
+	width: 0px;
+  }
+
 body {
 	font-family: Arial;
 	background: var(--backgroundgradient);
