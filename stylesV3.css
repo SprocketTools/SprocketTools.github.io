@@ -27,7 +27,7 @@
 	--shade4: rgba(20, 20, 21, 0.45);
 	--shade5: rgba(20, 20, 21, 0.3);
 	--shade6: rgba(20, 20, 21, 0.15);
-	--backgroundgradient: linear-gradient(to bottom, var(--grey2) 0px, var(--grey2) 40px, var(--grey1) 40px, var(--grey1) 75px, var(--grey5) 75px, var(--grey5) 80px, var(--grey3) 80px, var(--grey5) 200px, var(--grey5) 100%);
+	--backgroundgradient: linear-gradient(to bottom, var(--grey2) 0px, var(--grey2) 40px, var(--grey1) 40px, var(--grey1) 65px, var(--grey5) 65px, var(--grey5) 70px, var(--grey3) 70px, var(--grey5) 200px, var(--grey5) 100%);
   }
 
 html {
@@ -83,9 +83,14 @@ ul {
 .navbar {
 	font-weight: bold;
 	overflow: hidden;
-	margin: 10px 5px 20px 5px;
-	border-radius: 5px;
-	background-color: none;
+}
+
+.titlenavbar {
+	border-style: solid;
+	border-color: var(--grey5);
+	background-color: var(--grey2);
+	padding: 11px 8px 11px 8px;
+	border-width: 0px 0px 5px 0px;
 }
 
 .navbar a {
