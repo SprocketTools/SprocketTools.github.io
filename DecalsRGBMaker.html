@@ -1,99 +1,110 @@
 <html>
-                <head>
-                    <title>RGB Color Picker</title>
-                    <link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
-                    <link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
-                    <link rel="stylesheet" href="stylesV3.css">
-                </head>
-            <body>
-            <div class="navbar titlenavbar">
-                <img src="SprocketToolsLogo.png"/>
-                <a href="index.html">Home</a>
-                <a href="TopGearCalculator.html">Gear Calculator</a>
-                <a href="resources.html">Sprocket Guides</a>
-                <a href="credits.html">Credits</a>
-                <a href="https://www.youtube.com/watch?v=p7YXXieghto">Get Trolled</a>
-                <a class="active" href="DecalsFeatured.html">Decal Catalog</a>
-                <a href="DecalsRGBmaker.html">RGB Decal Maker</a>
-            </div>
-            <div class="container">
-                <h1 class="text-center">RGB Color Picker</h1>
-            </div>
-            <div>
-                <ul class="navbar"><li onclick="document.location='DecalsFeatured.html'">Featured</li><li onclick="document.location='DecalsChalk.html'">Chalk</li><li onclick="document.location='DecalsFictionalInsignia.html'">Fictional Insignia</li><li onclick="document.location='DecalsHistoricalInsignia.html'">Historical Insignia</li><li onclick="document.location='DecalsInscriptions.html'">Inscriptions</li><li onclick="document.location='DecalsLabels.html'">Labels</li><li onclick="document.location='DecalsLetters.html'">Letters</li><li onclick="document.location='DecalsMiscellaneous.html'">Miscellaneous</li><li onclick="document.location='DecalsMemes.html'">Memes</li><li onclick="document.location='DecalsNumbers.html'">Numbers</li><li onclick="document.location='DecalsOptics.html'">Optics</li><li onclick="document.location='DecalsSeams.html'">Seams</li><li onclick="document.location='DecalsSymbols.html'">Symbols</li><li onclick="document.location='DecalsTextures.html'">Textures</li><li onclick="document.location='DecalsWeathering.html'">Weathering</li><li onclick="document.location='DecalsWelding.html'">Welding</li><li class="active" onclick="document.location='DecalsRGBMaker.html'">RGB Maker</li><li onclick="document.location='DecalsContribute.html'">Contribute your own!</li></ul></div>
-            <div class="container">
-            <center>
-                <h1 class="text-center">Color Decal Generator</h1>
-                <div class="wrap box boxauto">
-                    <h3>Drag the sliders to find your color of choice, and click the box below to copy the decal's URL. </br><br> To use the decal, place down a decal on your tank, and paste the link into the decal's URL field in the top right of the UI.</h3>   
-                </div>
-                <br>
-                <h4 id="redval">Red: 120</h4>
-                <div class="slidecontainer">
-                    <input type="range" min="0" max="17" oninput="setColor()" value="8" class="red_slider" id="red" >
-                </div>
-                <h6><h6>
-                <h4 id="greenval">Green: 135</h4>
-                <div class="slidecontainer">
-                    <input type="range" min="0" max="17" oninput="setColor()" value="9" class="green_slider" id="green">
-                </div>
-                <h6><h6>
-                <h4 id="blueval">Blue: 150</h4>
-                <div class="slidecontainer">
-                <input type="range" min="0" oninput="setColor()" max="17" value="10" class="blue_slider" id="blue"></h4>
+  <head>
+		<title>RGB Color Picker</title>
+		<link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
+		<link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
+		<link rel="stylesheet" href="stylesV3.css">
+		<style>
+		</style> 
+  </head>
+  <body>
+	<div class="navbar titlenavbar">
+		<img src="SprocketToolsLogo.png"/>
+		<a href="index.html">Home</a>
+		<a href="TopGearCalculator.html">Gear Calculator</a>
+		<!-- <a href="ContestsList.html">Contests</a>
+		
+		<a href="VehicleGenerator.html">Random Tank Picker</a> -->
+		<a href="resources.html">Sprocket Guides</a>
+		<a href="credits.html">Credits</a>
+		<a href="https://www.youtube.com/watch?v=p7YXXieghto">Get Trolled</a>
+		<a href="DecalsFeatured.html">Decal Catalog</a>
+		<a class="active" href="DecalsRGBmaker.html">RGB Decal Maker</a>
+	</div>
+	
+    <div class="container">
+	<center>
+		<h1 class="text-center">Color Decal Generator</h1>
+        <div class="wrap box boxauto">
+			<h3>Drag the sliders to find your color of choice, and click the box below to copy the decal's URL. </br><br> To use the decal, place down a decal on your tank, and paste the link into the decal's URL field in the top right of the UI.</h3>   
+		</div>
+		<br>
+		<h4 id="redval">Red: 120</h4>
+		<div class="slidecontainer">
+			<input type="range" min="0" max="17" oninput="setColor()" value="8" class="red_slider" id="red" >
+		</div>
+		<h6><h6>
+		<h4 id="greenval">Green: 135</h4>
+		<div class="slidecontainer">
+			<input type="range" min="0" max="17" oninput="setColor()" value="9" class="green_slider" id="green">
+		</div>
+		<h6><h6>
+		<h4 id="blueval">Blue: 150</h4>
+		<div class="slidecontainer">
+		<input type="range" min="0" oninput="setColor()" max="17" value="10" class="blue_slider" id="blue"></h4>
+		
+    
+		<h6><h6>
+		<h6><h6>
+		<div class="background_box">
+			<br>
+			<div id="color_box" onclick="copyText()" class="color_box">
+				<h3>Click here to copy the URL<h3>
+			</div>
+		</div>
+		<h4 id="output" style="color: var(--blue4)"></h4>
+	</div>
+	
+	</center> 
+	<script>
 
 
-                <h6><h6>
-                <h6><h6>
-                <div class="background_box">
-                    <br>
-                    <div id="color_box" onclick="copyText()" class="color_box">
-                        <h3>Click here to copy the URL<h3>
-                    </div>
-                </div>
-                <h4 id="output" style="color: var(--blue4)"></h4>
-            </div>
+		var output = document.getElementById("output");
+		output.innerHTML = "Move the sliders to pick a color, and the URL to the decal will appear here.";
 
-            </center> 
-        </center></body><script>
-                var output = document.getElementById("output");
-                output.innerHTML = "Move the sliders to pick a color, and the URL to the decal will appear here.";
-
-                function setColor() {
-                    var redSlider = document.getElementById("red").value;
-                    var greenSlider = document.getElementById("green").value;
-                    var blueSlider = document.getElementById("blue").value;
-                    let red = 15*(redSlider);
-                    let green = 15*(greenSlider);
-                    let blue = 15*(blueSlider);
-
-                    let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
-                    let output_text = 'https://sprockettools.github.io/colors/R' + red + 'G' + green + 'B' + blue + '.png';
-                    output.innerHTML = output_text;
-                    document.getElementById("redval").innerHTML = "Red: " + red;
-                    document.getElementById("greenval").innerHTML = "Green: " + green;
-                    document.getElementById("blueval").innerHTML = "Blue: " + blue;
-                    var boxy=document.getElementById("color_box");
-                    boxy.style.backgroundColor=color;
-                }
-
-                function copyText() {
-                    var redSlider = document.getElementById("red").value;
-                    var greenSlider = document.getElementById("green").value;
-                    var blueSlider = document.getElementById("blue").value;
-                    let red = 15*(redSlider);
-                    let green = 15*(greenSlider);
-                    let blue = 15*(blueSlider);
-
-                    let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
-                    let output_text = 'https://sprockettools.github.io/colors/R' + red + 'G' + green + 'B' + blue + '.png';
-                    output.innerHTML = "Copied!";
-                    var boxy=document.getElementById("color_box");
-                    document.getElementById("redval").innerHTML = "Red: " + red;
-                    document.getElementById("greenval").innerHTML = "Green: " + green;
-                    document.getElementById("blueval").innerHTML = "Blue: " + blue;
-
-                    navigator.clipboard.writeText(output_text);
-                    boxy.style.backgroundColor=color;
-                }
-        </script></html>
+		function setColor() {
+		
+			var redSlider = document.getElementById("red").value;
+			var greenSlider = document.getElementById("green").value;
+			var blueSlider = document.getElementById("blue").value;
+			let red = 15*(redSlider);
+			let green = 15*(greenSlider);
+			let blue = 15*(blueSlider);
+			
+			let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+			let output_text = 'https://sprockettools.github.io/colors/R' + red + 'G' + green + 'B' + blue + '.png';
+			output.innerHTML = output_text;
+			document.getElementById("redval").innerHTML = "Red: " + red;
+			document.getElementById("greenval").innerHTML = "Green: " + green;
+			document.getElementById("blueval").innerHTML = "Blue: " + blue;
+			var boxy=document.getElementById("color_box");
+			boxy.style.backgroundColor=color;
+		}
+		
+		function copyText() {
+		
+			var redSlider = document.getElementById("red").value;
+			var greenSlider = document.getElementById("green").value;
+			var blueSlider = document.getElementById("blue").value;
+			let red = 15*(redSlider);
+			let green = 15*(greenSlider);
+			let blue = 15*(blueSlider);
+			
+			let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+			let output_text = 'https://sprockettools.github.io/colors/R' + red + 'G' + green + 'B' + blue + '.png';
+			output.innerHTML = "Copied!";
+			var boxy=document.getElementById("color_box");
+			document.getElementById("redval").innerHTML = "Red: " + red;
+			document.getElementById("greenval").innerHTML = "Green: " + green;
+			document.getElementById("blueval").innerHTML = "Blue: " + blue;
+			
+			// Copy the text inside the text field
+			navigator.clipboard.writeText(output_text);
+			boxy.style.backgroundColor=color;
+		}
+		
+		
+		
+</script>
+  </body>
+</html>
