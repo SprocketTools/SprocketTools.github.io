@@ -457,7 +457,7 @@
 			if (document.getElementById('show_advanced_settings').checked == false){
 				let idealRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.01)
 				let Gear2_final = Gear1/((Math.pow(RatIn, (1-kvalue)))*Math.pow(2, kvalue))
-				let downRPM = Math.round(idealRPM / (Gear1 / (Gear2_final)) / styleVal * 1.4)
+				let downRPM = Math.round((idealRPM / (Gear1 / (Gear2_final)) ** (styleVal * 1.2)) )
 
 				
 
