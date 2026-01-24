@@ -31,7 +31,7 @@
   }
 
 html {
-	cursor: help;
+	cursor: zoom-in;
 }
 
 ::-webkit-scrollbar {
@@ -258,6 +258,17 @@ ul {
 .radio {
 	text-align: left;
 	padding-left: 8px;
+	color: var(--tan3);
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: blue;
+  border-radius: 50%;
 }
 
 input[type=number] {
@@ -298,7 +309,7 @@ input[type=number] {
 
 .boxblue {
 	background-color: var(--blue2);
-	border: 2px solid var(--tan2);
+	border: 2px solid var(--blue4);
 }
 
 .box200 {
@@ -474,36 +485,32 @@ input[type=number] {
   overflow: visible !important; 
 }
 
-/* The actual tooltip box (hidden by default) */
 .tooltip::after {
-  content: attr(data-title); /* Grabs the text from the HTML */
+  content: attr(data-title);
   
-  /* Positioning */
   position: absolute;
-  bottom: 103%; /* Places it above the div */
+  bottom: 103%;
   left: 50%;
-  transform: translateX(-50%); /* Centers it horizontally */
+  transform: translateX(-50%);
   
-  /* Appearance */
   padding: 8px;
-  background: linear-gradient(180deg, var(--tan1) 0%, var(--tan1) 8%, var(--shade3) 8%);
+  background: linear-gradient(180deg, var(--tan1) 0%, var(--tan1) 8%, var(--shade2) 8%);
   border: 0px 4px 0px 0px;
   border-color: var(--tan1);
   color: var(--tan3);
   font-size: 16px;
   font-weight: bold;
   border-radius: 4px;
-  white-space: nowrap; /* Prevents text wrapping */
+  white-space: nowrap;
   z-index: 10;
   
-  /* Hide initially */
+
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s ease;
-  pointer-events: none; /* Prevents the tooltip from blocking clicks */
+  pointer-events: none;
 }
 
-/* Show on hover */
 .tooltip:hover::after {
   opacity: 1;
   visibility: visible;
