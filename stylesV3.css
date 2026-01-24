@@ -311,8 +311,18 @@ input[type=number] {
 	width: 300px;
 }
 
+.box400 {
+	max-width: 300px;
+	width: 300px;
+}
+
 .boxauto {
 	max-width: fit-content;
+}
+
+.boxmax300 {
+	max-width: 600px;
+	min-width: 300px;
 }
 
 .box60h {
@@ -328,6 +338,16 @@ input[type=number] {
 .box180h {
 	max-height: 166px;
 	height: 166px;
+}
+
+.box210h {
+	max-height: 196px;
+	height: 196px;
+}
+
+.box240h {
+	max-height: 226px;
+	height: 226px;
 }
 
 /* specifics for the RGB decal generator */
@@ -448,6 +468,48 @@ input[type=number] {
 	margin-left: 0;
 
 }
+
+.tooltip {
+  position: relative;
+  overflow: visible !important; 
+}
+
+/* The actual tooltip box (hidden by default) */
+.tooltip::after {
+  content: attr(data-title); /* Grabs the text from the HTML */
+  
+  /* Positioning */
+  position: absolute;
+  bottom: 103%; /* Places it above the div */
+  left: 50%;
+  transform: translateX(-50%); /* Centers it horizontally */
+  
+  /* Appearance */
+  padding: 8px;
+  background: linear-gradient(180deg, var(--tan1) 0%, var(--tan1) 8%, var(--shade3) 8%);
+  border: 0px 4px 0px 0px;
+  border-color: var(--tan1);
+  color: var(--tan3);
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  white-space: nowrap; /* Prevents text wrapping */
+  z-index: 10;
+  
+  /* Hide initially */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+  pointer-events: none; /* Prevents the tooltip from blocking clicks */
+}
+
+/* Show on hover */
+.tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+  z-index: 100;
+}
+
 
 .catalog li {
 	word-wrap: break-word;

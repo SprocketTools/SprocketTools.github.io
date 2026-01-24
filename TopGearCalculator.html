@@ -26,14 +26,15 @@
 	<div>
 		<center>
 			<h1>SprocketTools Gear Calculator</h1>	
-			<h3>Enter your tank's info and click <i>Calculate Gear Ratios</i></h3>
+			<h3>Enter your tank's info and click... well... anywhere on the screen now!</h3>
+			<h3><b>NEW:</b> Custom Era support!</h3>
 		</center>
 	</div>
-	<div class="wrap">
+	<div class="wrap" onclick="Calculate()">
 		<div class="wrap">
 			
 			<div>
-				<div class="box box200 box180h">
+				<div class="box box200 box210h">
 					<h3>Vehicle Era</h3>
 					<div class="radio">
 						<input  type="radio" id="WWI" name="era" value="WWI" />
@@ -55,12 +56,16 @@
 						<input type="radio" id="Latewar" name="era" value="Latewar" checked="checked"/>
 						<label for="Latewar">Latewar</label>
 					</div>
+					<div class="radio">
+						<input type="radio" id="Custom" name="era" value="Custom"/>
+						<label for="Latewar">Custom</label>
+					</div>
 				</div>
-				<div class="box box200 box120h">
+				<div class="box box200 box120h tooltip" data-title="Enter the total weight of the vehicle in tons">
 					<h3>Vehicle Weight (T)</h3>
 					<input class="numberIn" type="number" min="1" step="1" value="28" id="Weight">
 				</div>
-				<div class="box box200 box120h" id="advanced_settings_invert1">
+				<div class="box box200 box120h tooltip" id="advanced_settings_invert1" data-title="Use the per-cylinder volume, not the total engine volume">
 					<h3>Cylinder Size (L)</h3>
 					<input class="numberIn" type="number" min="0.01" step="0.01" value="2.4" id="perCylDisp">
 				</div>
@@ -68,36 +73,34 @@
 					<h3>Cylinder Count</h3>
 					<input class="numberIn" type="number" min="2" step="2" value="6" id="Cylind">
 				</div>
+
 			</div>
 			<div>
-				<div class="box box200 box180h">
-					<h3>Tuning Style</h3>
+				<div class="box box200 box210h">
+					<h3>Transmission Type</h3>
 					<div class="radio">
-						<input  type="radio" id="1" name="style" value="1" />
-						<label for="1">Best <b>Acceleration</b></label>
+						<input  type="radio" id="1" name="style" value="1" checked="checked"/>
+						<label for="1">Clutch Braking</label>
 					</div>
 					<div class="radio">
 						<input type="radio" id="2" name="style" value="2" />
-						<label for="2">Favor <b>Acceleration</b></label>
+						<label for="2">Twin Tramsmission</label>
 					</div>
+					<h3>Tuning Style</h3>
 					<div class="radio">
-						<input type="radio" id="3" name="style" value="3" />
-						<label for="3">Balanced</label>
-					</div>
-					<div class="radio">
-						<input type="radio" id="4" name="style" value="4" checked="checked"/>
-						<label for="4">Favor <b>Top Speed</b></label>
-					</div>
-					<div class="radio">
-						<input type="radio" id="5" name="style" value="5" />
-						<label for="5">Best <b>Top Speed</b></label>
+					<form>
+						<input type="checkbox" id="1" name="tuning1" value="1">
+						<label for="tuning1"> Fix <b>Slow Turning</b></label><br>
+						<input type="checkbox" id="2" name="tuning2" value="2">
+						<label for="tuning2"> Best <b>Top Speed</b><br>
+					</form>
 					</div>
 				</div>
 				<div class="box box200 box120h">
 					<h3>Gear Count</h3>
 					<input class="numberIn" type="number" min="1" max="11" step="1" value="6" id="GearCount">
 				</div>
-				<div class="box box200 box120h">
+				<div class="box box200 box120h tooltip" data-title="Find this by right-clicking the Sprocket wheel">
 					<h3>Sprocket Diameter</h3>
 					<input class="numberIn" type="number" min="0.01" step="0.01" value="0.6" id="Diameter">
 				</div>
@@ -106,7 +109,7 @@
 				</div> -->
 				<div class="box box200 box120h">
 					<input type="submit" value="Advanced Mode" class="button buttonsmall" id="show_advanced_settings">
-					<input type="submit" value="    Help Panel    " class="button buttonsmall buttonblue" id="show_help_panel">
+					<input type="submit" value="  Extra Help  " class="button buttonsmall buttonblue" id="show_help_panel">
 				</div>
 			</div>
 			<div id="advanced_settings_wrap" style="display: none;">
@@ -114,37 +117,47 @@
 					<h6 style="color: var(--white1);">Warning: advanced mode is not recommended for beginners!</h6>
 				</div>
 				<div class="box boxcrimson box200 box120h">
+					<h3>Max HP (not KW)</h3>
+					<input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
+				</div>
+				<div class="box boxcrimson box200 box120h" id="advanced_settings_1">
 					<h3>Climb angle</h3>
 					<input class="numberIn" type="number" min="1" step="1" max="90" value="80" id="ClimbAngle">
 				</div>
-				<div class="box boxcrimson box200 box120h">
+				<div class="box boxcrimson box200 box120h" id="advanced_settings_2">
 					<h3>Upshift RPM</h3>
 					<input class="numberIn" type="number" min="0" step="50" value="2700" id="upshiftRPM">
 				</div>
+			</div>
+			<div id="custom_era_wrap" style="display: none;">
 				<div class="box boxcrimson box200 box120h">
 					<h3>Max HP (not KW)</h3>
 					<input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
 				</div>
-				
+				<div class="box boxcrimson box200 box120h" id="advanced_settings_1">
+					<h3>Climb angle</h3>
+					<input class="numberIn" type="number" min="1" step="1" max="90" value="80" id="ClimbAngle">
+				</div>
+				<div class="box boxcrimson box200 box120h" id="advanced_settings_2">
+					<h3>Upshift RPM</h3>
+					<input class="numberIn" type="number" min="0" step="50" value="2700" id="upshiftRPM">
+				</div>
 			</div>
 			<div class="box box300">
-				<input onclick="Calculate()" type="submit" value="Calculate Gear Ratios" class="button">
 				<h4 id="printlist2"></h4>
 				<h4 id="topspeed"></h4>	
 			</div>
 			<div id="help_panel_wrap" style="display: none;">
-				<div class="box boxblue box300" >
-					<h3>Welcome!</h3>
-					<p style="text-align: left;">The <b>SprocketTools Gear Calculator</b> is designed to make Sprocket engines easier than reading this text.  Simply fill out statistics about your tank and click the button to get tailoorange results!</p>
+				<div class="box boxblue boxmax300" >
+					<h3>Running into issues with the calculator?</h3>
+					<p style="text-align: left;">The <b>SprocketTools Gear Calculator</b> is designed to support as many vehicles as possible, but sometimes it can use extra tuning.</p>
 					<ul style="text-align: left;">
-						<li><b>Cylinder size</b> should match the in-game slider for cylinder volume.</li>
-						<li><b>Tuning style</b> affects whether your vehicle tries to get up to speed quickly, or slowly accelerates to get as much speed as possible.</li>
-						<li><b>Climb angle</b> determines the intended maximum slope that can be climbed, in degrees.</li>
-						<li><b>Max HP</b> should be set to the highest RPM possible with your engine's upshift RPM.</li>
-						<li>If your vehicle struggles to turn, make sure that gears R1 and G1 match.  Increasing their size, and reducing your sprocket diameter, also helps with turning.</li>
+						<li><b>Increase your first gears</b> if you have trouble accelerating or turning</li>
+						<li><b>Match your G1 and R1</b> to prevent turning issues with twin transmissions</li>
+						<li><b>Decrease your upshift slightly</b> if your vehicle gets stuck on a gear</li>
+						<li><b>Check idler and Sprocket clearance</b> to ensure they aren't hitting the ground.</li>
+						<li><b>Make your torsion bars longer</b> if your vehicle slows down on rough terrain.</li>
 					</ul>
-					
-
 				</div>
 			</div>
 		</div>
@@ -371,21 +384,54 @@
 
 		const checkbox = document.getElementById('show_advanced_settings');
 		const element = document.getElementById('advanced_settings_wrap');
+
+		const elements = document.getElementsByName('era');
+		const element0 = document.getElementById('advanced_settings_1');
+		const element1 = document.getElementById('advanced_settings_2');
 		const element2 = document.getElementById('advanced_settings_invert1');
 		const element3 = document.getElementById('advanced_settings_invert2');
+
 		var advancedMode = false;
+		var advancedMode2 = false;
+
 		checkbox.addEventListener('click', function() {
 			advancedMode = !advancedMode
 			if (advancedMode == true) {
-				element.style.display = 'inline-block';
+				element.style.display = 'inherit';
+				element0.style.display = 'inherit';
+				element1.style.display = 'inherit';
 				element2.style.display = 'none';
 				element3.style.display = 'none';
 			} else {
 				element.style.display = 'none';
 				element2.style.display = 'inherit';
 				element3.style.display = 'inherit';
+				element0.style.display = 'none';
+				element1.style.display = 'none';
 			}
 		})
+		elements.forEach(eraradio => {
+			eraradio.addEventListener('change', function() {
+				var eras = document.getElementsByName('era');
+				var era = 'Latewar';
+				for(var i = 0; i < eras.length; i++){
+					if(eras[i].checked){
+						era = eras[i].value;
+					}
+				}
+				advancedMode2 = !advancedMode2
+				if (era == "Custom") {
+					element.style.display = 'inline-block';
+					element2.style.display = 'none';
+					element3.style.display = 'none';
+				} else {
+					if (advancedMode != true) {
+						element.style.display = 'none';
+					}
+
+				}
+			})
+		});
 		const checkbox2 = document.getElementById('show_help_panel');
 		const element4 = document.getElementById('help_panel_wrap');
 		var helpPanel = false;
