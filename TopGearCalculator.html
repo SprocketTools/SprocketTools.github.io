@@ -176,7 +176,9 @@
 					'v': 'perCylDisp',
 					'g': 'GearCount',
 					'a': 'ClimbAngle',
-					'u': 'upshiftRPM'
+					'u': 'upshiftRPM',
+					'eng': 'EngineTech',
+					'rr': 'RollResist'
 				};
 
 				// 1. Restore standard number/text inputs
@@ -189,6 +191,7 @@
 				// 2. Restore Era Radio Buttons
 				if (urlParams.has('era')) {
 					const eraValue = urlParams.get('era');
+					const advMode = urlParams.get('era');
 					const eras = document.getElementsByName('era');
 					eras.forEach(radio => {
 						radio.checked = (radio.value === eraValue);
@@ -198,6 +201,17 @@
 						document.getElementById('custom_settings_1').style.display = 'inherit';
 						document.getElementById('custom_settings_2').style.display = 'inherit';
 					}
+					try {
+						const showAdv = urlParams.get('adv') === 'true';
+						if (showAdv) {
+							document.getElementById('advanced_settings_1').style.display = 'inherit';
+							document.getElementById('advanced_settings_2').style.display = 'inherit';
+							advancedMode = true; // Sync the global variable
+						}
+					} catch (error) {
+						console.log("hi");
+					}
+
 				}
 
 				// 3. After restoring, run the calculation once
@@ -413,13 +427,19 @@
 			newUrlParams.set('c', document.getElementById('Cylind').value);
 			newUrlParams.set('g', document.getElementById('GearCount').value);
 			newUrlParams.set('d', document.getElementById('Diameter').value);
+			const isAdvVisible = document.getElementById('advanced_settings_1').style.display !== 'none';
+			newUrlParams.set('adv', isAdvVisible);
 
+			if (isAdvVisible) {
+				newUrlParams.set('a', document.getElementById('ClimbAngle').value);
+				newUrlParams.set('u', document.getElementById('upshiftRPM').value);
+			}
 			// 2. Save toggles (Turning fix / Top Speed focus)
 			newUrlParams.set('turn', document.getElementById('fixturn').checked);
 			newUrlParams.set('speed', document.getElementById('bestspeed').checked);
 
 			// 3. Save Advanced/Custom stats if they are being used
-			if (document.getElementById('advanced_settings_1').style.display !== 'none') {
+			if (document.getElementById('advanced_settings_1').style.display != 'none') {
 				newUrlParams.set('a', document.getElementById('ClimbAngle').value);
 				newUrlParams.set('u', document.getElementById('upshiftRPM').value);
 			}
