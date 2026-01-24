@@ -26,8 +26,7 @@
 	<div>
 		<center>
 			<h1>SprocketTools Gear Calculator</h1>	
-			<h3>Enter your tank's info and click... well... anywhere on the screen now!</h3>
-			<h3><b>NEW:</b> Custom Era support!</h3>
+			<h3>Enter your tank's info and watch the numbers appear!</h3>
 		</center>
 	</div>
 	<div class="wrap" onclick="Calculate()">
@@ -37,28 +36,29 @@
 				<div class="box box200 box210h">
 					<h3>Vehicle Era</h3>
 					<div class="radio">
+						<label  for="WWI"></label>
 						<input  type="radio" id="WWI" name="era" value="WWI" />
-						<label for="WWI">WWI</label>
+						WWI</label>
 					</div>
-					<div class="radio">
+					<div class="radio"><label for="Interwar"></label>
 						<input type="radio" id="Interwar" name="era" value="Interwar" />
-						<label for="Interwar">Interwar</label>
+						Interwar</label>
 					</div>
-					<div class="radio">
+					<div class="radio"><label for="Earlywar"></label>
 						<input type="radio" id="Earlywar" name="era" value="Earlywar" />
-						<label for="Earlywar">Earlywar</label>
+						Earlywar</label>
 					</div>
-					<div class="radio">
+					<div class="radio"><label for="Midwar"></label>
 						<input type="radio" id="Midwar" name="era" value="Midwar" />
-						<label for="Midwar">Midwar</label>
+						Midwar</label>
 					</div>
-					<div class="radio">
+					<div class="radio"><label for="Latewar"></label>
 						<input type="radio" id="Latewar" name="era" value="Latewar" checked="checked"/>
-						<label for="Latewar">Latewar</label>
+						Latewar</label>
 					</div>
-					<div class="radio">
+					<div class="radio"><label for="Latewar"></label>
 						<input type="radio" id="Custom" name="era" value="Custom"/>
-						<label for="Latewar">Custom</label>
+						Custom</label>
 					</div>
 				</div>
 				<div class="box box200 box120h tooltip" data-title="Enter the total weight of the vehicle in tons">
@@ -78,27 +78,27 @@
 			<div>
 				<div class="box box200 box210h">
 					<h3>Transmission Type</h3>
-					<div class="radio">
-						<input  type="radio" id="1" name="style" value="1" checked="checked"/>
+					<div class="radio tooltip" data-title="Clutch Braking prefers higher downshift RPMs">
+						<input  type="radio" id="1" name="style" value="0.8" checked="checked" />
 						<label for="1">Clutch Braking</label>
 					</div>
-					<div class="radio">
-						<input type="radio" id="2" name="style" value="2" />
+					<div class="radio tooltip"  data-title="Twin Transmissions prefer bigger starting gears.  IMPORTANT: Match R1 to G1">
+						<input type="radio" id="2" name="style" value="1.25" />
 						<label for="2">Twin Tramsmission</label>
 					</div>
 					<h3>Tuning Style</h3>
-					<div class="radio">
+					<div class="radio tooltip" data-title="Slow turning can be fixed with stronger engines, bigger gears, or matching G1 & R1">
 					<form>
-						<input type="checkbox" id="1" name="tuning1" value="1">
+						<input type="checkbox" id="fixturn" name="tuning1">
 						<label for="tuning1"> Fix <b>Slow Turning</b></label><br>
-						<input type="checkbox" id="2" name="tuning2" value="2">
+						<input type="checkbox" id="bestspeed" name="tuning2" checked>
 						<label for="tuning2"> Best <b>Top Speed</b><br>
 					</form>
 					</div>
 				</div>
 				<div class="box box200 box120h">
 					<h3>Gear Count</h3>
-					<input class="numberIn" type="number" min="1" max="11" step="1" value="6" id="GearCount">
+					<input class="numberIn" type="number" min="1" max="24" step="1" value="6" id="GearCount">
 				</div>
 				<div class="box box200 box120h tooltip" data-title="Find this by right-clicking the Sprocket wheel">
 					<h3>Sprocket Diameter</h3>
@@ -108,41 +108,38 @@
 					<h3>Advanced Mode <input type="checkbox" id="show_advanced_settings"></h3>
 				</div> -->
 				<div class="box box200 box120h">
-					<input type="submit" value="Advanced Mode" class="button buttonsmall" id="show_advanced_settings">
+					<h5></h5>
+					<input type="submit" value="Contest Mode" class="button buttonsmall" id="show_advanced_settings">
 					<input type="submit" value="  Extra Help  " class="button buttonsmall buttonblue" id="show_help_panel">
 				</div>
 			</div>
-			<div id="advanced_settings_wrap" style="display: none;">
-				<div class="box box200 boxcrimson box60h">
-					<h6 style="color: var(--white1);">Warning: advanced mode is not recommended for beginners!</h6>
+			
+				<div id="advanced_settings_wrap">
+					<!-- <div class="box boxcrimson box200 box120h">
+						<h3>Max HP (not KW)</h3>
+						<input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
+					</div> -->
+					<div class="box boxcrimson box200 box120h" id="advanced_settings_1"  style="display: none;">
+						<h3>Climb angle</h3>
+						<input class="numberIn" type="number" min="1" step="1" max="90" value="80" id="ClimbAngle">
+					</div>
+					<div class="box boxcrimson box200 box120h" id="advanced_settings_2"  style="display: none;">
+						<h3>Upshift RPM</h3>
+						<input class="numberIn" type="number" min="0" step="50" value="2700" id="upshiftRPM">
+					</div>
+					<!-- <div class="box boxcrimson box200 box120h">
+						<h3>Max HP (not KW)</h3>
+						<input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
+					</div> -->
+					<div class="box boxcrimson box200 box120h" id="custom_settings_1" style="display: none;">
+						<h3>Roll Resistence</h3>
+						<input class="numberIn" type="number" min="0" step="0.05" max="8.0" value="1.0" id="RollResist">
+					</div>
+					<div class="box boxcrimson box200 box120h" id="custom_settings_2" style="display: none;">
+						<h3>Engine Tech</h3>
+						<input class="numberIn" type="number" min="0" step="0.01" max="1.0" value="0.8" id="EngineTech">
+					</div>
 				</div>
-				<div class="box boxcrimson box200 box120h">
-					<h3>Max HP (not KW)</h3>
-					<input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
-				</div>
-				<div class="box boxcrimson box200 box120h" id="advanced_settings_1">
-					<h3>Climb angle</h3>
-					<input class="numberIn" type="number" min="1" step="1" max="90" value="80" id="ClimbAngle">
-				</div>
-				<div class="box boxcrimson box200 box120h" id="advanced_settings_2">
-					<h3>Upshift RPM</h3>
-					<input class="numberIn" type="number" min="0" step="50" value="2700" id="upshiftRPM">
-				</div>
-			</div>
-			<div id="custom_era_wrap" style="display: none;">
-				<div class="box boxcrimson box200 box120h">
-					<h3>Max HP (not KW)</h3>
-					<input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
-				</div>
-				<div class="box boxcrimson box200 box120h" id="advanced_settings_1">
-					<h3>Climb angle</h3>
-					<input class="numberIn" type="number" min="1" step="1" max="90" value="80" id="ClimbAngle">
-				</div>
-				<div class="box boxcrimson box200 box120h" id="advanced_settings_2">
-					<h3>Upshift RPM</h3>
-					<input class="numberIn" type="number" min="0" step="50" value="2700" id="upshiftRPM">
-				</div>
-			</div>
 			<div class="box box300">
 				<h4 id="printlist2"></h4>
 				<h4 id="topspeed"></h4>	
@@ -164,6 +161,77 @@
 		</div>
 	</div>
 	<script>
+
+
+		function manageUrlParameters() {
+			try {
+				const currentUrlParams = new URLSearchParams(window.location.search);
+				const newUrlParams = new URLSearchParams();
+
+				// 2. Iterate through all existing parameters and append them to the new set
+				for (const [key, value] of currentUrlParams.entries()) {
+					if (key == "era") {
+						var eras = document.getElementsByName('era');
+						for(var i = 0; i < eras.length; i++){
+							if(eras[i].value == value){
+								eras[i].checked = true;
+							}
+							else {
+								eras[i].checked = false;
+							}
+						}
+					}
+					if (key == "climbangle") {
+						document.getElementById("ClimbAngle").value = value;
+					}
+				}
+
+				// 3. Add any new parameters or modify existing ones
+				// Example: Add a new parameter "source" or set an existing one
+				if (!newUrlParams.has('source')) {
+					newUrlParams.set('source', 'github-pages-script');
+				}
+
+				// 4. Construct the new URL string
+				const newSearchString = newUrlParams.toString();
+				const newUrl = window.location.pathname + '?' + newSearchString + window.location.hash;
+
+				// 5. Update the browser URL without reloading the page
+				// Use history.pushState or history.replaceState for single-page applications
+				// Use this if you don't want a new history entry
+				// or
+				// Use location.assign(newUrl) to reload the page with new parameters
+				//window.location.assign(newUrl);
+
+			} catch (error) {
+				// Handle any potential errors (e.g., if URL parsing fails in very old browsers)
+				console.error("An error occurred while managing URL parameters:", error);
+				// You could also redirect to an error page or show a fallback UI
+			}
+		}
+
+		// Call the function when the page loads
+		document.addEventListener('DOMContentLoaded', manageUrlParameters);
+
+			// 		const currentUrlParams = new URLSearchParams(window.location.search);
+			// const newUrlParams = new URLSearchParams();
+
+			// if (advancedMode == true || customEraMode == true) {
+			// 	newUrlParams.set('era', era);
+			// }
+			// if (advancedMode == true) {
+			// 	newUrlParams.set('climbangle', Angle);
+			// 	newUrlParams.set('upshift', L);
+			// }
+			// if (customEraMode == true) {
+			// newUrlParams.set('rr', R);
+			// newUrlParams.set('eng', eT);
+			// }
+
+		Calculate()
+
+		
+
 		function Calculate() {
 			var foo = document.getElementById('printlist2');
 			while (foo.firstChild) foo.removeChild(foo.firstChild);
@@ -175,6 +243,7 @@
 					era = eras[i].value;
 				}
 			}
+			
 			let R = 2;
 			let eraBaseRPM = 3000;
 			eraPowerMod = 1;
@@ -203,7 +272,15 @@
 				eraBaseRPM = 4000;
 				eraPowerMod = 1.00;
 			}
+			let eT = document.getElementById('EngineTech').value;
+			if(era == 'Custom'){
+				R = document.getElementById('RollResist').value;
+				eraPowerMod = (2455 * (eT ** 0.395) + 625 * eT + 925) / 4000;
+				eraBaseRPM = Math.round((4100 - 850) * (eraPowerMod ** 1.1) + 850)
+			}
 			
+			const customEraMode = document.getElementById('custom_settings_1').checkVisibility();
+		
 			//setup for tuning style
 			var styles = document.getElementsByName('style');
 			var styleStr = '1';
@@ -212,7 +289,7 @@
 					styleStr = styles[i].value;
 				}
 			}
-			let styleInt = (5 - Number(styleStr))*0.08
+			let styleVal = Number(styleStr)
 
 			//variables
 			var checkBox = false;
@@ -224,13 +301,28 @@
 			let H = cylinderCount*40*eraPowerMod*(Math.pow(perCylDisp, 0.7));
 			let L = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.112);
 			
-			const advancedMode = document.getElementById('advanced_settings_wrap').checkVisibility();
+			const advancedMode = document.getElementById('advanced_settings_1').checkVisibility();
 
-			if (advancedMode == true){
-				H = document.getElementById('horsepower').value;
+			if (advancedMode == true){ //Equations to guess the HP by the given values
+				let xin = document.getElementById('upshiftRPM').value / L
 				L = document.getElementById('upshiftRPM').value;
+				let hpmult = -6.7165 * xin**6 + 18.2036 * xin**5 - 18.0812 * xin**4 + 6.8847 * xin**3 + 0.3030 * xin**2 + 0.4131 * xin - 0.0063;
+				H = Math.round(H * hpmult);
 			}
-			H = H-(H*styleInt)
+
+
+			const bestSpeed = document.getElementById('bestspeed').checked;
+			if (bestSpeed == false) {
+				H = H-(H*0.1)
+			}
+
+			const slowturn = document.getElementById('fixturn').checked;
+			let gear1mult = styleVal;
+			if (slowturn == true) {
+				gear1mult = gear1mult * 1.5;
+			}
+			
+
 
 			let TopSpeed = (13.666 * (H ** 0.501) ) / ( (R ** 0.8) * (W ** 0.5) );
 			TopSpeed = Math.round(10*TopSpeed)/10
@@ -251,7 +343,7 @@
 			let FinalGear = (60*3.14159*L*S*10) / (12.5*10000*TopSpeed);
 			FinalGear = Math.round(100*FinalGear)/100;
 			let Torque = (9.5492/L)*746*H;
-			let Gear1 = Math.round(11*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100;
+			let Gear1 = Math.round(11*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100*gear1mult;
 			if (Gear1 > 20 && Gear1 < 32.5){
 				Gear1 = 20;
 			}
@@ -334,12 +426,30 @@
 			para.style.color = "var(--tan2)";
 			document.getElementById("gear" + GearCount).appendChild(para);
 
+			const currentUrlParams = new URLSearchParams(window.location.search);
+			const newUrlParams = new URLSearchParams();
+
+			if (advancedMode == true || customEraMode == true) {
+				newUrlParams.set('era', era);
+			}
+			if (advancedMode == true) {
+				newUrlParams.set('climbangle', Angle);
+				newUrlParams.set('upshift', L);
+			}
+			if (customEraMode == true) {
+			newUrlParams.set('rr', R);
+			newUrlParams.set('eng', eT);
+			}
+
+			const newSearchString = newUrlParams.toString();
+			const newUrl = window.location.pathname + '?' + newSearchString + window.location.hash;
+			history.replaceState({}, '', newUrl);
 			//}
 
 			if (document.getElementById('show_advanced_settings').checked == false){
 				let idealRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.01)
 				let Gear2_final = Gear1/((Math.pow(RatIn, (1-kvalue)))*Math.pow(2, kvalue))
-				let downRPM = Math.round(idealRPM / (Gear1 / (Gear2_final)))
+				let downRPM = Math.round(idealRPM / (Gear1 / (Gear2_final)) / styleVal * 1.4)
 
 				
 
@@ -380,7 +490,12 @@
 				para.appendChild(node);
 				document.getElementById("printlist2").appendChild(para);
 			}
+
+
 		}
+
+
+
 
 		const checkbox = document.getElementById('show_advanced_settings');
 		const element = document.getElementById('advanced_settings_wrap');
@@ -390,6 +505,8 @@
 		const element1 = document.getElementById('advanced_settings_2');
 		const element2 = document.getElementById('advanced_settings_invert1');
 		const element3 = document.getElementById('advanced_settings_invert2');
+		const element5 = document.getElementById('custom_settings_1');
+		const element6 = document.getElementById('custom_settings_2');
 
 		var advancedMode = false;
 		var advancedMode2 = false;
@@ -397,15 +514,13 @@
 		checkbox.addEventListener('click', function() {
 			advancedMode = !advancedMode
 			if (advancedMode == true) {
-				element.style.display = 'inherit';
 				element0.style.display = 'inherit';
 				element1.style.display = 'inherit';
-				element2.style.display = 'none';
-				element3.style.display = 'none';
+				//element2.style.display = 'none';
+				//element3.style.display = 'none';
 			} else {
-				element.style.display = 'none';
-				element2.style.display = 'inherit';
-				element3.style.display = 'inherit';
+				//element2.style.display = 'none';
+				//element3.style.display = 'none';
 				element0.style.display = 'none';
 				element1.style.display = 'none';
 			}
@@ -421,13 +536,11 @@
 				}
 				advancedMode2 = !advancedMode2
 				if (era == "Custom") {
-					element.style.display = 'inline-block';
-					element2.style.display = 'none';
-					element3.style.display = 'none';
+					element6.style.display = 'inherit';
+					element5.style.display = 'inherit';
 				} else {
-					if (advancedMode != true) {
-						element.style.display = 'none';
-					}
+					element6.style.display = 'none';
+					element5.style.display = 'none';
 
 				}
 			})
