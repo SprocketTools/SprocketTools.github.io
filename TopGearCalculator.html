@@ -36,27 +36,27 @@
 				<div class="box box200 box210h">
 					<h3>Vehicle Era</h3>
 					<div class="radio">
-						<label  for="WWI"></label>
+						<label  for="WWI">
 						<input  type="radio" id="WWI" name="era" value="WWI" />
 						WWI</label>
 					</div>
-					<div class="radio"><label for="Interwar"></label>
+					<div class="radio"><label for="Interwar">
 						<input type="radio" id="Interwar" name="era" value="Interwar" />
 						Interwar</label>
 					</div>
-					<div class="radio"><label for="Earlywar"></label>
+					<div class="radio"><label for="Earlywar">
 						<input type="radio" id="Earlywar" name="era" value="Earlywar" />
 						Earlywar</label>
 					</div>
-					<div class="radio"><label for="Midwar"></label>
+					<div class="radio"><label for="Midwar">
 						<input type="radio" id="Midwar" name="era" value="Midwar" />
 						Midwar</label>
 					</div>
-					<div class="radio"><label for="Latewar"></label>
+					<div class="radio"><label for="Latewar">
 						<input type="radio" id="Latewar" name="era" value="Latewar" checked="checked"/>
 						Latewar</label>
 					</div>
-					<div class="radio"><label for="Latewar"></label>
+					<div class="radio"><label for="Latewar">
 						<input type="radio" id="Custom" name="era" value="Custom"/>
 						Custom</label>
 					</div>
@@ -162,6 +162,7 @@
 	</div>
 	<script>
 
+		document.addEventListener('DOMContentLoaded', manageUrlParameters);
 
 		function manageUrlParameters() {
 					try {
@@ -206,26 +207,6 @@
 				console.error("URL Parameter Restoration failed:", error);
 			}
 		}
-
-		// Call the function when the page loads
-		document.addEventListener('DOMContentLoaded', manageUrlParameters);
-
-			// 		const currentUrlParams = new URLSearchParams(window.location.search);
-			// const newUrlParams = new URLSearchParams();
-
-			// if (advancedMode == true || customEraMode == true) {
-			// 	newUrlParams.set('era', era);
-			// }
-			// if (advancedMode == true) {
-			// 	newUrlParams.set('climbangle', Angle);
-			// 	newUrlParams.set('upshift', L);
-			// }
-			// if (customEraMode == true) {
-			// newUrlParams.set('rr', R);
-			// newUrlParams.set('eng', eT);
-			// }
-
-		Calculate()
 
 		
 
