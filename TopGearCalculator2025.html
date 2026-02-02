@@ -1,0 +1,402 @@
+<html>
+  <head>
+		<title>SprocketTools Gear Calculator</title>
+		<link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
+		<link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
+		<link rel="stylesheet" href="stylesV3.css">
+		<style>
+		</style> 
+  </head>
+  <body>
+	<h6 style="font-size: 0px;">The best Sprocket Tank Design powertrain calculator!  Removes all the guesswork from calculating your transmission and engine setups.</h6>
+	<div class="navbar titlenavbar">
+		<img src="SprocketToolsLogo.png"/>
+		<a href="index.html">Home</a>
+		<a class="active" href="TopGearCalculator.html">Gear Calculator</a>
+		<!-- <a href="ContestsList.html">Contests</a> -->
+		<!-- <a href="VehicleGenerator.html">Random Tank Picker</a> -->
+		<a href="resources.html">Sprocket Guides</a>
+		<a href="credits.html">Credits</a>
+		<a href="https://www.youtube.com/watch?v=SllFN1pirAY">Free Flyout Download</a>
+		<a href="DecalsFeatured.html">Decal Catalog</a>
+		<a href="PaintsFeatured.html">Paint Catalog</a>
+        <a href="DecalsRGBmaker.html">RGB Decal Maker</a>
+	</div>
+	
+	<div>
+		<center>
+			<h1>SprocketTools Gear Calculator</h1>	
+			<h3>Enter your tank's info and click <i>Calculate Gear Ratios</i></h3>
+		</center>
+	</div>
+	<div class="wrap">
+		<div class="wrap">
+			
+			<div>
+				<div class="box box200 box180h">
+					<h3>Vehicle Era</h3>
+					<div class="radio">
+						<input  type="radio" id="WWI" name="era" value="WWI" />
+						<label for="WWI">WWI</label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="Interwar" name="era" value="Interwar" />
+						<label for="Interwar">Interwar</label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="Earlywar" name="era" value="Earlywar" />
+						<label for="Earlywar">Earlywar</label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="Midwar" name="era" value="Midwar" />
+						<label for="Midwar">Midwar</label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="Latewar" name="era" value="Latewar" checked="checked"/>
+						<label for="Latewar">Latewar</label>
+					</div>
+				</div>
+				<div class="box box200 box120h">
+					<h3>Vehicle Weight (T)</h3>
+					<input class="numberIn" type="number" min="1" step="1" value="28" id="Weight">
+				</div>
+				<div class="box box200 box120h" id="advanced_settings_invert1">
+					<h3>Cylinder Size (L)</h3>
+					<input class="numberIn" type="number" min="0.01" step="0.01" value="2.4" id="perCylDisp">
+				</div>
+				<div class="box box200 box120h"  id="advanced_settings_invert2">
+					<h3>Cylinder Count</h3>
+					<input class="numberIn" type="number" min="2" step="2" value="6" id="Cylind">
+				</div>
+			</div>
+			<div>
+				<div class="box box200 box180h">
+					<h3>Tuning Style</h3>
+					<div class="radio">
+						<input  type="radio" id="1" name="style" value="1" />
+						<label for="1">Best <b>Acceleration</b></label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="2" name="style" value="2" />
+						<label for="2">Favor <b>Acceleration</b></label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="3" name="style" value="3" />
+						<label for="3">Balanced</label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="4" name="style" value="4" checked="checked"/>
+						<label for="4">Favor <b>Top Speed</b></label>
+					</div>
+					<div class="radio">
+						<input type="radio" id="5" name="style" value="5" />
+						<label for="5">Best <b>Top Speed</b></label>
+					</div>
+				</div>
+				<div class="box box200 box120h">
+					<h3>Gear Count</h3>
+					<input class="numberIn" type="number" min="1" max="11" step="1" value="6" id="GearCount">
+				</div>
+				<div class="box box200 box120h">
+					<h3>Sprocket Diameter</h3>
+					<input class="numberIn" type="number" min="0.01" step="0.01" value="0.6" id="Diameter">
+				</div>
+				<!-- <div class="box boxcrimson box200 box60h">
+					<h3>Advanced Mode <input type="checkbox" id="show_advanced_settings"></h3>
+				</div> -->
+				<div class="box box200 box120h">
+					<input type="submit" value="Advanced Mode" class="button buttonsmall" id="show_advanced_settings">
+					<input type="submit" value="    Help Panel    " class="button buttonsmall buttonblue" id="show_help_panel">
+				</div>
+			</div>
+			<div id="advanced_settings_wrap" style="display: none;">
+				<div class="box box200 boxcrimson box60h">
+					<h6 style="color: var(--white1);">Warning: advanced mode is not recommended for beginners!</h6>
+				</div>
+				<div class="box boxcrimson box200 box120h">
+					<h3>Climb angle</h3>
+					<input class="numberIn" type="number" min="1" step="1" max="90" value="80" id="ClimbAngle">
+				</div>
+				<div class="box boxcrimson box200 box120h">
+					<h3>Upshift RPM</h3>
+					<input class="numberIn" type="number" min="0" step="50" value="2700" id="upshiftRPM">
+				</div>
+				<div class="box boxcrimson box200 box120h">
+					<h3>Max HP (not KW)</h3>
+					<input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
+				</div>
+				
+			</div>
+			<div class="box box300">
+				<input onclick="Calculate()" type="submit" value="Calculate Gear Ratios" class="button">
+				<h4 id="printlist2"></h4>
+				<h4 id="topspeed"></h4>	
+			</div>
+			<div id="help_panel_wrap" style="display: none;">
+				<div class="box boxblue box300" >
+					<h3>Welcome!</h3>
+					<p style="text-align: left;">The <b>SprocketTools Gear Calculator</b> is designed to make Sprocket engines easier than reading this text.  Simply fill out statistics about your tank and click the button to get tailoorange results!</p>
+					<ul style="text-align: left;">
+						<li><b>Cylinder size</b> should match the in-game slider for cylinder volume.</li>
+						<li><b>Tuning style</b> affects whether your vehicle tries to get up to speed quickly, or slowly accelerates to get as much speed as possible.</li>
+						<li><b>Climb angle</b> determines the intended maximum slope that can be climbed, in degrees.</li>
+						<li><b>Max HP</b> should be set to the highest RPM possible with your engine's upshift RPM.</li>
+						<li>If your vehicle struggles to turn, make sure that gears R1 and G1 match.  Increasing their size, and reducing your sprocket diameter, also helps with turning.</li>
+					</ul>
+					
+
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	<script>
+		function Calculate() {
+			var foo = document.getElementById('printlist2');
+			while (foo.firstChild) foo.removeChild(foo.firstChild);
+			let cylinderCount = document.getElementById('Cylind').value;
+			var eras = document.getElementsByName('era');
+			var era = 'Latewar';
+			for(var i = 0; i < eras.length; i++){
+				if(eras[i].checked){
+					era = eras[i].value;
+				}
+			}
+			let R = 2;
+			let eraBaseRPM = 3000;
+			eraPowerMod = 1;
+			if(era == 'WWI'){
+				R = 4;
+				eraBaseRPM = 1500;
+				eraPowerMod = 0.2333;
+			}
+			if(era == 'Interwar'){
+				R = 3;
+				eraBaseRPM = 2700;
+				eraPowerMod = 0.586;
+			}
+			if(era == 'Earlywar'){
+				R = 1.5;
+				eraBaseRPM = 3100;
+				eraPowerMod = 0.72;
+			}
+			if(era == 'Midwar'){
+				R = 1.25;
+				eraBaseRPM = 3800;
+				eraPowerMod = 0.92;
+			}
+			if(era == 'Latewar'){
+				R = 1.0;
+				eraBaseRPM = 4000;
+				eraPowerMod = 1.00;
+			}
+			
+			//setup for tuning style
+			var styles = document.getElementsByName('style');
+			var styleStr = '1';
+			for(var i = 0; i < styles.length; i++){
+				if(styles[i].checked){
+					styleStr = styles[i].value;
+				}
+			}
+			let styleInt = (5 - Number(styleStr))*0.08
+
+			//variables
+			var checkBox = false;
+			var legacyFormula = false;
+			let W = document.getElementById('Weight').value;
+			let S = document.getElementById('Diameter').value;
+			let Angle = document.getElementById('ClimbAngle').value;
+			let perCylDisp = document.getElementById('perCylDisp').value;
+			let H = cylinderCount*40*eraPowerMod*(Math.pow(perCylDisp, 0.7));
+			let L = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.112);
+			
+			const advancedMode = document.getElementById('advanced_settings_wrap').checkVisibility();
+
+			if (advancedMode == true){
+				H = document.getElementById('horsepower').value;
+				L = document.getElementById('upshiftRPM').value;
+			}
+			H = H-(H*styleInt)
+
+			let TopSpeed = (13.666 * (H ** 0.501) ) / ( (R ** 0.8) * (W ** 0.5) );
+			TopSpeed = Math.round(10*TopSpeed)/10
+			const topspeedprintout = document.createElement("h4");
+			
+
+			const topspeednode = document.createTextNode("Your top speed is " + TopSpeed + " km/h");
+			topspeedprintout.className = "gearcalc-printout";
+			topspeedprintout.appendChild(topspeednode);
+			document.getElementById("printlist2").appendChild(topspeedprintout);
+			
+			const topspeedprintouttwo = document.createElement("h4");
+			const topspeednodetwo = document.createTextNode("Equivalent to " + Math.round(TopSpeed*6.213712)/10 + " mph");
+			topspeedprintouttwo.className = "gearcalc-printout";
+			topspeedprintouttwo.appendChild(topspeednodetwo);
+			document.getElementById("printlist2").appendChild(topspeedprintouttwo);
+			
+			let FinalGear = (60*3.14159*L*S*10) / (12.5*10000*TopSpeed);
+			FinalGear = Math.round(100*FinalGear)/100;
+			let Torque = (9.5492/L)*746*H;
+			let Gear1 = Math.round(11*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100;
+			if (Gear1 > 20 && Gear1 < 32.5){
+				Gear1 = 20;
+			}
+			if(checkBox.checked == true){
+				Gear1 = Math.round(Gear1*112)/100;
+			}
+			let GearCount = document.getElementById('GearCount').value;
+			if(GearCount > 1600){
+				window.open("https://www.youtube.com/watch?v=dCO89JvatxQ");
+			}
+			const gear1printout = document.createElement("h4");
+			gear1printout.setAttribute("id", "gear1");
+			const gear1node = document.createTextNode("Gear 1 is ");
+			gear1printout.appendChild(gear1node);
+			document.getElementById("printlist2").appendChild(gear1printout);
+
+			para = document.createElement("span");
+			node = document.createTextNode("" + Gear1.toFixed(2));
+			para.appendChild(node);
+			para.style.color = "var(--tan2)";
+			document.getElementById("gear1").appendChild(para);
+			let RatIn = Math.pow((Gear1/FinalGear), (1/(Math.pow((GearCount), 1.25))));
+			let R2 = (Gear1/FinalGear)/GearCount;
+			G2 = Gear1/R2;
+			let RN = ((FinalGear/G2) ** (1/(GearCount - 2)));
+			let gear_print = 0;
+			let kvalue = Math.log(Gear1/FinalGear/RatIn)/Math.log(GearCount/RatIn); // determines the value for later
+
+			// if (legacyFormula.checked == true){
+			// 	for (let i = 2; i < GearCount; i++) {
+			// 		gear_print = G2*((FinalGear/G2)**((i-2)/(GearCount-2)));
+					
+			// 		para = document.createElement("h4");
+			// 		gear_print = Math.round(100*gear_print)/100;
+			// 		node = document.createTextNode("Gear " + i + " is " + gear_print.toFixed(2));
+			// 		para.setAttribute("id", "gear" + i);
+			// 		para.appendChild(node);
+			// 		document.getElementById("printlist2").appendChild(para);
+
+			// 	}
+			// 	para = document.createElement("h4");
+			// 	node = document.createTextNode("Gear " + GearCount + " is ");
+			// 	para.setAttribute("id", "gear" + GearCount);
+			// 	para.appendChild(node);
+			// 	document.getElementById("printlist2").appendChild(para);
+
+			// 	para = document.createElement("span");
+			// 	node = document.createTextNode("" + FinalGear.toFixed(2));
+			// 	para.appendChild(node);
+			// 	para.style.color = "orange";
+			// 	document.getElementById("gear" + i).appendChild(para);	
+			// }
+			//else{
+				
+			for (let i = 2; i < GearCount; i++) {
+				gear_print = Gear1/((Math.pow(RatIn, (1-kvalue)))*Math.pow(i, kvalue));
+				
+				para = document.createElement("h4");
+				para.setAttribute("id", "gear" + i);
+				gear_print = Math.round(100*gear_print)/100;
+				node = document.createTextNode("Gear " + i + " is ");
+				para.appendChild(node);
+				document.getElementById("printlist2").appendChild(para);
+
+				para = document.createElement("span");
+				node = document.createTextNode("" + gear_print.toFixed(2));
+				para.appendChild(node);
+				para.style.color = "var(--tan2)";
+				document.getElementById("gear" + i).appendChild(para);	
+			}
+			para = document.createElement("h4");
+			node = document.createTextNode("Gear " + GearCount + " is ");
+			para.setAttribute("id", "gear" + GearCount);
+			para.appendChild(node);
+			document.getElementById("printlist2").appendChild(para);
+
+			para = document.createElement("span");
+			node = document.createTextNode("" + FinalGear.toFixed(2));
+			para.appendChild(node);
+			para.style.color = "var(--tan2)";
+			document.getElementById("gear" + GearCount).appendChild(para);
+
+			//}
+
+			if (document.getElementById('show_advanced_settings').checked == false){
+				let idealRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.01)
+				let Gear2_final = Gear1/((Math.pow(RatIn, (1-kvalue)))*Math.pow(2, kvalue))
+				let downRPM = Math.round(idealRPM / (Gear1 / (Gear2_final)))
+
+				
+
+				// para = document.createElement("h5");
+				// node = document.createTextNode("Estimated RPM limit: " + L + " RPM");
+
+				// para.appendChild(node);
+				// document.getElementById("printlist2").appendChild(para);
+
+				para = document.createElement("h4");
+				node = document.createTextNode("Set your upshift to ");
+				para.setAttribute("id", "gearUpshift");
+				para.appendChild(node);
+				document.getElementById("printlist2").appendChild(para);
+
+				para = document.createElement("span");
+				node = document.createTextNode(idealRPM + " RPM");
+				para.appendChild(node);
+				para.style.color = "orange";
+				document.getElementById("gearUpshift").appendChild(para);
+
+				para = document.createElement("h4");
+				node = document.createTextNode("Set your downshift to ");
+				para.setAttribute("id", "gearDownshift");
+				para.appendChild(node);
+				document.getElementById("printlist2").appendChild(para);
+
+				para = document.createElement("span");
+				node = document.createTextNode(downRPM + " RPM");
+				para.appendChild(node);
+				para.style.color = "orange";
+				document.getElementById("gearDownshift").appendChild(para);
+			}
+			else {
+				para = document.createElement("h5");
+				node = document.createTextNode("Estimated horsepower: " + Math.round(H) + "HP");
+
+				para.appendChild(node);
+				document.getElementById("printlist2").appendChild(para);
+			}
+		}
+
+		const checkbox = document.getElementById('show_advanced_settings');
+		const element = document.getElementById('advanced_settings_wrap');
+		const element2 = document.getElementById('advanced_settings_invert1');
+		const element3 = document.getElementById('advanced_settings_invert2');
+		var advancedMode = false;
+		checkbox.addEventListener('click', function() {
+			advancedMode = !advancedMode
+			if (advancedMode == true) {
+				element.style.display = 'inline-block';
+				element2.style.display = 'none';
+				element3.style.display = 'none';
+			} else {
+				element.style.display = 'none';
+				element2.style.display = 'inherit';
+				element3.style.display = 'inherit';
+			}
+		})
+		const checkbox2 = document.getElementById('show_help_panel');
+		const element4 = document.getElementById('help_panel_wrap');
+		var helpPanel = false;
+		checkbox2.addEventListener('click', function() {
+			helpPanel = !helpPanel
+			if (helpPanel == true) {
+				element4.style.display = 'inline-block';
+			} else {
+				element4.style.display = 'none';
+			}
+		});
+	</script>
+  </body>
+</html>
