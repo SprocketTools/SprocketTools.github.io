@@ -335,7 +335,7 @@
 			let FinalGear = (60*3.14159*L*S*10) / (12.5*10000*TopSpeed);
 			FinalGear = Math.round(100*FinalGear)/100;
 			let Torque = (9.5492/L)*746*H;
-			let Gear1 = Math.round(11*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100*gear1mult;
+			let Gear1 = Math.round(10*1.1*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100*gear1mult;
 			if (Gear1 > 20 && Gear1 < 32.5){
 				Gear1 = 20;
 			}
@@ -358,40 +358,13 @@
 			para.style.color = "var(--tan2)";
 			document.getElementById("gear1").appendChild(para);
 			let RatIn = Math.pow((Gear1/FinalGear), (1/(Math.pow((GearCount), 1.25))));
-			let R2 = (Gear1/FinalGear)/GearCount;
-			G2 = Gear1/R2;
-			let RN = ((FinalGear/G2) ** (1/(GearCount - 2)));
+			let kvalue = Math.log(Gear1/FinalGear/RatIn)/Math.log(GearCount/RatIn);
+			let dnom = (Math.pow(RatIn, (1-kvalue)));
+
 			let gear_print = 0;
-			let kvalue = Math.log(Gear1/FinalGear/RatIn)/Math.log(GearCount/RatIn); // determines the value for later
-
-			// if (legacyFormula.checked == true){
-			// 	for (let i = 2; i < GearCount; i++) {
-			// 		gear_print = G2*((FinalGear/G2)**((i-2)/(GearCount-2)));
-					
-			// 		para = document.createElement("h4");
-			// 		gear_print = Math.round(100*gear_print)/100;
-			// 		node = document.createTextNode("Gear " + i + " is " + gear_print.toFixed(2));
-			// 		para.setAttribute("id", "gear" + i);
-			// 		para.appendChild(node);
-			// 		document.getElementById("printlist2").appendChild(para);
-
-			// 	}
-			// 	para = document.createElement("h4");
-			// 	node = document.createTextNode("Gear " + GearCount + " is ");
-			// 	para.setAttribute("id", "gear" + GearCount);
-			// 	para.appendChild(node);
-			// 	document.getElementById("printlist2").appendChild(para);
-
-			// 	para = document.createElement("span");
-			// 	node = document.createTextNode("" + FinalGear.toFixed(2));
-			// 	para.appendChild(node);
-			// 	para.style.color = "orange";
-			// 	document.getElementById("gear" + i).appendChild(para);	
-			// }
-			//else{
 				
 			for (let i = 2; i < GearCount; i++) {
-				gear_print = Gear1/((Math.pow(RatIn, (1-kvalue)))*Math.pow(i, kvalue));
+				gear_print = Gear1/(dnom*Math.pow(i, kvalue));
 				
 				para = document.createElement("h4");
 				para.setAttribute("id", "gear" + i);
