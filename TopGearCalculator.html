@@ -27,6 +27,8 @@
 		<center>
 			<h1>SprocketTools Gear Calculator</h1>	
 			<h3>Enter your tank's info and watch the numbers appear!</h3>
+
+			<br>
 		</center>
 	</div>
 	<div class="wrap" onclick="Calculate()">
@@ -83,7 +85,7 @@
 						<label for="1">Clutch Braking</label>
 					</div>
 					<div class="radio tooltip"  data-title="Twin Transmissions prefer bigger starting gears.  IMPORTANT: Match R1 to G1">
-						<input type="radio" id="2" name="style" value="1.25" />
+						<input type="radio" id="2" name="style" value="1.0" />
 						<label for="2">Twin Transmission</label>
 					</div>
 					<h3>Tuning Style</h3>
@@ -121,7 +123,7 @@
 					</div> -->
 					<div class="box boxcrimson box200 box120h" id="advanced_settings_1"  style="display: none;">
 						<h3>Climb angle</h3>
-						<input class="numberIn" type="number" min="1" step="1" max="90" value="80" id="ClimbAngle">
+						<input class="numberIn" type="number" min="1" step="1" max="90" value="45" id="ClimbAngle">
 					</div>
 					<div class="box boxcrimson box200 box120h" id="advanced_settings_2"  style="display: none;">
 						<h3>Upshift RPM</h3>
@@ -159,6 +161,8 @@
 			</div>
 		</div>
 		</div>
+					<br>
+			<h4>Fun fact: Sprocket's built-in "smooth" button is now the same as SprocketTools!</h4>
 	</div>
 	<script>
 
@@ -246,29 +250,29 @@
 			}
 			if(era == 'Interwar'){
 				R = 3;
-				eraBaseRPM = 2700;
+				eraBaseRPM = 2800;
 				eraPowerMod = 0.586;
 			}
 			if(era == 'Earlywar'){
 				R = 1.5;
-				eraBaseRPM = 3100;
+				eraBaseRPM = 3300;
 				eraPowerMod = 0.72;
 			}
 			if(era == 'Midwar'){
 				R = 1.25;
-				eraBaseRPM = 3800;
+				eraBaseRPM = 4000;
 				eraPowerMod = 0.92;
 			}
 			if(era == 'Latewar'){
 				R = 1.0;
-				eraBaseRPM = 4000;
+				eraBaseRPM = 4300;
 				eraPowerMod = 1.00;
 			}
 			let eT = document.getElementById('EngineTech').value;
 			if(era == 'Custom'){
 				R = document.getElementById('RollResist').value;
 				eraPowerMod = (2455 * (eT ** 0.395) + 625 * eT + 925) / 4000;
-				eraBaseRPM = Math.round((4100 - 850) * (eraPowerMod ** 1.1) + 850)
+				eraBaseRPM = Math.round((4300 - 850) * (eraPowerMod ** 1.1) + 850)
 			}
 			
 			const customEraMode = document.getElementById('custom_settings_1').checkVisibility();
@@ -332,10 +336,11 @@
 			topspeedprintouttwo.appendChild(topspeednodetwo);
 			document.getElementById("printlist2").appendChild(topspeedprintouttwo);
 			
-			let FinalGear = (60*3.14159*L*S*10) / (12.5*10000*TopSpeed);
+			let FinalDrive = (60*3.14159*L*S*100) / (12.5*10000*TopSpeed);
+			let FinalGear = 1.0;
 			FinalGear = Math.round(100*FinalGear)/100;
 			let Torque = (9.5492/L)*746*H;
-			let Gear1 = Math.round(10*1.1*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque)/100*gear1mult;
+			let Gear1 = Math.round(100*1.1*( (S/2)*(1000*W)*9.81*Math.sin(3.14*Angle/180) )/Torque/FinalDrive)/100*gear1mult;
 			if (Gear1 > 20 && Gear1 < 32.5){
 				Gear1 = 20;
 			}
@@ -430,7 +435,7 @@
 			if (document.getElementById('show_advanced_settings').checked == false){
 				let idealRPM = Math.round(eraBaseRPM * (perCylDisp ** -0.3) * 1.01)
 				let Gear2_final = Gear1/((Math.pow(RatIn, (1-kvalue)))*Math.pow(2, kvalue))
-				let downRPM = Math.round((idealRPM / (Gear1 / (Gear2_final)) ** (styleVal * 1.2)) )
+				let downRPM = Math.round((idealRPM * (0.8 - 0.15*styleVal)) ) //(Gear1 / (Gear2_final)) ** (styleVal * 1.15 - 0.8)
 
 				
 
@@ -440,6 +445,18 @@
 				// para.appendChild(node);
 				// document.getElementById("printlist2").appendChild(para);
 
+				para = document.createElement("h4");
+				node = document.createTextNode("Set your final drive to ");
+				para.setAttribute("id", "finalDrive");
+				para.appendChild(node);
+				document.getElementById("printlist2").appendChild(para);
+
+				para = document.createElement("span");
+				node = document.createTextNode(Math.round(FinalDrive*103)/100);
+				para.appendChild(node);
+				para.style.color = "orange";
+				document.getElementById("finalDrive").appendChild(para);
+				
 				para = document.createElement("h4");
 				node = document.createTextNode("Set your upshift to ");
 				para.setAttribute("id", "gearUpshift");
