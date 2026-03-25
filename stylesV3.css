@@ -298,6 +298,10 @@ input[type=number] {
 	margin: 10px 5px;
 }
 
+.boxbottom {
+	align-items: flex-end;
+}
+
 .box ul{
 	padding-left: 30px;
 }
@@ -344,6 +348,11 @@ input[type=number] {
 .box120h {
 	max-height: 106px;
 	height: 106px;
+}
+
+.box150h {
+	max-height: 136px;
+	height: 136px;
 }
 
 .box180h {
@@ -537,6 +546,10 @@ input[type=number] {
 	padding: 5px;
 	margin: 2px 0px;
 } 
+
+.catalog125 li {
+	height: 125px;
+}
 
 .catalog li:hover {
 	background-color:  var(--tan1);
