@@ -298,10 +298,6 @@ input[type=number] {
 	margin: 10px 5px;
 }
 
-.boxbottom {
-	align-items: flex-end;
-}
-
 .box ul{
 	padding-left: 30px;
 }
