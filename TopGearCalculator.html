@@ -31,7 +31,8 @@
 		<center>
 			<h1>SprocketTools Gear Calculator</h1>	
 			<h3>Enter your tank's info and watch the numbers appear!</h3>
-
+			<h5>Note: speed estimates are not accurate for 0.2.51 - the other settings are still reliable to use.</h5>
+			<h5>Have feedback/suggestions for upcoming website updates? <a class="active" href="https://forms.gle/9b968Zc5wXXNAxgR9">Send them here!</a></h5>
 			<br>
 		</center>
 	</div>
@@ -340,6 +341,7 @@
 			topspeedprintouttwo.appendChild(topspeednodetwo);
 			document.getElementById("printlist2").appendChild(topspeedprintouttwo);
 			
+
 			let FinalDrive = (60*3.14159*L*S*100) / (12.5*10000*TopSpeed);
 			let FinalGear = 1.0;
 			FinalGear = Math.round(100*FinalGear)/100;
