@@ -31,7 +31,7 @@
 		<center>
 			<h1>SprocketTools Gear Calculator</h1>	
 			<h3>Enter your tank's info and watch the numbers appear!</h3>
-			<h5>Note: speed estimates are not accurate for 0.2.51 - the other settings are still reliable to use.</h5>
+			<h5>Note: website is trimmed to only display relevant data for 0.2.51 and will receive more updates later on.</h5>
 			<h5>Have feedback/suggestions for upcoming website updates? <a class="active" href="https://forms.gle/9b968Zc5wXXNAxgR9">Send them here!</a></h5>
 			<br>
 		</center>
@@ -148,6 +148,7 @@
 					</div>
 				</div>
 			<div class="box box300">
+				<h3>Output Configuration</h3>
 				<h4 id="printlist2"></h4>
 				<h4 id="topspeed"></h4>	
 			</div>
@@ -167,7 +168,6 @@
 		</div>
 		</div>
 					<br>
-			<h4>Fun fact: Sprocket's built-in "smooth" button is now the same as SprocketTools!</h4>
 	</div>
 	<script>
 
@@ -330,16 +330,16 @@
 			const topspeedprintout = document.createElement("h4");
 			
 
-			const topspeednode = document.createTextNode("Your top speed is " + TopSpeed + " km/h");
-			topspeedprintout.className = "gearcalc-printout";
-			topspeedprintout.appendChild(topspeednode);
-			document.getElementById("printlist2").appendChild(topspeedprintout);
+			// const topspeednode = document.createTextNode("Your top speed is " + TopSpeed + " km/h");
+			// topspeedprintout.className = "gearcalc-printout";
+			// topspeedprintout.appendChild(topspeednode);
+			// document.getElementById("printlist2").appendChild(topspeedprintout);
 			
-			const topspeedprintouttwo = document.createElement("h4");
-			const topspeednodetwo = document.createTextNode("Equivalent to " + Math.round(TopSpeed*6.213712)/10 + " mph");
-			topspeedprintouttwo.className = "gearcalc-printout";
-			topspeedprintouttwo.appendChild(topspeednodetwo);
-			document.getElementById("printlist2").appendChild(topspeedprintouttwo);
+			// const topspeedprintouttwo = document.createElement("h4");
+			// const topspeednodetwo = document.createTextNode("Equivalent to " + Math.round(TopSpeed*6.213712)/10 + " mph");
+			// topspeedprintouttwo.className = "gearcalc-printout";
+			// topspeedprintouttwo.appendChild(topspeednodetwo);
+			// document.getElementById("printlist2").appendChild(topspeedprintouttwo);
 			
 
 			let FinalDrive = (60*3.14159*L*S*100) / (12.5*10000*TopSpeed);
@@ -374,22 +374,22 @@
 
 			let gear_print = 0;
 				
-			for (let i = 2; i < GearCount; i++) {
-				gear_print = Gear1/(dnom*Math.pow(i, kvalue));
+			// for (let i = 2; i < GearCount; i++) {
+			// 	gear_print = Gear1/(dnom*Math.pow(i, kvalue));
 				
-				para = document.createElement("h4");
-				para.setAttribute("id", "gear" + i);
-				gear_print = Math.round(100*gear_print)/100;
-				node = document.createTextNode("Gear " + i + " is ");
-				para.appendChild(node);
-				document.getElementById("printlist2").appendChild(para);
+			// 	para = document.createElement("h4");
+			// 	para.setAttribute("id", "gear" + i);
+			// 	gear_print = Math.round(100*gear_print)/100;
+			// 	node = document.createTextNode("Gear " + i + " is ");
+			// 	para.appendChild(node);
+			// 	document.getElementById("printlist2").appendChild(para);
 
-				para = document.createElement("span");
-				node = document.createTextNode("" + gear_print.toFixed(2));
-				para.appendChild(node);
-				para.style.color = "var(--tan2)";
-				document.getElementById("gear" + i).appendChild(para);	
-			}
+			// 	para = document.createElement("span");
+			// 	node = document.createTextNode("" + gear_print.toFixed(2));
+			// 	para.appendChild(node);
+			// 	para.style.color = "var(--tan2)";
+			// 	document.getElementById("gear" + i).appendChild(para);	
+			// }
 			para = document.createElement("h4");
 			node = document.createTextNode("Gear " + GearCount + " is ");
 			para.setAttribute("id", "gear" + GearCount);
@@ -475,17 +475,17 @@
 				para.style.color = "orange";
 				document.getElementById("gearUpshift").appendChild(para);
 
-				para = document.createElement("h4");
-				node = document.createTextNode("Set your downshift to ");
-				para.setAttribute("id", "gearDownshift");
-				para.appendChild(node);
-				document.getElementById("printlist2").appendChild(para);
+				// para = document.createElement("h4");
+				// node = document.createTextNode("Set your downshift to ");
+				// para.setAttribute("id", "gearDownshift");
+				// para.appendChild(node);
+				// document.getElementById("printlist2").appendChild(para);
 
-				para = document.createElement("span");
-				node = document.createTextNode(downRPM + " RPM");
-				para.appendChild(node);
-				para.style.color = "orange";
-				document.getElementById("gearDownshift").appendChild(para);
+				// para = document.createElement("span");
+				// node = document.createTextNode(downRPM + " RPM");
+				// para.appendChild(node);
+				// para.style.color = "orange";
+				// document.getElementById("gearDownshift").appendChild(para);
 			}
 			else {
 				para = document.createElement("h5");
