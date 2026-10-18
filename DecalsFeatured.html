@@ -32,34 +32,79 @@
                             <h4>Your decals will now automatically download and apply wherever you share your tank!</h4>
                         </div>
                     </div>
-                    <ul class="catalog"><li><img src="imgbin/atlanticas13.png" onclick="copyText('https://sprockettools.github.io/img/atlanticas13.png')"/>
-                    <h3>atlanticas13</h3>
-                    <h5>Uploaded by: blobonu</h5><li><img src="imgbin/one_1_(soviet).png" onclick="copyText('https://sprockettools.github.io/img/one_1_(soviet).png')"/>
-                    <h3>soviet one</h3>
-                    <h5>Uploaded by: madeinmicrosoftpaint</h5><li><img src="imgbin/austro_hungarian_flag.png" onclick="copyText('https://sprockettools.github.io/img/austro_hungarian_flag.png')"/>
-                    <h3>austro hungarian flag</h3>
-                    <h5>Uploaded by: n1ki_as1</h5><li><img src="imgbin/1stptbinsignia.png" onclick="copyText('https://sprockettools.github.io/img/1stptbinsignia.png')"/>
-                    <h3>1st ptb insignia</h3>
-                    <h5>Uploaded by: danidude88</h5><li><img src="imgbin/headlightlens.png" onclick="copyText('https://sprockettools.github.io/img/headlightlens.png')"/>
-                    <h3>headlight lens</h3>
-                    <h5>Uploaded by: darioxn</h5><li><img src="imgbin/hts_symbol_skyde.png" onclick="copyText('https://sprockettools.github.io/img/hts_symbol_skyde.png')"/>
-                    <h3>hts symbol skyde</h3>
-                    <h5>Uploaded by: jagd___</h5><li><img src="imgbin/lafayette_name_inscription.png" onclick="copyText('https://sprockettools.github.io/img/lafayette_name_inscription.png')"/>
-                    <h3>lafayette name inscription</h3>
-                    <h5>Uploaded by: zavala._.</h5><li><img src="imgbin/tiger_1_wooden_board.png" onclick="copyText('https://sprockettools.github.io/img/tiger_1_wooden_board.png')"/>
-                    <h3>tiger 1 wooden board</h3>
-                    <h5>Uploaded by: kha5</h5><li><img src="imgbin/cross_of_burgundy.png" onclick="copyText('https://sprockettools.github.io/img/cross_of_burgundy.png')"/>
-                    <h3>cross of burgundy</h3>
-                    <h5>Uploaded by: veteran0045</h5><li><img src="imgbin/mosscap_82_emblem.png" onclick="copyText('https://sprockettools.github.io/img/mosscap_82_emblem.png')"/>
-                    <h3>mosscap 82 emblem</h3>
-                    <h5>Uploaded by: 12kt.</h5><li><img src="imgbin/number_3_5.png" onclick="copyText('https://sprockettools.github.io/img/number_3_5.png')"/>
-                    <h3>thin number 4</h3>
-                    <h5>Uploaded by: blobonu</h5><li><img src="imgbin/skoda_logo.png" onclick="copyText('https://sprockettools.github.io/img/skoda_logo.png')"/>
-                    <h3>skoda logo</h3>
-                    <h5>Uploaded by: mysterio_77.5</h5>	</ul></center></body><script>
-                function copyText(inputText) {
-                    // Copy the text inside the text field
-                    navigator.clipboard.writeText(inputText);
-                }	
+                    <ul class="catalog">	                <div class="container text-center">
+                    <!-- Search Bar -->
+                    <input class="numberIn" type="text" id="searchInput" placeholder="Search decals or uploaders...">
+                </div>
+
+                <!-- Dynamic Catalog Grid -->
+                <ul class="catalog" id="catalogGrid">
+                    <!-- JavaScript will populate items here -->
+                </ul>
+
+                <script type="module" src="/scripts/catalogLoader.js"></script>
+                
+                <script>
+                    let allDecals = [];
+                    const grid = document.getElementById("catalogGrid");
+                    const searchInput = document.getElementById("searchInput");
+
+                    async function loadCatalog() {
+                        try {
+                            const response = await fetch('DecalCatalog.json'); 
+                            allDecals = await response.json();
+                            allDecals.sort(() => Math.random() - 0.5);
+                            renderDecals(allDecals); 
+                        } catch (error) {
+                            console.error("Failed to load catalog data:", error);
+                            grid.innerHTML = "<li><h3>Failed to load catalog items.</h3></li>";
+                        }
+                    }
+
+                    function renderDecals(items) {
+                        if (items.length === 0) {
+                            grid.innerHTML = "<li><h3>No decals found.</h3></li>";
+                            return;
+                        }
+
+                        grid.innerHTML = items.toSorted((name) => name).slice(0, 20).map(item => `
+                            <li>
+                                <img src="imgbin/${item.strippedname}" onclick="copyText('https://sprockettools.github.io/img/${item.strippedname}')" alt="${item.name}"/>
+                                <h3>${item.name}</h3>
+                                <h5>Uploaded by: ${item.ownername}</h5>
+                            </li>
+                        `).join('');
+                    }
+
+                    searchInput.addEventListener("input", (e) => {
+                        const query = e.target.value.toLowerCase().trim();
+                        
+                        const filtered = allDecals.filter(item => {
+                            const nameMatch = item.name && item.name.toLowerCase().includes(query);
+                            const ownerMatch = item.ownername && item.ownername.toLowerCase().includes(query);
+                            const categoryMatch = item.category && item.category.toLowerCase().includes(query);
+                            
+                            let tagMatch = false;
+                            if (item.tags) {
+                                if (Array.isArray(item.tags)) {
+                                    tagMatch = item.tags.some(tag => tag.toLowerCase().includes(query));
+                                } else if (typeof item.tags === 'string') {
+                                    tagMatch = item.tags.toLowerCase().includes(query);
+                                }
+                            }
+
+                            return nameMatch || ownerMatch || categoryMatch || tagMatch;
+                        });
+
+                        renderDecals(filtered);
+                    });
+
+                    loadCatalog();
+
+                    function copyText(inputText) {
+                        navigator.clipboard.writeText(inputText);
+                    }
+                
                 </script>
-                </html>
+            </body>
+        </html>

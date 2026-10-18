@@ -32,26 +32,79 @@
                         <h4>Your decals will now automatically download and apply wherever you share your tank!</h4>
                     </div>
                 </div>
-                <ul class="catalog"><li><img src="imgbin/desert_camouflage.png" onclick="copyText('https://sprockettools.github.io/img/desert_camouflage.png')"/>
-                <h3>desert camouflage</h3>
-                <h5>Uploaded by: galeahh</h5><li><img src="imgbin/nk_2010_tir_color.png" onclick="copyText('https://sprockettools.github.io/img/nk_2010_tir_color.png')"/>
-                <h3>nk 2010 tir color</h3>
-                <h5>Uploaded by: notkippersupreme</h5><li><img src="imgbin/rokmc_non_standard_1980s.png" onclick="copyText('https://sprockettools.github.io/img/rokmc_non_standard_1980s.png')"/>
-                <h3>rokmc non standard 1980s</h3>
-                <h5>Uploaded by: notkippersupreme</h5><li><img src="imgbin/auscam.png" onclick="copyText('https://sprockettools.github.io/img/auscam.png')"/>
-                <h3>auscam</h3>
-                <h5>Uploaded by: the_len</h5><li><img src="imgbin/1937_nordmuster_camo.png" onclick="copyText('https://sprockettools.github.io/img/1937_nordmuster_camo.png')"/>
-                <h3>1937 nordmuster camo</h3>
-                <h5>Uploaded by: hibro51311</h5><li><img src="imgbin/hungarian_m38_tricolor.png" onclick="copyText('https://sprockettools.github.io/img/hungarian_m38_tricolor.png')"/>
-                <h3>hungarian m38 tricolor</h3>
-                <h5>Uploaded by: simon_blade</h5><li><img src="imgbin/wintercamo.png" onclick="copyText('https://sprockettools.github.io/img/wintercamo.png')"/>
-                <h3>winter camo bicolor</h3>
-                <h5>Uploaded by: fugassina37</h5><li><img src="imgbin/us_masster_m163_vads.png" onclick="copyText('https://sprockettools.github.io/img/us_masster_m163_vads.png')"/>
-                <h3>us masster m163 vads</h3>
-                <h5>Uploaded by: notkippersupreme</h5>	</ul></center></body><script>
-                function copyText(inputText) {
-                    // Copy the text inside the text field
-                    navigator.clipboard.writeText(inputText);
-                }	
+                <ul class="catalog">	                <div class="container text-center">
+                    <!-- Search Bar -->
+                    <input class="numberIn" type="text" id="searchInput" placeholder="Search decals or uploaders...">
+                </div>
+
+                <!-- Dynamic Catalog Grid -->
+                <ul class="catalog" id="catalogGrid">
+                    <!-- JavaScript will populate items here -->
+                </ul>
+
+                <script type="module" src="/scripts/catalogLoader.js"></script>
+                
+                <script>
+                    let allDecals = [];
+                    const grid = document.getElementById("catalogGrid");
+                    const searchInput = document.getElementById("searchInput");
+
+                    async function loadCatalog() {
+                        try {
+                            const response = await fetch('PaintCatalog.json'); 
+                            allDecals = await response.json();
+                            allDecals.sort(() => Math.random() - 0.5);
+                            renderDecals(allDecals); 
+                        } catch (error) {
+                            console.error("Failed to load catalog data:", error);
+                            grid.innerHTML = "<li><h3>Failed to load catalog items.</h3></li>";
+                        }
+                    }
+
+                    function renderDecals(items) {
+                        if (items.length === 0) {
+                            grid.innerHTML = "<li><h3>No decals found.</h3></li>";
+                            return;
+                        }
+
+                        grid.innerHTML = items.toSorted((name) => name).slice(0, 20).map(item => `
+                            <li>
+                                <img src="imgbin/${item.strippedname}" onclick="copyText('https://sprockettools.github.io/img/${item.strippedname}')" alt="${item.name}"/>
+                                <h3>${item.name}</h3>
+                                <h5>Uploaded by: ${item.ownername}</h5>
+                            </li>
+                        `).join('');
+                    }
+
+                    searchInput.addEventListener("input", (e) => {
+                        const query = e.target.value.toLowerCase().trim();
+                        
+                        const filtered = allDecals.filter(item => {
+                            const nameMatch = item.name && item.name.toLowerCase().includes(query);
+                            const ownerMatch = item.ownername && item.ownername.toLowerCase().includes(query);
+                            const categoryMatch = item.category && item.category.toLowerCase().includes(query);
+                            
+                            let tagMatch = false;
+                            if (item.tags) {
+                                if (Array.isArray(item.tags)) {
+                                    tagMatch = item.tags.some(tag => tag.toLowerCase().includes(query));
+                                } else if (typeof item.tags === 'string') {
+                                    tagMatch = item.tags.toLowerCase().includes(query);
+                                }
+                            }
+
+                            return nameMatch || ownerMatch || categoryMatch || tagMatch;
+                        });
+
+                        renderDecals(filtered);
+                    });
+
+                    loadCatalog();
+
+                    function copyText(inputText) {
+                        navigator.clipboard.writeText(inputText);
+                    }
+                
                 </script>
-                </html>
+            </body>
+        </html>
