@@ -31,7 +31,7 @@
   }
 
 html {
-	cursor: zoom-in;
+	cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -49,6 +49,7 @@ body {
 	/* display:inline-block;
 	flex-direction:column; */
 }
+
 
 a {color: var(--blue4); margin: 0.75em;}
 p {color: var(--white1); margin: 0.75em;}
@@ -92,6 +93,7 @@ ul {
 	padding: 11px 8px 11px 8px;
 	border-width: 0px 0px 5px 0px;
 }
+
 
 .navbar a {
 	background: linear-gradient(-45deg, var(--stripe1) 10%, transparent 10%, transparent 50%, var(--stripe1) 50%, var(--stripe1) 60%, transparent 60%, transparent);
@@ -280,6 +282,19 @@ input[type=number] {
 	padding: 4px 9px;
 	border: 1px solid var(--black1);
 	max-width: 120px;
+	text-align: justify;
+	color: white;
+}
+
+input[type=text] {
+	display: inline;
+	background: rgb(0,0,0);
+	background: linear-gradient(180deg, var(--shade3) 0%, var(--shade5) 40%, var(--shade5) 80%, var(--shade5) 100%);
+	font-size: 140%;
+	border-radius: 8px;
+	padding: 5px 19px;
+	border: 2px solid var(--grey1);
+	max-width: 420px;
 	text-align: justify;
 	color: white;
 }
