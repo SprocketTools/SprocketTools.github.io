@@ -27,7 +27,7 @@
 	--shade4: rgba(20, 20, 21, 0.45);
 	--shade5: rgba(20, 20, 21, 0.3);
 	--shade6: rgba(20, 20, 21, 0.15);
-	--backgroundgradient: linear-gradient(to bottom, var(--grey2) 0px, var(--grey2) 40px, var(--grey1) 40px, var(--grey1) 65px, var(--grey5) 65px, var(--grey5) 70px, var(--grey3) 70px, var(--grey5) 200px, var(--grey5) 100%);
+	--backgroundgradient: linear-gradient(to bottom, var(--grey2) 0px, var(--grey2) 40px, var(--grey1) 40px, var(--grey1) 65px, var(--grey4) 65px, var(--grey4) 70px, var(--grey2) 70px, var(--grey4) 200px, var(--grey3) 100%);
   }
 
 html {
