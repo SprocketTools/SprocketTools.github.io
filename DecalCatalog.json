@@ -14888,5 +14888,15 @@
         "ownerid": 1349136271695679582,
         "category": "Fictional Insignia",
         "type": "decal"
+    },
+    {
+        "name": "cuban freedom movement insignia",
+        "tags": "Caribbean, Cuba, Alt History",
+        "strippedname": "cuban_freedom_movement_insignia.png",
+        "approved": "True",
+        "ownername": "avangardv1",
+        "ownerid": 1479131920024735856,
+        "category": "Fictional Insignia",
+        "type": "decal"
     }
 ]
