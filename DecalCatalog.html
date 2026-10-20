@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <title>SprocketTools Decal Catalog</title>
+        <link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
+        <link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
+        <link rel="stylesheet" href="stylesV3.css">
+    </head>
+    <body>
+        <div class="navbar titlenavbar">
+            <img src="SprocketToolsLogo.png"/>
+            <a href="index.html">Home</a>
+            <a href="TopGearCalculator.html">Gear Calculator</a>
+            <a href="resources.html">Resources & Tutorials</a>
+            <a href="credits.html">Credits</a>
+            <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0">Get Trolled</a>
+            <a class="active" href="DecalsFeatured.html">Decal Catalog</a>
+            <a href="PaintsFeatured.html">Paint Catalog</a>
+            <a href="DecalsRGBmaker.html">RGB Decal Maker</a>
+        </div>
+        <div class="container">
+            <h1>SprocketTools Decal Catalog</h1>
+                                    
+        </div class="wrap">
+            <div class="wrap">
+                <div>
+                    <div class="box box400">
+                        <h2>How to use:</h2>
+                        <h4>1. Click on a picture</h4>
+                        <h4>2. Select a decal in Sprocket</h4> 
+                        <h4>3. Ctrl + V into the URL field</h4>
+                        <h4>Your decals will now automatically download wherever you open or share your tank!</h4>
+                    </div>
+                    <div>
+                        <input class="numberIn" type="text" id="searchInput" placeholder="Search decal repository">
+
+                    </div>
+                    <div class="box box400">
+                        <h2>Search Filters</h2>
+                        <ul class="navbar" id="filterList">
+                            <li onclick="document.location='DecalsAnime.html'">Anime</li>
+
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <div class="wrap">
+                        <ul class="catalog" id="catalogGrid">
+                            <!-- items go here -->
+                        </ul>            
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap">
+            
+
+        <script type="module" src="/scripts/catalogLoader.js"></script>
+                
+        <script>
+let allDecals = [];
+            const grid = document.getElementById("catalogGrid");
+            const searchFilters = document.getElementById("filterList");
+            const searchInput = document.getElementById("searchInput");
+            let activeFilters = []; // Start empty or add defaults if desired
+
+            async function loadCatalogData() {
+                try {
+                    const response = await fetch('DecalCatalog.json'); 
+                    allDecals = await response.json();
+                    allDecals.sort(() => Math.random() - 0.5);
+                    
+                    // Initialize filters and render initial catalog once data is loaded
+                    initFilters();
+                    applyFilters(); 
+                } catch (error) {
+                    console.error("Failed to load catalog data:", error);
+                    grid.innerHTML = "<li><h3>Failed to load catalog items.</h3></li>";
+                }
+            }
+
+            function initFilters() {
+                const categorySet = new Set();
+                for (const item of allDecals) {
+                    if (item.category) {
+                        categorySet.add(item.category);
+                    }
+                }
+                
+                const filterList = Array.from(categorySet).sort();
+                
+                searchFilters.innerHTML = filterList.map(item => `
+                    <li class="${activeFilters.includes(item) ? 'active' : ''}">${item}</li>
+                `).join('');
+            }
+
+            function applyFilters() {
+                const query = searchInput.value.toLowerCase().trim();
+                
+                const filtered = allDecals.filter(item => {
+                    // Category filter: matches if no filters are selected OR the item's category is active
+                    const categoryMatch = activeFilters.length === 0 || (item.category && activeFilters.includes(item.category));
+
+                    // Text search filter
+                    const nameMatch = item.name && item.name.toLowerCase().includes(query);
+                    const ownerMatch = item.ownername && item.ownername.toLowerCase().includes(query);
+                    const catSearchMatch = item.category && item.category.toLowerCase().includes(query);
+                    
+                    let tagMatch = false;
+                    if (item.tags) {
+                        if (Array.isArray(item.tags)) {
+                            tagMatch = item.tags.some(tag => tag.toLowerCase().includes(query));
+                        } else if (typeof item.tags === 'string') {
+                            tagMatch = item.tags.toLowerCase().includes(query);
+                        }
+                    }
+
+                    const textMatch = query === "" || nameMatch || ownerMatch || catSearchMatch || tagMatch;
+
+                    return categoryMatch && textMatch;
+                });
+
+                renderDecals(filtered);
+            }
+
+            function renderDecals(items) {
+                if (items.length === 0) {
+                    grid.innerHTML = "<li><h3>No decals found.</h3></li>";
+                    return;
+                }
+
+                decalCount = 250;
+                if (activeFilters.length == 0){
+                    decalCount = 25;
+                }
+
+                grid.innerHTML = items.toSorted((a, b) => a.name.localeCompare(b.name)).slice(0, decalCount).map(item => `
+                    <li>
+                        <img src="imgbin/${item.strippedname}" onclick="copyText('https://sprockettools.github.io/img/${item.strippedname}')" alt="${item.name}"/>
+                        <h3>${item.name}</h3>
+                        <h5>Uploaded by: ${item.ownername}</h5>
+                    </li>
+                `).join('');
+            }
+
+            // Event listener for clicking filters (Event Delegation)
+            searchFilters.addEventListener("click", (e) => {
+                const li = e.target.closest("li");
+                if (!li) return;
+                
+                const category = li.textContent.trim();
+                const index = activeFilters.indexOf(category);
+                
+                if (index > -1) {
+                    activeFilters.splice(index, 1);
+                    li.classList.remove("active");
+                } else {
+                    activeFilters.push(category);
+                    li.classList.add("active");
+                }
+                
+                applyFilters();
+            });
+
+            // Event listener for typing in the search bar
+            searchInput.addEventListener("input", () => {
+                applyFilters();
+            });
+
+            // Kick off data loading
+            loadCatalogData();
+
+            function copyText(inputText) {
+                navigator.clipboard.writeText(inputText);
+            }
+        
+        </script>
+    </body>
+</html>
