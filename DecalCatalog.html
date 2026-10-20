@@ -37,11 +37,11 @@
 
                     </div>
                     <div class="box box400">
-                        <h2>Search Filters</h2>
-                        <ul class="navbar" id="filterList" style="padding:1px">
+                        <h2>Search Filter</h2>
+                        <ul class="navbar" id="filterList" style="padding:1px; font-size: 95%">
                         </ul>
                         <h2>Add your own decals!</h2>
-                        <div style="text-align: left;">
+                        <div style="text-align: left">
                             <h4>The <i>-submitDecal</i> bot command in the Sprocket Official Discord lets you add your own decals.</h4>
                         </div>
                     </div>
@@ -152,13 +152,18 @@
                 if (!li) return;
                 
                 const category = li.textContent.trim();
-                const index = activeFilters.indexOf(category);
                 
-                if (index > -1) {
-                    activeFilters.splice(index, 1);
+                // If the user clicks the already active filter, toggle it off (deselect)
+                if (activeFilters.includes(category)) {
+                    activeFilters = [];
                     li.classList.remove("active");
                 } else {
-                    activeFilters.push(category);
+                    // Otherwise, remove 'active' from all other filter items
+                    const allFilterItems = searchFilters.querySelectorAll("li");
+                    allFilterItems.forEach(item => item.classList.remove("active"));
+                    
+                    // Set this as the only active filter
+                    activeFilters = [category];
                     li.classList.add("active");
                 }
                 
