@@ -56,7 +56,8 @@
         <script type="module" src="/scripts/catalogLoader.js"></script>
                 
         <script>
-let allDecals = [];
+            let allDecals = [];
+            let sortedDecals = [];
             const grid = document.getElementById("catalogGrid");
             const searchFilters = document.getElementById("filterList");
             const searchInput = document.getElementById("searchInput");
@@ -66,9 +67,13 @@ let allDecals = [];
                 try {
                     const response = await fetch('DecalCatalog.json'); 
                     allDecals = await response.json();
+                    
+                    // Create a pre-sorted copy once for fast alphabetical lookups
+                    sortedDecals = [...allDecals].sort((a, b) => a.name.localeCompare(b.name));
+                    
+                    // Randomize the main array once for initial load
                     allDecals.sort(() => Math.random() - 0.5);
                     
-                    // Initialize filters and render initial catalog once data is loaded
                     initFilters();
                     applyFilters(); 
                 } catch (error) {
@@ -95,11 +100,13 @@ let allDecals = [];
             function applyFilters() {
                 const query = searchInput.value.toLowerCase().trim();
                 
-                const filtered = allDecals.filter(item => {
-                    // Category filter: matches if no filters are selected OR the item's category is active
+                // If there's an active search query or active filters, use the pre-sorted array.
+                // Otherwise, use the randomized allDecals array for the default view.
+                const dataSource = (query !== "" || activeFilters.length > 0) ? sortedDecals : allDecals;
+
+                const filtered = dataSource.filter(item => {
                     const categoryMatch = activeFilters.length === 0 || (item.category && activeFilters.includes(item.category));
 
-                    // Text search filter
                     const nameMatch = item.name && item.name.toLowerCase().includes(query);
                     const ownerMatch = item.ownername && item.ownername.toLowerCase().includes(query);
                     const catSearchMatch = item.category && item.category.toLowerCase().includes(query);
@@ -127,12 +134,12 @@ let allDecals = [];
                     return;
                 }
 
-                decalCount = 250;
-                if (activeFilters.length == 0){
+                let decalCount = 50;
+                if (activeFilters.length === 0 && searchInput.value.trim() === ""){
                     decalCount = 25;
                 }
 
-                grid.innerHTML = items.toSorted((a, b) => a.name.localeCompare(b.name)).slice(0, decalCount).map(item => `
+                grid.innerHTML = items.slice(0, decalCount).map(item => `
                     <li>
                         <img src="imgbin/${item.strippedname}" onclick="copyText('https://sprockettools.github.io/img/${item.strippedname}')" alt="${item.name}"/>
                         <h3>${item.name}</h3>
@@ -141,7 +148,7 @@ let allDecals = [];
                 `).join('');
             }
 
-            // Event listener for clicking filters (Event Delegation)
+            // Event listener for clicking filters
             searchFilters.addEventListener("click", (e) => {
                 const li = e.target.closest("li");
                 if (!li) return;
@@ -171,7 +178,6 @@ let allDecals = [];
             function copyText(inputText) {
                 navigator.clipboard.writeText(inputText);
             }
-        
         </script>
     </body>
 </html>
