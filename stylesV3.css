@@ -290,13 +290,15 @@ input[type=text] {
 	display: inline;
 	background: rgb(0,0,0);
 	background: linear-gradient(180deg, var(--shade3) 0%, var(--shade5) 40%, var(--shade5) 80%, var(--shade5) 100%);
-	font-size: 140%;
+	font-size: 120%;
+	font-weight: bold;
 	border-radius: 8px;
 	padding: 5px 19px;
 	border: 2px solid var(--grey1);
-	max-width: 420px;
+	max-width: 380px;
 	text-align: justify;
 	color: white;
+	margin: 0px 5px;
 }
 
 .box {
@@ -542,9 +544,9 @@ input[type=text] {
 	word-wrap: break-word;
 	display: inline-block;
 	vertical-align: bottom;
-	height: 340px;
-	width: 250px;
-	min-width: 250px;
+	height: 275px;
+	width: 200px;
+	min-width: 200px;
 	text-align: center;
 	/* background: linear-gradient(180deg, var(--grey3) 0%, var(--grey4) 20%, var(--grey4) 100%); */
 	background: linear-gradient(-45deg, var(--shade3) 10%, transparent 10%, transparent 50%, var(--shade3) 50%, var(--shade3) 60%, transparent 60%, transparent); 
@@ -553,13 +555,15 @@ input[type=text] {
 	border-color: var(--tan1);
 	box-shadow: 0 0px 0px var(--tan2);
 	border-radius: 5px; 
-	border: 2px solid black; 
+	border: 1.9px solid var(--black1);  
 	padding: 5px;
 	margin: 2px 0px;
+	font-size: 85%;
 } 
 
 .catalog125 li {
 	height: 125px;
+	
 }
 
 .catalog li:hover {
@@ -573,7 +577,7 @@ input[type=text] {
 	vertical-align: top;
 	margin-left: auto;
 	margin-right: auto;
-	width: 100%;
-	height: 250px;
+	width: 90%;
+	height: 180px;
 	object-fit: contain;
 }
