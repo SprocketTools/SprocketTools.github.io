@@ -25,10 +25,12 @@
                 <div>
                     <div class="box box400">
                         <h2>How to use:</h2>
-                        <h4>1. Click on a picture</h4>
-                        <h4>2. Select a decal in Sprocket</h4> 
-                        <h4>3. Ctrl + V into the URL field</h4>
-                        <h4>Your decals will now automatically download wherever you open or share your tank!</h4>
+                        <div style="text-align: left;">
+                            <h4>1. Click on a picture</h4>
+                            <h4>2. Select a decal in Sprocket</h4> 
+                            <h4>3. Ctrl + V into the URL field</h4>
+                            <h4>Your decals will now automatically download wherever you open or share your tank!</h4>
+                        </div>    
                     </div>
                     <div>
                         <input class="numberIn" type="text" id="searchInput" placeholder="Search decal repository">
@@ -36,9 +38,12 @@
                     </div>
                     <div class="box box400">
                         <h2>Search Filters</h2>
-                        <ul class="navbar" id="filterList">
-                            <li onclick="document.location='DecalsAnime.html'">Anime</li>
-
+                        <ul class="navbar" id="filterList" style="padding:1px">
+                        </ul>
+                        <h2>Add your own decals!</h2>
+                        <div style="text-align: left;">
+                            <h4>The <i>-submitDecal</i> bot command in the Sprocket Official Discord lets you add your own decals.</h4>
+                        </div>
                     </div>
                 </div>
                 <div style="flex: 1; min-width: 300px;">
@@ -61,17 +66,15 @@
             const grid = document.getElementById("catalogGrid");
             const searchFilters = document.getElementById("filterList");
             const searchInput = document.getElementById("searchInput");
-            let activeFilters = []; // Start empty or add defaults if desired
+            let activeFilters = [];
 
             async function loadCatalogData() {
                 try {
                     const response = await fetch('DecalCatalog.json'); 
                     allDecals = await response.json();
                     
-                    // Create a pre-sorted copy once for fast alphabetical lookups
                     sortedDecals = [...allDecals].sort((a, b) => a.name.localeCompare(b.name));
                     
-                    // Randomize the main array once for initial load
                     allDecals.sort(() => Math.random() - 0.5);
                     
                     initFilters();
@@ -99,9 +102,6 @@
 
             function applyFilters() {
                 const query = searchInput.value.toLowerCase().trim();
-                
-                // If there's an active search query or active filters, use the pre-sorted array.
-                // Otherwise, use the randomized allDecals array for the default view.
                 const dataSource = (query !== "" || activeFilters.length > 0) ? sortedDecals : allDecals;
 
                 const filtered = dataSource.filter(item => {
@@ -147,8 +147,6 @@
                     </li>
                 `).join('');
             }
-
-            // Event listener for clicking filters
             searchFilters.addEventListener("click", (e) => {
                 const li = e.target.closest("li");
                 if (!li) return;
@@ -167,12 +165,10 @@
                 applyFilters();
             });
 
-            // Event listener for typing in the search bar
             searchInput.addEventListener("input", () => {
                 applyFilters();
             });
 
-            // Kick off data loading
             loadCatalogData();
 
             function copyText(inputText) {
