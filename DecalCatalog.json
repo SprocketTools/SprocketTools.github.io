@@ -14898,5 +14898,25 @@
         "ownerid": 1479131920024735856,
         "category": "Fictional Insignia",
         "type": "decal"
+    },
+    {
+        "name": "giygas",
+        "tags": "cursed",
+        "strippedname": "giygas.png",
+        "approved": "True",
+        "ownername": "coffeeandonuts",
+        "ownerid": 289814491791753216,
+        "category": "Memes",
+        "type": "paint"
+    },
+    {
+        "name": "bluefabricseam",
+        "tags": "fabric, seam, blue",
+        "strippedname": "bluefabricseam.png",
+        "approved": "True",
+        "ownername": "gorybark",
+        "ownerid": 314450682906279938,
+        "category": "Seams",
+        "type": "decal"
     }
 ]

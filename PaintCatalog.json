@@ -3078,5 +3078,15 @@
         "ownerid": 753045014199795723,
         "category": "Fictional",
         "type": "paint"
+    },
+    {
+        "name": "giygas",
+        "tags": "cursed",
+        "strippedname": "giygas.png",
+        "approved": "True",
+        "ownername": "coffeeandonuts",
+        "ownerid": 289814491791753216,
+        "category": "Memes",
+        "type": "paint"
     }
 ]
