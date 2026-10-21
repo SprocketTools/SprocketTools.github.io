@@ -14918,5 +14918,35 @@
         "ownerid": 314450682906279938,
         "category": "Seams",
         "type": "decal"
+    },
+    {
+        "name": "d point",
+        "tags": "WarThunder",
+        "strippedname": "d_point.png",
+        "approved": "True",
+        "ownername": "yaderniyeblan_",
+        "ownerid": 1174355890112049162,
+        "category": "Memes",
+        "type": "decal"
+    },
+    {
+        "name": "asarian coalition weathered",
+        "tags": "asarian, coalition",
+        "strippedname": "asarian_coalition_weathered.png",
+        "approved": "True",
+        "ownername": "valer25",
+        "ownerid": 1349136271695679582,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "asarian coalition",
+        "tags": "asarian, coalition",
+        "strippedname": "asarian_coalition.png",
+        "approved": "True",
+        "ownername": "valer25",
+        "ownerid": 1349136271695679582,
+        "category": "Fictional Insignia",
+        "type": "decal"
     }
 ]
