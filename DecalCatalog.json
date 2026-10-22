@@ -14948,5 +14948,25 @@
         "ownerid": 1349136271695679582,
         "category": "Fictional Insignia",
         "type": "decal"
+    },
+    {
+        "name": "sotoan air force",
+        "tags": "ace, combat, sotoa",
+        "strippedname": "sotoan_air_force.png",
+        "approved": "True",
+        "ownername": "valer25",
+        "ownerid": 1349136271695679582,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "ouuu",
+        "tags": "emoji",
+        "strippedname": "ouuu.png",
+        "approved": "True",
+        "ownername": "jagd___",
+        "ownerid": 806938248060469280,
+        "category": "Memes",
+        "type": "decal"
     }
 ]
