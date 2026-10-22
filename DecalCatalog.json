@@ -15168,5 +15168,15 @@
         "ownerid": 753045014199795723,
         "category": "Labels",
         "type": "decal"
+    },
+    {
+        "name": "russian empire flag",
+        "tags": "russian, flags, wwi",
+        "strippedname": "russian_empire_flag.png",
+        "approved": "True",
+        "ownername": "yaderniyeblan_",
+        "ownerid": 1174355890112049162,
+        "category": "Flags",
+        "type": "decal"
     }
 ]
