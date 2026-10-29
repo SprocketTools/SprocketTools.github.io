@@ -15180,36 +15180,6 @@
         "type": "decal"
     },
     {
-        "name": "yankee doom",
-        "tags": "american, english",
-        "strippedname": "yankee_doom.png",
-        "approved": "Pending",
-        "ownername": "guttelongballe",
-        "ownerid": 906884225570046012,
-        "category": "Inscriptions",
-        "type": "decal"
-    },
-    {
-        "name": "this side toward enemy",
-        "tags": "american, english",
-        "strippedname": "this_side_toward_enemy.png",
-        "approved": "Pending",
-        "ownername": "guttelongballe",
-        "ownerid": 906884225570046012,
-        "category": "Inscriptions",
-        "type": "decal"
-    },
-    {
-        "name": "graveyard shift",
-        "tags": "american, english",
-        "strippedname": "graveyard_shift.png",
-        "approved": "Pending",
-        "ownername": "guttelongballe",
-        "ownerid": 906884225570046012,
-        "category": "Inscriptions",
-        "type": "decal"
-    },
-    {
         "name": "german empire war flag",
         "tags": "german, flags, wwi",
         "strippedname": "german_empire_war_flag.png",
@@ -15357,6 +15327,36 @@
         "ownername": "sasheen_sushi",
         "ownerid": 665281851375747103,
         "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "yankee doom",
+        "tags": "american, english",
+        "strippedname": "yankee_doom.png",
+        "approved": "True",
+        "ownername": "guttelongballe",
+        "ownerid": 906884225570046012,
+        "category": "Inscriptions",
+        "type": "decal"
+    },
+    {
+        "name": "this side toward enemy",
+        "tags": "american, english",
+        "strippedname": "this_side_toward_enemy.png",
+        "approved": "True",
+        "ownername": "guttelongballe",
+        "ownerid": 906884225570046012,
+        "category": "Inscriptions",
+        "type": "decal"
+    },
+    {
+        "name": "graveyard shift",
+        "tags": "american, english",
+        "strippedname": "graveyard_shift.png",
+        "approved": "True",
+        "ownername": "guttelongballe",
+        "ownerid": 906884225570046012,
+        "category": "Inscriptions",
         "type": "decal"
     }
 ]
