@@ -15180,16 +15180,6 @@
         "type": "decal"
     },
     {
-        "name": "napaneese republic",
-        "tags": "fictional, flag",
-        "strippedname": "napaneese_republic.png",
-        "approved": "Pending",
-        "ownername": "sasheen_sushi",
-        "ownerid": 665281851375747103,
-        "category": "Fictional Insignia",
-        "type": "decal"
-    },
-    {
         "name": "rosalian flag",
         "tags": "fictional, flag",
         "strippedname": "rosalian_flag.png",
@@ -15353,6 +15343,16 @@
         "name": "hellion empire",
         "tags": "fictional, flag",
         "strippedname": "hellion_empire.png",
+        "approved": "True",
+        "ownername": "sasheen_sushi",
+        "ownerid": 665281851375747103,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "napaneese republic",
+        "tags": "fictional, flag",
+        "strippedname": "napaneese_republic.png",
         "approved": "True",
         "ownername": "sasheen_sushi",
         "ownerid": 665281851375747103,
