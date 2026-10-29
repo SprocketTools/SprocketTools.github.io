@@ -15178,5 +15178,185 @@
         "ownerid": 1174355890112049162,
         "category": "Flags",
         "type": "decal"
+    },
+    {
+        "name": "ungoc",
+        "tags": "fictional, flag",
+        "strippedname": "ungoc.png",
+        "approved": "Pending",
+        "ownername": "sasheen_sushi",
+        "ownerid": 665281851375747103,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "hellion empire",
+        "tags": "fictional, flag",
+        "strippedname": "hellion_empire.png",
+        "approved": "Pending",
+        "ownername": "sasheen_sushi",
+        "ownerid": 665281851375747103,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "napaneese republic",
+        "tags": "fictional, flag",
+        "strippedname": "napaneese_republic.png",
+        "approved": "Pending",
+        "ownername": "sasheen_sushi",
+        "ownerid": 665281851375747103,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "rosalian flag",
+        "tags": "fictional, flag",
+        "strippedname": "rosalian_flag.png",
+        "approved": "Pending",
+        "ownername": "sasheen_sushi",
+        "ownerid": 665281851375747103,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "arh robotron ddr",
+        "tags": "fictional, flag",
+        "strippedname": "arh_robotron_ddr.png",
+        "approved": "Pending",
+        "ownername": "sasheen_sushi",
+        "ownerid": 665281851375747103,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "estelvian flag",
+        "tags": "fictional, flag",
+        "strippedname": "estelvian_flag.png",
+        "approved": "Pending",
+        "ownername": "sasheen_sushi",
+        "ownerid": 665281851375747103,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "napaneese flag",
+        "tags": "fictional, flag",
+        "strippedname": "napaneese_flag.png",
+        "approved": "Pending",
+        "ownername": "sasheen_sushi",
+        "ownerid": 665281851375747103,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "flag",
+        "tags": "fictional, flag",
+        "strippedname": "flag.png",
+        "approved": "Pending",
+        "ownername": "sasheen_sushi",
+        "ownerid": 665281851375747103,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "yankee doom",
+        "tags": "american, english",
+        "strippedname": "yankee_doom.png",
+        "approved": "Pending",
+        "ownername": "guttelongballe",
+        "ownerid": 906884225570046012,
+        "category": "Inscriptions",
+        "type": "decal"
+    },
+    {
+        "name": "this side toward enemy",
+        "tags": "american, english",
+        "strippedname": "this_side_toward_enemy.png",
+        "approved": "Pending",
+        "ownername": "guttelongballe",
+        "ownerid": 906884225570046012,
+        "category": "Inscriptions",
+        "type": "decal"
+    },
+    {
+        "name": "graveyard shift",
+        "tags": "american, english",
+        "strippedname": "graveyard_shift.png",
+        "approved": "Pending",
+        "ownername": "guttelongballe",
+        "ownerid": 906884225570046012,
+        "category": "Inscriptions",
+        "type": "decal"
+    },
+    {
+        "name": "german empire war flag",
+        "tags": "german, flags, wwi",
+        "strippedname": "german_empire_war_flag.png",
+        "approved": "True",
+        "ownername": "yaderniyeblan_",
+        "ownerid": 1174355890112049162,
+        "category": "Flags",
+        "type": "decal"
+    },
+    {
+        "name": "garford beute insignia",
+        "tags": "german, wwi",
+        "strippedname": "garford_beute_insignia.png",
+        "approved": "True",
+        "ownername": "yaderniyeblan_",
+        "ownerid": 1174355890112049162,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "cammaria low vis",
+        "tags": "cammaria, icaria",
+        "strippedname": "cammaria_low_vis.png",
+        "approved": "True",
+        "ownername": "valer25",
+        "ownerid": 1349136271695679582,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "cammaria roundel",
+        "tags": "cammaria, icaria",
+        "strippedname": "cammaria_roundel.png",
+        "approved": "True",
+        "ownername": "valer25",
+        "ownerid": 1349136271695679582,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "rougenher_national_insignia",
+        "tags": "rougenher, national, emblem",
+        "strippedname": "rougenher_national_insignia.png",
+        "approved": "True",
+        "ownername": "konigwolfen",
+        "ownerid": 267334999819157506,
+        "category": "Fictional Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "jouko gup das finale",
+        "tags": "Jouko, Jatkosota, GuP",
+        "strippedname": "jouko_gup_das_finale.png",
+        "approved": "True",
+        "ownername": "oscar_meow",
+        "ownerid": 412101846820192258,
+        "category": "Anime",
+        "type": "decal"
+    },
+    {
+        "name": "arx-om",
+        "tags": "fictional, flag",
+        "strippedname": "arx-om.png",
+        "approved": "True",
+        "ownername": "sasheen_sushi",
+        "ownerid": 665281851375747103,
+        "category": "Fictional Insignia",
+        "type": "decal"
     }
 ]
