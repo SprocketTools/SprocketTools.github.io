@@ -3108,5 +3108,15 @@
         "ownerid": 806938248060469280,
         "category": "Memes",
         "type": "decal"
+    },
+    {
+        "name": "german quad color spotted",
+        "tags": "german, ww2, quad color",
+        "strippedname": "german_quad_color_spotted.png",
+        "approved": "True",
+        "ownername": "zavala._.",
+        "ownerid": 474677838859993089,
+        "category": "WWII",
+        "type": "paint"
     }
 ]

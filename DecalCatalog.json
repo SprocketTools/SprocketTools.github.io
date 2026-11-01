@@ -15358,5 +15358,105 @@
         "ownerid": 906884225570046012,
         "category": "Inscriptions",
         "type": "decal"
+    },
+    {
+        "name": "light tan canvas",
+        "tags": "light canvas",
+        "strippedname": "light_tan_canvas.png",
+        "approved": "True",
+        "ownername": "hibro51311",
+        "ownerid": 1242412230859821197,
+        "category": "Textures",
+        "type": "decal"
+    },
+    {
+        "name": "usa tank marking 1",
+        "tags": "usa, marking, identification",
+        "strippedname": "usa_tank_marking_1.png",
+        "approved": "True",
+        "ownername": "guttelongballe",
+        "ownerid": 906884225570046012,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "usa tank marking 2",
+        "tags": "usa, marking, identification",
+        "strippedname": "usa_tank_marking_2.png",
+        "approved": "True",
+        "ownername": "guttelongballe",
+        "ownerid": 906884225570046012,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "usa tank marking 3",
+        "tags": "usa, marking, identification",
+        "strippedname": "usa_tank_marking_3.png",
+        "approved": "True",
+        "ownername": "guttelongballe",
+        "ownerid": 906884225570046012,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "heeres stug brigade 907",
+        "tags": "german, brigade, stug",
+        "strippedname": "heeres_stug_brigade_907.png",
+        "approved": "True",
+        "ownername": "randomitaliano",
+        "ownerid": 1022554155191107654,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "stug brigade 907 white",
+        "tags": "german, brigade, stug",
+        "strippedname": "stug_brigade_907_white.png",
+        "approved": "True",
+        "ownername": "randomitaliano",
+        "ownerid": 1022554155191107654,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "usa unit identification",
+        "tags": "USA, american, marking",
+        "strippedname": "usa_unit_identification.png",
+        "approved": "True",
+        "ownername": "furilaxx",
+        "ownerid": 516593731668017152,
+        "category": "Inscriptions",
+        "type": "decal"
+    },
+    {
+        "name": "overkill",
+        "tags": "USA, american, marking",
+        "strippedname": "overkill.png",
+        "approved": "True",
+        "ownername": "furilaxx",
+        "ownerid": 516593731668017152,
+        "category": "Inscriptions",
+        "type": "decal"
+    },
+    {
+        "name": "us registration number 1",
+        "tags": "USA, american, marking",
+        "strippedname": "us_registration_number_1.png",
+        "approved": "True",
+        "ownername": "furilaxx",
+        "ownerid": 516593731668017152,
+        "category": "Inscriptions",
+        "type": "decal"
+    },
+    {
+        "name": "us registration number 2",
+        "tags": "USA, american, marking",
+        "strippedname": "us_registration_number_2.png",
+        "approved": "True",
+        "ownername": "furilaxx",
+        "ownerid": 516593731668017152,
+        "category": "Inscriptions",
+        "type": "decal"
     }
 ]
