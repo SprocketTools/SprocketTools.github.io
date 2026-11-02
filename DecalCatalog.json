@@ -15458,5 +15458,85 @@
         "ownerid": 516593731668017152,
         "category": "Inscriptions",
         "type": "decal"
+    },
+    {
+        "name": "tonnage 66",
+        "tags": "tonnage, tons",
+        "strippedname": "tonnage_66.png",
+        "approved": "True",
+        "ownername": "furilaxx",
+        "ownerid": 516593731668017152,
+        "category": "Labels",
+        "type": "decal"
+    },
+    {
+        "name": "tonnage 68",
+        "tags": "US, tonnage, tons",
+        "strippedname": "tonnage_68.png",
+        "approved": "True",
+        "ownername": "furilaxx",
+        "ownerid": 516593731668017152,
+        "category": "Labels",
+        "type": "decal"
+    },
+    {
+        "name": "pla brushed brass",
+        "tags": "PLA, camo, china",
+        "strippedname": "pla_brushed_brass.png",
+        "approved": "True",
+        "ownername": "therealwill9459",
+        "ownerid": 389503520606388224,
+        "category": "Miscellaneous",
+        "type": "decal"
+    },
+    {
+        "name": "pla musket brown",
+        "tags": "PLA, camo, china",
+        "strippedname": "pla_musket_brown.png",
+        "approved": "True",
+        "ownername": "therealwill9459",
+        "ownerid": 389503520606388224,
+        "category": "Miscellaneous",
+        "type": "decal"
+    },
+    {
+        "name": "pla olive tree",
+        "tags": "PLA, camo, china",
+        "strippedname": "pla_olive_tree.png",
+        "approved": "True",
+        "ownername": "therealwill9459",
+        "ownerid": 389503520606388224,
+        "category": "Miscellaneous",
+        "type": "decal"
+    },
+    {
+        "name": "pla pale sandstone",
+        "tags": "PLA, camo, china",
+        "strippedname": "pla_pale_sandstone.png",
+        "approved": "True",
+        "ownername": "therealwill9459",
+        "ownerid": 389503520606388224,
+        "category": "Miscellaneous",
+        "type": "decal"
+    },
+    {
+        "name": "pla base olive",
+        "tags": "PLA, camo, China",
+        "strippedname": "pla_base_olive.png",
+        "approved": "True",
+        "ownername": "therealwill9459",
+        "ownerid": 389503520606388224,
+        "category": "Miscellaneous",
+        "type": "decal"
+    },
+    {
+        "name": "1940 1945 swedish insignia",
+        "tags": "swedish, historical, insignia",
+        "strippedname": "1940_1945_swedish_insignia.png",
+        "approved": "True",
+        "ownername": "danielthemodder",
+        "ownerid": 701487483497611305,
+        "category": "Historical Insignia",
+        "type": "decal"
     }
 ]

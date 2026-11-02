@@ -3118,5 +3118,35 @@
         "ownerid": 474677838859993089,
         "category": "WWII",
         "type": "paint"
+    },
+    {
+        "name": "tenth communist youth tank unit",
+        "tags": "italian,  tonnage, fascist",
+        "strippedname": "tenth_communist_youth_tank_unit.png",
+        "approved": "True",
+        "ownername": "corporateiron",
+        "ownerid": 1524792219247054999,
+        "category": "WWI",
+        "type": "paint"
+    },
+    {
+        "name": "pontus 24th attack group",
+        "tags": "italian,  tonnage, fascist",
+        "strippedname": "pontus_24th_attack_group.png",
+        "approved": "True",
+        "ownername": "corporateiron",
+        "ownerid": 1524792219247054999,
+        "category": "WWI",
+        "type": "paint"
+    },
+    {
+        "name": "black green camo",
+        "tags": "american, coldwar",
+        "strippedname": "black_green_camo.png",
+        "approved": "True",
+        "ownername": "the_one_who_ponders",
+        "ownerid": 1000422982239404042,
+        "category": "Fictional",
+        "type": "paint"
     }
 ]
