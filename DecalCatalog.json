@@ -15480,56 +15480,6 @@
         "type": "decal"
     },
     {
-        "name": "pla brushed brass",
-        "tags": "PLA, camo, china",
-        "strippedname": "pla_brushed_brass.png",
-        "approved": "True",
-        "ownername": "therealwill9459",
-        "ownerid": 389503520606388224,
-        "category": "Miscellaneous",
-        "type": "decal"
-    },
-    {
-        "name": "pla musket brown",
-        "tags": "PLA, camo, china",
-        "strippedname": "pla_musket_brown.png",
-        "approved": "True",
-        "ownername": "therealwill9459",
-        "ownerid": 389503520606388224,
-        "category": "Miscellaneous",
-        "type": "decal"
-    },
-    {
-        "name": "pla olive tree",
-        "tags": "PLA, camo, china",
-        "strippedname": "pla_olive_tree.png",
-        "approved": "True",
-        "ownername": "therealwill9459",
-        "ownerid": 389503520606388224,
-        "category": "Miscellaneous",
-        "type": "decal"
-    },
-    {
-        "name": "pla pale sandstone",
-        "tags": "PLA, camo, china",
-        "strippedname": "pla_pale_sandstone.png",
-        "approved": "True",
-        "ownername": "therealwill9459",
-        "ownerid": 389503520606388224,
-        "category": "Miscellaneous",
-        "type": "decal"
-    },
-    {
-        "name": "pla base olive",
-        "tags": "PLA, camo, China",
-        "strippedname": "pla_base_olive.png",
-        "approved": "True",
-        "ownername": "therealwill9459",
-        "ownerid": 389503520606388224,
-        "category": "Miscellaneous",
-        "type": "decal"
-    },
-    {
         "name": "1940 1945 swedish insignia",
         "tags": "swedish, historical, insignia",
         "strippedname": "1940_1945_swedish_insignia.png",
@@ -15538,5 +15488,25 @@
         "ownerid": 701487483497611305,
         "category": "Historical Insignia",
         "type": "decal"
+    },
+    {
+        "name": "pontus 24th attack group",
+        "tags": "italian,  tonnage, fascist",
+        "strippedname": "pontus_24th_attack_group.png",
+        "approved": "True",
+        "ownername": "corporateiron",
+        "ownerid": 1524792219247054999,
+        "category": "Fictional Insignia",
+        "type": "paint"
+    },
+    {
+        "name": "tenth communist youth tank unit",
+        "tags": "italian,  tonnage, fascist",
+        "strippedname": "tenth_communist_youth_tank_unit.png",
+        "approved": "True",
+        "ownername": "corporateiron",
+        "ownerid": 1524792219247054999,
+        "category": "Fictional Insignia",
+        "type": "paint"
     }
 ]

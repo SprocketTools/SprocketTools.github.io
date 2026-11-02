@@ -3120,23 +3120,23 @@
         "type": "paint"
     },
     {
-        "name": "tenth communist youth tank unit",
-        "tags": "italian,  tonnage, fascist",
-        "strippedname": "tenth_communist_youth_tank_unit.png",
+        "name": "pla base olive",
+        "tags": "PLA, camo, China",
+        "strippedname": "pla_base_olive.png",
         "approved": "True",
-        "ownername": "corporateiron",
-        "ownerid": 1524792219247054999,
-        "category": "WWI",
-        "type": "paint"
+        "ownername": "therealwill9459",
+        "ownerid": 389503520606388224,
+        "category": "Cold War",
+        "type": "decal"
     },
     {
-        "name": "pontus 24th attack group",
-        "tags": "italian,  tonnage, fascist",
-        "strippedname": "pontus_24th_attack_group.png",
+        "name": "german wwii concrete",
+        "tags": "german, wwii, concrete",
+        "strippedname": "german_wwii_concrete.png",
         "approved": "True",
-        "ownername": "corporateiron",
-        "ownerid": 1524792219247054999,
-        "category": "WWI",
+        "ownername": "pro2.00294",
+        "ownerid": 1190714559397380127,
+        "category": "WWII",
         "type": "paint"
     },
     {
@@ -3148,5 +3148,45 @@
         "ownerid": 1000422982239404042,
         "category": "Fictional",
         "type": "paint"
+    },
+    {
+        "name": "pla brushed brass",
+        "tags": "PLA, camo, china",
+        "strippedname": "pla_brushed_brass.png",
+        "approved": "True",
+        "ownername": "therealwill9459",
+        "ownerid": 389503520606388224,
+        "category": "Cold War",
+        "type": "decal"
+    },
+    {
+        "name": "pla musket brown",
+        "tags": "PLA, camo, china",
+        "strippedname": "pla_musket_brown.png",
+        "approved": "True",
+        "ownername": "therealwill9459",
+        "ownerid": 389503520606388224,
+        "category": "Cold War",
+        "type": "decal"
+    },
+    {
+        "name": "pla olive tree",
+        "tags": "PLA, camo, china",
+        "strippedname": "pla_olive_tree.png",
+        "approved": "True",
+        "ownername": "therealwill9459",
+        "ownerid": 389503520606388224,
+        "category": "Cold War",
+        "type": "decal"
+    },
+    {
+        "name": "pla pale sandstone",
+        "tags": "PLA, camo, china",
+        "strippedname": "pla_pale_sandstone.png",
+        "approved": "True",
+        "ownername": "therealwill9459",
+        "ownerid": 389503520606388224,
+        "category": "Cold War",
+        "type": "decal"
     }
 ]
