@@ -15508,5 +15508,45 @@
         "ownerid": 1524792219247054999,
         "category": "Fictional Insignia",
         "type": "paint"
+    },
+    {
+        "name": "crayon1",
+        "tags": "chalk",
+        "strippedname": "crayon1.png",
+        "approved": "True",
+        "ownername": "ayam_enakbro",
+        "ownerid": 835763012966023168,
+        "category": "Chalk",
+        "type": "decal"
+    },
+    {
+        "name": "crayon2",
+        "tags": "chalk",
+        "strippedname": "crayon2.png",
+        "approved": "True",
+        "ownername": "ayam_enakbro",
+        "ownerid": 835763012966023168,
+        "category": "Chalk",
+        "type": "decal"
+    },
+    {
+        "name": "crayon4",
+        "tags": "chalk",
+        "strippedname": "crayon4.png",
+        "approved": "True",
+        "ownername": "ayam_enakbro",
+        "ownerid": 835763012966023168,
+        "category": "Chalk",
+        "type": "decal"
+    },
+    {
+        "name": "crayon3",
+        "tags": "chalk",
+        "strippedname": "crayon3.png",
+        "approved": "True",
+        "ownername": "ayam_enakbro",
+        "ownerid": 835763012966023168,
+        "category": "Chalk",
+        "type": "decal"
     }
 ]
