@@ -3188,5 +3188,15 @@
         "ownerid": 389503520606388224,
         "category": "Cold War",
         "type": "decal"
+    },
+    {
+        "name": "gatecrasher verdant 4-color",
+        "tags": "gatecrasher",
+        "strippedname": "gatecrasher_verdant_4-color.png",
+        "approved": "True",
+        "ownername": "gate.crasher",
+        "ownerid": 293161996235571200,
+        "category": "Fictional",
+        "type": "paint"
     }
 ]
