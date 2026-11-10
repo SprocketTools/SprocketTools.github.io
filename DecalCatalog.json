@@ -15110,6 +15110,16 @@
         "type": "decal"
     },
     {
+        "name": "chalk smile left",
+        "tags": "face, eye, eyes, teeth",
+        "strippedname": "chalk_smile_left.png",
+        "approved": "True",
+        "ownername": "lukaku69.",
+        "ownerid": 1067060452829437992,
+        "category": "Chalk",
+        "type": "decal"
+    },
+    {
         "name": "100 tonnage",
         "tags": "tonnage, tons, weight, tonnes",
         "strippedname": "100_tonnage.png",
@@ -15546,6 +15556,106 @@
         "approved": "True",
         "ownername": "ayam_enakbro",
         "ownerid": 835763012966023168,
+        "category": "Chalk",
+        "type": "decal"
+    },
+    {
+        "name": "german cross thin 2",
+        "tags": "german, symbol",
+        "strippedname": "german_cross_thin_2.png",
+        "approved": "True",
+        "ownername": "veteran0045",
+        "ownerid": 1400253460825374740,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "marking pole",
+        "tags": "-submitDecal",
+        "strippedname": "marking_pole.png",
+        "approved": "True",
+        "ownername": "kozyrozy",
+        "ownerid": 524997727873007616,
+        "category": "Textures",
+        "type": "decal"
+    },
+    {
+        "name": "winch cable",
+        "tags": "-submitDecal",
+        "strippedname": "winch_cable.png",
+        "approved": "True",
+        "ownername": "kozyrozy",
+        "ownerid": 524997727873007616,
+        "category": "Textures",
+        "type": "decal"
+    },
+    {
+        "name": "diesel",
+        "tags": "diesel, fuel, text, stencil",
+        "strippedname": "diesel.png",
+        "approved": "True",
+        "ownername": "lukaku69.",
+        "ownerid": 1067060452829437992,
+        "category": "Labels",
+        "type": "decal"
+    },
+    {
+        "name": "hot surface",
+        "tags": "hot, hot surface, text, stencil",
+        "strippedname": "hot_surface.png",
+        "approved": "True",
+        "ownername": "lukaku69.",
+        "ownerid": 1067060452829437992,
+        "category": "Labels",
+        "type": "decal"
+    },
+    {
+        "name": "denmark weathered",
+        "tags": "denmark, flag, identificaation",
+        "strippedname": "denmark_weathered.png",
+        "approved": "True",
+        "ownername": "veteran0045",
+        "ownerid": 1400253460825374740,
+        "category": "Flags",
+        "type": "decal"
+    },
+    {
+        "name": "denmark",
+        "tags": "denmark, flag, identificaation",
+        "strippedname": "denmark.png",
+        "approved": "True",
+        "ownername": "veteran0045",
+        "ownerid": 1400253460825374740,
+        "category": "Flags",
+        "type": "decal"
+    },
+    {
+        "name": "chalk smile right",
+        "tags": "face, eye, eyes, teeth",
+        "strippedname": "chalk_smile_right.png",
+        "approved": "True",
+        "ownername": "lukaku69.",
+        "ownerid": 1067060452829437992,
+        "category": "Chalk",
+        "type": "decal"
+    },
+    {
+        "name": "german cross thin",
+        "tags": "german, symbol",
+        "strippedname": "german_cross_thin.png",
+        "approved": "True",
+        "ownername": "veteran0045",
+        "ownerid": 1400253460825374740,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "chalk smile middle",
+        "tags": "face, eye, eyes, teeth",
+        "strippedname": "chalk_smile_middle.png",
+        "approved": "True",
+        "ownername": "lukaku69.",
+        "ownerid": 1067060452829437992,
         "category": "Chalk",
         "type": "decal"
     }
