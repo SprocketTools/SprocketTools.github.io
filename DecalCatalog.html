@@ -48,7 +48,7 @@
                 </div>
                 <div style="flex: 1; min-width: 300px; padding-right: 8px;">
                     <div class="wrap">
-                        <ul class="catalog" id="catalogGrid">
+                        <ul class="catalog" id="catalogGrid">+
                             <!-- items go here -->
                         </ul>            
                     </div>
@@ -134,9 +134,12 @@
                     return;
                 }
 
-                let decalCount = 50;
+                let decalCount = 500;
                 if (activeFilters.length === 0 && searchInput.value.trim() === ""){
                     decalCount = 25;
+                }
+                if (activeFilters.length === 1 && searchInput.value.trim() === ""){
+                    decalCount = 150;
                 }
 
                 grid.innerHTML = items.slice(0, decalCount).map(item => `
