@@ -3198,5 +3198,15 @@
         "ownerid": 293161996235571200,
         "category": "Fictional",
         "type": "paint"
+    },
+    {
+        "name": "gatecrasher ww2 3 dual tone",
+        "tags": "gatecrasher, camo, ww2",
+        "strippedname": "gatecrasher_ww2_3_dual_tone.png",
+        "approved": "True",
+        "ownername": "gate.crasher",
+        "ownerid": 293161996235571200,
+        "category": "WWII",
+        "type": "paint"
     }
 ]
