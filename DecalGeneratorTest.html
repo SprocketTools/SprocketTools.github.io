@@ -1,0 +1,179 @@
+<html>
+    <head>
+        <title>RGB Color Picker</title>
+        <link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
+        <link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
+        <link rel="stylesheet" href="stylesV3.css">
+    </head>
+            <body>
+            <div class="navbar titlenavbar">
+                <img src="SprocketToolsLogo.png"/>
+                <a href="index.html">Home</a>
+                <a href="TopGearCalculator.html">Gear Calculator</a>
+                <a href="resources.html">Resources & Tutorials</a>
+                <a href="credits.html">Credits</a>
+                <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0">Get Trolled</a>
+                <a href="DecalCatalog.html">Decal Catalog</a>
+                <a href="PaintsFeatured.html">Paint Catalog</a>
+                <a class="active" href="DecalsRGBmaker.html">RGB Decal Maker</a>
+            </div>
+
+            <h1 class="text-center">Decal Generator V2</h1>
+                <div class="wrap box boxauto">
+                    <h3>Warning: experimental tool, expect decals to break</h4>
+                    <h4>Make sure to whitelist sprockettools-vercel-decalgen.vercel.app in your settings.json file!</h4>   
+                </div>
+            	
+            <div class="container">
+                <br>
+                <h4 id="redval">Red: 120</h4>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="17" oninput="setColor()" value="8" class="red_slider" id="red" >
+                </div>
+                <h6><h6>
+                <h4 id="greenval">Green: 135</h4>
+                <div class="slidecontainer">
+                    <input type="range" min="0" max="17" oninput="setColor()" value="9" class="green_slider" id="green">
+                </div>
+                <h6><h6>
+                <h4 id="blueval">Blue: 150</h4>
+                <div class="slidecontainer">
+                <input type="range" min="0" oninput="setColor()" max="17" value="10" class="blue_slider" id="blue"></h4>
+                
+
+				<div id="advanced_settings_wrap" class="wrap">
+                    <div>
+                        <div class="box box200 box210h">
+                            <h3>Vehicle Era</h3>
+                            <div class="radio">
+                                <label  for="WWI">
+                                <input  type="radio" id="WWI" name="era" value="WWI" />
+                                WWI</label>
+                            </div>
+                            <div class="radio"><label for="Interwar">
+                                <input type="radio" id="Interwar" name="era" value="Interwar" />
+                                Interwar</label>
+                            </div>
+                            <div class="radio"><label for="Earlywar">
+                                <input type="radio" id="Earlywar" name="era" value="Earlywar" />
+                                Earlywar</label>
+                            </div>
+                            <div class="radio"><label for="Midwar">
+                                <input type="radio" id="Midwar" name="era" value="Midwar" />
+                                Midwar</label>
+                            </div>
+                            <div class="radio"><label for="Latewar">
+                                <input type="radio" id="Latewar" name="era" value="Latewar" checked="checked"/>
+                                Latewar</label>
+                            </div>
+                            <div class="radio"><label for="Latewar">
+                                <input type="radio" id="Custom" name="era" value="Custom"/>
+                                Custom</label>
+                            </div>
+                        </div>
+                        <div class="box boxcrimson box200 box120h" id="advanced_settings_1">
+                            <h3>Climb angle</h3>
+                            <input class="numberIn" type="number" min="1" step="1" max="90" value="45" id="ClimbAngle">
+                        </div>
+                        <div class="box boxcrimson box200 box120h" id="advanced_settings_2">
+                            <h3>Upshift RPM</h3>
+                            <input class="numberIn" type="number" min="0" step="50" value="2700" id="upshiftRPM">
+                        </div>
+                        <!-- <div class="box boxcrimson box200 box120h">
+                            <h3>Max HP (not KW)</h3>
+                            <input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
+                        </div> -->
+                        <div class="box boxcrimson box200 box120h" id="custom_settings_1">
+                            <h3>Roll Resistance</h3>
+                            <input class="numberIn" type="number" min="0" step="0.05" max="8.0" value="1.0" id="RollResist">
+                        </div>
+                        <div class="box boxcrimson box200 box120h" id="custom_settings_2">
+                            <h3>Engine Tech</h3>
+                            <input class="numberIn" type="number" min="0" step="0.01" max="1.0" value="0.8" id="EngineTech">
+                        </div>
+                    </div>
+                    <div>
+                        <!-- <div class="box boxcrimson box200 box120h">
+                            <h3>Max HP (not KW)</h3>
+                            <input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
+                        </div> -->
+                        <div class="box boxcrimson box200 box120h" id="advanced_settings_1">
+                            <h3>Climb angle</h3>
+                            <input class="numberIn" type="number" min="1" step="1" max="90" value="45" id="ClimbAngle">
+                        </div>
+                        <div class="box boxcrimson box200 box120h" id="advanced_settings_2">
+                            <h3>Upshift RPM</h3>
+                            <input class="numberIn" type="number" min="0" step="50" value="2700" id="upshiftRPM">
+                        </div>
+                        <!-- <div class="box boxcrimson box200 box120h">
+                            <h3>Max HP (not KW)</h3>
+                            <input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
+                        </div> -->
+                        <div class="box boxcrimson box200 box120h" id="custom_settings_1">
+                            <h3>Roll Resistance</h3>
+                            <input class="numberIn" type="number" min="0" step="0.05" max="8.0" value="1.0" id="RollResist">
+                        </div>
+                        <div class="box boxcrimson box200 box120h" id="custom_settings_2">
+                            <h3>Engine Tech</h3>
+                            <input class="numberIn" type="number" min="0" step="0.01" max="1.0" value="0.8" id="EngineTech">
+                        </div>
+                    </div>
+				</div>
+
+                <h6><h6>
+                <h6><h6>
+                    <center>
+                <div class="background_box">
+                    <br>
+                    <div id="color_box" onclick="copyText()" class="color_box">
+                        <h3>Click here to copy the URL<h3>
+                    </div>
+                </div>
+                <h4 id="output" style="color: var(--blue4)"></h4>
+                </center>
+            </div>
+
+    </body>
+    <script>
+        var output = document.getElementById("output");
+        output.innerHTML = "Move the sliders to pick a color, and the URL to the decal will appear here.";
+
+        function setColor() {
+            var redSlider = document.getElementById("red").value;
+            var greenSlider = document.getElementById("green").value;
+            var blueSlider = document.getElementById("blue").value;
+            let red = 15*(redSlider);
+            let green = 15*(greenSlider);
+            let blue = 15*(blueSlider);
+
+            let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+            let output_text = 'https://sprockettools.github.io/colors/R' + red + 'G' + green + 'B' + blue + '.png';
+            output.innerHTML = output_text;
+            document.getElementById("redval").innerHTML = "Red: " + red;
+            document.getElementById("greenval").innerHTML = "Green: " + green;
+            document.getElementById("blueval").innerHTML = "Blue: " + blue;
+            var boxy=document.getElementById("color_box");
+            boxy.style.backgroundColor=color;
+        }
+
+        function copyText() {
+            var redSlider = document.getElementById("red").value;
+            var greenSlider = document.getElementById("green").value;
+            var blueSlider = document.getElementById("blue").value;
+            let red = 15*(redSlider);
+            let green = 15*(greenSlider);
+            let blue = 15*(blueSlider);
+
+            let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
+            let output_text = 'https://sprockettools.github.io/colors/R' + red + 'G' + green + 'B' + blue + '.png';
+            output.innerHTML = "Copied!";
+            var boxy=document.getElementById("color_box");
+            document.getElementById("redval").innerHTML = "Red: " + red;
+            document.getElementById("greenval").innerHTML = "Green: " + green;
+            document.getElementById("blueval").innerHTML = "Blue: " + blue;
+
+            navigator.clipboard.writeText(output_text);
+            boxy.style.backgroundColor=color;
+        }
+    </script>
+</html>
