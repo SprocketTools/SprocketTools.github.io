@@ -1,179 +1,328 @@
 <html>
     <head>
-        <title>RGB Color Picker</title>
+        <title>Decal Generator V2</title>
         <link rel="stylesheet" href="https://use.typekit.net/oov2wcw.css">
         <link rel="icon" type="image/x-icon" href="SprocketToolsLogo.png">
         <link rel="stylesheet" href="stylesV3.css">
     </head>
-            <body>
-            <div class="navbar titlenavbar">
-                <img src="SprocketToolsLogo.png"/>
-                <a href="index.html">Home</a>
-                <a href="TopGearCalculator.html">Gear Calculator</a>
-                <a href="resources.html">Resources & Tutorials</a>
-                <a href="credits.html">Credits</a>
-                <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0">Get Trolled</a>
-                <a href="DecalCatalog.html">Decal Catalog</a>
-                <a href="PaintsFeatured.html">Paint Catalog</a>
-                <a class="active" href="DecalsRGBmaker.html">RGB Decal Maker</a>
+    <body>
+        <div class="navbar titlenavbar">
+            <img src="SprocketToolsLogo.png"/>
+            <a href="index.html">Home</a>
+            <a href="TopGearCalculator.html">Gear Calculator</a>
+            <a href="resources.html">Resources & Tutorials</a>
+            <a href="credits.html">Credits</a>
+            <a href="https://www.youtube.com/watch?v=oHg5SJYRHA0">Get Trolled</a>
+            <a href="DecalCatalog.html">Decal Catalog</a>
+            <a href="PaintsFeatured.html">Paint Catalog</a>
+            <a class="active" href="DecalsRGBmaker.html">RGB Decal Maker</a>
+        </div>
+
+        <h1 class="text-center">Decal Generator V2</h1>
+        <div class="wrap box boxauto">
+            <h3>Warning: experimental tool, expect decals to break</h3>
+            <h4>Make sure to whitelist sprockettools-vercel-decalgen.vercel.app in your settings.json file!</h4>
+        </div>
+
+        <div class="container">
+            <br>
+            <!-- Color Stop 1 (dp1) -->
+            <h4 id="dp1_label">Color 1 (RGBA): 120, 135, 150, 1.00</h4>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="255" oninput="updateDecal()" value="120" class="red_slider" id="r1">
+            </div>
+            <h6></h6>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="255" oninput="updateDecal()" value="135" class="green_slider" id="g1">
+            </div>
+            <h6></h6>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="255" oninput="updateDecal()" value="150" class="blue_slider" id="b1">
+            </div>
+            <h6></h6>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="1" step="0.01" oninput="updateDecal()" value="1" id="a1">
             </div>
 
-            <h1 class="text-center">Decal Generator V2</h1>
-                <div class="wrap box boxauto">
-                    <h3>Warning: experimental tool, expect decals to break</h4>
-                    <h4>Make sure to whitelist sprockettools-vercel-decalgen.vercel.app in your settings.json file!</h4>   
-                </div>
-            	
-            <div class="container">
-                <br>
-                <h4 id="redval">Red: 120</h4>
-                <div class="slidecontainer">
-                    <input type="range" min="0" max="17" oninput="setColor()" value="8" class="red_slider" id="red" >
-                </div>
-                <h6><h6>
-                <h4 id="greenval">Green: 135</h4>
-                <div class="slidecontainer">
-                    <input type="range" min="0" max="17" oninput="setColor()" value="9" class="green_slider" id="green">
-                </div>
-                <h6><h6>
-                <h4 id="blueval">Blue: 150</h4>
-                <div class="slidecontainer">
-                <input type="range" min="0" oninput="setColor()" max="17" value="10" class="blue_slider" id="blue"></h4>
-                
+            <br>
+            <!-- Color Stop 2 (dp2 - used when Gradient is Linear or Radial) -->
+            <h4 id="dp2_label">Color 2 (RGBA - Linear/Radial toggle only): 40, 50, 60, 1.00</h4>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="255" oninput="updateDecal()" value="40" class="red_slider" id="r2">
+            </div>
+            <h6></h6>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="255" oninput="updateDecal()" value="50" class="green_slider" id="g2">
+            </div>
+            <h6></h6>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="255" oninput="updateDecal()" value="60" class="blue_slider" id="b2">
+            </div>
+            <h6></h6>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="1" step="0.01" oninput="updateDecal()" value="1" id="a2">
+            </div>
 
-				<div id="advanced_settings_wrap" class="wrap">
-                    <div>
-                        <div class="box box200 box210h">
-                            <h3>Vehicle Era</h3>
-                            <div class="radio">
-                                <label  for="WWI">
-                                <input  type="radio" id="WWI" name="era" value="WWI" />
-                                WWI</label>
-                            </div>
-                            <div class="radio"><label for="Interwar">
-                                <input type="radio" id="Interwar" name="era" value="Interwar" />
-                                Interwar</label>
-                            </div>
-                            <div class="radio"><label for="Earlywar">
-                                <input type="radio" id="Earlywar" name="era" value="Earlywar" />
-                                Earlywar</label>
-                            </div>
-                            <div class="radio"><label for="Midwar">
-                                <input type="radio" id="Midwar" name="era" value="Midwar" />
-                                Midwar</label>
-                            </div>
-                            <div class="radio"><label for="Latewar">
-                                <input type="radio" id="Latewar" name="era" value="Latewar" checked="checked"/>
-                                Latewar</label>
-                            </div>
-                            <div class="radio"><label for="Latewar">
-                                <input type="radio" id="Custom" name="era" value="Custom"/>
-                                Custom</label>
-                            </div>
+            <br>
+            <!-- Color Stop 2 (dp2 - used when Gradient is Linear or Radial) -->
+            <h4 id="dp3_label">Color 3 (RGBA - Linear/Radial toggle only): 40, 50, 60, 1.00</h4>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="255" oninput="updateDecal()" value="40" class="red_slider" id="r3">
+            </div>
+            <h6></h6>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="255" oninput="updateDecal()" value="50" class="green_slider" id="g3">
+            </div>
+            <h6></h6>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="255" oninput="updateDecal()" value="60" class="blue_slider" id="b3">
+            </div>
+            <h6></h6>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="1" step="0.01" oninput="updateDecal()" value="1" id="a3">
+            </div>
+
+            <div id="advanced_settings_wrap" class="wrap">
+                <!-- Column 1: Shape & Gradient -->
+                <div>
+                    <div class="box box200 box210h">
+                        <h3>Shape Type</h3>
+                        <div class="radio">
+                            <label for="t_solid">
+                                <input type="radio" id="t_solid" name="decal_type" value="solid" checked="checked" onchange="updateDecal()"/>
+                                Solid
+                            </label>
                         </div>
-                        <div class="box boxcrimson box200 box120h" id="advanced_settings_1">
-                            <h3>Climb angle</h3>
-                            <input class="numberIn" type="number" min="1" step="1" max="90" value="45" id="ClimbAngle">
+                        <div class="radio">
+                            <label for="t_circle">
+                                <input type="radio" id="t_circle" name="decal_type" value="circle" onchange="updateDecal()"/>
+                                Circle
+                            </label>
                         </div>
-                        <div class="box boxcrimson box200 box120h" id="advanced_settings_2">
-                            <h3>Upshift RPM</h3>
-                            <input class="numberIn" type="number" min="0" step="50" value="2700" id="upshiftRPM">
+                        <div class="radio">
+                            <label for="t_donut">
+                                <input type="radio" id="t_donut" name="decal_type" value="donut" onchange="updateDecal()"/>
+                                Donut
+                            </label>
                         </div>
-                        <!-- <div class="box boxcrimson box200 box120h">
-                            <h3>Max HP (not KW)</h3>
-                            <input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
-                        </div> -->
-                        <div class="box boxcrimson box200 box120h" id="custom_settings_1">
-                            <h3>Roll Resistance</h3>
-                            <input class="numberIn" type="number" min="0" step="0.05" max="8.0" value="1.0" id="RollResist">
-                        </div>
-                        <div class="box boxcrimson box200 box120h" id="custom_settings_2">
-                            <h3>Engine Tech</h3>
-                            <input class="numberIn" type="number" min="0" step="0.01" max="1.0" value="0.8" id="EngineTech">
+                        <div class="radio">
+                            <label for="t_text">
+                                <input type="radio" id="t_text" name="decal_type" value="text" onchange="updateDecal()"/>
+                                Text
+                            </label>
                         </div>
                     </div>
-                    <div>
-                        <!-- <div class="box boxcrimson box200 box120h">
-                            <h3>Max HP (not KW)</h3>
-                            <input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
-                        </div> -->
-                        <div class="box boxcrimson box200 box120h" id="advanced_settings_1">
-                            <h3>Climb angle</h3>
-                            <input class="numberIn" type="number" min="1" step="1" max="90" value="45" id="ClimbAngle">
+
+                    <div class="box box200 box210h">
+                        <h3>Gradient Mode</h3>
+                        <div class="radio">
+                            <label for="g_none">
+                                <input type="radio" id="g_none" name="grad_type" value="0" checked="checked" onchange="updateDecal()"/>
+                                None (Color 1)
+                            </label>
                         </div>
-                        <div class="box boxcrimson box200 box120h" id="advanced_settings_2">
-                            <h3>Upshift RPM</h3>
-                            <input class="numberIn" type="number" min="0" step="50" value="2700" id="upshiftRPM">
+                        <div class="radio">
+                            <label for="g_lin">
+                                <input type="radio" id="g_lin" name="grad_type" value="lin" onchange="updateDecal()"/>
+                                Linear
+                            </label>
                         </div>
-                        <!-- <div class="box boxcrimson box200 box120h">
-                            <h3>Max HP (not KW)</h3>
-                            <input class="numberIn" type="number" min="1" step="1" value="420" id="horsepower">
-                        </div> -->
-                        <div class="box boxcrimson box200 box120h" id="custom_settings_1">
-                            <h3>Roll Resistance</h3>
-                            <input class="numberIn" type="number" min="0" step="0.05" max="8.0" value="1.0" id="RollResist">
+                        <div class="radio">
+                            <label for="g_rad">
+                                <input type="radio" id="g_rad" name="grad_type" value="rad" onchange="updateDecal()"/>
+                                Radial
+                            </label>
                         </div>
-                        <div class="box boxcrimson box200 box120h" id="custom_settings_2">
-                            <h3>Engine Tech</h3>
-                            <input class="numberIn" type="number" min="0" step="0.01" max="1.0" value="0.8" id="EngineTech">
+                        <div class="radio">
+                            <label for="g_rainbow">
+                                <input type="radio" id="g_rainbow" name="grad_type" value="rainbow" onchange="updateDecal()"/>
+                                Rainbow
+                            </label>
                         </div>
                     </div>
-				</div>
 
-                <h6><h6>
-                <h6><h6>
-                    <center>
+                    <div class="box boxcrimson box200 box120h">
+                        <h3>Gradient Angle</h3>
+                        <input class="numberIn" type="number" min="0" step="5" max="360" value="90" id="gradAngle" oninput="updateDecal()">
+                    </div>
+
+                    <div class="box boxcrimson box200 box120h">
+                        <h3>Donut Thickness</h3>
+                        <input class="numberIn" type="number" min="0" step="0.05" max="0.95" value="0.25" id="donutTh" oninput="updateDecal()">
+                    </div>
+                </div>
+
+                <!-- Column 2: Weathering (0 = Disabled) & Text Options -->
+                <div>
+                    <div class="box boxcrimson box200 box120h">
+                        <h3>Wear (0 = Off)</h3>
+                        <input class="numberIn" type="number" min="0" step="0.05" max="1.0" value="0" id="wear" oninput="updateDecal()">
+                    </div>
+
+                    <div class="box boxcrimson box200 box120h">
+                        <h3>Vertical Wear</h3>
+                        <input class="numberIn" type="number" min="0" step="0.05" max="1.0" value="0" id="vertwear" oninput="updateDecal()">
+                    </div>
+
+                    <div class="box boxcrimson box200 box120h">
+                        <h3>Rust (0 = Off)</h3>
+                        <input class="numberIn" type="number" min="0" step="0.05" max="1.0" value="0" id="rust" oninput="updateDecal()">
+                    </div>
+
+                    <div class="box boxcrimson box200 box120h">
+                        <h3>Dirt (0 = Off)</h3>
+                        <input class="numberIn" type="number" min="0" step="0.05" max="1.0" value="0" id="dirt" oninput="updateDecal()">
+                    </div>
+
+                    <div class="box box200 box210h">
+                        <h3>Text Settings</h3>
+                        <textarea type="text" id="txtInput" value="TANK|402" placeholder="Enter text here" style="width: 90%; margin-bottom: 6px;" oninput="updateDecal()"></textarea>
+                        <select id="fontSelect" onchange="updateDecal()" style="width: 90%; margin-bottom: 4px;">
+                            <option value="stencil">Stencil (Black Ops)</option>
+                            <option value="sans">Sans (Roboto)</option>
+                            <option value="serif">Serif (Baskerville)</option>
+                            <option value="mono">Mono (Space Mono)</option>
+                        </select>
+                        <select id="styleSelect" onchange="updateDecal()" style="width: 44%;">
+                            <option value="n">Normal</option>
+                            <option value="b">Bold</option>
+                            <option value="i">Italic</option>
+                            <option value="bi">Bold+Italic</option>
+                        </select>
+                        <select id="alignSelect" onchange="updateDecal()" style="width: 44%;">
+                            <option value="c">Center</option>
+                            <option value="l">Left</option>
+                            <option value="r">Right</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <h6></h6>
+            <h6></h6>
+            <center>
                 <div class="background_box">
                     <br>
-                    <div id="color_box" onclick="copyText()" class="color_box">
-                        <h3>Click here to copy the URL<h3>
+                    <div id="color_box" onclick="copyText()" class="color_box" style="position: relative; overflow: hidden; background-image: linear-gradient(45deg, #444 25%, transparent 25%), linear-gradient(-45deg, #444 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #444 75%), linear-gradient(-45deg, transparent 75%, #444 75%); background-size: 20px 20px; background-position: 0 0, 0 10px, 10px -10px, -10px 0;">
+                        <img id="preview_img" src="" alt="Decal Preview" style="width: 100%; height: 100%; object-fit: contain; pointer-events: none;">
+                        <h3 style="position: absolute; bottom: -1px; left: 0; right: 0; margin: 0; background: rgba(0,0,0,0.65); padding: 4px;">Click here to copy</h3>
                     </div>
                 </div>
-                <h4 id="output" style="color: var(--blue4)"></h4>
-                </center>
-            </div>
-
+                <h4 id="output" style="color: var(--blue4); word-break: break-all;"></h4>
+            </center>
+        </div>
     </body>
+
     <script>
+        const BASE_URL = "https://sprockettools-vercel-decalgen.vercel.app/d";
         var output = document.getElementById("output");
-        output.innerHTML = "Move the sliders to pick a color, and the URL to the decal will appear here.";
+        var previewTimer = null;
 
-        function setColor() {
-            var redSlider = document.getElementById("red").value;
-            var greenSlider = document.getElementById("green").value;
-            var blueSlider = document.getElementById("blue").value;
-            let red = 15*(redSlider);
-            let green = 15*(greenSlider);
-            let blue = 15*(blueSlider);
+        function getSelectedRadio(name, fallback) {
+            const el = document.querySelector('input[name="' + name + '"]:checked');
+            return el ? el.value : fallback;
+        }
 
-            let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
-            let output_text = 'https://sprockettools.github.io/colors/R' + red + 'G' + green + 'B' + blue + '.png';
-            output.innerHTML = output_text;
-            document.getElementById("redval").innerHTML = "Red: " + red;
-            document.getElementById("greenval").innerHTML = "Green: " + green;
-            document.getElementById("blueval").innerHTML = "Blue: " + blue;
-            var boxy=document.getElementById("color_box");
-            boxy.style.backgroundColor=color;
+        function buildCurrentUrl() {
+            const type = getSelectedRadio("decal_type", "solid");
+            const grad = getSelectedRadio("grad_type", "0");
+
+            const r1 = document.getElementById("r1").value;
+            const g1 = document.getElementById("g1").value;
+            const b1 = document.getElementById("b1").value;
+            const a1 = parseFloat(document.getElementById("a1").value || 0).toFixed(2);
+
+            const r2 = document.getElementById("r2").value;
+            const g2 = document.getElementById("g2").value;
+            const b2 = document.getElementById("b2").value;
+            const a2 = parseFloat(document.getElementById("a2").value || 0).toFixed(2);
+
+            const r3 = document.getElementById("r3").value;
+            const g3 = document.getElementById("g3").value;
+            const b3 = document.getElementById("b3").value;
+            const a3 = parseFloat(document.getElementById("a3").value || 0).toFixed(2);
+
+            document.getElementById("dp1_label").innerHTML = "Color 1 (RGBA): " + r1 + ", " + g1 + ", " + b1 + ", " + a1;
+            document.getElementById("dp2_label").innerHTML = "Color 2 (RGBA - Linear/Radial mode only): " + r2 + ", " + g2 + ", " + b2 + ", " + a2;
+            document.getElementById("dp3_label").innerHTML = "Color 2 (RGBA - Linear/Radial mode only): " + r3 + ", " + g3 + ", " + b3 + ", " + a3;
+
+
+            const parts = [];
+            parts.push("t=" + type);
+
+            // Gradient (0 = disabled)
+            if (grad !== "0") {
+                parts.push("g=" + grad);
+                const ang = parseFloat(document.getElementById("gradAngle").value || 0);
+                if (grad !== "rad" && ang !== 90) {
+                    parts.push("ang=" + ang);
+                }
+            }
+
+            // Donut thickness (0 = disabled/default)
+            const th = parseFloat(document.getElementById("donutTh").value || 0);
+            if (type === "donut" && th > 0) {
+                parts.push("th=" + th.toFixed(2));
+            }
+
+            // Weathering (0 = disabled)
+            const weatherFields = ["wear", "vertwear", "rust", "dirt"];
+            for (let i = 0; i < weatherFields.length; i++) {
+                const key = weatherFields[i];
+                const val = parseFloat(document.getElementById(key).value || 0);
+                if (val > 0) {
+                    parts.push(key + "=" + Math.min(1, val).toFixed(2));
+                }
+            }
+
+            // Text parameters
+            if (type === "text") {
+                const rawTxt = (document.getElementById("txtInput").value || "TANK")
+                    .replace(/[\r\n]+/g, '|')
+                    .replace(/\r?\n/g, "|")
+                    .replace(/[^a-zA-Z0-9\s|_.-]/g, "");
+
+                parts.push("txt=" + encodeURIComponent(rawTxt));
+
+                const font = document.getElementById("fontSelect").value;
+                const style = document.getElementById("styleSelect").value;
+                const align = document.getElementById("alignSelect").value;
+
+                if (font !== "stencil") parts.push("font=" + font);
+                if (style !== "n") parts.push("style=" + style);
+                if (align !== "c") parts.push("align=" + align);
+            }
+
+            // Color stops (omit if rainbow)
+            if (grad !== "rainbow") {
+                parts.push("dp1=" + r1 + "," + g1 + "," + b1 + "," + a1);
+                if (grad === "lin" || grad === "rad") {
+                    parts.push("dp2=" + r2 + "," + g2 + "," + b2 + "," + a2);
+                    parts.push("dp3=" + r3 + "," + g3 + "," + b3 + "," + a3);
+                }
+            }
+
+            return BASE_URL + "/" + parts.join("&") + "/d.png";
+        }
+
+        function updateDecal() {
+            const url = buildCurrentUrl();
+            output.innerHTML = url;
+
+            // Debounce preview image requests by 200ms while dragging sliders
+            clearTimeout(previewTimer);
+            previewTimer = setTimeout(function () {
+                document.getElementById("preview_img").src = url;
+            }, 200);
         }
 
         function copyText() {
-            var redSlider = document.getElementById("red").value;
-            var greenSlider = document.getElementById("green").value;
-            var blueSlider = document.getElementById("blue").value;
-            let red = 15*(redSlider);
-            let green = 15*(greenSlider);
-            let blue = 15*(blueSlider);
-
-            let color = 'rgb(' + red + ',' + green + ',' + blue + ')';
-            let output_text = 'https://sprockettools.github.io/colors/R' + red + 'G' + green + 'B' + blue + '.png';
-            output.innerHTML = "Copied!";
-            var boxy=document.getElementById("color_box");
-            document.getElementById("redval").innerHTML = "Red: " + red;
-            document.getElementById("greenval").innerHTML = "Green: " + green;
-            document.getElementById("blueval").innerHTML = "Blue: " + blue;
-
-            navigator.clipboard.writeText(output_text);
-            boxy.style.backgroundColor=color;
+            const url = buildCurrentUrl();
+            navigator.clipboard.writeText(url);
+            output.innerHTML = "Copied! " + url;
         }
+
+        // Initialize on page load
+        updateDecal();
     </script>
 </html>
