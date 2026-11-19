@@ -16368,5 +16368,15 @@
         "ownerid": 712509599135301673,
         "category": "Inscriptions",
         "type": "decal"
+    },
+    {
+        "name": "french revolution liberale",
+        "tags": "french, revolution",
+        "strippedname": "french_revolution_liberale.png",
+        "approved": "True",
+        "ownername": "gazoulevrai",
+        "ownerid": 1355983858964631804,
+        "category": "Fictional Insignia",
+        "type": "decal"
     }
 ]
