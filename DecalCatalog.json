@@ -16378,5 +16378,25 @@
         "ownerid": 1355983858964631804,
         "category": "Fictional Insignia",
         "type": "decal"
+    },
+    {
+        "name": "east germany",
+        "tags": "East, Germany, East Germany",
+        "strippedname": "east_germany.png",
+        "approved": "True",
+        "ownername": "miragemiragemiragemiragemirage",
+        "ownerid": 685871862734913575,
+        "category": "Flags",
+        "type": "decal"
+    },
+    {
+        "name": "alaska",
+        "tags": "alaska",
+        "strippedname": "alaska.png",
+        "approved": "True",
+        "ownername": "miragemiragemiragemiragemirage",
+        "ownerid": 685871862734913575,
+        "category": "Flags",
+        "type": "decal"
     }
 ]
