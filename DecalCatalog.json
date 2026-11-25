@@ -16398,5 +16398,15 @@
         "ownerid": 685871862734913575,
         "category": "Flags",
         "type": "decal"
+    },
+    {
+        "name": "14th bombardiers heavy engineering vehicle corps",
+        "tags": "Cricket Industries, Insignia",
+        "strippedname": "14th_bombardiers_heavy_engineering_vehicle_corps.png",
+        "approved": "True",
+        "ownername": "nebula_the_proto",
+        "ownerid": 1058666436748386334,
+        "category": "Fictional Insignia",
+        "type": "decal"
     }
 ]

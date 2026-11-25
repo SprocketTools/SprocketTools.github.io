@@ -3208,5 +3208,15 @@
         "ownerid": 293161996235571200,
         "category": "WWII",
         "type": "paint"
+    },
+    {
+        "name": "ukrainian mm 14.",
+        "tags": "Ukraine, mm 14.",
+        "strippedname": "ukrainian_mm_14..png",
+        "approved": "True",
+        "ownername": "yourlocalhind_29530",
+        "ownerid": 1378465839212265624,
+        "category": "Modern",
+        "type": "paint"
     }
 ]
