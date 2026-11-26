@@ -16410,36 +16410,6 @@
         "type": "decal"
     },
     {
-        "name": "british squadron hq",
-        "tags": "british, squadron, symbol",
-        "strippedname": "british_squadron_hq.png",
-        "approved": "Pending",
-        "ownername": "veteran0045",
-        "ownerid": 1400253460825374740,
-        "category": "Historical Insignia",
-        "type": "decal"
-    },
-    {
-        "name": "british squadron a",
-        "tags": "british, squadron, symbol",
-        "strippedname": "british_squadron_a.png",
-        "approved": "Pending",
-        "ownername": "veteran0045",
-        "ownerid": 1400253460825374740,
-        "category": "Historical Insignia",
-        "type": "decal"
-    },
-    {
-        "name": "british squadron b",
-        "tags": "british, squadron, symbol",
-        "strippedname": "british_squadron_b.png",
-        "approved": "Pending",
-        "ownername": "veteran0045",
-        "ownerid": 1400253460825374740,
-        "category": "Historical Insignia",
-        "type": "decal"
-    },
-    {
         "name": "kill tallies ",
         "tags": "chalk,",
         "strippedname": "kill_tallies_.png",
@@ -16486,6 +16456,36 @@
         "approved": "True",
         "ownername": "dddthebig",
         "ownerid": 201755475388137473,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "british squadron hq",
+        "tags": "british, squadron, symbol",
+        "strippedname": "british_squadron_hq.png",
+        "approved": "True",
+        "ownername": "veteran0045",
+        "ownerid": 1400253460825374740,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "british squadron a",
+        "tags": "british, squadron, symbol",
+        "strippedname": "british_squadron_a.png",
+        "approved": "True",
+        "ownername": "veteran0045",
+        "ownerid": 1400253460825374740,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "british squadron b",
+        "tags": "british, squadron, symbol",
+        "strippedname": "british_squadron_b.png",
+        "approved": "True",
+        "ownername": "veteran0045",
+        "ownerid": 1400253460825374740,
         "category": "Historical Insignia",
         "type": "decal"
     }
