@@ -16488,5 +16488,25 @@
         "ownerid": 1400253460825374740,
         "category": "Historical Insignia",
         "type": "decal"
+    },
+    {
+        "name": "5\u00e8me division blind\u00e9e",
+        "tags": "french, france, insignia",
+        "strippedname": "5\u00e8me_division_blind\u00e9e.png",
+        "approved": "True",
+        "ownername": "terrafinee",
+        "ownerid": 1155178334863491164,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "nato 55t 1950s",
+        "tags": "nato, 55t, weathered, tons",
+        "strippedname": "nato_55t_1950s.png",
+        "approved": "True",
+        "ownername": "terrafinee",
+        "ownerid": 1155178334863491164,
+        "category": "Labels",
+        "type": "decal"
     }
 ]
