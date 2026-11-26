@@ -16408,5 +16408,85 @@
         "ownerid": 1058666436748386334,
         "category": "Fictional Insignia",
         "type": "decal"
+    },
+    {
+        "name": "british squadron hq",
+        "tags": "british, squadron, symbol",
+        "strippedname": "british_squadron_hq.png",
+        "approved": "Pending",
+        "ownername": "veteran0045",
+        "ownerid": 1400253460825374740,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "british squadron a",
+        "tags": "british, squadron, symbol",
+        "strippedname": "british_squadron_a.png",
+        "approved": "Pending",
+        "ownername": "veteran0045",
+        "ownerid": 1400253460825374740,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "british squadron b",
+        "tags": "british, squadron, symbol",
+        "strippedname": "british_squadron_b.png",
+        "approved": "Pending",
+        "ownername": "veteran0045",
+        "ownerid": 1400253460825374740,
+        "category": "Historical Insignia",
+        "type": "decal"
+    },
+    {
+        "name": "kill tallies ",
+        "tags": "chalk,",
+        "strippedname": "kill_tallies_.png",
+        "approved": "True",
+        "ownername": "blueraven307",
+        "ownerid": 1032040124319531039,
+        "category": "Chalk",
+        "type": "decal"
+    },
+    {
+        "name": "i eat babies",
+        "tags": "chalk,",
+        "strippedname": "i_eat_babies!.png",
+        "approved": "True",
+        "ownername": "blueraven307",
+        "ownerid": 1032040124319531039,
+        "category": "Chalk",
+        "type": "decal"
+    },
+    {
+        "name": "chalk eye",
+        "tags": "chalk,",
+        "strippedname": "chalk_eye.png",
+        "approved": "True",
+        "ownername": "blueraven307",
+        "ownerid": 1032040124319531039,
+        "category": "Chalk",
+        "type": "decal"
+    },
+    {
+        "name": "chalk sharkmouth",
+        "tags": "chalk,",
+        "strippedname": "chalk_sharkmouth.png",
+        "approved": "True",
+        "ownername": "blueraven307",
+        "ownerid": 1032040124319531039,
+        "category": "Chalk",
+        "type": "decal"
+    },
+    {
+        "name": "british 79th armoured division",
+        "tags": "-british -division",
+        "strippedname": "british_79th_armoured_division.png",
+        "approved": "True",
+        "ownername": "dddthebig",
+        "ownerid": 201755475388137473,
+        "category": "Historical Insignia",
+        "type": "decal"
     }
 ]
